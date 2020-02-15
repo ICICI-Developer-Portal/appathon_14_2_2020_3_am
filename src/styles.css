@@ -578,13 +578,16 @@ body {
     margin: 0;
   }
 }
-.custom-modalbox >  mat-dialog-container {
+.custom-modalbox > mat-dialog-container {
   display: contents;
 }
 
-.advertisementPopUp{
+.advertisementPopUp {
   z-index: 1;
-    position: absolute;
-    color: blue;
-    right: 0px;
+  position: absolute;
+  color: blue;
+  right: 0px;
+}
+.text-align-justify {
+  text-align: justify !important;
 }

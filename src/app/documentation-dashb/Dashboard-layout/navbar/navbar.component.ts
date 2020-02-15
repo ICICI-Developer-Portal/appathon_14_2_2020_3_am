@@ -1,37 +1,42 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { LoginService } from 'src/app/services';
-import { AuthService } from 'src/app/services/auth.service';
+import { Component, OnInit } from "@angular/core";
+import { Router } from "@angular/router";
+import { LoginService } from "src/app/services";
+import { AuthService } from "src/app/services/auth.service";
 import {
   MatDialog,
   MatDialogRef,
-  MAT_DIALOG_DATA,
-} from '@angular/material/dialog';
-import { SigninModalComponent } from '../../../LandingPage/home/common-modal/signin-modal.component';
+  MAT_DIALOG_DATA
+} from "@angular/material/dialog";
+import { SigninModalComponent } from "../../../LandingPage/home/common-modal/signin-modal.component";
 
 @Component({
-  selector: 'app-navbar',
-  templateUrl: './navbar.component.html',
+  selector: "app-navbar",
+  templateUrl: "./navbar.component.html"
   //styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
   logged_in: Boolean = false;
-  user_name = '';
+  user_name = "";
   showbtn: boolean = false;
-  showOptn: boolean = false;
+
   id: any;
+  showOptn: boolean = false;
+  showAppDash: boolean = false;
   constructor(
     private router: Router,
     private adm: LoginService,
     private auth: AuthService,
-    public dialog: MatDialog,
+    public dialog: MatDialog
   ) {
-    this.user_name = localStorage.getItem('username');
+    this.user_name = localStorage.getItem("username");
   }
 
   ngOnInit() {
-    if (localStorage.getItem('role') !== 'Appathon') {
+    if (localStorage.getItem("role") !== "Appathon") {
       this.showOptn = true;
+    }
+    if (localStorage.getItem("role") === "Both") {
+      this.showAppDash = true;
     }
 
     this.getId();
@@ -42,7 +47,7 @@ export class NavbarComponent implements OnInit {
     this.auth.ischeck_session();
     this.adm.getUserId().subscribe(data => {
       this.logged_in =
-        data != '' && data != null && data != undefined ? true : false;
+        data != "" && data != null && data != undefined ? true : false;
     });
     this.adm.getUserName().subscribe(data => {
       this.user_name = data;
@@ -56,7 +61,7 @@ export class NavbarComponent implements OnInit {
   }
 
   getId() {
-    if (localStorage.getItem('id')) {
+    if (localStorage.getItem("id")) {
       this.showbtn = false;
     } else {
       this.showbtn = true;
@@ -64,33 +69,33 @@ export class NavbarComponent implements OnInit {
   }
   //  Fuction for Logout
   logout() {
-    localStorage.removeItem('username');
-    sessionStorage.removeItem('username');
-    localStorage.removeItem('password');
-    localStorage.removeItem('id');
-    localStorage.removeItem('role');
-    this.adm.sendUserId('');
+    localStorage.removeItem("username");
+    sessionStorage.removeItem("username");
+    localStorage.removeItem("password");
+    localStorage.removeItem("id");
+    localStorage.removeItem("role");
+    this.adm.sendUserId("");
 
     this.adm.LogoutPortal().subscribe(
       res => {
-        this.router.navigate(['/index']);
+        this.router.navigate(["/index"]);
       },
       err => {
-        this.router.navigate(['/index']);
-      },
+        this.router.navigate(["/index"]);
+      }
     );
   }
 
   scroll_view(id) {
-    this.router.navigate(['index']);
+    this.router.navigate(["index"]);
     setTimeout(function() {
-      document.querySelector(id).scrollIntoView({ behavior: 'smooth' });
+      document.querySelector(id).scrollIntoView({ behavior: "smooth" });
     }, 10);
   }
 
   openModal() {
     const dialogRef = this.dialog.open(SigninModalComponent, {
-      disableClose: true,
+      disableClose: true
     });
   }
 }

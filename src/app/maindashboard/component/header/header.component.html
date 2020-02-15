@@ -65,7 +65,7 @@
       <!-- <li class="nav-item">
                         <a class="nav-link active" (click)="logout()" id="pills-profile-tab" data-toggle="pill"  [routerLink]="['/documentation']" href="javascript:;" role="tab" aria-controls="pills-profile" aria-selected="false">Logout</a>
                      </li> -->
-      <li class="nav-item dropdown position_relative" *ngIf="showOptn">
+      <li class="nav-item dropdown position_relative">
         <a
           class="nav-link dropdown-toggle lh56"
           id="navbarMobiles"
@@ -139,6 +139,13 @@
             class="nav-link dropdown-item cursor"
             style="line-height: 16px;"
             >UAT Onboarding</a
+          >
+          <a
+            *ngIf="showAppDash"
+            style="line-height: 21px;"
+            [routerLink]="['/appathon-dashboard']"
+            class="nav-link dropdown-item"
+            >Dashboard</a
           >
           <a
             style="line-height: 21px;cursor: pointer;"

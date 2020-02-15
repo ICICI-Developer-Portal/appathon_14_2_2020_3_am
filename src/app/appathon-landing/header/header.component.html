@@ -109,6 +109,7 @@
           class="dropdown-content"
           aria-labelledby="navbarMobiles"
           style="margin-left: -40px"
+          *ngIf="showOptn === true"
         >
           <a [routerLink]="['/userprofile']" class="nav-link dropdown-item"
             >Profile</a
@@ -119,6 +120,13 @@
             >UAT Onboarding</a
           >
           <a
+            *ngIf="showAppDash"
+            style="line-height: 21px;"
+            [routerLink]="['/appathon-dashboard']"
+            class="nav-link dropdown-item"
+            >Dashboard</a
+          >
+          <a
             class="nav-link dropdown-item"
             class="nav-link dropdown-item"
             *ngIf="!showbtn"
@@ -126,6 +134,31 @@
             >Logout</a
           >
           <!-- <a [routerLink]="['/analytics']" class="nav-link dropdown-item" id="pills-account-analytics-tab" data-toggle="pill" href="#pills-account" role="tab" aria-controls="pills-account-analytics" aria-selected="true">Analytics</a> -->
+        </div>
+        <div
+          class="dropdown-content"
+          aria-labelledby="navbarMobiles"
+          *ngIf="showOptn === false"
+        >
+          <a
+            style="line-height: 21px;"
+            [routerLink]="['/appathon-dashboard']"
+            class="nav-link dropdown-item"
+            >Dashboard</a
+          >
+          <a
+            style="line-height: 21px;"
+            [routerLink]="['/application']"
+            class="nav-link dropdown-item"
+            >Applications</a
+          >
+
+          <a
+            style="line-height: 21px; cursor: pointer;"
+            class="nav-link dropdown-item cursor"
+            (click)="logout()"
+            >Logout</a
+          >
         </div>
       </li>
 
@@ -295,6 +328,7 @@
 <ng-template #signup>
   <div class="modal-header">
     <h3 class="modal-title pull-left">Lets get you Onboard</h3>
+
     <button
       type="button"
       class="close pull-right"
@@ -763,6 +797,10 @@
           <span><a class="signIn" (click)="openModal(signin)">Login</a></span>
         </p>
       </div>
+      <span
+        >Register for<a class="signIn" (click)="appathonReg()"> Appathon </a
+        >here</span
+      >
       <div class="col-5 pr0">
         <div class="text-right"></div>
       </div>
@@ -1156,7 +1194,7 @@
               >
                 Email is required.
               </div>
-              
+
               <!-- email -->
             </div>
           </div>
@@ -1302,11 +1340,7 @@
                 type="button"
                 (click)="appathonSave1()"
                 [disabled]="!appathonSignupForm.valid"
-                [ngClass]="
-                  appathonSignupForm.valid
-                    ? 'btn-blue'
-                    : 'btn-white'
-                "
+                [ngClass]="appathonSignupForm.valid ? 'btn-blue' : 'btn-white'"
                 class="btn"
                 class="signInBtn verifyBtn"
               >
@@ -1491,7 +1525,9 @@
                   #term
                   required
                 /><span class="checkmark"></span>
-                <a href="/assets/documents/termsAndConditionsFinal.pdf" target="_blank"
+                <a
+                  href="/assets/documents/termsAndConditionsFinal.pdf"
+                  target="_blank"
                   >ACCEPT ALL TERMS & CONDITIONS</a
                 >
                 <div
@@ -1585,15 +1621,24 @@
 <ng-template #appathonLoggedSignup>
   <div class="modal-header">
     <h3 class="modal-title pull-left">Appathon Sign Up</h3>
-    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef2.hide()">
+    <button
+      type="button"
+      class="close pull-right"
+      aria-label="Close"
+      (click)="modalRef2.hide()"
+    >
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
   <div class="modal-body">
     <ul class="nav nav-tabs nav-tabs1" role="tablist">
       <li role="presentation" class="active">
-        <a [ngStyle]="{ color: shfrmSFFirst1 ? '#f06321' : '#919191' }" href="javascript:;"
-          (click)="appathonSignup_link(1)">Basic Details</a>
+        <a
+          [ngStyle]="{ color: shfrmSFFirst1 ? '#f06321' : '#919191' }"
+          href="javascript:;"
+          (click)="appathonSignup_link(1)"
+          >Basic Details</a
+        >
       </li>
       <!-- <li role="presentation" ><a href="#Agreement" aria-controls="Agreement" role="tab" data-toggle="tab">Agreement</a></li> -->
     </ul>
@@ -1605,8 +1650,16 @@
             <!-- Team Name -->
             <div class="col-md-12 mb-xs-30">
               <div><label for="team">Team Name</label></div>
-              <input name="teamName" formControlName="teamName" class="input-login" #teamName />
-              <div *ngIf="teamName.invalid && (teamName.dirty || isSubmitted)" class="text-danger form-error">
+              <input
+                name="teamName"
+                formControlName="teamName"
+                class="input-login"
+                #teamName
+              />
+              <div
+                *ngIf="teamName.invalid && (teamName.dirty || isSubmitted)"
+                class="text-danger form-error"
+              >
                 Team name is required.
               </div>
             </div>
@@ -1618,11 +1671,19 @@
             <div class="col-md-12 mb-xs-30"><label>Team Captain</label></div>
             <div class="col-md-6 mb-xs-10">
               <div><label for="captainName">Name</label></div>
-              <input name="captainName" formControlName="captainName" class="input-login" #captainName
-                value={{appathonFirstName}} />
-              <div *ngIf="
+              <input
+                name="captainName"
+                formControlName="captainName"
+                class="input-login"
+                #captainName
+                value="{{ appathonFirstName }}"
+              />
+              <div
+                *ngIf="
                   captainName.invalid && (captainName.dirty || isSubmitted)
-                " class="text-danger form-error">
+                "
+                class="text-danger form-error"
+              >
                 Captain name is required.
               </div>
             </div>
@@ -1630,15 +1691,29 @@
             <!-- mobileNumber -->
             <div class="col-md-6 mb-xs-10">
               <div><label for="captainMobileNumber">Mobile Number</label></div>
-              <input id="captainMobileNumber" formControlName="captainMobileNumber" Type="text" class="input-login"
-                name="captainMobileNumber" required #captainMobileNumber value={{appathonMobileNumber}} />
-              <div *ngIf="
+              <input
+                id="captainMobileNumber"
+                formControlName="captainMobileNumber"
+                Type="text"
+                class="input-login"
+                name="captainMobileNumber"
+                required
+                #captainMobileNumber
+                value="{{ appathonMobileNumber }}"
+              />
+              <div
+                *ngIf="
                   captainMobileNumber.invalid &&
                   (captainMobileNumber.dirty || isSubmitted)
-                " class="text-danger form-error">
+                "
+                class="text-danger form-error"
+              >
                 Mobile number is required.
               </div>
-              <div *ngIf="ismobile_reg_check != ''" class="text-danger form-error">
+              <div
+                *ngIf="ismobile_reg_check != ''"
+                class="text-danger form-error"
+              >
                 {{ ismobile_reg_check }}
               </div>
             </div>
@@ -1649,9 +1724,17 @@
             <!-- email -->
             <div class="col-md-12 mb-xs-30">
               <div><label for="teamEmail">Company Mail ID</label></div>
-              <input name="teamEmail" formControlName="teamEmail" class="input-login" #teamEmail
-                value={{appathonCompanyEmail}} />
-              <div *ngIf="teamEmail.invalid && (teamEmail.dirty || isSubmitted)" class="text-danger form-error">
+              <input
+                name="teamEmail"
+                formControlName="teamEmail"
+                class="input-login"
+                #teamEmail
+                value="{{ appathonCompanyEmail }}"
+              />
+              <div
+                *ngIf="teamEmail.invalid && (teamEmail.dirty || isSubmitted)"
+                class="text-danger form-error"
+              >
                 Email is required.
               </div>
 
@@ -1663,12 +1746,19 @@
             <!-- team size -->
             <div class="col-md-12 mb-xs-30">
               <div><label for="teamSize">Team Size</label></div>
-              <select class="form-control select-drop input-login" formControlName="teamSize" #teamSize
-                (change)="appOnChange($event.target.value)">
+              <select
+                class="form-control select-drop input-login"
+                formControlName="teamSize"
+                #teamSize
+                (change)="appOnChange($event.target.value)"
+              >
                 <option value="">Select Team Size</option>
                 <option *ngFor="let d of teamList" [value]="d">{{ d }}</option>
               </select>
-              <div *ngIf="teamSize.invalid && (teamSize.dirty || isSubmitted)" class="text-danger form-error">
+              <div
+                *ngIf="teamSize.invalid && (teamSize.dirty || isSubmitted)"
+                class="text-danger form-error"
+              >
                 Team Size is required.
               </div>
             </div>
@@ -1681,22 +1771,41 @@
             </div>
             <div class="col-md-6 mb-xs-10" *ngIf="i > 0">
               <div><label for="memberName">Name</label></div>
-              <input name="memberName{{ i }}" formControlName="memberName{{ i }}" class="input-login" #memberName
-                (change)="onChangeInput1($event.target.value)" required />
-              <div *ngIf="memberName.invalid && (memberName.dirty || isSubmitted)" class="text-danger form-error">
+              <input
+                name="memberName{{ i }}"
+                formControlName="memberName{{ i }}"
+                class="input-login"
+                #memberName
+                (change)="onChangeInput1($event.target.value)"
+                required
+              />
+              <div
+                *ngIf="memberName.invalid && (memberName.dirty || isSubmitted)"
+                class="text-danger form-error"
+              >
                 Member name is required.
               </div>
             </div>
 
             <div class="col-md-6 mb-xs-10" *ngIf="i > 0">
               <div><label for="memberMobileNumber">Mobile Number</label></div>
-              <input id="memberMobileNumber{{ i }}" formControlName="memberMobileNumber{{ i }}" Type="number"
-                class="input-login" name="memberMobileNumber{{ i }}" required #memberMobileNumber
-                (change)="onChangeInput2($event.target.value)" />
-              <div *ngIf="
+              <input
+                id="memberMobileNumber{{ i }}"
+                formControlName="memberMobileNumber{{ i }}"
+                Type="number"
+                class="input-login"
+                name="memberMobileNumber{{ i }}"
+                required
+                #memberMobileNumber
+                (change)="onChangeInput2($event.target.value)"
+              />
+              <div
+                *ngIf="
                   memberMobileNumber.invalid &&
                   (memberMobileNumber.dirty || isSubmitted)
-                " class="text-danger form-error">
+                "
+                class="text-danger form-error"
+              >
                 Mobile number is required.
               </div>
               <!-- <div
@@ -1709,11 +1818,20 @@
 
             <div class="col-md-12 mb-xs-30 elabel" *ngIf="i > 0">
               <div><label for="memberEmail">Company Mail ID</label></div>
-              <input name="memberEmail{{ i }}" formControlName="memberEmail{{ i }}" class="input-login" #memberEmail
-                required (change)="onChangeInput3($event.target.value)" />
-              <div *ngIf="
+              <input
+                name="memberEmail{{ i }}"
+                formControlName="memberEmail{{ i }}"
+                class="input-login"
+                #memberEmail
+                required
+                (change)="onChangeInput3($event.target.value)"
+              />
+              <div
+                *ngIf="
                   memberEmail.invalid && (memberEmail.dirty || isSubmitted)
-                " class="text-danger form-error">
+                "
+                class="text-danger form-error"
+              >
                 Email is required.
               </div>
               <!-- <div
@@ -1728,8 +1846,16 @@
           <div class="row mb20">
             <div class="col-md-12 mb-xs-30">
               <div><label for="location">Location</label></div>
-              <input name="location" formControlName="location" class="input-login" #location />
-              <div *ngIf="location.invalid && (location.dirty || isSubmitted)" class="text-danger form-error">
+              <input
+                name="location"
+                formControlName="location"
+                class="input-login"
+                #location
+              />
+              <div
+                *ngIf="location.invalid && (location.dirty || isSubmitted)"
+                class="text-danger form-error"
+              >
                 Location is required.
               </div>
             </div>
@@ -1740,8 +1866,13 @@
               <div>
                 <label for="memberCompanyName">Company Name (if any)</label>
               </div>
-              <input name="memberCompanyName" formControlName="memberCompanyName" class="input-login" #memberCompanyName
-                value={{appathonCompanyName}} />
+              <input
+                name="memberCompanyName"
+                formControlName="memberCompanyName"
+                class="input-login"
+                #memberCompanyName
+                value="{{ appathonCompanyName }}"
+              />
             </div>
           </div>
 
@@ -1749,11 +1880,13 @@
           <br />
           <ul class="nav nav-tabs nav-tabs1" role="tablist">
             <li>
-              <button (click)="appathonSign_up()" [disabled]="!appathonSignupForm.valid" [ngClass]="
-                  appathonSignupForm.valid
-                    ? 'btn-blue'
-                    : 'btn-white'
-                " class="btn" class="signInBtn verifyBtn">
+              <button
+                (click)="appathonSign_up()"
+                [disabled]="!appathonSignupForm.valid"
+                [ngClass]="appathonSignupForm.valid ? 'btn-blue' : 'btn-white'"
+                class="btn"
+                class="signInBtn verifyBtn"
+              >
                 Submit
               </button>
             </li>

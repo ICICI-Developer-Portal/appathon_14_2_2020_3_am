@@ -110,6 +110,7 @@
           class="dropdown-content"
           aria-labelledby="navbarMobiles"
           style="margin-left: -40px"
+          *ngIf="showOptn === true"
         >
           <a [routerLink]="['/userprofile']" class="nav-link dropdown-item"
             >Profile</a
@@ -120,6 +121,13 @@
             >UAT Onboarding</a
           >
           <a
+            *ngIf="showAppDash"
+            style="line-height: 21px;"
+            [routerLink]="['/appathon-dashboard']"
+            class="nav-link dropdown-item"
+            >Dashboard</a
+          >
+          <a
             class="nav-link dropdown-item"
             class="nav-link dropdown-item"
             *ngIf="!showbtn"
@@ -127,6 +135,31 @@
             >Logout</a
           >
           <!-- <a [routerLink]="['/analytics']" class="nav-link dropdown-item" id="pills-account-analytics-tab" data-toggle="pill" href="#pills-account" role="tab" aria-controls="pills-account-analytics" aria-selected="true">Analytics</a> -->
+        </div>
+        <div
+          class="dropdown-content"
+          aria-labelledby="navbarMobiles"
+          *ngIf="showOptn === false"
+        >
+          <a
+            style="line-height: 21px;"
+            [routerLink]="['/appathon-dashboard']"
+            class="nav-link dropdown-item"
+            >Dashboard</a
+          >
+          <a
+            style="line-height: 21px;"
+            [routerLink]="['/application']"
+            class="nav-link dropdown-item"
+            >Applications</a
+          >
+
+          <a
+            style="line-height: 21px; cursor: pointer;"
+            class="nav-link dropdown-item cursor"
+            (click)="logout()"
+            >Logout</a
+          >
         </div>
       </li>
 
@@ -253,7 +286,12 @@
         <p>
           Interested in Appathon?
           <span
-            ><a class="signIn" (click)="modalRef.hide()"[routerLink]="['/appathon/landing-page']">Register Now</a></span
+            ><a
+              class="signIn"
+              (click)="modalRef.hide()"
+              [routerLink]="['/appathon/landing-page']"
+              >Register Now</a
+            ></span
           >
         </p>
       </div>
@@ -304,6 +342,7 @@
 <ng-template #signup>
   <div class="modal-header">
     <h3 class="modal-title pull-left">Lets get you Onboard</h3>
+
     <button
       type="button"
       class="close pull-right"
@@ -707,6 +746,10 @@
           <span><a class="signIn" (click)="openModal(signin)">Login</a></span>
         </p>
       </div>
+      <span
+        >Register for<a class="signIn" (click)="appathonReg()"> Appathon </a
+        >here</span
+      >
       <div class="col-5 pr0">
         <div class="text-right"></div>
       </div>
@@ -848,7 +891,7 @@
               >
                 Email is required.
               </div>
-              
+
               <!-- email -->
             </div>
           </div>
@@ -994,11 +1037,7 @@
                 type="button"
                 (click)="appathonSave1()"
                 [disabled]="!appathonSignupForm.valid"
-                [ngClass]="
-                  appathonSignupForm.valid
-                    ? 'btn-blue'
-                    : 'btn-white'
-                "
+                [ngClass]="appathonSignupForm.valid ? 'btn-blue' : 'btn-white'"
                 class="btn"
                 class="signInBtn verifyBtn"
               >
@@ -1183,7 +1222,9 @@
                   #term
                   required
                 /><span class="checkmark"></span>
-                <a href="/assets/documents/termsAndConditionsFinal.pdf" target="_blank"
+                <a
+                  href="/assets/documents/termsAndConditionsFinal.pdf"
+                  target="_blank"
                   >ACCEPT ALL TERMS & CONDITIONS</a
                 >
                 <div
@@ -1224,6 +1265,14 @@
           <span><a class="signIn" (click)="openModal(signin)">Login</a></span>
         </p>
       </div>
+      <span
+        >Register for<a
+          class="signIn"
+          [routerLink]="['/appathon/landing-page']"
+        >
+          Appathon </a
+        >here</span
+      >
       <div class="col-5 pr0">
         <div class="text-right"></div>
       </div>
@@ -1292,7 +1341,8 @@
           [ngStyle]="{ color: shfrmSFFirst1 ? '#f06321' : '#919191' }"
           href="javascript:;"
           (click)="appathonSignup_link(1)"
-          >Basic Details</a>
+          >Basic Details</a
+        >
       </li>
       <!-- <li role="presentation" ><a href="#Agreement" aria-controls="Agreement" role="tab" data-toggle="tab">Agreement</a></li> -->
     </ul>
@@ -1330,7 +1380,7 @@
                 formControlName="captainName"
                 class="input-login"
                 #captainName
-                value = {{appathonFirstName}}
+                value="{{ appathonFirstName }}"
               />
               <div
                 *ngIf="
@@ -1353,7 +1403,7 @@
                 name="captainMobileNumber"
                 required
                 #captainMobileNumber
-                value = {{appathonMobileNumber}}
+                value="{{ appathonMobileNumber }}"
               />
               <div
                 *ngIf="
@@ -1383,7 +1433,7 @@
                 formControlName="teamEmail"
                 class="input-login"
                 #teamEmail
-                value = {{appathonCompanyEmail}}
+                value="{{ appathonCompanyEmail }}"
               />
               <div
                 *ngIf="teamEmail.invalid && (teamEmail.dirty || isSubmitted)"
@@ -1391,7 +1441,7 @@
               >
                 Email is required.
               </div>
-              
+
               <!-- email -->
             </div>
           </div>
@@ -1525,7 +1575,7 @@
                 formControlName="memberCompanyName"
                 class="input-login"
                 #memberCompanyName
-                value = {{appathonCompanyName}}
+                value="{{ appathonCompanyName }}"
               />
             </div>
           </div>
@@ -1537,11 +1587,7 @@
               <button
                 (click)="appathonSign_up()"
                 [disabled]="!appathonSignupForm.valid"
-                [ngClass]="
-                  appathonSignupForm.valid
-                    ? 'btn-blue'
-                    : 'btn-white'
-                "
+                [ngClass]="appathonSignupForm.valid ? 'btn-blue' : 'btn-white'"
                 class="btn"
                 class="signInBtn verifyBtn"
               >
