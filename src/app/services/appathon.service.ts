@@ -61,7 +61,7 @@ export class AppathonService {
     });
     let options = new RequestOptions({ headers: headers });
     return this.http.post(
-      'https://cors-anywhere.herokuapp.com/https://developer.icicibank.com/FileUplaodHandler_Appathon',
+      'https://developer.icicibank.com/FileUplaodHandler_Appathon',
       data,
     );
   }

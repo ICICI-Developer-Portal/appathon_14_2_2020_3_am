@@ -67,19 +67,18 @@
   <div class="col-md-5">
 <a class="signInBtn blueBtn mr10" target="_blank" [ngClass] = "{'avoid_clicks': true}"
  href="{{formData.ideaLink}}">Download</a>
-<input type="file"
-           id="ideaFile"
+ <input type="file" id="ideaFile"   #ideaInput  
            style = "display:none"
            (change)="handleFileInput($event.target.files, 'idea')">
            <label for="ideaFile" class="signInBtn pinkBtn mr10" >Upload</label>
 <a class="signInBtn orangeBtn mr10" href="assets/appathon/Idea_Template.pptx" download="Idea_Template.pptx">Download Template</a>
-<h6 *ngIf="ideaFile" style="margin-left: 135px;
+<div *ngIf="ideaFile"><h6  style="margin-left: 135px;
 color: grey;">{{ideaFile.name}}
-<!-- <span (click)="deleteFile('idea')" style="margin-left: 14px;
+<span (click)="deleteFile('idea')" style="margin-left: 14px;
     color: red;
     background: #d2cbcb;
-    cursor: pointer;">X</span> -->
-    </h6>
+    cursor: pointer;">X</span>
+    </h6></div>
 </div>
 </div>
 
@@ -416,19 +415,19 @@ Name
 <a class="signInBtn blueBtn mr10" [ngClass] = "{'avoid_clicks': true}"
 target="_blank"  href="{{formData.finalSubmissionLink}}">Download</a>
 
-<input type="file"
-           id="subFile"
+<input type="file" 
+           id="subFile" #subInput
            style = "display:none"
            (change)="handleFileInput($event.target.files, 'sub')">
            <label for="subFile" class="signInBtn pinkBtn mr10" >Upload</label>
 <a class="signInBtn orangeBtn mr10"  href="assets/appathon/FinalSubmission_Template.pptx" download="FinalSubmission_Template.pptx">Download Template</a>
-<h6 *ngIf="finalSubmissionFile" style="margin-left: 135px;
+<div *ngIf="finalSubmissionFile"><h6  style="margin-left: 135px;
 color: grey;">{{finalSubmissionFile.name}}
-<!-- <span (click)="deleteFile('sub')" style="margin-left: 14px;
+<span (click)="deleteFile('sub')" style="margin-left: 14px;
     color: red;
     background: #d2cbcb;
-    cursor: pointer;">X</span> -->
-    </h6>
+    cursor: pointer;">X</span>
+    </h6></div>
 </div>
 </div>
 

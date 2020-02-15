@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewChild, ElementRef } from '@angular/core';
 import {FormControl, FormGroupDirective, NgForm, Validators, FormGroup} from '@angular/forms';
 import {ErrorStateMatcher} from '@angular/material/core';
 import { AppathonService } from 'src/app/services/appathon.service';
@@ -24,7 +24,8 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 
 
 export class AppathonDashboardComponent implements OnInit {
-
+  @ViewChild('ideaInput') ideaFileVar: ElementRef;
+  @ViewChild('subInput') subFileVar: ElementRef;
   //initialize form group
   readonly formGroup = new FormGroup({
     emailFormControl1 : new FormControl('', [
@@ -166,7 +167,7 @@ team_members_name = [];
   ) { }
 
   ngOnInit() {
-    if(localStorage.getItem('role') != 'Appathon' || !localStorage.getItem('appathonusername')){
+    if(!localStorage.getItem('appathonusername')){
       this.router.navigate(['/index']);
     }
     this.spinnerService.show();
@@ -318,10 +319,13 @@ team_members_name = [];
     
     if(ALLOWED_TYPES.indexOf(fileType.toLowerCase()) >= 0 ){
     if(fileFor === 'idea'){
-      this.ideaFile = files[0];
+      this.ideaFile = files[0];      
+      this.ideaFileVar.nativeElement.value = "";
     }
-    else this.finalSubmissionFile = files[0];
-      
+    else {      
+      this.finalSubmissionFile = files[0];
+      this.subFileVar.nativeElement.value = "";
+    }
       
     }
     else{
@@ -352,8 +356,12 @@ team_members_name = [];
   deleteFile(type){
     if(type === 'idea'){
       this.ideaFile = undefined;
+      this.ideaFileVar.nativeElement.value = "";
     }
-    else this.finalSubmissionFile = undefined;
+    else {
+      this.finalSubmissionFile = undefined;
+      this.subFileVar.nativeElement.value = "";
+    }
   }
 
 }
