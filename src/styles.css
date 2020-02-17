@@ -585,7 +585,6 @@ body {
 .advertisementPopUp {
   z-index: 1;
   position: absolute;
-  color: blue;
   right: 0px;
 }
 .text-align-justify {

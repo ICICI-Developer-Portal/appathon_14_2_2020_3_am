@@ -1,3 +1,8 @@
+<style>
+  .select-all{
+    display: none !important;
+  }
+  </style>
 <toaster-container></toaster-container>
 <ng4-loading-spinner> </ng4-loading-spinner>
 <div class="tab-content">
@@ -2239,15 +2244,14 @@
                   placeholder="Enter Callback URL"
                   pattern="{{ Callback_URL }}"
                   [(ngModel)]="objOnB.txtCallbackURL"
-                  #txtCallbackURL="ngModel"
                   name="txtCallbackURL"
                 />
-                <div
+                <!-- <div
                   *ngIf="txtCallbackURL.invalid && txtCallbackURL.dirty"
                   class="text-danger form-error"
                 >
                   Please Enter correct Callback URL
-                </div>
+                </div> -->
               </div>
             </div>
             <div class="row mb25">
