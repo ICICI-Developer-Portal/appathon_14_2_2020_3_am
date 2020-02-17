@@ -554,7 +554,7 @@ export class HeaderComponent implements OnInit {
           this.shfrmSFSecond1 = false;
           this.shfrmSFThird1 = false;
 
-          this.router.navigate(["/index"]);
+          this.router.navigate(['/appathon/landing-page']);
         } else {
           this.shfrmSFThird1 = true;
           this.shfrmSFSecond1 = false;

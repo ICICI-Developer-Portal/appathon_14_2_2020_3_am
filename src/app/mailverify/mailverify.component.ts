@@ -43,7 +43,7 @@ export class MailverifyComponent implements OnInit {
         var response = data._body;
         var obj = JSON.parse(response);
       });
-    } catch {}
+    } catch { }
   }
   logout() {
     localStorage.removeItem("username");
@@ -66,7 +66,7 @@ export class MailverifyComponent implements OnInit {
 
   scroll_view(id) {
     this.router.navigate(["index"]);
-    setTimeout(function() {
+    setTimeout(function () {
       document.querySelector(id).scrollIntoView({ behavior: "smooth" });
     }, 10);
   }

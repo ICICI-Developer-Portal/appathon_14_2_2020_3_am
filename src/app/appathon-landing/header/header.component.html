@@ -807,260 +807,7 @@
     </div>
   </div>
 </ng-template>
-<!--Login suceess modal-->
 
-<!-- <ng-template #appathonSignUp>
- <div class="modal-header">
- <h3 class="modal-title pull-left">Lets get you Onboard</h3>
- <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef2.hide()">
- <span aria-hidden="true">&times;</span>
- </button>
- </div>
- <div class="modal-body"> 
- <ul class="nav nav-tabs nav-tabs1" role="tablist"> 
- <li role="presentation" class="active" >
- <a [ngStyle]="{'color': shfrmSFFirst ? '#f06321' : '#919191'}" href="javascript:;" (click)="signup_link(1)">Team Details <i
- class="fa fa-angle-right"></i></a>
- </li> 
- <li role="presentation" >
- <a [ngStyle]="{'color': shfrmSFSecond ? '#f06321' :' #919191'}" href="javascript:;" (click)="signup_link(2)">Mobile Number <i
- class="fa fa-angle-right"></i></a>
- </li>
- <li role="presentation" >
- <a [ngStyle]="{'color': shfrmSFThird ? '#f06321' : '#919191'}" href="javascript:;" (click)="signup_link(3)"> Credentials 
- </a>
- </li>
- </ul>
- <div class="tab-content tab-content1">
- <form [formGroup]="appSignupForm" [hidden]="!shappathonfrmSFFirst">
- <input type="hidden" name="otp_verified" formControlName="otp_verified" class="input-login" #otp_verified>
- <div class="tab-pane"> 
- <div class="row mb20">
- <div class="col-md-12 mb-xs-30">
- <div><label for="team">Team Name</label></div>
- <input name="team" formControlName="teamName" class="input-login" #team>
- <div *ngIf="teamName.invalid && (teamName.dirty || isSubmitted)" class="text-danger form-error">
- Team Name is required.
- </div>
- </div>
- </div> 
- <div class="row mb20">
- <div class="col-md-12 mb-xs-30"> <label>Team Captain</label></div>
- 
- <div class="col-md-6 mb-xs-10">
- <div><label for="capName"> Name</label></div>
- <input name="capName" formControlName="captainName" class="input-login" #capName>
- <div *ngIf="captainName.invalid && (captainName.dirty || isSubmitted)" class="text-danger form-error">
- Captain Name is required.
- </div>
- </div>
- <div class="col-md-6">
- <div><label for="capMobile">Mobile</label></div>
- <input name="capMobile" formControlName="captainMobile" class="input-login" #capMobile (change)="OnCheckEmail(captainMobile.value)">
- <div *ngIf="captainMobile.invalid && (captainMobile.dirty || isSubmitted)" class="text-danger form-error">
- Mobile is required.
- </div>
- 
- </div>
-
- </div>
- <div class="row mb20">
- <div class="col-md-12 mb-xs-30">
- <div><label for="capEmail">Email</label></div>
- <input name="capEmail" formControlName="captainEmail" class="input-login" #capEmail (change)="OnCheckEmail(captainEmail.value)">
- <div *ngIf="captainEmail.invalid && (captainEmail.dirty || isSubmitted)" class="text-danger form-error">
- Email is required.
- </div>
- <div *ngIf="isemail_reg_check != ''" class="text-danger form-error">
- {{isemail_reg_check}}
- </div>
- </div>
- </div>
- <div class="row mb20">
- <div class="col-md-12 mb-xs-30">
- <div><label for="password">Team Size</label></div>
- <select class="form-control select-drop input-login" formControlName="captainTeamSize"> 
- <option value="">Select Team Size</option>
- <option *ngFor="let d of teamLst" [value]="d">{{d}}</option>
- </select>
- <div *ngIf="captainTeamSize.invalid && (captainTeamSize.dirty || isSubmitted)" class="text-danger form-error">
- Team Size is required.
- </div>
- </div>
- </div>
- <div class="row mb20">
- <div class="col-md-12 mb-xs-30"> <label>Team Members</label></div>
- 
- <div class="col-md-6 mb-xs-10">
- <div><label for="memName"> Name</label></div>
- <input name="memName" formControlName="captainName" class="input-login" #memName>
- <div *ngIf="captainName.invalid && (captainName.dirty || isSubmitted)" class="text-danger form-error">
- Captain Name is required.
- </div>
- </div>
- <div class="col-md-6">
- <div><label for="capMobile">Mobile</label></div>
- <input name="capMobile" formControlName="captainMobile" class="input-login" #capMobile (change)="OnCheckEmail(captainMobile.value)">
- <div *ngIf="captainMobile.invalid && (captainMobile.dirty || isSubmitted)" class="text-danger form-error">
- Mobile is required.
- </div>
- 
- </div>
-
- </div>
-
-
-
-
-
-
-
-
- <div class="row mb20">
- <div class="col-md-12 mb-xs-30">
- <div><label for="password">City</label></div>
- <input name="City" class="input-login" formControlName="CITY"> 
- <div *ngIf="CITY.invalid && (CITY.dirty || isSubmitted)" class="text-danger form-error">
- City is required.
- </div>
- </div>
- </div>
- 
- <div class="row">
- <div class="col-md-12 mb-xs-30">
- <div>
- <label for="password">ICICI Bank RM Employee ID</label>
- <a href="#" data-toggle="tooltip" title="Enter zero in numeric(0) as default value"><img src="assets/images/information.png" alt="loader" style="margin-left:2%;cursor: pointer;"/></a>
- 
- </div>
- <input name="RM" class="input-login" formControlName="RM" pattern="[0-9]*" (ngModelChange)="employeeIdChanged(RM.value)">
- <div *ngIf="RM.invalid && (RM.dirty || isSubmitted)" class="text-danger form-error">
- RM Employee ID is required (numeric).
- </div>
- </div>
- </div>
-
- 
-
- 
-
-
- <div class="clearfix"></div>
- <br>
- <ul class="nav nav-tabs nav-tabs1" role="tablist">
- <li ><button type="button" (click)="save1()" [disabled]="!signupForm.valid || !isemail_check" [ngClass]="signupForm.valid || !isemail_check ? 'btn-blue':'btn-white'" class ='btn' class="signInBtn verifyBtn" > Next</button></li>
- </ul> 
- </div>
- </form>
- <form [formGroup]="signupForm2" [hidden]="!shfrmSFSecond">
- <div class="tab-pane"> 
- <div class="row mb20">
- <div class="col-md-8 mb-xs-30">
- <div><label for="mobile">Please enter the Phone Number</label></div>
- <input id="mobileNumber" formControlName="mobile_no" Type="number" class="input-login" name="mobile" required #Mobile [readonly]="(signupForm.value.otp_verified == 1)">
- <div *ngIf="mobile_no.invalid && (mobile_no.dirty || isSubmitted)" class="text-danger form-error">
- Mobile Number is required.
- </div>
- <div *ngIf="ismobile_reg_check!= '' " class="text-danger form-error">
- {{ismobile_reg_check}}
- </div>
- <div *ngIf="(signupForm.value.otp_send == '1' && signupForm.value.otp_verified == 0)" class="text-success">
- OTP sent on your mobile no. Click <a (click)="SendOtp(Mobile.value)" href="javasript:;">here</a> to resend;
- </div>
- </div>
- <div class="col-md-4 mt4">
- <button [disabled]="(signupForm.value.otp_verified == 1)" type="button" class="tryItFreeBtn sendOTPBtn mt25" (click)="SendOtp(Mobile.value)">Send
- OTP</button>
- <button type="button"
- class="tryItFreeBtn changeMobileNumber mt25" (click)="SendOtp(Mobile.value)">change</button>
- 
- </div>
- </div>
- <div class="row mb20" *ngIf="showOtp">
- <div class="col-md-9 mb-xs-30">
- <div><label for="otp">Enter the OTP Received on your Phone Number</label></div>
- <input [readonly]="(signupForm.value.otp_verified == 1)" name="otp" formControlName="otp_code" class="input-login" #OTP>
- <div *ngIf="otp_code.invalid && (otp_code.dirty || isSubmitted)" class="text-danger form-error">
- OTP is required.
- </div>
- <div *ngIf="ismobile_reg_check != '' " class="text-danger form-error">{{isotp_reg_check}}
- </div>
- </div>
- </div>
- <div class="clearfix"></div>
- <br>
- <ul class="nav nav-tabs nav-tabs1" role="tablist">
- <li><button class ='btn'(click)="save2()" [disabled]="!signupForm2.valid" [ngClass]="signupForm2.valid ? 'btn-blue':'btn-white'" class="signInBtn verifyBtn" > Verify</button></li>
- </ul> 
- </div>
- </form> 
- <form [formGroup]="signupForm3" [hidden]="!shfrmSFThird">
- <div class="tab-pane"> 
- <div class="row mb20">
- <div class="col-md-12">
- <div><label for="username">Username</label></div>
- <input formControlName="username" class="input-login" #username (change)="OnCheckUsername(username.value)" autocomplete="new-password">
- <div *ngIf="username.invalid && (username.dirty || isSubmitted)" class="text-danger form-error">
- Username is required.
- </div>
- </div>
- </div>
- <div class="horizontalBorder mb20"></div>
- <div class="row">
- <div class="col-md-6">
- <div><label for="createpassword">Create Password</label></div>
- <input type="password" formControlName="password" class="input-login" #CreatePassword>
- <div *ngIf="password.invalid && (password.dirty || isSubmitted)" class="text-danger form-error">
- Password is required.
- </div>
- </div>
- <div class="col-md-6">
- <div><label for="confirmpassword">Confirm Password</label></div>
- <input type="password" formControlName="confirmPassword" class="input-login" #ConfirmPassword>
- <div *ngIf="confirmPassword.invalid && (confirmPassword.dirty || isSubmitted)" class="text-danger form-error">
- Password does not match.
- </div>
- </div>
- <div class="clearfix"></div>
- 
- </div>
- <div class="row" style="margin-top: 12px;">
- <div class="col-md-12">
- <label class="checkboxContainer">
- <input type="checkbox" formControlName="term" #term required><span class="checkmark"></span> 
- <a [routerLink]="['/index/termsandcondition']" target="_blank">ACCEPT ALL TERMS & CONDITIONS</a> 
- <div *ngIf="term.invalid && (term.invalid || isSubmitted)" class="text-danger form-error">
- I ACCEPT ALL TERMS & CONDITIONS is required.
- </div>
- </label>
- <div class="clearfix"></div>
- </div>
- </div>
- 
- <div class="clearfix"></div>
- <br>
- <ul class="nav nav-tabs nav-tabs1" role="tablist">
- <li ><button (click)="sign_up()" [disabled]="!signupForm3.valid" [ngClass]="signupForm3.valid ? 'btn-blue':'btn-white'" class ='btn' class="signInBtn verifyBtn"> Submit</button></li>
- </ul>
- 
- </div>
- </form> 
- 
- </div>
- </div>
- <div class="modal-footer">
- <div class="row w100p m0">
- <div class="col-12 pl0">
- <p>Already have an account? Please <span><a class="signIn" (click)="openModal(signin)">Login</a></span></p>
- </div>
- <div class="col-5 pr0">
- <div class="text-right"></div>
- </div>
- </div>
- </div>
- </ng-template> -->
-
-<!-- Modal for appathon Signup -->
 <ng-template #appathonSignup>
   <div class="modal-header">
     <h3 class="modal-title pull-left">Appathon Sign Up</h3>
@@ -1676,7 +1423,7 @@
                 formControlName="captainName"
                 class="input-login"
                 #captainName
-                value="{{ appathonFirstName }}"
+                 [(ngModel)]="appathonFirstName"
               />
               <div
                 *ngIf="
@@ -1699,7 +1446,7 @@
                 name="captainMobileNumber"
                 required
                 #captainMobileNumber
-                value="{{ appathonMobileNumber }}"
+                 [(ngModel)]="appathonMobileNumber"
               />
               <div
                 *ngIf="
@@ -1729,7 +1476,7 @@
                 formControlName="teamEmail"
                 class="input-login"
                 #teamEmail
-                value="{{ appathonCompanyEmail }}"
+                [(ngModel)]="appathonCompanyEmail"
               />
               <div
                 *ngIf="teamEmail.invalid && (teamEmail.dirty || isSubmitted)"
@@ -1870,8 +1617,8 @@
                 name="memberCompanyName"
                 formControlName="memberCompanyName"
                 class="input-login"
-                #memberCompanyName
-                value="{{ appathonCompanyName }}"
+                #memberCompanyName 
+                [(ngModel)]="appathonCompanyName"
               />
             </div>
           </div>

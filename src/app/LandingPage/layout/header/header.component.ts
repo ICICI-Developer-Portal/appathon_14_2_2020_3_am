@@ -61,6 +61,7 @@ export class HeaderComponent implements OnInit {
   appathonMobileNumber: any;
   appathonCompanyEmail: any;
   appathonCompanyName: any;
+  appathonUserName: any;
 
   //aapathonSignUpForm
   appathonSignupForm: FormGroup;
@@ -104,6 +105,7 @@ export class HeaderComponent implements OnInit {
       this.appathonCompanyEmail = localStorage.getItem("appathonCompanyEmail");
       this.appathonMobileNumber = localStorage.getItem("appathonMobileNumber");
       this.appathonCompanyName = localStorage.getItem("appathonCompanyName");
+      this.appathonUserName = localStorage.getItem("appathonUserName");
       this.user_name = data;
     });
     this.get_domain_and_apis();
@@ -891,6 +893,10 @@ export class HeaderComponent implements OnInit {
     localStorage.setItem(
       "appathonusername",
       this.loginResponse.data.appathonusername
+    );
+    localStorage.setItem(
+      "appathonUserName",
+      this.loginResponse.data.username
     );
     localStorage.setItem("email", this.loginResponse.data.email);
     this.adm.sendUserId(this.loginResponse.data.id);
