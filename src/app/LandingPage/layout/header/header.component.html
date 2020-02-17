@@ -1380,7 +1380,7 @@
                 formControlName="captainName"
                 class="input-login"
                 #captainName
-                value="{{ appathonFirstName }}"
+                [(ngModel)]="appathonFirstName"
               />
               <div
                 *ngIf="
@@ -1403,7 +1403,7 @@
                 name="captainMobileNumber"
                 required
                 #captainMobileNumber
-                value="{{ appathonMobileNumber }}"
+                 [(ngModel)]="appathonMobileNumber"
               />
               <div
                 *ngIf="
@@ -1433,7 +1433,7 @@
                 formControlName="teamEmail"
                 class="input-login"
                 #teamEmail
-                value="{{ appathonCompanyEmail }}"
+                [(ngModel)]="appathonCompanyEmail"
               />
               <div
                 *ngIf="teamEmail.invalid && (teamEmail.dirty || isSubmitted)"
@@ -1575,7 +1575,7 @@
                 formControlName="memberCompanyName"
                 class="input-login"
                 #memberCompanyName
-                value="{{ appathonCompanyName }}"
+                [(ngModel)]="appathonCompanyName"
               />
             </div>
           </div>
