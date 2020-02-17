@@ -65,8 +65,8 @@
     Idea: 
   </div>
   <div class="col-md-5">
-<a class="signInBtn blueBtn mr10" target="_blank" [ngClass] = "{'avoid_clicks': true}"
- href="{{formData.ideaLink}}">Download</a>
+<a class="signInBtn blueBtn mr10"
+ href="{{formData.ideaLink}}" download>Download</a>
  <input type="file" id="ideaFile"   #ideaInput  
            style = "display:none"
            (change)="handleFileInput($event.target.files, 'idea')">
@@ -406,7 +406,7 @@ Name
 
 
 
-
+<!-- 
 <div class="row mb60 ">
   <div class="col-md-2">
     Final Submission: 
@@ -429,7 +429,7 @@ color: grey;">{{finalSubmissionFile.name}}
     cursor: pointer;">X</span>
     </h6></div>
 </div>
-</div>
+</div> -->
 
 
 
