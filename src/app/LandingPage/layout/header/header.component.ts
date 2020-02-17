@@ -80,6 +80,7 @@ export class HeaderComponent implements OnInit {
   teamMemberArr: any[];
   showOptn: boolean = false;
   showAppDash: boolean = false;
+  userName: any;
   //aapathonSignUpForm
 
   constructor(
@@ -221,6 +222,7 @@ export class HeaderComponent implements OnInit {
     if (localStorage.getItem("role") === "Both") {
       this.showAppDash = true;
     }
+    this.userName = localStorage.getItem("username");
   }
 
   appathonReg() {
