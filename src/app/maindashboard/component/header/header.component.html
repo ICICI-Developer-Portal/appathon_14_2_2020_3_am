@@ -31,7 +31,6 @@
           aria-controls="FAQs"
           aria-selected="false"
           style="font-size: 13px;line-height: 31px;"
-          *ngIf="showOptn"
           >Home</a
         >
       </li>
@@ -65,7 +64,7 @@
       <!-- <li class="nav-item">
                         <a class="nav-link active" (click)="logout()" id="pills-profile-tab" data-toggle="pill"  [routerLink]="['/documentation']" href="javascript:;" role="tab" aria-controls="pills-profile" aria-selected="false">Logout</a>
                      </li> -->
-      <li class="nav-item dropdown position_relative">
+      <li class="nav-item dropdown position_relative" *ngIf="showOptn">
         <a
           class="nav-link dropdown-toggle lh56"
           id="navbarMobiles"
