@@ -8,48 +8,28 @@
     style="font-family: Zurich BT !important;"
   >
     <section class="banner" style="margin-top: 45px;text-align:center">
-      <div
-        class="row"
-        id="content-desktop"
-        (click)="openModalAppathonSignup(appathonSignup)"
-        *ngIf="showbtn"
-      >
+      <div class="row" id="content-desktop" *ngIf="showbtn">
         <img
           src="assets/images/ICICI-APPATHON-2020_web_1000X400.jpg"
           alt=""
           style="width:100%"
         />
       </div>
-      <div
-        class="row app-ban"
-        id="content-mobile"
-        (click)="openModalAppathonSignup(appathonSignup)"
-        *ngIf="showbtn"
-      >
+      <div class="row app-ban" id="content-mobile" *ngIf="showbtn">
         <img src="assets/images/app-banner.jpg" alt="" style="width:100%" />
         <p style="font-family: Zurich BT !important;">
           **This website is best viewed in desktop versions
         </p>
       </div>
 
-      <div
-        class="row"
-        id="content-desktop"
-        (click)="openModalAppathonSignup(appathonLoggedSignup)"
-        *ngIf="!showbtn"
-      >
+      <div class="row" id="content-desktop" *ngIf="!showbtn">
         <img
           src="assets/images/ICICI-APPATHON-2020_web_1000X400.jpg"
           alt=""
           style="width:100%"
         />
       </div>
-      <div
-        class="row app-ban"
-        id="content-mobile"
-        (click)="openModalAppathonSignup(appathonLoggedSignup)"
-        *ngIf="!showbtn"
-      >
+      <div class="row app-ban" id="content-mobile" *ngIf="!showbtn">
         <img src="assets/images/app-banner.jpg" alt="" style="width:100%" />
         <p style="font-family: Zurich BT !important;">
           **This website is best viewed in desktop versions
@@ -79,6 +59,55 @@
           >Register for Appathon</a
         >
       </div> -->
+      <div
+        class="row"
+        id="content-desktop"
+        (click)="openModalAppathonSignup(appathonSignup)"
+        *ngIf="showbtn"
+      >
+        <div style="display: flex;justify-content: center;">
+          <a class="signInBtn mr10" (click)="registerForAppathon()"
+            >Register for Appathon</a
+          >
+        </div>
+      </div>
+      <div
+        class="row app-ban"
+        id="content-mobile"
+        (click)="openModalAppathonSignup(appathonSignup)"
+        *ngIf="showbtn"
+      >
+        <div style="display: flex;justify-content: center;">
+          <a class="signInBtn mr10" (click)="registerForAppathon()"
+            >Register for Appathon</a
+          >
+        </div>
+      </div>
+
+      <div
+        class="row"
+        id="content-desktop"
+        (click)="openModalAppathonSignup(appathonLoggedSignup)"
+        *ngIf="!showbtn"
+      >
+        <div style="display: flex;justify-content: center;">
+          <a class="signInBtn mr10" (click)="registerForAppathon()"
+            >Register for Appathon</a
+          >
+        </div>
+      </div>
+      <div
+        class="row app-ban"
+        id="content-mobile"
+        (click)="openModalAppathonSignup(appathonLoggedSignup)"
+        *ngIf="!showbtn"
+      >
+        <div style="display: flex;justify-content: center;">
+          <a class="signInBtn mr10" (click)="registerForAppathon()"
+            >Register for Appathon</a
+          >
+        </div>
+      </div>
     </section>
 
     <!-- Program details -->

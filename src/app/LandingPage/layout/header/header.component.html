@@ -107,7 +107,7 @@
           <i class="fa fa-user-circle-o"></i>&nbsp;{{ userName }}
         </a>
         <div
-          class="dropdown-content"
+          class="dropdown-content drp-cnt-width"
           aria-labelledby="navbarMobiles"
           style="margin-left: -40px"
           *ngIf="showOptn === true"
@@ -125,7 +125,7 @@
             style="line-height: 21px;"
             [routerLink]="['/appathon-dashboard']"
             class="nav-link dropdown-item"
-            >Dashboard</a
+            >Appathon Dashboard</a
           >
           <a
             class="nav-link dropdown-item"
@@ -137,7 +137,7 @@
           <!-- <a [routerLink]="['/analytics']" class="nav-link dropdown-item" id="pills-account-analytics-tab" data-toggle="pill" href="#pills-account" role="tab" aria-controls="pills-account-analytics" aria-selected="true">Analytics</a> -->
         </div>
         <div
-          class="dropdown-content"
+          class="dropdown-content drp-cnt-width"
           aria-labelledby="navbarMobiles"
           *ngIf="showOptn === false"
         >
@@ -145,7 +145,7 @@
             style="line-height: 21px;"
             [routerLink]="['/appathon-dashboard']"
             class="nav-link dropdown-item"
-            >Dashboard</a
+            >Appathon Dashboard</a
           >
           <a
             style="line-height: 21px;"
@@ -1403,7 +1403,7 @@
                 name="captainMobileNumber"
                 required
                 #captainMobileNumber
-                 [(ngModel)]="appathonMobileNumber"
+                [(ngModel)]="appathonMobileNumber"
               />
               <div
                 *ngIf="

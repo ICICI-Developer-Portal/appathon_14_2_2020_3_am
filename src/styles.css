@@ -633,3 +633,6 @@ left: 0;
        transform: rotate(0deg);
     }
   }
+.drp-cnt-width {
+  min-width: 175px !important;
+}
