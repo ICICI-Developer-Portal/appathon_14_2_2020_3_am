@@ -590,3 +590,6 @@ body {
 .text-align-justify {
   text-align: justify !important;
 }
+.drp-cnt-width {
+  min-width: 175px !important;
+}
