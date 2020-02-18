@@ -1,363 +1,493 @@
 <div class="tab-content" style="margin-top: 120px;">
   <div class="container">
-    
+    <form [formGroup]="formGroup" class="example-form">
+      <div class="row  mb20">
+        <div class="col-md-2 alignTop">
+          Team Name:
+        </div>
+        <div class="col-md-3">
+          <mat-form-field class="example-full-width">
+            <mat-label>Team Name</mat-label>
+            <input
+              readonly
+              required
+              matInput
+              [formControl]="teamName"
+              [(ngModel)]="formData.team_name"
+              [errorStateMatcher]="matcher"
+              placeholder="Team Name"
+            />
 
+            <mat-error *ngIf="teamName.hasError('required')">
+              Team Name is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
 
-  <form  [formGroup]="formGroup" class="example-form">
+      <div class="row mb20 ">
+        <div class="col-md-2 alignTop">
+          Company:
+        </div>
+        <div class="col-md-3">
+          <mat-form-field class="example-full-width">
+            <mat-label>Company</mat-label>
+            <input
+              required
+              matInput
+              [formControl]="company"
+              [(ngModel)]="formData.company_name"
+              [errorStateMatcher]="matcher"
+              placeholder="Company"
+            />
 
+            <mat-error *ngIf="company.hasError('required')">
+              Company is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
 
-  <div class="row  mb20">
-    <div class="col-md-2 alignTop">
-      Team Name: 
-    </div>
-    <div class="col-md-3">
-  <mat-form-field class="example-full-width">
-    <mat-label>Team Name</mat-label>
-    <input readonly required matInput [formControl]="teamName" [(ngModel)]="formData.team_name" [errorStateMatcher]="matcher"
-           placeholder="Team Name">
-    
-    <mat-error *ngIf="teamName.hasError('required')">
-      Team Name is <strong>required</strong>
-    </mat-error>
-  </mat-form-field>
-</div>
-</div>
+      <div class="row mb20 ">
+        <div class="col-md-2 alignTop">
+          Location:
+        </div>
+        <div class="col-md-3">
+          <mat-form-field class="example-full-width">
+            <mat-label>Location</mat-label>
+            <input
+              required
+              matInput
+              [formControl]="location"
+              [(ngModel)]="formData.location"
+              [errorStateMatcher]="matcher"
+              placeholder="Ex. pat@example.com"
+            />
+            <mat-error *ngIf="location.hasError('required')">
+              Location is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
 
+      <div class="row mb40 ">
+        <div class="col-md-2">
+          Idea:
+        </div>
+        <div class="col-md-5">
+          <a
+            class="signInBtn blueBtn mr10"
+            href="{{ formData.ideaLink }}"
+            download
+            >Download</a
+          >
+          <input
+            type="file"
+            id="ideaFile"
+            #ideaInput
+            style="display:none"
+            (change)="handleFileInput($event.target.files, 'idea')"
+          />
+          <label for="ideaFile" class="signInBtn pinkBtn mr10">Upload</label>
+          <a
+            class="signInBtn orangeBtn mr10"
+            href="assets/appathon/Idea_Template.pptx"
+            download="Idea_Template.pptx"
+            >Download Template</a
+          >
+          <div *ngIf="ideaFile">
+            <h6
+              style="margin-left: 135px;
+  color: grey;"
+            >
+              {{ ideaFile.name }}
+              <span
+                (click)="deleteFile('idea')"
+                style="margin-left: 14px;
+  color: red;
+  background: #d2cbcb;
+  cursor: pointer;"
+                >X</span
+              >
+            </h6>
+          </div>
+        </div>
+      </div>
 
-<div class="row mb20 ">
-  <div class="col-md-2 alignTop">
-    Company: 
-  </div>
-  <div class="col-md-3">
-<mat-form-field class="example-full-width">
-  <mat-label>Company</mat-label>
-  <input required matInput [formControl]="company" [(ngModel)]="formData.company_name" [errorStateMatcher]="matcher"
-         placeholder="Company">
-  
-  <mat-error *ngIf="company.hasError('required')">
-    Company is <strong>required</strong>
-  </mat-error>
-</mat-form-field>
-</div>
-</div>
+      <div class="row mb20 ">
+        <div class="col-md-2">
+          Team Details:
+        </div>
+        <div class="col-md-3">
+          Name
+        </div>
 
+        <div class="col-md-3">
+          Mobile
+        </div>
+        <div class="col-md-3">
+          Email
+        </div>
+      </div>
 
-<div class="row mb20 ">
-  <div class="col-md-2 alignTop">
-    Location: 
-  </div>
-  <div class="col-md-3">
-<mat-form-field class="example-full-width">
-  <mat-label>Location</mat-label>
-  <input required matInput [formControl]="location" [(ngModel)]="formData.location" [errorStateMatcher]="matcher"
-         placeholder="Ex. pat@example.com">  
-  <mat-error *ngIf="location.hasError('required')">
-    Location is <strong>required</strong>
-  </mat-error>
-</mat-form-field>
-</div>
-</div>
+      <!-- captain -->
+      <div class="row mb20 ">
+        <div class="col-md-2 alignTop">
+          Captain:
+        </div>
+        <div class="col-md-3">
+          <mat-form-field class="example-full-width">
+            <mat-label>Name</mat-label>
+            <input
+              readonly
+              required
+              matInput
+              [formControl]="name1"
+              [(ngModel)]="formData.team_captain_name"
+              [errorStateMatcher]="matcher"
+              placeholder="Name"
+            />
 
+            <mat-error *ngIf="name1.hasError('required')">
+              Name is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
 
+        <div class="col-md-3">
+          <mat-form-field class="example-full-width">
+            <mat-label>Mobile Number</mat-label>
+            <input
+              readonly
+              required
+              matInput
+              [formControl]="mobile1"
+              [(ngModel)]="formData.team_captain_mobile"
+              [errorStateMatcher]="matcher"
+              placeholder="Mobile Number"
+            />
+            <mat-error
+              *ngIf="
+                mobile1.hasError('pattern') && !mobile1.hasError('required')
+              "
+            >
+              Please enter a valid 10 digit Mobile Number
+            </mat-error>
+            <mat-error *ngIf="mobile1.hasError('required')">
+              Mobile Number is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
 
-<div class="row mb40 ">
-  <div class="col-md-2">
-    Idea: 
-  </div>
-  <div class="col-md-5">
-<a class="signInBtn blueBtn mr10" target="_blank" [ngClass] = "{'avoid_clicks': true}"
- href="{{formData.ideaLink}}">Download</a>
- <input type="file" id="ideaFile"   #ideaInput  
-           style = "display:none"
-           (change)="handleFileInput($event.target.files, 'idea')">
-           <label for="ideaFile" class="signInBtn pinkBtn mr10" >Upload</label>
-<a class="signInBtn orangeBtn mr10" href="assets/appathon/Idea_Template.pptx" download="Idea_Template.pptx">Download Template</a>
-<div *ngIf="ideaFile"><h6  style="margin-left: 135px;
-color: grey;">{{ideaFile.name}}
-<span (click)="deleteFile('idea')" style="margin-left: 14px;
-    color: red;
-    background: #d2cbcb;
-    cursor: pointer;">X</span>
-    </h6></div>
-</div>
-</div>
+        <div class="col-md-3">
+          <mat-form-field class="example-full-width">
+            <mat-label>Email</mat-label>
+            <input
+              readonly
+              required
+              matInput
+              [formControl]="emailFormControl1"
+              [(ngModel)]="formData.team_captain_email"
+              [errorStateMatcher]="matcher"
+              placeholder="Ex. pat@example.com"
+            />
+            <mat-error
+              *ngIf="
+                emailFormControl1.hasError('email') &&
+                !emailFormControl1.hasError('required')
+              "
+            >
+              Please enter a valid email address
+            </mat-error>
+            <mat-error *ngIf="emailFormControl1.hasError('required')">
+              Email is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
 
+      <!-- player1 -->
+      <div class="row mb20 ">
+        <div class="col-md-2 alignTop">
+          Member1:
+        </div>
+        <div class="col-md-3">
+          <mat-form-field class="example-full-width">
+            <mat-label>Name</mat-label>
+            <input
+              matInput
+              [formControl]="name2"
+              [(ngModel)]="team_members_name[0]"
+              [errorStateMatcher]="matcher"
+              placeholder="Name"
+            />
 
-<div class="row mb20 ">
-  <div class="col-md-2">
-    Team Details: 
-  </div>
-  <div class="col-md-3">
-Name
-</div>
+            <mat-error *ngIf="name2.hasError('required')">
+              Name is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
 
+        <div class="col-md-3">
+          <mat-form-field class="example-full-width">
+            <mat-label>Mobile Number</mat-label>
+            <input
+              matInput
+              [formControl]="mobile2"
+              [(ngModel)]="team_members_mobile[0]"
+              [errorStateMatcher]="matcher"
+              placeholder="Mobile Number"
+            />
+            <mat-error
+              *ngIf="
+                mobile2.hasError('pattern') && !mobile2.hasError('required')
+              "
+            >
+              Please enter a valid 10 digit Mobile Number
+            </mat-error>
+            <mat-error *ngIf="mobile2.hasError('required')">
+              Mobile Number is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
 
-<div class="col-md-3">
-  Mobile
-  </div>
-  <div class="col-md-3">
-    Email
-    </div>
-</div>
+        <div class="col-md-3">
+          <mat-form-field class="example-full-width">
+            <mat-label>Email</mat-label>
+            <input
+              matInput
+              [formControl]="emailFormControl2"
+              [(ngModel)]="team_members_email[0]"
+              [errorStateMatcher]="matcher"
+              placeholder="Ex. pat@example.com"
+            />
+            <mat-error
+              *ngIf="
+                emailFormControl2.hasError('email') &&
+                !emailFormControl2.hasError('required')
+              "
+            >
+              Please enter a valid email address
+            </mat-error>
+            <mat-error *ngIf="emailFormControl2.hasError('required')">
+              Email is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
 
+      <!-- player2 -->
+      <div class="row mb20 ">
+        <div class="col-md-2 alignTop">
+          Member2:
+        </div>
+        <div class="col-md-3">
+          <mat-form-field class="example-full-width">
+            <mat-label>Name</mat-label>
+            <input
+              matInput
+              [formControl]="name3"
+              [(ngModel)]="team_members_name[1]"
+              [errorStateMatcher]="matcher"
+              placeholder="Name"
+            />
 
+            <mat-error *ngIf="name3.hasError('required')">
+              Name is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
 
+        <div class="col-md-3">
+          <mat-form-field class="example-full-width">
+            <mat-label>Mobile Number</mat-label>
+            <input
+              matInput
+              [formControl]="mobile3"
+              [(ngModel)]="team_members_mobile[1]"
+              [errorStateMatcher]="matcher"
+              placeholder="Mobile Number"
+            />
+            <mat-error
+              *ngIf="
+                mobile3.hasError('pattern') && !mobile3.hasError('required')
+              "
+            >
+              Please enter a valid 10 digit Mobile Number
+            </mat-error>
+            <mat-error *ngIf="mobile3.hasError('required')">
+              Mobile Number is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
 
+        <div class="col-md-3">
+          <mat-form-field class="example-full-width">
+            <mat-label>Email</mat-label>
+            <input
+              matInput
+              [formControl]="emailFormControl3"
+              [(ngModel)]="team_members_email[1]"
+              [errorStateMatcher]="matcher"
+              placeholder="Ex. pat@example.com"
+            />
+            <mat-error
+              *ngIf="
+                emailFormControl3.hasError('email') &&
+                !emailFormControl3.hasError('required')
+              "
+            >
+              Please enter a valid email address
+            </mat-error>
+            <mat-error *ngIf="emailFormControl3.hasError('required')">
+              Email is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
 
-<!-- captain -->
-<div class="row mb20 ">
-  <div class="col-md-2 alignTop">
-    Captain: 
-  </div>
-  <div class="col-md-3">
-<mat-form-field class="example-full-width">
-  <mat-label>Name</mat-label>
-  <input readonly required matInput [formControl]="name1" [(ngModel)]="formData.team_captain_name" [errorStateMatcher]="matcher"
-         placeholder="Name">
-  
-  <mat-error *ngIf="name1.hasError('required')">
-    Name is <strong>required</strong>
-  </mat-error>
-</mat-form-field>
-</div>
+      <!-- player3 -->
+      <div class="row mb20 ">
+        <div class="col-md-2 alignTop">
+          Member3:
+        </div>
+        <div class="col-md-3">
+          <mat-form-field class="example-full-width">
+            <mat-label>Name</mat-label>
+            <input
+              matInput
+              [formControl]="name4"
+              [(ngModel)]="team_members_name[2]"
+              [errorStateMatcher]="matcher"
+              placeholder="Name"
+            />
 
+            <mat-error *ngIf="name4.hasError('required')">
+              Name is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
 
-<div class="col-md-3">
-  <mat-form-field class="example-full-width">
-    <mat-label>Mobile Number</mat-label>
-    <input readonly required matInput [formControl]="mobile1" [(ngModel)]="formData.team_captain_mobile" [errorStateMatcher]="matcher"
-           placeholder="Mobile Number">
-    <mat-error *ngIf="mobile1.hasError('pattern') && !mobile1.hasError('required')">
-      Please enter a valid 10 digit Mobile Number
-    </mat-error>
-    <mat-error *ngIf="mobile1.hasError('required')">
-      Mobile Number is <strong>required</strong>
-    </mat-error>
-  </mat-form-field>
-  </div>
+        <div class="col-md-3">
+          <mat-form-field class="example-full-width">
+            <mat-label>Mobile Number</mat-label>
+            <input
+              matInput
+              [formControl]="mobile4"
+              [(ngModel)]="team_members_mobile[2]"
+              [errorStateMatcher]="matcher"
+              placeholder="Mobile Number"
+            />
+            <mat-error
+              *ngIf="
+                mobile4.hasError('pattern') && !mobile4.hasError('required')
+              "
+            >
+              Please enter a valid 10 digit Mobile Number
+            </mat-error>
+            <mat-error *ngIf="mobile4.hasError('required')">
+              Mobile Number is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
 
+        <div class="col-md-3">
+          <mat-form-field class="example-full-width">
+            <mat-label>Email</mat-label>
+            <input
+              matInput
+              [formControl]="emailFormControl4"
+              [(ngModel)]="team_members_email[2]"
+              [errorStateMatcher]="matcher"
+              placeholder="Ex. pat@example.com"
+            />
+            <mat-error
+              *ngIf="
+                emailFormControl4.hasError('email') &&
+                !emailFormControl4.hasError('required')
+              "
+            >
+              Please enter a valid email address
+            </mat-error>
+            <mat-error *ngIf="emailFormControl4.hasError('required')">
+              Email is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
 
-  <div class="col-md-3">
-    <mat-form-field class="example-full-width">
-      <mat-label>Email</mat-label>
-      <input readonly required matInput [formControl]="emailFormControl1" [(ngModel)]="formData.team_captain_email" [errorStateMatcher]="matcher"
-             placeholder="Ex. pat@example.com">
-      <mat-error *ngIf="emailFormControl1.hasError('email') && !emailFormControl1.hasError('required')">
-        Please enter a valid email address
-      </mat-error>
-      <mat-error *ngIf="emailFormControl1.hasError('required')">
-        Email is <strong>required</strong>
-      </mat-error>
-    </mat-form-field>
-    </div>
-</div>
+      <!-- player4 -->
+      <div class="row mb20 ">
+        <div class="col-md-2 alignTop">
+          Member4:
+        </div>
+        <div class="col-md-3">
+          <mat-form-field class="example-full-width">
+            <mat-label>Name</mat-label>
+            <input
+              matInput
+              [formControl]="name5"
+              [(ngModel)]="team_members_name[3]"
+              [errorStateMatcher]="matcher"
+              placeholder="Name"
+            />
 
+            <mat-error *ngIf="name5.hasError('required')">
+              Name is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
 
+        <div class="col-md-3">
+          <mat-form-field class="example-full-width">
+            <mat-label>Mobile Number</mat-label>
+            <input
+              matInput
+              [formControl]="mobile5"
+              [(ngModel)]="team_members_mobile[3]"
+              [errorStateMatcher]="matcher"
+              placeholder="Mobile Number"
+            />
+            <mat-error
+              *ngIf="
+                mobile5.hasError('pattern') && !mobile5.hasError('required')
+              "
+            >
+              Please enter a valid 10 digit Mobile Number
+            </mat-error>
+            <mat-error *ngIf="mobile5.hasError('required')">
+              Mobile Number is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
 
+        <div class="col-md-3">
+          <mat-form-field class="example-full-width">
+            <mat-label>Email</mat-label>
+            <input
+              matInput
+              [formControl]="emailFormControl5"
+              [(ngModel)]="team_members_email[3]"
+              [errorStateMatcher]="matcher"
+              placeholder="Ex. pat@example.com"
+            />
+            <mat-error
+              *ngIf="
+                emailFormControl5.hasError('email') &&
+                !emailFormControl5.hasError('required')
+              "
+            >
+              Please enter a valid email address
+            </mat-error>
+            <mat-error *ngIf="emailFormControl5.hasError('required')">
+              Email is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
 
-<!-- player1 -->
-<div class="row mb20 ">
-  <div class="col-md-2 alignTop">
-    Member1: 
-  </div>
-  <div class="col-md-3">
-<mat-form-field class="example-full-width">
-  <mat-label>Name</mat-label>
-  <input matInput [formControl]="name2"  [(ngModel)]="team_members_name[0]" [errorStateMatcher]="matcher"
-         placeholder="Name">
-  
-  <mat-error *ngIf="name2.hasError('required')">
-    Name is <strong>required</strong>
-  </mat-error>
-</mat-form-field>
-</div>
-
-
-<div class="col-md-3">
-  <mat-form-field class="example-full-width">
-    <mat-label>Mobile Number</mat-label>
-    <input matInput [formControl]="mobile2" [(ngModel)]="team_members_mobile[0]" [errorStateMatcher]="matcher"
-           placeholder="Mobile Number">
-    <mat-error *ngIf="mobile2.hasError('pattern') && !mobile2.hasError('required')">
-      Please enter a valid 10 digit Mobile Number
-    </mat-error>
-    <mat-error *ngIf="mobile2.hasError('required')">
-      Mobile Number is <strong>required</strong>
-    </mat-error>
-  </mat-form-field>
-  </div>
-
-
-  <div class="col-md-3">
-    <mat-form-field class="example-full-width">
-      <mat-label>Email</mat-label>
-      <input matInput [formControl]="emailFormControl2" [(ngModel)]="team_members_email[0]" [errorStateMatcher]="matcher"
-             placeholder="Ex. pat@example.com">
-      <mat-error *ngIf="emailFormControl2.hasError('email') && !emailFormControl2.hasError('required')">
-        Please enter a valid email address
-      </mat-error>
-      <mat-error *ngIf="emailFormControl2.hasError('required')">
-        Email is <strong>required</strong>
-      </mat-error>
-    </mat-form-field>
-    </div>
-</div>
-
-
-
-<!-- player2 -->
-<div class="row mb20 ">
-  <div class="col-md-2 alignTop">
-    Member2: 
-  </div>
-  <div class="col-md-3">
-<mat-form-field class="example-full-width">
-  <mat-label>Name</mat-label>
-  <input matInput [formControl]="name3" [(ngModel)]="team_members_name[1]" [errorStateMatcher]="matcher"
-         placeholder="Name">
-  
-  <mat-error *ngIf="name3.hasError('required')">
-    Name is <strong>required</strong>
-  </mat-error>
-</mat-form-field>
-</div>
-
-
-<div class="col-md-3">
-  <mat-form-field class="example-full-width">
-    <mat-label>Mobile Number</mat-label>
-    <input matInput [formControl]="mobile3" [(ngModel)]="team_members_mobile[1]" [errorStateMatcher]="matcher"
-           placeholder="Mobile Number">
-    <mat-error *ngIf="mobile3.hasError('pattern') && !mobile3.hasError('required')">
-      Please enter a valid 10 digit Mobile Number
-    </mat-error>
-    <mat-error *ngIf="mobile3.hasError('required')">
-      Mobile Number is <strong>required</strong>
-    </mat-error>
-  </mat-form-field>
-  </div>
-
-
-  <div class="col-md-3">
-    <mat-form-field class="example-full-width">
-      <mat-label>Email</mat-label>
-      <input matInput [formControl]="emailFormControl3" [(ngModel)]="team_members_email[1]" [errorStateMatcher]="matcher"
-             placeholder="Ex. pat@example.com">
-      <mat-error *ngIf="emailFormControl3.hasError('email') && !emailFormControl3.hasError('required')">
-        Please enter a valid email address
-      </mat-error>
-      <mat-error *ngIf="emailFormControl3.hasError('required')">
-        Email is <strong>required</strong>
-      </mat-error>
-    </mat-form-field>
-    </div>
-</div>
-
-
-
-<!-- player3 -->
-<div class="row mb20 ">
-  <div class="col-md-2 alignTop">
-    Member3: 
-  </div>
-  <div class="col-md-3">
-<mat-form-field class="example-full-width">
-  <mat-label>Name</mat-label>
-  <input matInput [formControl]="name4" [(ngModel)]="team_members_name[2]" [errorStateMatcher]="matcher"
-         placeholder="Name">
-  
-  <mat-error *ngIf="name4.hasError('required')">
-    Name is <strong>required</strong>
-  </mat-error>
-</mat-form-field>
-</div>
-
-
-<div class="col-md-3">
-  <mat-form-field class="example-full-width">
-    <mat-label>Mobile Number</mat-label>
-    <input matInput [formControl]="mobile4" [(ngModel)]="team_members_mobile[2]" [errorStateMatcher]="matcher"
-           placeholder="Mobile Number">
-    <mat-error *ngIf="mobile4.hasError('pattern') && !mobile4.hasError('required')">
-      Please enter a valid 10 digit Mobile Number
-    </mat-error>
-    <mat-error *ngIf="mobile4.hasError('required')">
-      Mobile Number is <strong>required</strong>
-    </mat-error>
-  </mat-form-field>
-  </div>
-
-
-  <div class="col-md-3">
-    <mat-form-field class="example-full-width">
-      <mat-label>Email</mat-label>
-      <input matInput [formControl]="emailFormControl4" [(ngModel)]="team_members_email[2]" [errorStateMatcher]="matcher"
-             placeholder="Ex. pat@example.com">
-      <mat-error *ngIf="emailFormControl4.hasError('email') && !emailFormControl4.hasError('required')">
-        Please enter a valid email address
-      </mat-error>
-      <mat-error *ngIf="emailFormControl4.hasError('required')">
-        Email is <strong>required</strong>
-      </mat-error>
-    </mat-form-field>
-    </div>
-</div>
-
-
-
-<!-- player4 -->
-<div class="row mb20 ">
-  <div class="col-md-2 alignTop">
-    Member4: 
-  </div>
-  <div class="col-md-3">
-<mat-form-field class="example-full-width">
-  <mat-label>Name</mat-label>
-  <input matInput [formControl]="name5" [(ngModel)]="team_members_name[3]" [errorStateMatcher]="matcher"
-         placeholder="Name">
-  
-  <mat-error *ngIf="name5.hasError('required')">
-    Name is <strong>required</strong>
-  </mat-error>
-</mat-form-field>
-</div>
-
-
-<div class="col-md-3">
-  <mat-form-field class="example-full-width">
-    <mat-label>Mobile Number</mat-label>
-    <input matInput [formControl]="mobile5" [(ngModel)]="team_members_mobile[3]" [errorStateMatcher]="matcher"
-           placeholder="Mobile Number">
-    <mat-error *ngIf="mobile5.hasError('pattern') && !mobile5.hasError('required')">
-      Please enter a valid 10 digit Mobile Number
-    </mat-error>
-    <mat-error *ngIf="mobile5.hasError('required')">
-      Mobile Number is <strong>required</strong>
-    </mat-error>
-  </mat-form-field>
-  </div>
-
-
-  <div class="col-md-3">
-    <mat-form-field class="example-full-width">
-      <mat-label>Email</mat-label>
-      <input matInput [formControl]="emailFormControl5" [(ngModel)]="team_members_email[3]" [errorStateMatcher]="matcher"
-             placeholder="Ex. pat@example.com">
-      <mat-error *ngIf="emailFormControl5.hasError('email') && !emailFormControl5.hasError('required')">
-        Please enter a valid email address
-      </mat-error>
-      <mat-error *ngIf="emailFormControl5.hasError('required')">
-        Email is <strong>required</strong>
-      </mat-error>
-    </mat-form-field>
-    </div>
-</div>
-
-
-
-
-<!-- player5 -->
-<!-- <div class="row mb20 ">
+      <!-- player5 -->
+      <!-- <div class="row mb20 ">
   <div class="col-md-2 alignTop">
     Member5: 
   </div>
@@ -404,52 +534,62 @@ Name
     </div>
 </div> -->
 
+      <!-- <div class="row mb60 ">
+        <div class="col-md-2">
+          Final Submission:
+        </div>
+        <div class="col-md-5">
+          <a
+            class="signInBtn blueBtn mr10"
+            [ngClass]="{ avoid_clicks: true }"
+            target="_blank"
+            href="{{ formData.finalSubmissionLink }}"
+            >Download</a
+          >
 
-
-
-<div class="row mb60 ">
-  <div class="col-md-2">
-    Final Submission: 
-  </div>
-  <div class="col-md-5">
-<a class="signInBtn blueBtn mr10" [ngClass] = "{'avoid_clicks': true}"
-target="_blank"  href="{{formData.finalSubmissionLink}}">Download</a>
-
-<input type="file" 
-           id="subFile" #subInput
-           style = "display:none"
-           (change)="handleFileInput($event.target.files, 'sub')">
-           <label for="subFile" class="signInBtn pinkBtn mr10" >Upload</label>
-<a class="signInBtn orangeBtn mr10"  href="assets/appathon/FinalSubmission_Template.pptx" download="FinalSubmission_Template.pptx">Download Template</a>
-<div *ngIf="finalSubmissionFile"><h6  style="margin-left: 135px;
-color: grey;">{{finalSubmissionFile.name}}
-<span (click)="deleteFile('sub')" style="margin-left: 14px;
+          <input
+            type="file"
+            id="subFile"
+            #subInput
+            style="display:none"
+            (change)="handleFileInput($event.target.files, 'sub')"
+          />
+          <label for="subFile" class="signInBtn pinkBtn mr10">Upload</label>
+          <a
+            class="signInBtn orangeBtn mr10"
+            href="assets/appathon/FinalSubmission_Template.pptx"
+            download="FinalSubmission_Template.pptx"
+            >Download Template</a
+          >
+          <div *ngIf="finalSubmissionFile">
+            <h6
+              style="margin-left: 135px;
+color: grey;"
+            >
+              {{ finalSubmissionFile.name }}
+              <span
+                (click)="deleteFile('sub')"
+                style="margin-left: 14px;
     color: red;
     background: #d2cbcb;
-    cursor: pointer;">X</span>
-    </h6></div>
-</div>
-</div>
+    cursor: pointer;"
+                >X</span
+              >
+            </h6>
+          </div>
+        </div>
+      </div> -->
 
-
-
-
-
-<div class="row mb20 ">
-  <div class="col-md-5">
-    <button  class="signInBtn mr10" type="submit" (click)="submit()" >Submit</button>
-  <button class="tryItFreeBtn" type="reset" (click)="reset()">Reset</button>
+      <div class="row mb20 ">
+        <div class="col-md-5">
+          <button class="signInBtn mr10" type="submit" (click)="submit()">
+            Submit
+          </button>
+          <button class="tryItFreeBtn" type="reset" (click)="reset()">
+            Reset
+          </button>
+        </div>
+      </div>
+    </form>
   </div>
-  
-</div>
-
-
-
-
-
-
-
-</form>
-</div>
-
 </div>
