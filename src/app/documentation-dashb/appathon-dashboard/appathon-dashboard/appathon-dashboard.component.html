@@ -578,7 +578,50 @@ color: grey;"
           </div>
         </div>
       </div> -->
-
+<!-- <div class="row mb60 ">
+        <div class="col-md-2">
+          Selected Submission:
+        </div>
+        <div class="col-md-5">
+          <a
+            class="signInBtn blueBtn mr10"
+            [ngClass]="{ avoid_clicks: true }"
+            target="_blank"
+            href="{{ formData.finalSubmissionLink }}"
+            >Download</a
+          >          
+          <a
+            class="signInBtn orangeBtn mr10"
+            href="assets/appathon/FinalSubmission_Template.pptx"
+            download="FinalSubmission_Template.pptx"
+            >Download Template</a
+          >
+          <input
+            type="text"
+            id="subTxt"
+            #subTxt
+            style="display:none"
+            (change)="handleFileInput($event.target.files, 'sub')"
+          />
+          <label for="subTxt" class="signInBtn pinkBtn mr10">Google Drive/Youtube Link</label> -->
+         <!-- <div *ngIf="selectedSubmissionFile">
+             <h6
+              style="margin-left: 135px;
+color: grey;"
+            >
+              {{ selectedSubmissionFile.name }}
+              <span
+                (click)="deleteFile('sub')"
+                style="margin-left: 14px;
+    color: red;
+    background: #d2cbcb;
+    cursor: pointer;"
+                >X</span
+              >
+            </h6> 
+          </div>-->
+        <!-- </div>
+      </div> -->
       <div class="row mb20 ">
         <div class="col-md-5">
           <button class="signInBtn mr10" type="submit" (click)="submit()">
