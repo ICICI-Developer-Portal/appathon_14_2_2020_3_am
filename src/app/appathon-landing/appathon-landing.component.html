@@ -8,28 +8,48 @@
     style="font-family: Zurich BT !important;"
   >
     <section class="banner" style="margin-top: 45px;text-align:center">
-      <div class="row" id="content-desktop" *ngIf="showbtn">
+      <div
+        class="row"
+        id="content-desktop"
+        *ngIf="showbtn"
+        (click)="openModalAppathonSignup(appathonSignup)"
+      >
         <img
           src="assets/images/ICICI-APPATHON-2020_web_1000X400.jpg"
           alt=""
           style="width:100%"
         />
       </div>
-      <div class="row app-ban" id="content-mobile" *ngIf="showbtn">
+      <div
+        class="row app-ban"
+        id="content-mobile"
+        *ngIf="showbtn"
+        (click)="openModalAppathonSignup(appathonSignup)"
+      >
         <img src="assets/images/app-banner.jpg" alt="" style="width:100%" />
         <p style="font-family: Zurich BT !important;">
           **This website is best viewed in desktop versions
         </p>
       </div>
 
-      <div class="row" id="content-desktop" *ngIf="!showbtn">
+      <div
+        class="row"
+        id="content-desktop"
+        *ngIf="!showbtn"
+        (click)="openModalAppathonSignup(appathonSignup)"
+      >
         <img
           src="assets/images/ICICI-APPATHON-2020_web_1000X400.jpg"
           alt=""
           style="width:100%"
         />
       </div>
-      <div class="row app-ban" id="content-mobile" *ngIf="!showbtn">
+      <div
+        class="row app-ban"
+        id="content-mobile"
+        *ngIf="!showbtn"
+        (click)="openModalAppathonSignup(appathonSignup)"
+      >
         <img src="assets/images/app-banner.jpg" alt="" style="width:100%" />
         <p style="font-family: Zurich BT !important;">
           **This website is best viewed in desktop versions

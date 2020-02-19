@@ -188,12 +188,27 @@
             style="display: flex;
           padding-left: 0;justify-content: flex-end;"
           >
-            <a
+            <!-- <a
               data-toggle="tab"
               [routerLink]="['/appathon/landing-page']"
               style="color:#919191; font-weight: bold;   display: flex;
             align-items: center;margin-right: 5px;"
               >Appathon</a
+            > -->
+            <a
+              class="tryItFreeBtn"
+              (click)="openModalAppathonSignup(appathonSignup)"
+              *ngIf="showbtn"
+              style="margin-right: 5px;padding: 2px;display: flex;align-items: center;"
+              >Register For Appathon</a
+            >
+
+            <a
+              class="tryItFreeBtn"
+              (click)="openModalAppathonSignup(appathonLoggedSignup)"
+              *ngIf="!showbtn"
+              style="margin-right: 5px; padding: 2px;display: flex;align-items: center;"
+              >Register For Appathon</a
             >
 
             <a
@@ -202,7 +217,7 @@
               data-target="#signUp"
               (click)="openModal2(signup)"
               class="tryItFreeBtn"
-              style="    display: flex;
+              style="display: flex;padding: 2px;
               align-items: center;margin-right: 5px;"
               >Sign Up</a
             >
@@ -212,7 +227,7 @@
               data-toggle="modal"
               (click)="openModal(signin)"
               data-target="#signIn"
-              style="    display: flex;
+              style="display: flex;padding: 2px;
               align-items: center;"
               >Sign In</a
             >
