@@ -519,6 +519,11 @@ input:focus{
     border: 1px solid #004a7f;
     color: #004a7f !important;
 }
+.tryItFreeBtn[disabled]{
+    cursor: not-allowed;
+    background-color: #f5f5f5;
+    color: #919191 !important;
+}
 .signInBtn{
     background: #ae282e;
     color: #ffffff !important;

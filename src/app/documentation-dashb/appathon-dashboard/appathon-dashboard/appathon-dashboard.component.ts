@@ -37,6 +37,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 export class AppathonDashboardComponent implements OnInit {
   @ViewChild("ideaInput") ideaFileVar: ElementRef;
   @ViewChild("subInput") subFileVar: ElementRef;
+  
   //initialize form group
   readonly formGroup = new FormGroup({
     emailFormControl1: new FormControl("", [
@@ -107,7 +108,10 @@ export class AppathonDashboardComponent implements OnInit {
     mobile6: new FormControl("", [
       // Validators.required,
       Validators.pattern("[0-9]{10}")
-    ])
+    ]),
+    FINAL_URL: new FormControl("", [
+      // Validators.required,
+    ]),
   });
   ideaFile: File;
   finalSubmissionFile: File;
@@ -179,7 +183,9 @@ export class AppathonDashboardComponent implements OnInit {
   get location() {
     return this.formGroup.get("location");
   }
-
+  get FINAL_URL() {
+    return this.formGroup.get("FINAL_URL");
+  }
   matcher = new MyErrorStateMatcher();
 
   //initialize form data
@@ -197,11 +203,13 @@ export class AppathonDashboardComponent implements OnInit {
     team_members_mobile: "",
     team_members_email: "",
     ideaLink: "",
-    finalSubmissionLink: ""
+    finalSubmissionLink: "",
+    FINAL_URL:""
   };
   team_members_name = [];
   team_members_mobile = [];
   team_members_email = [];
+  finalSubStatus:any;
   constructor(
     private appathonService: AppathonService,
     private router: Router,
@@ -249,6 +257,8 @@ export class AppathonDashboardComponent implements OnInit {
           );
           this.formData.ideaLink = response.data.IdeaLink;
           this.formData.finalSubmissionLink = response.data.FinalSubmissionLink;
+          this.formData.FINAL_URL=response.data.FinalURL;
+          this.finalSubStatus = response.data.Status;
           this.spinnerService.hide();
         } else {
           this.spinnerService.hide();
@@ -275,6 +285,7 @@ export class AppathonDashboardComponent implements OnInit {
 
   //submit form data
   submit = async () => {
+    alert(this.formData.FINAL_URL)
     this.disableSubmit = true;
     this.spinnerService.show();
 
@@ -328,6 +339,7 @@ export class AppathonDashboardComponent implements OnInit {
 
     jsonObject["IDEA_LINK"] = this.newIdeaLink;
     jsonObject["FINAL_SUBMISSION_LINK"] = this.newFinalSubmissionLink;
+    console.log('json Obj', jsonObject)
     this.appathonService.update_appathon_details(jsonObject).subscribe(
       (data: any) => {
         let response = JSON.parse(data._body);
