@@ -114,9 +114,9 @@ export class AppathonDashboardComponent implements OnInit {
     ]),
   });
   ideaFile: File;
+  subFile: File;
   finalSubmissionFile: File;
   newIdeaLink = "";
-  newFinalSubmissionLink = "";
   disableSubmit: boolean = false;
 
   //form controls
@@ -276,23 +276,32 @@ export class AppathonDashboardComponent implements OnInit {
 
   //reset form
   reset = () => {
+    if(this.finalSubStatus !== 'selected'){
+      this.toastrmsg("error", "You are not allowed to Reset!");
+    }
+    else{
     this.spinnerService.show();
     this.ideaFile = undefined;
+    this.subFile = undefined;
     this.finalSubmissionFile = undefined;
     this.formGroup.reset();
     this.getAppathonDetails();
+    }
   };
 
   //submit form data
   submit = async () => {
-    alert(this.formData.FINAL_URL)
-    this.disableSubmit = true;
-    this.spinnerService.show();
-
-    if (!this.formGroup.valid) {
-      return;
+    
+    if(this.finalSubStatus !== 'selected'){
+      this.toastrmsg("error", "You are not allowed for Final Submission!");
     }
-
+    else{
+      this.disableSubmit = true;
+      this.spinnerService.show();
+  
+      if (!this.formGroup.valid) {
+        return;
+      }
     if (this.ideaFile) {
       await this.uploadFile(this.ideaFile)
         .then((data: any) => {
@@ -302,10 +311,11 @@ export class AppathonDashboardComponent implements OnInit {
           this.toastrmsg("error", "Error while uploading Idea file!");
         });
     }
-    if (this.finalSubmissionFile) {
-      await this.uploadFile(this.finalSubmissionFile)
+    
+    if (this.subFile) {
+      await this.uploadFile(this.subFile)
         .then((data: any) => {
-          this.newFinalSubmissionLink = JSON.parse(data._body).FilePath;
+          this.subFile = JSON.parse(data._body).FilePath;
         })
         .catch(error => {
           this.toastrmsg(
@@ -338,7 +348,7 @@ export class AppathonDashboardComponent implements OnInit {
     delete jsonObject.finalSubmissionLink;
 
     jsonObject["IDEA_LINK"] = this.newIdeaLink;
-    jsonObject["FINAL_SUBMISSION_LINK"] = this.newFinalSubmissionLink;
+    jsonObject["FINAL_SUBMISSION_LINK"] = this.subFile;
     console.log('json Obj', jsonObject)
     this.appathonService.update_appathon_details(jsonObject).subscribe(
       (data: any) => {
@@ -361,10 +371,12 @@ export class AppathonDashboardComponent implements OnInit {
         this.toastrmsg("error", "Something went wrong!");
       }
     );
+  }
   };
 
   //file upload handle
   public handleFileInput(files: FileList, fileFor) {
+    console.log(files)
     let fileToUpload = files.item(0);
     let temp = fileToUpload.name.split(".");
     let fileType = temp[temp.length - 1];
@@ -375,7 +387,7 @@ export class AppathonDashboardComponent implements OnInit {
         this.ideaFile = files[0];
         this.ideaFileVar.nativeElement.value = "";
       } else {
-        this.finalSubmissionFile = files[0];
+        this.subFile = files[0];
         this.subFileVar.nativeElement.value = "";
       }
     } else {
@@ -408,7 +420,7 @@ export class AppathonDashboardComponent implements OnInit {
       this.ideaFile = undefined;
       this.ideaFileVar.nativeElement.value = "";
     } else {
-      this.finalSubmissionFile = undefined;
+      this.subFile = undefined;
       this.subFileVar.nativeElement.value = "";
     }
   }
