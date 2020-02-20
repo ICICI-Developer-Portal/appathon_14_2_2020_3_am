@@ -28,7 +28,7 @@
       >
         <img src="assets/images/app-banner.jpg" alt="" style="width:100%" />
         <p style="font-family: Zurich BT !important;">
-          **This website is best viewed in desktop versions
+          {{ constants.DESKTOP_VIEW }}
         </p>
       </div>
 
@@ -52,33 +52,19 @@
       >
         <img src="assets/images/app-banner.jpg" alt="" style="width:100%" />
         <p style="font-family: Zurich BT !important;">
-          **This website is best viewed in desktop versions
+          {{ constants.DESKTOP_VIEW }}
         </p>
       </div>
     </section>
     <section class="sectionAPIs sectionAPIsGrayBg">
-      <h3 style="font-family: Zurich BT !important;">Introduction</h3>
-      <!-- <p class="text-center mb50" (click)="browse_api(signin)">Get your developers onboard, very quickly. Learn how to incorporate our
-         ICICI Bank APIs in just few easy steps.
-      </p> -->
+      <h3 style="font-family: Zurich BT !important;">
+        {{ constants.INTRODUCTION }}
+      </h3>
+
       <p class="text-center mb50 text-align-justify" style="font-size: 20px;">
-        ICICI Bank invites you to develop unique products using over 250 APIs
-        hosted on this portal. The programme aims at creating next generation
-        banking products to find some ground- breaking use cases on mobile and
-        web space by attracting innovative and energetic startups. Participants
-        need to envision a new solution and use the diverse sets APIs to create
-        innovative minimum viable solutions. The solutions that surpass the
-        currently available solutions in the market, give a superior and
-        intuitive experience to the end user, will compete for the top prizes in
-        the Grand Finale. The top three winners stand a chance to win prizes
-        upto Rs.10 lakh along with a potential engagement opportunity with ICICI
-        Bank. So get started and register now.
+        {{ constants.INTRODUCTION_DATA }}
       </p>
-      <!-- <div style="display: flex;justify-content: center;">
-        <a class="signInBtn mr10" (click)="registerForAppathon()"
-          >Register for Appathon</a
-        >
-      </div> -->
+
       <div
         class="row"
         id="content-desktop"
@@ -86,9 +72,9 @@
         *ngIf="showbtn"
       >
         <div style="display: flex;justify-content: center;">
-          <a class="signInBtn mr10" (click)="registerForAppathon()"
-            >Register for Appathon</a
-          >
+          <a class="signInBtn mr10" (click)="registerForAppathon()">{{
+            constants.REGISTER_FOR_APPATHON
+          }}</a>
         </div>
       </div>
       <div
@@ -98,9 +84,9 @@
         *ngIf="showbtn"
       >
         <div style="display: flex;justify-content: center;">
-          <a class="signInBtn mr10" (click)="registerForAppathon()"
-            >Register for Appathon</a
-          >
+          <a class="signInBtn mr10" (click)="registerForAppathon()">{{
+            constants.REGISTER_FOR_APPATHON
+          }}</a>
         </div>
       </div>
 
@@ -111,9 +97,9 @@
         *ngIf="!showbtn"
       >
         <div style="display: flex;justify-content: center;">
-          <a class="signInBtn mr10" (click)="registerForAppathon()"
-            >Register for Appathon</a
-          >
+          <a class="signInBtn mr10" (click)="registerForAppathon()">{{
+            constants.REGISTER_FOR_APPATHON
+          }}</a>
         </div>
       </div>
       <div
@@ -123,9 +109,9 @@
         *ngIf="!showbtn"
       >
         <div style="display: flex;justify-content: center;">
-          <a class="signInBtn mr10" (click)="registerForAppathon()"
-            >Register for Appathon</a
-          >
+          <a class="signInBtn mr10" (click)="registerForAppathon()">{{
+            constants.REGISTER_FOR_APPATHON
+          }}</a>
         </div>
       </div>
     </section>
@@ -133,12 +119,14 @@
     <!-- Program details -->
 
     <section class="sectionAPIs sectionAPIsGrayBg" style="background: white;">
-      <h3 style="font-family: Zurich BT !important;">Program Details</h3>
+      <h3 style="font-family: Zurich BT !important;">
+        {{ constants.PROGRAM_DETAILS }}
+      </h3>
       <p
         class="mb50"
         style="text-align: center; font-family: Zurich BT !important;font-size: 20px;"
       >
-        ICICI Bank Appathon will be conducted in 3 phases:
+        {{ constants.PROGRAM_DETAILS_SUBTEXT }}
       </p>
 
       <div
@@ -152,20 +140,17 @@
                 class="sectionAPICardImage"
                 style="display: flex;justify-content: center;align-items: center;"
               >
-                <i class="material-icons" style="font-size:60px;color:#f06321"
-                  >assignment_ind</i
+                <i
+                  class="material-icons"
+                  style="font-size:60px;color:#f06321"
+                  >{{ constants.ASSIGNMENT_IND }}</i
                 >
               </div>
               <h4 style="font-family: Zurich BT !important;font-size: 20px;">
-                Phase 1
+                {{ constants.PHASE_1 }}
               </h4>
               <p style="font-family: Zurich BT !important;">
-                Startups can register on https://developer.icicibank.com/ and
-                submit their ideas by 23 February, 2020. The names of the
-                shortlisted startups will be announced before February 27, 2020.
-                Startups will have to share a brief presentation describing
-                problem statement, market opportunity, product features, use
-                cases and APIs to be used for integration.
+                {{ constants.PHASE_1_DOC }}
               </p>
             </div>
           </a>
@@ -177,20 +162,17 @@
                 class="sectionAPICardImage"
                 style="display: flex;justify-content: center;align-items: center;"
               >
-                <i class="material-icons" style="font-size:60px;color:#f06321"
-                  >voice_chat</i
+                <i
+                  class="material-icons"
+                  style="font-size:60px;color:#f06321"
+                  >{{ constants.VOICE_CHAT }}</i
                 >
               </div>
               <h4 style="font-family: Zurich BT !important;font-size: 20px;">
-                Phase 2
+                {{ constants.PHASE_2 }}
               </h4>
               <p style="font-family: Zurich BT !important;">
-                Shortlisted Startups will start working on actual product and
-                integrations. Access to banks APIs would be given for product
-                development. Startups would have to provide final submission of
-                product demo by first week of March. In this round startups may
-                also avail opportunity to discuss their solution with respective
-                business and technology teams.
+                {{ constants.PHASE_2_DOC }}
               </p>
             </div>
           </a>
@@ -202,17 +184,17 @@
                 class="sectionAPICardImage"
                 style="display: flex;justify-content: center;align-items: center;"
               >
-                <i class="material-icons" style="font-size:60px;color:#f06321"
-                  >location_city</i
+                <i
+                  class="material-icons"
+                  style="font-size:60px;color:#f06321"
+                  >{{ constants.LOCATION_CITY }}</i
                 >
               </div>
               <h4 style="font-family: Zurich BT !important;font-size: 20px;">
-                Phase 3
+                {{ constants.PHASE_3 }}
               </h4>
               <p style="font-family: Zurich BT !important;">
-                Finalists will be announced mid-week of March 2020. They will be
-                invited to Mumbai to present their solution in the ‘Grand
-                Finale’ to be held during end of March.
+                {{ constants.PHASE_3_DOC }}
               </p>
             </div>
           </a>
@@ -220,53 +202,38 @@
       </div>
     </section>
 
-    <!-- <section>
-      <p style="text-align: center; ">
-        ICICI Bank Appathon will be conductedin 3 phases:
-      </p>
-    </section> -->
     <section
       class="sectionAPIs letsGetConnected"
       style="background: #efefef !important;"
     >
       <h3 style="font-family: Zurich BT !important;color: #212121;">
-        Eligibility Criteria
+        {{ constants.ELIGIBILTY_CRITERIA }}
       </h3>
       <p
         class="mb50"
         style="text-align: center;font-family: Zurich BT !important;color: #212121;"
       >
-        All participants must adhere to the following criteria to participate in
-        the programme:
+        {{ constants.ELIGIBILTY_CRITERIA_SUBTEXT }}
       </p>
 
       <ul
         style="font-size: 16px;color:white; font-family: Zurich BT !important;color: #212121;"
       >
         <li style="font-family: Zurich BT !important;">
-          This programme is open to startups.
+          {{ constants.ELIGIBILTY_CRITERIA_LS1 }}
         </li>
         <li style="font-family: Zurich BT !important;">
-          This programme is also open to companies who have previously sold,
-          licensed or otherwise provided services and/or similar solutions to
-          ICICI Bank.
+          {{ constants.ELIGIBILTY_CRITERIA_LS2 }}
         </li>
         <li style="font-family: Zurich BT !important;">
-          This is a team participation programme. You can have at most 5 members
-          in a team.
+          {{ constants.ELIGIBILTY_CRITERIA_LS3 }}
         </li>
         <li style="font-family: Zurich BT !important;">
-          In order to participate, the team needs to use at least one of the
-          listed ICICI Bank APIs on the site. The theme of this Appathon is API
-          Banking, so participants are recommended to use APIs as hosted on
-          developer portal of ICICI Bank
+          {{ constants.ELIGIBILTY_CRITERIA_LS4 }}
         </li>
-        <!-- <li>
-          You may use any other open source libraries available elsewhere.
-        </li> -->
+
         <li style="font-family: Zurich BT !important;">
-          By participating in the Appathon, you agree to the Terms and
-          Conditions.
+          {{ constants.ELIGIBILTY_CRITERIA_LS5 }}
         </li>
       </ul>
     </section>
@@ -274,9 +241,6 @@
       class="sectionAPIs letsGetConnected"
       style="padding-left: 0;padding-right:0; background: #efefef !important; padding:0px;"
     >
-      <!-- <div class="row" style="height:450px; width:100%;margin:0">
-        <img src="assets/images/judgingBanner.jpg" alt="" style="width:100%" />
-      </div> -->
       <div class="row" id="judging-desktop" style="height: auto !important;">
         <img src="assets/images/judgingBanner.jpg" alt="" style="width:100%" />
       </div>
@@ -293,38 +257,25 @@
       class="sectionAPIs letsGetConnected"
       style="margin-bottom: 10px;background: #053C71 !important;"
     >
-      <!-- <h3>Judging Criteria</h3> -->
       <p
         class="mb50"
         style="text-align: center;"
         style="font-family: Zurich BT !important;"
       >
-        Since ICICI Bank is seeking innovative ideas and solutions, there is no
-        single criterion on which we will judge your submission. Ideas will be
-        looked at from multiple perspectives like viability, implementation
-        ability, benefits, completeness of the solution, Business potential,
-        relevance, user experience and scalability. following parameters can be
-        used as an indicator of how the evaluation will happen to determine
-        finalists and overall award recipients:
+        {{ constants.PARAGRAPH }}
       </p>
 
       <ul
         style="font-size: 16px;color:white; font-family: Zurich BT !important;"
       >
         <li>
-          The judges reserve the right to provide a participant who applies for
-          one category with an award from another category, at their sole
-          discretion.
+          {{ constants.PARAGRAPH_LS1 }}
         </li>
         <li>
-          The decisions of the judges are final and binding. If we do not
-          receive a sufficient number of entries meeting the entry requirements,
-          we may, at our discretion, select fewer winners than described.
+          {{ constants.PARAGRAPH_LS2 }}
         </li>
         <li>
-          In the event of a tie between any eligible entries, an additional
-          judge will break the tie based on the judging criteria described
-          above.
+          {{ constants.PARAGRAPH_LS3 }}
         </li>
       </ul>
     </section>
@@ -333,25 +284,26 @@
       class="sectionAPIs letsGetConnected"
       style="margin-bottom: 10px;background-color: #f6f6f6;"
     >
-      <div><h3 style="color:black">Awards</h3></div>
+      <div>
+        <h3 style="color:black">{{ constants.AWARDS }}</h3>
+      </div>
       <div style="display: flex; justify-content: center;">
         <table style="font-size: 16px;color:black; border: 1px solid black;">
           <tr style="border: 1px solid black;">
             <td
               style="border: 1px solid black;padding:30px;font-family: Zurich BT !important;"
             >
-              1st Prize
+              {{ constants.FIRST_PRIZE }}
             </td>
             <td
               style="border: 1px solid black;padding:30px;font-family: Zurich BT !important;"
             >
               <ul>
                 <li style="font-family: Zurich BT !important;">
-                  INR 5 Lakh in monetary award
+                  {{ constants.FIRST_PRIZE_LS1 }}
                 </li>
                 <li style="font-family: Zurich BT !important;">
-                  Potential opportunity to explore a commercial relationship
-                  with ICICI Bank
+                  {{ constants.FIRST_PRIZE_LS2 }}
                 </li>
               </ul>
             </td>
@@ -360,18 +312,17 @@
             <td
               style="border: 1px solid black;padding:30px;font-family: Zurich BT !important;"
             >
-              2nd Prize
+              {{ constants.SECOND_PRIZE }}
             </td>
             <td
               style="border: 1px solid black;padding:30px;font-family: Zurich BT !important;"
             >
               <ul>
                 <li style="font-family: Zurich BT !important;">
-                  INR 3 Lakh in monetary award
+                  {{ constants.SECOND_PRIZE_LS1 }}
                 </li>
                 <li style="font-family: Zurich BT !important;">
-                  Potential opportunity to explore a commercial relationship
-                  with ICICI Bank
+                  {{ constants.SECOND_PRIZE_LS2 }}
                 </li>
               </ul>
             </td>
@@ -380,18 +331,17 @@
             <td
               style="border: 1px solid black;padding:30px;font-family: Zurich BT !important;"
             >
-              3rd Prize
+              {{ constants.THIRD_PRIZE }}
             </td>
             <td
               style="border: 1px solid black;padding:30px;font-family: Zurich BT !important;"
             >
               <ul>
                 <li style="font-family: Zurich BT !important;">
-                  INR 2 lakh in monetary award
+                  {{ constants.THIRD_PRIZE_LS1 }}
                 </li>
                 <li style="font-family: Zurich BT !important;">
-                  Potential opportunity to explore a commercial relationship
-                  with ICICI Bank
+                  {{ constants.THIRD_PRIZE_LS2 }}
                 </li>
               </ul>
             </td>
@@ -405,19 +355,17 @@
       style="background-color: white;"
     >
       <h3 style="color: black;font-family: Zurich BT !important;">
-        Contact us
+        {{ constants.CONTACT_US }}
       </h3>
 
       <ul
         style="font-size: 16px;color:black;font-family: Zurich BT !important;"
       >
         <li style="font-family: Zurich BT !important;">
-          For Programme related queries and support, please reach us at
-          iciciappathon@icicibank.com
+          {{ constants.CONTACT_US_LS1 }}
         </li>
         <li style="font-family: Zurich BT !important;">
-          For technology support related queries, please reach us at
-          appathontech@icicibank.com
+          {{ constants.CONTACT_US_LS2 }}
         </li>
       </ul>
     </section>
