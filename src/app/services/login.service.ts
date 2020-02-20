@@ -579,6 +579,21 @@ export class LoginService {
     );
   }
 
+  downloadPdf(filePath) {
+    var query = filePath;
+    let headers = new Headers({
+      'Content-Type': 'application/x-www-form-urlencoded',
+    });
+
+    let options = new RequestOptions({ headers: headers });
+    return this.http.post(
+      'https://developer.icicibank.com/' + 'rest/downloadFile',
+      query,
+      
+    );
+  }
+
+
   getCompanyName(companyName) {
     return this.http.get(
       'https://developer.icicibank.com/rest/GetCompanyDetails?Name=' +

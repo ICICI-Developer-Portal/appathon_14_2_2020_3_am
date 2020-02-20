@@ -432,7 +432,7 @@ export class AppathonDashboardComponent implements OnInit {
 
     var fileName = url.substring(url.lastIndexOf("/") + 1);
 
-    this.loginService.downloadCertificate(json).subscribe((data: any) => {
+    this.loginService.downloadPdf(json).subscribe((data: any) => {
       this.certificate = data._body;
       console.log(data._body);
       var blob = new Blob([this.certificate], {
