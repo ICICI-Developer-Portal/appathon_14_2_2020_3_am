@@ -158,14 +158,13 @@
             <mat-label>Mobile Number</mat-label>
             <input
               readonly
-              required
               matInput
               [formControl]="mobile1"
               [(ngModel)]="formData.team_captain_mobile"
-              [errorStateMatcher]="matcher"
               placeholder="Mobile Number"
             />
-            <mat-error
+            <!-- [errorStateMatcher]="matcher" -->
+            <!-- <mat-error
               *ngIf="
                 mobile1.hasError('pattern') && !mobile1.hasError('required')
               "
@@ -174,7 +173,7 @@
             </mat-error>
             <mat-error *ngIf="mobile1.hasError('required')">
               Mobile Number is <strong>required</strong>
-            </mat-error>
+            </mat-error> -->
           </mat-form-field>
         </div>
 
@@ -234,10 +233,9 @@
               matInput
               [formControl]="mobile2"
               [(ngModel)]="team_members_mobile[0]"
-              [errorStateMatcher]="matcher"
               placeholder="Mobile Number"
             />
-            <mat-error
+            <!-- <mat-error
               *ngIf="
                 mobile2.hasError('pattern') && !mobile2.hasError('required')
               "
@@ -246,7 +244,7 @@
             </mat-error>
             <mat-error *ngIf="mobile2.hasError('required')">
               Mobile Number is <strong>required</strong>
-            </mat-error>
+            </mat-error> -->
           </mat-form-field>
         </div>
 
@@ -304,10 +302,9 @@
               matInput
               [formControl]="mobile3"
               [(ngModel)]="team_members_mobile[1]"
-              [errorStateMatcher]="matcher"
               placeholder="Mobile Number"
             />
-            <mat-error
+            <!-- <mat-error
               *ngIf="
                 mobile3.hasError('pattern') && !mobile3.hasError('required')
               "
@@ -316,7 +313,7 @@
             </mat-error>
             <mat-error *ngIf="mobile3.hasError('required')">
               Mobile Number is <strong>required</strong>
-            </mat-error>
+            </mat-error> -->
           </mat-form-field>
         </div>
 
@@ -374,10 +371,9 @@
               matInput
               [formControl]="mobile4"
               [(ngModel)]="team_members_mobile[2]"
-              [errorStateMatcher]="matcher"
               placeholder="Mobile Number"
             />
-            <mat-error
+            <!-- <mat-error
               *ngIf="
                 mobile4.hasError('pattern') && !mobile4.hasError('required')
               "
@@ -386,7 +382,7 @@
             </mat-error>
             <mat-error *ngIf="mobile4.hasError('required')">
               Mobile Number is <strong>required</strong>
-            </mat-error>
+            </mat-error> -->
           </mat-form-field>
         </div>
 
@@ -444,10 +440,9 @@
               matInput
               [formControl]="mobile5"
               [(ngModel)]="team_members_mobile[3]"
-              [errorStateMatcher]="matcher"
               placeholder="Mobile Number"
             />
-            <mat-error
+            <!-- <mat-error
               *ngIf="
                 mobile5.hasError('pattern') && !mobile5.hasError('required')
               "
@@ -456,7 +451,7 @@
             </mat-error>
             <mat-error *ngIf="mobile5.hasError('required')">
               Mobile Number is <strong>required</strong>
-            </mat-error>
+            </mat-error> -->
           </mat-form-field>
         </div>
 
@@ -484,54 +479,6 @@
           </mat-form-field>
         </div>
       </div>
-
-      <!-- player5 -->
-      <!-- <div class="row mb20 ">
-  <div class="col-md-2 alignTop">
-    Member5: 
-  </div>
-  <div class="col-md-3">
-<mat-form-field class="example-full-width">
-  <mat-label>Name</mat-label>
-  <input matInput [formControl]="name6" [(ngModel)]="team_members_name[4]" [errorStateMatcher]="matcher"
-         placeholder="Name">
-  
-  <mat-error *ngIf="name6.hasError('required')">
-    Name is <strong>required</strong>
-  </mat-error>
-</mat-form-field>
-</div>
-
-
-<div class="col-md-3">
-  <mat-form-field class="example-full-width">
-    <mat-label>Mobile Number</mat-label>
-    <input matInput [formControl]="mobile6" [(ngModel)]="team_members_mobile[4]" [errorStateMatcher]="matcher"
-           placeholder="Mobile Number">
-    <mat-error *ngIf="mobile6.hasError('pattern') && !mobile6.hasError('required')">
-      Please enter a valid 10 digit Mobile Number
-    </mat-error>
-    <mat-error *ngIf="mobile6.hasError('required')">
-      Mobile Number is <strong>required</strong>
-    </mat-error>
-  </mat-form-field>
-  </div>
-
-
-  <div class="col-md-3">
-    <mat-form-field class="example-full-width">
-      <mat-label>Email</mat-label>
-      <input matInput [formControl]="emailFormControl6" [(ngModel)]="team_members_email[4]" [errorStateMatcher]="matcher"
-             placeholder="Ex. pat@example.com">
-      <mat-error *ngIf="emailFormControl6.hasError('email') && !emailFormControl6.hasError('required')">
-        Please enter a valid email address
-      </mat-error>
-      <mat-error *ngIf="emailFormControl6.hasError('required')">
-        Email is <strong>required</strong>
-      </mat-error>
-    </mat-form-field>
-    </div>
-</div> -->
 
       <!-- <div class="row mb60 ">
         <div class="col-md-2">
