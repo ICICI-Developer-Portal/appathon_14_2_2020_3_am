@@ -87,27 +87,23 @@ export class AppathonDashboardComponent implements OnInit {
     ]),
     mobile1: new FormControl("", [
       // Validators.required,
-      Validators.pattern("[0-9]{10}")
+      //Validators.pattern("[0-9]{10}")
     ]),
     mobile2: new FormControl("", [
       // Validators.required,
-      Validators.pattern("[0-9]{10}")
+      //Validators.pattern("[0-9]{10}")
     ]),
     mobile3: new FormControl("", [
       // Validators.required,
-      Validators.pattern("[0-9]{10}")
+     // Validators.pattern("[0-9]{10}")
     ]),
     mobile4: new FormControl("", [
       // Validators.required,
-      Validators.pattern("[0-9]{10}")
+     // Validators.pattern("[0-9]{10}")
     ]),
     mobile5: new FormControl("", [
       // Validators.required,
-      Validators.pattern("[0-9]{10}")
-    ]),
-    mobile6: new FormControl("", [
-      // Validators.required,
-      Validators.pattern("[0-9]{10}")
+      //Validators.pattern("[0-9]{10}")
     ]),
     FINAL_URL: new FormControl("", [
       // Validators.required,
