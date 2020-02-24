@@ -12,7 +12,6 @@ import { LoginService } from "src/app/services/login.service";
 import { Router } from "@angular/router";
 import { ToasterService, Toast } from "angular2-toaster";
 import { Ng4LoadingSpinnerService } from "ng4-loading-spinner";
-import { error } from "protractor";
 
 /** Error when invalid control is dirty, touched, or submitted. */
 export class MyErrorStateMatcher implements ErrorStateMatcher {
@@ -408,13 +407,23 @@ export class AppathonDashboardComponent implements OnInit {
 
     var fileName = url.substring(url.lastIndexOf("/") + 1);
 
-    this.loginService.downloadCertificate(json).subscribe((data: any) => {
-      this.certificate = data._body;
+    this.loginService.downloadPdf(json).subscribe((data: any) => {
+      console.log(data);
+      //this.certificate = data._body;
       console.log(data._body);
-      var blob = new Blob([this.certificate], {
-        type: "text/plain"
-      });
-      saveAs(blob, fileName);
+      // var blob = new Blob([this.certificate], {
+      //   type: "application/pdf;charset=utf-8"
+      // });
+      // var blob = new Blob([this.certificate], {
+      //   type: "application/pdf"
+      // });
+      // const fileURL = URL.createObjectURL(blob);
+      // const link = document.createElement("a");
+      // link.href = fileURL;
+      // link.download = "FileName" + new Date() + ".pdf";
+      // link.click();
+
+      //saveAs(blob, fileName);
     });
   }
 }

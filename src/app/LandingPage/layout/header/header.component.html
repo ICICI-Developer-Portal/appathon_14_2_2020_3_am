@@ -176,7 +176,7 @@
         >
       </li>
     </ul>
-    <div class="row mobileMenu m0">
+    <!-- <div class="row mobileMenu m0">
       <div class="col-11">
         <div class="row">
           <div class="col-5">
@@ -209,6 +209,71 @@
           ><i class="material-icons">menu</i></a
         >
       </div>
+    </div> -->
+    <div class="row mobileMenu m0">
+      <div class="col-12">
+        <div class="row">
+          <div class="col-5">
+            <a [routerLink]="['/index']" class="navbar-brand"
+              ><img src="assets/images/icici-svg-2.svg" alt=""
+            /></a>
+          </div>
+          <div
+            class="col-7 text-right pt10"
+            style="display: flex;
+          padding-left: 0;justify-content: flex-end;"
+          >
+            <!-- <a
+              data-toggle="tab"
+              [routerLink]="['/appathon/landing-page']"
+              style="color:#919191; font-weight: bold;   display: flex;
+            align-items: center;margin-right: 5px;"
+              >Appathon</a
+            > -->
+            <a
+              class="tryItFreeBtn"
+              (click)="openModalAppathonSignup(appathonSignup)"
+              *ngIf="showbtn"
+              style="margin-right: 5px;padding: 2px;display: flex;align-items: center;"
+              >Register For Appathon</a
+            >
+
+            <a
+              class="tryItFreeBtn"
+              (click)="openModalAppathonSignup(appathonLoggedSignup)"
+              *ngIf="!showbtn"
+              style="margin-right: 5px; padding: 2px;display: flex;align-items: center;"
+              >Register For Appathon</a
+            >
+
+            <a
+              data-dismiss="modal"
+              data-toggle="modal"
+              data-target="#signUp"
+              (click)="openModal2(signup)"
+              class="tryItFreeBtn"
+              style="display: flex;padding: 2px;
+              align-items: center;margin-right: 5px;"
+              >Sign Up</a
+            >
+            <a
+              data-dismiss="modal"
+              class="signInBtn"
+              data-toggle="modal"
+              (click)="openModal(signin)"
+              data-target="#signIn"
+              style="display: flex;padding: 2px;
+              align-items: center;"
+              >Sign In</a
+            >
+          </div>
+        </div>
+      </div>
+      <!-- <div class="col-1 text-right pl0">
+        <a data-toggle="modal" data-target="#mobileMenu" class="mobileHamburger"
+          ><i class="material-icons">menu</i></a
+        >
+      </div> -->
     </div>
   </div>
 </div>

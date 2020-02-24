@@ -1,29 +1,30 @@
-import { Component, OnInit, TemplateRef, ɵConsole } from '@angular/core';
+import { Component, OnInit, TemplateRef, ɵConsole } from "@angular/core";
 import {
   MatDialog,
   MatDialogRef,
-  MAT_DIALOG_DATA,
-} from '@angular/material/dialog';
-import { AppathonSignupComponent } from './appathon-signup/appathon-signup.component';
-import { Router } from '@angular/router';
-import { BsModalService, BsModalRef } from 'ngx-bootstrap';
-import { Toast, ToasterService } from 'angular2-toaster';
-import { LoginService } from 'src/app/services';
-import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { PasswordValidation } from './header/password.validator';
-import { ChangeDetectorRef } from '@angular/core';
-import { AuthService } from 'src/app/services/auth.service';
-import { SessionService } from 'src/app/services/session.service';
-import { formatDate } from '@angular/common';
-import { FormControl } from '@angular/forms';
-import { Observable } from 'rxjs';
-import { startWith, map } from 'rxjs/operators';
+  MAT_DIALOG_DATA
+} from "@angular/material/dialog";
+import { AppathonSignupComponent } from "./appathon-signup/appathon-signup.component";
+import { Router } from "@angular/router";
+import { BsModalService, BsModalRef } from "ngx-bootstrap";
+import { Toast, ToasterService } from "angular2-toaster";
+import { LoginService } from "src/app/services";
+import { Ng4LoadingSpinnerService } from "ng4-loading-spinner";
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { PasswordValidation } from "./header/password.validator";
+import { ChangeDetectorRef } from "@angular/core";
+import { AuthService } from "src/app/services/auth.service";
+import { SessionService } from "src/app/services/session.service";
+import { formatDate } from "@angular/common";
+import { FormControl } from "@angular/forms";
+import { Observable } from "rxjs";
+import { startWith, map } from "rxjs/operators";
+import { CONSTANTS } from "../../../config/application-constant";
 
 @Component({
-  selector: 'app-appathon-landing',
-  templateUrl: './appathon-landing.component.html',
-  styleUrls: ['./appathon-landing.component.css'],
+  selector: "app-appathon-landing",
+  templateUrl: "./appathon-landing.component.html",
+  styleUrls: ["./appathon-landing.component.css"]
 })
 export class AppathonLandingComponent implements OnInit {
   modalRef: BsModalRef;
@@ -32,7 +33,7 @@ export class AppathonLandingComponent implements OnInit {
   modalRef4: BsModalRef;
   isusername: boolean = false;
   issetpwd: boolean = false;
-  is_res_error: any = '';
+  is_res_error: any = "";
   valueWidth = false;
   show: boolean = false;
   showOtp: boolean = true;
@@ -44,18 +45,18 @@ export class AppathonLandingComponent implements OnInit {
   signupForm3: FormGroup;
   signupForm4: FormGroup;
   forgetpassForm: FormGroup;
-  mobnumPattern = '^((\\+91-?)|0)?[0-9]{10}$';
+  mobnumPattern = "^((\\+91-?)|0)?[0-9]{10}$";
   signupFormLink: FormGroup;
   isemail_check: boolean = false;
   shfrmSFFirst: boolean = false;
   shfrmSFSecond: boolean = false;
   shfrmSFThird: boolean = false;
   logged_in: boolean = false;
-  otp_txt_id: any = '';
-  isemail_reg_check: string = '';
-  ismobile_reg_check: string = '';
-  isotp_reg_check: string = '';
-  user_name = '';
+  otp_txt_id: any = "";
+  isemail_reg_check: string = "";
+  ismobile_reg_check: string = "";
+  isotp_reg_check: string = "";
+  user_name = "";
   otp_verified = 0;
   domainLst: any[];
   loginResponse: any;
@@ -68,7 +69,6 @@ export class AppathonLandingComponent implements OnInit {
   appathonUserName: any;
   appathonUsername: any;
   appathonPassword: any;
-  
 
   //aapathonSignUpForm
   appathonSignupForm: FormGroup;
@@ -87,6 +87,7 @@ export class AppathonLandingComponent implements OnInit {
   teamList: any[];
   teamMemberArr: any[];
   //aapathonSignUpForm
+  constants = CONSTANTS;
 
   constructor(
     private SessionService: SessionService,
@@ -97,26 +98,26 @@ export class AppathonLandingComponent implements OnInit {
     private modalService: BsModalService,
     private router: Router,
     private adm: LoginService,
-    private toasterService: ToasterService,
+    private toasterService: ToasterService
   ) {
     this.btn_Sign();
-    this.appathonFirstName = localStorage.getItem('appathonFirstName');
-    this.appathonCompanyEmail = localStorage.getItem('appathonCompanyEmail');
-    this.appathonMobileNumber = localStorage.getItem('appathonMobileNumber');
-    this.appathonCompanyName = localStorage.getItem('appathonCompanyName');
-    this.appathonUserName = localStorage.getItem('appathonUserName');
+    this.appathonFirstName = localStorage.getItem("appathonFirstName");
+    this.appathonCompanyEmail = localStorage.getItem("appathonCompanyEmail");
+    this.appathonMobileNumber = localStorage.getItem("appathonMobileNumber");
+    this.appathonCompanyName = localStorage.getItem("appathonCompanyName");
+    this.appathonUserName = localStorage.getItem("appathonUserName");
     this.adm.getUserId().subscribe(data => {
       this.logged_in =
-        data != '' && data != null && data != undefined ? true : false;
+        data != "" && data != null && data != undefined ? true : false;
       this.showbtn = !this.logged_in;
     });
     this.adm.getUserName().subscribe(data => {
       this.user_name = data;
-      this.appathonFirstName = localStorage.getItem('appathonFirstName');
-      this.appathonCompanyEmail = localStorage.getItem('appathonCompanyEmail');
-      this.appathonMobileNumber = localStorage.getItem('appathonMobileNumber');
-      this.appathonCompanyName = localStorage.getItem('appathonCompanyName');
-      this.appathonUserName = localStorage.getItem('appathonUserName');
+      this.appathonFirstName = localStorage.getItem("appathonFirstName");
+      this.appathonCompanyEmail = localStorage.getItem("appathonCompanyEmail");
+      this.appathonMobileNumber = localStorage.getItem("appathonMobileNumber");
+      this.appathonCompanyName = localStorage.getItem("appathonCompanyName");
+      this.appathonUserName = localStorage.getItem("appathonUserName");
     });
     this.get_domain_and_apis();
   }
@@ -126,94 +127,94 @@ export class AppathonLandingComponent implements OnInit {
     this.teamList = [0, 1, 2, 3, 4];
     //aapathonSignUpForm
     this.forgetpassForm = this.formbuilder.group({
-      username: ['', [Validators.required]],
+      username: ["", [Validators.required]]
     });
     this.signupForm = this.formbuilder.group({
-      firstname: ['', [Validators.required]],
-      companyName: ['', [Validators.required]],
-      domainNm: ['', [Validators.required]],
-      CITY: ['', [Validators.required]],
-      RM: ['', [Validators.required]],
-      email: ['', [Validators.required, Validators.email]],
-      otp_verified: ['0'],
-      otp_send: ['0'],
+      firstname: ["", [Validators.required]],
+      companyName: ["", [Validators.required]],
+      domainNm: ["", [Validators.required]],
+      CITY: ["", [Validators.required]],
+      RM: ["", [Validators.required]],
+      email: ["", [Validators.required, Validators.email]],
+      otp_verified: ["0"],
+      otp_send: ["0"]
     });
 
     //aapathonSignUpForm
     this.appathonSignupForm = this.formbuilder.group({
-      teamName: ['', [Validators.required]],
-      captainName: ['', [Validators.required]],
+      teamName: ["", [Validators.required]],
+      captainName: ["", [Validators.required]],
       captainMobileNumber: [
-        '',
-        [Validators.required, Validators.pattern(this.mobnumPattern)],
+        "",
+        [Validators.required, Validators.pattern(this.mobnumPattern)]
       ],
-      teamEmail: ['', [Validators.required, Validators.email]],
-      teamSize: ['', [Validators.required]],
-      memberName1: [''],
-      memberMobileNumber1: [''],
-      memberEmail1: [''],
-      memberName2: [''],
-      memberMobileNumber2: [''],
-      memberEmail2: [''],
-      memberName3: [''],
-      memberMobileNumber3: [''],
-      memberEmail3: [''],
-      memberName4: [''],
-      memberMobileNumber4: [''],
-      memberEmail4: [''],
-      location: ['', [Validators.required]],
-      memberCompanyName: ['', [Validators.required]],
-      otp_verified: ['0'],
-      otp_send: ['0'],
+      teamEmail: ["", [Validators.required, Validators.email]],
+      teamSize: ["", [Validators.required]],
+      memberName1: [""],
+      memberMobileNumber1: [""],
+      memberEmail1: [""],
+      memberName2: [""],
+      memberMobileNumber2: [""],
+      memberEmail2: [""],
+      memberName3: [""],
+      memberMobileNumber3: [""],
+      memberEmail3: [""],
+      memberName4: [""],
+      memberMobileNumber4: [""],
+      memberEmail4: [""],
+      location: ["", [Validators.required]],
+      memberCompanyName: ["", [Validators.required]],
+      otp_verified: ["0"],
+      otp_send: ["0"]
     });
 
     this.appathonSignupForm2 = this.formbuilder.group({
       mobile_no: [
-        '',
-        [Validators.required, Validators.pattern(this.mobnumPattern)],
+        "",
+        [Validators.required, Validators.pattern(this.mobnumPattern)]
       ],
-      otp_code: ['', [Validators.required]],
+      otp_code: ["", [Validators.required]]
     });
 
     this.appathonSignupForm3 = this.formbuilder.group(
       {
-        username: ['', [Validators.required]],
-        password: ['', [Validators.required]],
-        confirmPassword: ['', [Validators.required]],
-        term: ['', [Validators.required]],
+        username: ["", [Validators.required]],
+        password: ["", [Validators.required]],
+        confirmPassword: ["", [Validators.required]],
+        term: ["", [Validators.required]]
       },
       {
-        validator: PasswordValidation.MatchPassword, // your validation method
-      },
+        validator: PasswordValidation.MatchPassword // your validation method
+      }
     );
 
     this.appathonSignupForm4 = this.formbuilder.group({
-      termsandcondition: ['', [Validators.required]],
+      termsandcondition: ["", [Validators.required]]
     });
     //aapathonSignUpForm
 
     this.signupForm2 = this.formbuilder.group({
       mobile_no: [
-        '',
-        [Validators.required, Validators.pattern(this.mobnumPattern)],
+        "",
+        [Validators.required, Validators.pattern(this.mobnumPattern)]
       ],
-      otp_code: ['', [Validators.required]],
+      otp_code: ["", [Validators.required]]
     });
 
     this.signupForm3 = this.formbuilder.group(
       {
-        username: ['', [Validators.required]],
-        password: ['', [Validators.required]],
-        confirmPassword: ['', [Validators.required]],
-        term: ['', [Validators.required]],
+        username: ["", [Validators.required]],
+        password: ["", [Validators.required]],
+        confirmPassword: ["", [Validators.required]],
+        term: ["", [Validators.required]]
       },
       {
-        validator: PasswordValidation.MatchPassword, // your validation method
-      },
+        validator: PasswordValidation.MatchPassword // your validation method
+      }
     );
 
     this.signupForm4 = this.formbuilder.group({
-      termsandcondition: ['', [Validators.required]],
+      termsandcondition: ["", [Validators.required]]
     });
 
     this.shfrmSFFirst = true;
@@ -226,58 +227,57 @@ export class AppathonLandingComponent implements OnInit {
     this.shfrmSFSecond1 = false;
     this.shfrmSFThird1 = false;
     //aapathonSignUpForm
-
   }
 
   get firstname() {
-    return this.signupForm.get('firstname');
+    return this.signupForm.get("firstname");
   }
   get companyName() {
-    return this.signupForm.get('companyName');
+    return this.signupForm.get("companyName");
   }
   get domainNm() {
-    return this.signupForm.get('domainNm');
+    return this.signupForm.get("domainNm");
   }
   get email() {
-    return this.signupForm.get('email');
+    return this.signupForm.get("email");
   }
   get CITY() {
-    return this.signupForm.get('CITY');
+    return this.signupForm.get("CITY");
   }
   get RM() {
-    return this.signupForm.get('RM');
+    return this.signupForm.get("RM");
   }
 
   get mobile_no() {
-    return this.signupForm2.get('mobile_no');
+    return this.signupForm2.get("mobile_no");
   }
   get otp_code() {
-    return this.signupForm2.get('otp_code');
+    return this.signupForm2.get("otp_code");
   }
 
   get username() {
-    return this.signupForm3.get('username');
+    return this.signupForm3.get("username");
   }
   get password() {
-    return this.signupForm3.get('password');
+    return this.signupForm3.get("password");
   }
   get confirmPassword() {
-    return this.signupForm3.get('confirmPassword');
+    return this.signupForm3.get("confirmPassword");
   }
 
   get termsandcondition() {
-    return this.signupForm2.get('termsandcondition');
+    return this.signupForm2.get("termsandcondition");
   }
 
   get username1() {
-    return this.forgetpassForm.get('username1');
+    return this.forgetpassForm.get("username1");
   }
 
   toastrmsg(type, title) {
     var toast: Toast = {
       type: type,
       title: title,
-      showCloseButton: true,
+      showCloseButton: true
     };
     this.toasterService.pop(toast);
   }
@@ -286,17 +286,17 @@ export class AppathonLandingComponent implements OnInit {
     var timer = this.SessionService.session();
     this.adm.getUserId().subscribe(data => {
       this.logged_in =
-        data != '' && data != null && data != undefined ? true : false;
+        data != "" && data != null && data != undefined ? true : false;
       this.showbtn = !this.logged_in;
     });
   }
 
   openModal2(signup: TemplateRef<any>) {
-    this.modalRef2 = this.modalService.show(signup, { backdrop: 'static' });
+    this.modalRef2 = this.modalService.show(signup, { backdrop: "static" });
     try {
       this.modalRef.hide();
     } catch (e) {}
-    this.signupForm.controls['otp_verified'].setValue('0');
+    this.signupForm.controls["otp_verified"].setValue("0");
     this.otp_verified = 0;
     this.ref.markForCheck();
   }
@@ -304,18 +304,18 @@ export class AppathonLandingComponent implements OnInit {
   //aapathonSignUpForm
   openModalAppathonSignup(appathonSignup: TemplateRef<any>) {
     this.modalRef2 = this.modalService.show(appathonSignup, {
-      backdrop: 'static',
+      backdrop: "static"
     });
     try {
       this.modalRef.hide();
     } catch (e) {}
-    this.signupForm.controls['otp_verified'].setValue('0');
+    this.signupForm.controls["otp_verified"].setValue("0");
     this.otp_verified = 0;
     this.ref.markForCheck();
   }
   //aapathonSignUpForm
   openModal(signin: TemplateRef<any>) {
-    this.modalRef = this.modalService.show(signin, { backdrop: 'static' });
+    this.modalRef = this.modalService.show(signin, { backdrop: "static" });
 
     try {
       this.modalRef2.hide();
@@ -323,7 +323,7 @@ export class AppathonLandingComponent implements OnInit {
   }
   Modalforgotpassw(forgotpassw: TemplateRef<any>) {
     this.modalRef3 = this.modalService.show(forgotpassw, {
-      backdrop: 'static',
+      backdrop: "static"
     });
 
     try {
@@ -337,11 +337,11 @@ export class AppathonLandingComponent implements OnInit {
     //localStorage.setItem('password',password);
     this.isusername = false;
     this.issetpwd = false;
-    this.is_res_error = '';
-    if (username == '') {
+    this.is_res_error = "";
+    if (username == "") {
       this.isusername = true;
       return;
-    } else if (password == '') {
+    } else if (password == "") {
       this.isusername = false;
       this.issetpwd = true;
       return;
@@ -355,23 +355,38 @@ export class AppathonLandingComponent implements OnInit {
         var timer = this.SessionService.session();
         this.show = false;
         this.modalRef.hide();
-        localStorage.setItem('appathonFirstName', this.loginResponse.data.firstName);
-        localStorage.setItem('appathonCompanyEmail', this.loginResponse.data.email);
-        localStorage.setItem('appathonMobileNumber', this.loginResponse.data.mobileNo);
-        localStorage.setItem('appathonCompanyName', this.loginResponse.data.companyName);
-        localStorage.setItem('appathonUserName', this.loginResponse.data.username);
+        localStorage.setItem(
+          "appathonFirstName",
+          this.loginResponse.data.firstName
+        );
+        localStorage.setItem(
+          "appathonCompanyEmail",
+          this.loginResponse.data.email
+        );
+        localStorage.setItem(
+          "appathonMobileNumber",
+          this.loginResponse.data.mobileNo
+        );
+        localStorage.setItem(
+          "appathonCompanyName",
+          this.loginResponse.data.companyName
+        );
+        localStorage.setItem(
+          "appathonUserName",
+          this.loginResponse.data.username
+        );
         this.spinnerService.hide();
 
         this.adm.LoginPortal(json).subscribe(
           res => {
-            this.router.navigate(['/index']);
+            this.router.navigate(["/index"]);
           },
           err => {
-            this.router.navigate(['/index']);
-          },
+            this.router.navigate(["/index"]);
+          }
         );
         this.modalRef4 = this.modalService.show(loginsuccess, {
-          backdrop: 'static',
+          backdrop: "static"
         });
       } else {
         this.spinnerService.hide();
@@ -385,11 +400,11 @@ export class AppathonLandingComponent implements OnInit {
 
   sessionSet(key, value, expirationInMin = 20) {
     let expirationDate = new Date(
-      new Date().getTime() + 60000 * expirationInMin,
+      new Date().getTime() + 60000 * expirationInMin
     );
     let newValue = {
       value: value,
-      expirationDate: expirationDate.toISOString(),
+      expirationDate: expirationDate.toISOString()
     };
     window.sessionStorage.setItem(key, JSON.stringify(newValue));
   }
@@ -398,9 +413,9 @@ export class AppathonLandingComponent implements OnInit {
   sign_up() {
     var CurrentTime = formatDate(
       this.today,
-      'dd-MM-yyyy hh:mm:ss a',
-      'en-US',
-      '+0530',
+      "dd-MM-yyyy hh:mm:ss a",
+      "en-US",
+      "+0530"
     );
     //var CurrentTime = new Date().getHours() + ':' + new Date().getMinutes() + ':'+ new Date().getSeconds();
     try {
@@ -415,11 +430,11 @@ export class AppathonLandingComponent implements OnInit {
         contactNo: this.signupForm2.value.mobile_no,
         CITY: this.signupForm.value.CITY,
         RM: this.signupForm.value.RM,
-        tncConfirmed: '1',
+        tncConfirmed: "1",
         tncConfirmedDt: CurrentTime,
-        approverName: 'YES',
-        approverEmailId: 'YES',
-        requestDt: CurrentTime,
+        approverName: "YES",
+        approverEmailId: "YES",
+        requestDt: CurrentTime
       };
       this.spinnerService.show();
       this.adm.sign_up(json).subscribe((data: any) => {
@@ -428,8 +443,8 @@ export class AppathonLandingComponent implements OnInit {
         if (obj.status == true) {
           this.signup_jira();
           this.toastrmsg(
-            'success',
-            'Thanks for registering, once your application is approved it would be conveyed to you on mail',
+            "success",
+            "Thanks for registering, once your application is approved it would be conveyed to you on mail"
           );
           this.spinnerService.hide();
           this.signupForm.reset();
@@ -441,16 +456,16 @@ export class AppathonLandingComponent implements OnInit {
           this.shfrmSFSecond = false;
           this.shfrmSFThird = false;
 
-          this.router.navigate(['/index']);
+          this.router.navigate(["/index"]);
         } else {
           this.shfrmSFThird = true;
           this.shfrmSFSecond = false;
           this.shfrmSFFirst = false;
-          this.toastrmsg('error', obj.message);
+          this.toastrmsg("error", obj.message);
         }
       });
     } catch {
-      this.toastrmsg('error', console.error());
+      this.toastrmsg("error", console.error());
     }
   }
   //aapathonSignUpForm
@@ -458,18 +473,28 @@ export class AppathonLandingComponent implements OnInit {
   appathonSign_up() {
     var CurrentTime = formatDate(
       this.today,
-      'dd-MM-yyyy hh:mm:ss a',
-      'en-US',
-      '+0530',
+      "dd-MM-yyyy hh:mm:ss a",
+      "en-US",
+      "+0530"
     );
 
-    if ((this.appathonSignupForm3.value.username == undefined) || (this.appathonSignupForm3.value.username == "") || (this.appathonSignupForm3.value.username == "NULL")) {
-      this.appathonUsername = this.appathonSignupForm3.value.username + '_' + CurrentTime;
+    if (
+      this.appathonSignupForm3.value.username == undefined ||
+      this.appathonSignupForm3.value.username == "" ||
+      this.appathonSignupForm3.value.username == "NULL"
+    ) {
+      this.appathonUsername =
+        this.appathonSignupForm3.value.username + "_" + CurrentTime;
     } else {
       this.appathonUsername = this.appathonSignupForm3.value.username;
     }
-    if ((this.appathonSignupForm3.value.password == undefined) || (this.appathonSignupForm3.value.password == "") || (this.appathonSignupForm3.value.password == "NULL")) {
-      this.appathonPassword = this.appathonSignupForm3.value.password + '_' + CurrentTime;
+    if (
+      this.appathonSignupForm3.value.password == undefined ||
+      this.appathonSignupForm3.value.password == "" ||
+      this.appathonSignupForm3.value.password == "NULL"
+    ) {
+      this.appathonPassword =
+        this.appathonSignupForm3.value.password + "_" + CurrentTime;
     } else {
       this.appathonPassword = this.appathonSignupForm3.value.password;
     }
@@ -491,11 +516,11 @@ export class AppathonLandingComponent implements OnInit {
         team_members_email: JSON.stringify(this.exampleArray3),
 
         company_name: this.appathonSignupForm.value.memberCompanyName,
-        tncConfirmed: '1',
+        tncConfirmed: "1",
         tncConfirmedDt: CurrentTime,
-        approverName: 'YES',
-        approverEmailId: 'YES',
-        requestDt: CurrentTime,
+        approverName: "YES",
+        approverEmailId: "YES",
+        requestDt: CurrentTime
       };
       this.spinnerService.show();
       this.adm.appathon_sign_up(json).subscribe((data: any) => {
@@ -505,8 +530,8 @@ export class AppathonLandingComponent implements OnInit {
         if (obj.status == true) {
           this.signup_jira();
           this.toastrmsg(
-            'success',
-            'Thanks for registering, once your application is approved it would be conveyed to you on mail',
+            "success",
+            "Thanks for registering, once your application is approved it would be conveyed to you on mail"
           );
           this.spinnerService.hide();
           this.appathonSignupForm.reset();
@@ -518,22 +543,22 @@ export class AppathonLandingComponent implements OnInit {
           this.shfrmSFSecond1 = false;
           this.shfrmSFThird1 = false;
 
-          this.router.navigate(['/appathon/landing-page']);
+          this.router.navigate(["/appathon/landing-page"]);
         } else {
           this.shfrmSFThird1 = true;
           this.shfrmSFSecond1 = false;
           this.shfrmSFFirst1 = false;
-          this.toastrmsg('error', obj.message);
+          this.toastrmsg("error", obj.message);
         }
       });
     } catch {
-      this.toastrmsg('error', console.error());
+      this.toastrmsg("error", console.error());
     }
   }
   //aapathonSignUpForm
 
   signup_jira() {
-    var CurrentTime = formatDate(this.today, 'yyyy-MM-dd', 'en-US', '+0530');
+    var CurrentTime = formatDate(this.today, "yyyy-MM-dd", "en-US", "+0530");
     //var CurrentTime = new Date().getHours() + ':' + new Date().getMinutes() + ':'+ new Date().getSeconds();
     var json = {
       userName: this.signupForm3.value.username,
@@ -545,11 +570,11 @@ export class AppathonLandingComponent implements OnInit {
       contactNo: this.signupForm2.value.mobile_no,
       CITY: this.signupForm.value.CITY,
       RM: this.signupForm.value.RM,
-      tncConfirmed: '1',
+      tncConfirmed: "1",
       tncConfirmedDt: CurrentTime,
-      approverName: 'YES',
-      approverEmailId: 'YES',
-      requestDt: CurrentTime,
+      approverName: "YES",
+      approverEmailId: "YES",
+      requestDt: CurrentTime
     };
     this.adm.sign_upjira(json).subscribe((data: any) => {
       var response = data._body;
@@ -557,28 +582,28 @@ export class AppathonLandingComponent implements OnInit {
   }
 
   SendOtp(mobile: any) {
-    this.signupForm.controls['otp_send'].setValue('0');
+    this.signupForm.controls["otp_send"].setValue("0");
     try {
-      if (mobile == '') {
-        this.ismobile_reg_check = 'Enter Mobile Number';
+      if (mobile == "") {
+        this.ismobile_reg_check = "Enter Mobile Number";
         //this.toastrmsg('error', "Enter Mobile Number");
         return;
       }
       var json = {
-        mobile_no: mobile,
+        mobile_no: mobile
       };
-      this.ismobile_reg_check = '';
+      this.ismobile_reg_check = "";
       this.adm.SendOTP(json).subscribe((data: any) => {
         var response = data._body;
         var obj = JSON.parse(response);
         if (obj.status == true) {
           this.showOtp = true;
           this.show = true;
-          this.signupForm.controls['otp_send'].setValue('1');
+          this.signupForm.controls["otp_send"].setValue("1");
           this.otp_txt_id = obj.data;
           //this.toastrmsg('success', "OTP Sent");
         } else {
-          this.signupForm.controls['otp_send'].setValue('0');
+          this.signupForm.controls["otp_send"].setValue("0");
           this.showOtp = true;
           this.show = true;
         }
@@ -587,28 +612,28 @@ export class AppathonLandingComponent implements OnInit {
   }
   //aapathonSignUpForm
   appathonSendOtp(mobile: any) {
-    this.appathonSignupForm.controls['otp_send'].setValue('0');
+    this.appathonSignupForm.controls["otp_send"].setValue("0");
     try {
-      if (mobile == '') {
-        this.ismobile_reg_check = 'Enter Mobile Number';
+      if (mobile == "") {
+        this.ismobile_reg_check = "Enter Mobile Number";
         //this.toastrmsg('error', "Enter Mobile Number");
         return;
       }
       var json = {
-        mobile_no: mobile,
+        mobile_no: mobile
       };
-      this.ismobile_reg_check = '';
+      this.ismobile_reg_check = "";
       this.adm.SendOTP(json).subscribe((data: any) => {
         var response = data._body;
         var obj = JSON.parse(response);
         if (obj.status == true) {
           this.showOtp = true;
           this.show = true;
-          this.appathonSignupForm.controls['otp_send'].setValue('1');
+          this.appathonSignupForm.controls["otp_send"].setValue("1");
           this.otp_txt_id = obj.data;
           //this.toastrmsg('success', "OTP Sent");
         } else {
-          this.appathonSignupForm.controls['otp_send'].setValue('0');
+          this.appathonSignupForm.controls["otp_send"].setValue("0");
           this.showOtp = true;
           this.show = true;
         }
@@ -626,7 +651,7 @@ export class AppathonLandingComponent implements OnInit {
           this.shfrmSFSecond = true;
           this.shfrmSFFirst = false;
           this.shfrmSFThird = false;
-          this.isemail_reg_check = '';
+          this.isemail_reg_check = "";
         } else {
           this.shfrmSFFirst = true;
           this.shfrmSFSecond = false;
@@ -642,26 +667,26 @@ export class AppathonLandingComponent implements OnInit {
       this.adm
         .verify_otp(this.signupForm2.value, this.otp_txt_id)
         .subscribe((data: any) => {
-          console.log('otp verification section');
+          console.log("otp verification section");
           var response = data._body;
           var obj = JSON.parse(response);
           if (obj.status == true) {
-            console.log('otp success');
+            console.log("otp success");
             this.shfrmSFThird = true;
             this.shfrmSFFirst = false;
             this.shfrmSFSecond = false;
-            this.signupForm.controls['otp_verified'].setValue('1');
+            this.signupForm.controls["otp_verified"].setValue("1");
             this.otp_verified = 1;
             //this.toastrmsg('success', "Verified Otp");
           } else {
-            console.log('otp error');
+            console.log("otp error");
             this.shfrmSFSecond = true;
             this.shfrmSFThird = false;
             this.shfrmSFFirst = false;
-            this.signupForm.controls['otp_verified'].setValue('0');
+            this.signupForm.controls["otp_verified"].setValue("0");
             this.otp_verified = 0;
-            this.isotp_reg_check = 'Otp not verified';
-            this.toastrmsg('error', 'Otp not verified');
+            this.isotp_reg_check = "Otp not verified";
+            this.toastrmsg("error", "Otp not verified");
           }
           this.ref.detectChanges();
         });
@@ -679,16 +704,16 @@ export class AppathonLandingComponent implements OnInit {
             this.shfrmSFThird1 = true;
             this.shfrmSFFirst1 = false;
             this.shfrmSFSecond1 = false;
-            this.appathonSignupForm.controls['otp_verified'].setValue('1');
+            this.appathonSignupForm.controls["otp_verified"].setValue("1");
             this.otp_verified = 1;
             //this.toastrmsg('success', "Verified Otp");
           } else {
             this.shfrmSFSecond1 = true;
             this.shfrmSFThird1 = false;
             this.shfrmSFFirst1 = false;
-            this.appathonSignupForm.controls['otp_verified'].setValue('0');
+            this.appathonSignupForm.controls["otp_verified"].setValue("0");
             this.otp_verified = 0;
-            this.isotp_reg_check = 'Otp not verified';
+            this.isotp_reg_check = "Otp not verified";
             //this.toastrmsg('error', "Otp not verified");
           }
           this.ref.detectChanges();
@@ -728,14 +753,14 @@ export class AppathonLandingComponent implements OnInit {
   // }
   // }
   Documentation(signin: any) {
-    this.router.navigate(['/documentation']);
-    localStorage.setItem('IsReload', 'true');
+    this.router.navigate(["/documentation"]);
+    localStorage.setItem("IsReload", "true");
   }
 
   // forget Password function
   forgot(username: any) {
-    if (username == '') {
-      this.toastrmsg('error', 'Enter Username');
+    if (username == "") {
+      this.toastrmsg("error", "Enter Username");
       return;
     }
     var json = { username: username };
@@ -744,12 +769,12 @@ export class AppathonLandingComponent implements OnInit {
       var response = data._body;
       var obj = JSON.parse(response);
       if (obj.status == true) {
-        this.toastrmsg('success', ' Please check your mail');
-        this.router.navigate(['/index']);
+        this.toastrmsg("success", " Please check your mail");
+        this.router.navigate(["/index"]);
         this.modalRef3.hide();
         this.spinnerService.hide();
       } else {
-        this.toastrmsg('error', obj.message);
+        this.toastrmsg("error", obj.message);
       }
     });
   }
@@ -762,7 +787,7 @@ export class AppathonLandingComponent implements OnInit {
         var obj = JSON.parse(response);
         if (obj.status == true) {
           this.isemail_check = true;
-          this.isemail_reg_check = '';
+          this.isemail_reg_check = "";
           //this.toastrmsg('success', obj.message);
         } else {
           this.isemail_check = false;
@@ -775,7 +800,7 @@ export class AppathonLandingComponent implements OnInit {
 
   OnCheckUsername(username: any) {
     try {
-      if (username != '') {
+      if (username != "") {
         var json = { username: username };
         this.adm.Exists_Username(json).subscribe((data: any) => {
           var response = data._body;
@@ -783,7 +808,7 @@ export class AppathonLandingComponent implements OnInit {
           if (obj.status == true) {
             //this.toastrmsg('error', "Username already Exist");
           } else {
-            this.toastrmsg('error', 'Username already Exist');
+            this.toastrmsg("error", "Username already Exist");
           }
         });
       }
@@ -791,7 +816,7 @@ export class AppathonLandingComponent implements OnInit {
   }
 
   btn_Sign() {
-    if (localStorage.getItem('id') != null) {
+    if (localStorage.getItem("id") != null) {
       this.showbtn = false;
       this.showlogoutbtn = true;
     } else {
@@ -802,21 +827,21 @@ export class AppathonLandingComponent implements OnInit {
 
   // Fuction for Logout
   logout() {
-    localStorage.removeItem('username');
-    localStorage.removeItem('password');
-    localStorage.removeItem('id');
-    localStorage.removeItem('role');
+    localStorage.removeItem("username");
+    localStorage.removeItem("password");
+    localStorage.removeItem("id");
+    localStorage.removeItem("role");
 
-    this.adm.sendUserId('');
+    this.adm.sendUserId("");
     this.showbtn = true;
     this.showlogoutbtn = false;
     this.adm.LogoutPortal().subscribe(
       res => {
-        this.router.navigate(['/index']);
+        this.router.navigate(["/index"]);
       },
       err => {
-        this.router.navigate(['/index']);
-      },
+        this.router.navigate(["/index"]);
+      }
     );
   }
 
@@ -846,27 +871,27 @@ export class AppathonLandingComponent implements OnInit {
   }
 
   scroll_view(id) {
-    this.router.navigate(['index']);
+    this.router.navigate(["index"]);
     setTimeout(function() {
-      document.querySelector(id).scrollIntoView({ behavior: 'smooth' });
+      document.querySelector(id).scrollIntoView({ behavior: "smooth" });
     }, 10);
   }
 
   //login success pop up modal
   clickOk() {
     this.modalRef4.hide();
-    this.sessionSet('username', this.loginResponse.data.username);
-    localStorage.setItem('username', this.loginResponse.data.username);
-    localStorage.setItem('password', this.loginResponse.data.password);
-    localStorage.setItem('id', this.loginResponse.data.id);
-    localStorage.setItem('role', this.loginResponse.data.role);
+    this.sessionSet("username", this.loginResponse.data.username);
+    localStorage.setItem("username", this.loginResponse.data.username);
+    localStorage.setItem("password", this.loginResponse.data.password);
+    localStorage.setItem("id", this.loginResponse.data.id);
+    localStorage.setItem("role", this.loginResponse.data.role);
     localStorage.setItem(
-      'appathonusername',
-      this.loginResponse.data.appathonusername,
+      "appathonusername",
+      this.loginResponse.data.appathonusername
     );
-    localStorage.setItem('email', this.loginResponse.data.email);
+    localStorage.setItem("email", this.loginResponse.data.email);
     this.adm.sendUserId(this.loginResponse.data.id);
-    this.router.navigate(['/documentation']);
+    this.router.navigate(["/documentation"]);
 
     // if(this.loginResponse.data.role === 'Appathon'){
     //   this.router.navigate(['/appathon-dashboard']);
@@ -888,7 +913,7 @@ export class AppathonLandingComponent implements OnInit {
   // }
 
   numericOnly(event): boolean {
-    console.log('keypress');
+    console.log("keypress");
     let patt = /^([0-9])$/;
     let result = patt.test(event.key);
     return result;
@@ -913,6 +938,4 @@ export class AppathonLandingComponent implements OnInit {
   onChangeInput3(val) {
     this.exampleArray3.push(val);
   }
-
- 
 }
