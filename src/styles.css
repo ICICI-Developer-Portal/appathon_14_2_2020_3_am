@@ -612,7 +612,7 @@ left: 0;
   overflow: scroll;
   }
   } */
-  /* #container { display:block; }
+/* #container { display:block; }
   @media only screen and (orientation:portrait){
     #container {  
       -webkit-transform: rotate(90deg);
@@ -637,7 +637,7 @@ left: 0;
     }
   } */
 
-  /* @media screen and (min-width: 320px) and (max-width: 767px) and (orientation: portrait) {
+/* @media screen and (min-width: 320px) and (max-width: 767px) and (orientation: portrait) {
     html {
       transform: rotate(-90deg);
       transform-origin: left top;
@@ -651,6 +651,24 @@ left: 0;
 .drp-cnt-width {
   min-width: 175px !important;
 }
-.highlightTxt{
-  background-color: #FFFF00
+.highlightTxt {
+  background-color: #ffff00;
 }
+
+/* @media only screen and (orientation: landscape) {
+  body#turn {
+    display: none;
+  }
+  body {
+    display: block;
+  }
+}
+@media only screen and (orientation: portrait) {
+  #turn {
+    display: block;
+  }
+  #container {
+    display: none;
+  }
+} 
+https://code-boxx.com/lock-screen-orientation/*/
