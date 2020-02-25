@@ -1,10 +1,21 @@
- <div class="tab-content" style="margin-top: 120px;">
+<div class="tab-content" style="margin-top: 120px;">
   <div class="container">
-    <h5 style="font-family: Zurich BT !important; " class="highlightTxt mb30" *ngIf="finalSubStatus ==='selected'">
-      **Congratulations your submission has been shortlisted for Appathon phase 2. Now you can start using our APIs. Please share final submissions by 8th March. Submission details will be mailed to you shortly
+    <h5
+      style="font-family: Zurich BT !important; padding: 10px"
+      class="highlightTxt mb30"
+      *ngIf="finalSubStatus === 'selected'"
+    >
+      **Congratulations your submission has been shortlisted for Appathon phase
+      2. Now you can start using our APIs. Please share final submissions by 8th
+      March. Submission details will be mailed to you shortly
     </h5>
-    <h5 style="font-family: Zurich BT !important; " class="highlightTxt mb30" *ngIf="finalSubStatus !=='selected'">
-      **Unfortunately your idea is not shortlisted for the next round. All the best for all your future endeavors
+    <h5
+      style="font-family: Zurich BT !important;padding: 10px "
+      class="highlightTxt mb30"
+      *ngIf="finalSubStatus !== 'selected'"
+    >
+      **Unfortunately your idea is not shortlisted for the next round. All the
+      best for all your future endeavors
     </h5>
     <form [formGroup]="formGroup" class="example-form">
       <div class="row  mb20">
@@ -533,69 +544,77 @@ color: grey;"
           </div>
         </div>
       </div> -->
-      
-<div class="row mb60 ">
+
+      <div class="row mb60 ">
         <div class="col-md-2">
           Final Submission:
         </div>
         <div class="col-md-5">
           <div class="mb10">
             <a
-            class="signInBtn blueBtn mr10"
-            (click)="downloadBtn(formData.finalSubmissionLink)"
-            >Download</a
-          >
-          <input
-            type="file"
-            id="subFile"
-            #subInput
-            style="display:none"
-            (change)="handleFileInput($event.target.files, 'sub')"
-          />
-          <label for="subFile" class="signInBtn pinkBtn mr10">Upload</label>  
-          <a
-            class="signInBtn orangeBtn mr10"
-            href="assets/appathon/Final_Template.pptx"
-            download="Final_Template.pptx"
-            >Download Template</a
-          >
-        </div>
-        <div *ngIf="subFile">
-          <h6
-            style="margin-left: 135px;
+              class="signInBtn blueBtn mr10"
+              (click)="downloadBtn(formData.finalSubmissionLink)"
+              >Download</a
+            >
+            <input
+              type="file"
+              id="subFile"
+              #subInput
+              style="display:none"
+              (change)="handleFileInput($event.target.files, 'sub')"
+            />
+            <label for="subFile" class="signInBtn pinkBtn mr10">Upload</label>
+            <a
+              class="signInBtn orangeBtn mr10"
+              href="assets/appathon/Final_Template.pptx"
+              download="Final_Template.pptx"
+              >Download Template</a
+            >
+          </div>
+          <div *ngIf="subFile">
+            <h6
+              style="margin-left: 135px;
 color: grey;"
-          >
-            {{ subFile.name }}
-            <span
-              (click)="deleteFile('sub')"
-              style="margin-left: 14px;
+            >
+              {{ subFile.name }}
+              <span
+                (click)="deleteFile('sub')"
+                style="margin-left: 14px;
 color: red;
 background: #d2cbcb;
 cursor: pointer;"
-              >X</span
-            >
-          </h6>
-        </div>
+                >X</span
+              >
+            </h6>
+          </div>
           <mat-form-field style="width: 70%;">
-        
-            <input class="mr10"       
+            <input
+              class="mr10"
               matInput
               [formControl]="FINAL_URL"
               [(ngModel)]="formData.FINAL_URL"
               placeholder="Google Drive/Youtube Link"
             />
           </mat-form-field>
-        </div>        
+        </div>
       </div>
-     
 
-    
       <div class="row mb20 ">
         <div class="col-md-5">
-          <button class="signInBtn mr10" type="submit" (click)="submit()" [disabled]="finalSubStatus !=='selected'">
+          <button
+            class="signInBtn mr10"
+            type="submit"
+            (click)="submit()"
+            [disabled]="finalSubStatus !== 'selected'"
+          >
             Submit
           </button>
-          <button class="tryItFreeBtn" type="reset" (click)="reset()" [disabled]="finalSubStatus !=='selected'">
+          <button
+            class="tryItFreeBtn"
+            type="reset"
+            (click)="reset()"
+            [disabled]="finalSubStatus !== 'selected'"
+          >
             Reset
           </button>
         </div>
