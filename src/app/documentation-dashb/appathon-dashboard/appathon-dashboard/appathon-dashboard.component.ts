@@ -37,7 +37,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 export class AppathonDashboardComponent implements OnInit {
   @ViewChild("ideaInput") ideaFileVar: ElementRef;
   @ViewChild("subInput") subFileVar: ElementRef;
-  
+
   //initialize form group
   readonly formGroup = new FormGroup({
     emailFormControl1: new FormControl("", [
@@ -111,7 +111,7 @@ export class AppathonDashboardComponent implements OnInit {
     ]),
     FINAL_URL: new FormControl("", [
       // Validators.required,
-    ]),
+    ])
   });
   ideaFile: File;
   subFile: File;
@@ -204,12 +204,12 @@ export class AppathonDashboardComponent implements OnInit {
     team_members_email: "",
     ideaLink: "",
     finalSubmissionLink: "",
-    FINAL_URL:""
+    FINAL_URL: ""
   };
   team_members_name = [];
   team_members_mobile = [];
   team_members_email = [];
-  finalSubStatus:any;
+  finalSubStatus: any;
   constructor(
     private appathonService: AppathonService,
     private router: Router,
@@ -257,7 +257,7 @@ export class AppathonDashboardComponent implements OnInit {
           );
           this.formData.ideaLink = response.data.IdeaLink;
           this.formData.finalSubmissionLink = response.data.FinalSubmissionLink;
-          this.formData.FINAL_URL=response.data.FinalURL;
+          this.formData.FINAL_URL = response.data.FinalURL;
           this.finalSubStatus = response.data.Status;
           this.spinnerService.hide();
         } else {
@@ -276,107 +276,104 @@ export class AppathonDashboardComponent implements OnInit {
 
   //reset form
   reset = () => {
-    if(this.finalSubStatus !== 'selected'){
+    if (this.finalSubStatus !== "selected") {
       this.toastrmsg("error", "You are not allowed to Reset!");
-    }
-    else{
-    this.spinnerService.show();
-    this.ideaFile = undefined;
-    this.subFile = undefined;
-    this.finalSubmissionFile = undefined;
-    this.formGroup.reset();
-    this.getAppathonDetails();
+    } else {
+      this.spinnerService.show();
+      this.ideaFile = undefined;
+      this.subFile = undefined;
+      this.finalSubmissionFile = undefined;
+      this.formGroup.reset();
+      this.getAppathonDetails();
     }
   };
 
   //submit form data
   submit = async () => {
-    
-    if(this.finalSubStatus !== 'selected'){
+    if (this.finalSubStatus !== "selected") {
       this.toastrmsg("error", "You are not allowed for Final Submission!");
-    }
-    else{
+    } else {
       this.disableSubmit = true;
       this.spinnerService.show();
-  
+
       if (!this.formGroup.valid) {
         return;
       }
-    if (this.ideaFile) {
-      await this.uploadFile(this.ideaFile)
-        .then((data: any) => {
-          this.newIdeaLink = JSON.parse(data._body).FilePath;
-        })
-        .catch(error => {
-          this.toastrmsg("error", "Error while uploading Idea file!");
-        });
-    }
-    
-    if (this.subFile) {
-      await this.uploadFile(this.subFile)
-        .then((data: any) => {
-          this.subFile = JSON.parse(data._body).FilePath;
-        })
-        .catch(error => {
-          this.toastrmsg(
-            "error",
-            "Error while uploading Final Submission file!"
-          );
-        });
-    }
-    let count = 0;
-    let tempName = [];
-    let tempMobile = [];
-    let tempEmail = [];
-    this.team_members_name.forEach((each, index) => {
-      if (
-        each &&
-        this.team_members_email[index] &&
-        this.team_members_mobile[index]
-      ) {
-        tempName.push(each);
-        tempEmail.push(this.team_members_email[index]);
-        tempMobile.push(this.team_members_mobile[index]);
-      } else count++;
-    });
-    this.formData.team_members_email = JSON.stringify(tempEmail);
-    this.formData.team_members_mobile = JSON.stringify(tempMobile);
-    this.formData.team_members_name = JSON.stringify(tempName);
-    this.formData.team_size = count.toString();
-    let jsonObject = JSON.parse(JSON.stringify(this.formData));
-    delete jsonObject.ideaLink;
-    delete jsonObject.finalSubmissionLink;
+      if (this.ideaFile) {
+        await this.uploadFile(this.ideaFile)
+          .then((data: any) => {
+            this.newIdeaLink = JSON.parse(data._body).FilePath;
+          })
+          .catch(error => {
+            this.toastrmsg("error", "Error while uploading Idea file!");
+          });
+      }
 
-    jsonObject["IDEA_LINK"] = this.newIdeaLink;
-    jsonObject["FINAL_SUBMISSION_LINK"] = this.subFile;
-    console.log('json Obj', jsonObject)
-    this.appathonService.update_appathon_details(jsonObject).subscribe(
-      (data: any) => {
-        let response = JSON.parse(data._body);
-        if (response.status) {
-          this.toastrmsg("success", "Successfully Updated");
-          this.reset();
-          this.disableSubmit = false;
-        } else {
+      if (this.subFile) {
+        await this.uploadFile(this.subFile)
+          .then((data: any) => {
+            this.subFile = JSON.parse(data._body).FilePath;
+          })
+          .catch(error => {
+            this.toastrmsg(
+              "error",
+              "Error while uploading Final Submission file!"
+            );
+          });
+      }
+      let count = 0;
+      let tempName = [];
+      let tempMobile = [];
+      let tempEmail = [];
+      this.team_members_name.forEach((each, index) => {
+        if (
+          each &&
+          this.team_members_email[index] &&
+          this.team_members_mobile[index]
+        ) {
+          tempName.push(each);
+          tempEmail.push(this.team_members_email[index]);
+          tempMobile.push(this.team_members_mobile[index]);
+        } else count++;
+      });
+      this.formData.team_members_email = JSON.stringify(tempEmail);
+      this.formData.team_members_mobile = JSON.stringify(tempMobile);
+      this.formData.team_members_name = JSON.stringify(tempName);
+      this.formData.team_size = count.toString();
+      let jsonObject = JSON.parse(JSON.stringify(this.formData));
+      delete jsonObject.ideaLink;
+      delete jsonObject.finalSubmissionLink;
+
+      jsonObject["IDEA_LINK"] = this.newIdeaLink;
+      jsonObject["FINAL_SUBMISSION_LINK"] = this.subFile;
+      console.log("json Obj", jsonObject);
+      this.appathonService.update_appathon_details(jsonObject).subscribe(
+        (data: any) => {
+          let response = JSON.parse(data._body);
+          if (response.status) {
+            this.toastrmsg("success", "Successfully Updated");
+            this.reset();
+            this.disableSubmit = false;
+          } else {
+            this.spinnerService.hide();
+            this.disableSubmit = false;
+            this.toastrmsg("error", response.message);
+            this.router.navigate(["/index"]);
+          }
+        },
+        err => {
           this.spinnerService.hide();
           this.disableSubmit = false;
-          this.toastrmsg("error", response.message);
-          this.router.navigate(["/index"]);
-        }
-      },
-      err => {
-        this.spinnerService.hide();
-        this.disableSubmit = false;
 
-        this.toastrmsg("error", "Something went wrong!");
-      }
-    );
-  }
+          this.toastrmsg("error", "Something went wrong!");
+        }
+      );
+    }
   };
 
   //file upload handle
   public handleFileInput(files: FileList, fileFor) {
-    console.log(files)
+    console.log(files);
     let fileToUpload = files.item(0);
     let temp = fileToUpload.name.split(".");
     let fileType = temp[temp.length - 1];
@@ -424,7 +421,24 @@ export class AppathonDashboardComponent implements OnInit {
       this.subFileVar.nativeElement.value = "";
     }
   }
+
   certificate: any;
+  // downloadBtn(url) {
+  //   var json = {
+  //     filePath: url
+  //   };
+
+  //   var fileName = url.substring(url.lastIndexOf("/") + 1);
+
+  //   this.loginService.downloadPdf(json).subscribe((data: any) => {
+  //     this.certificate = data._body;
+  //     console.log(data._body);
+  //     var blob = new Blob([this.certificate], {
+  //       type: "text/plain"
+  //     });
+  //     saveAs(blob, fileName);
+  //   });
+  // }
   downloadBtn(url) {
     var json = {
       filePath: url
@@ -436,7 +450,7 @@ export class AppathonDashboardComponent implements OnInit {
       this.certificate = data._body;
       console.log(data._body);
       var blob = new Blob([this.certificate], {
-        type: "text/plain"
+        type: "application/pdf"
       });
       saveAs(blob, fileName);
     });
