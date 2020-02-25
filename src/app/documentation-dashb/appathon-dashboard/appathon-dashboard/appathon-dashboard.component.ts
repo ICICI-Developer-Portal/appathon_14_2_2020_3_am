@@ -408,22 +408,38 @@ export class AppathonDashboardComponent implements OnInit {
     var fileName = url.substring(url.lastIndexOf("/") + 1);
 
     this.loginService.downloadPdf(json).subscribe((data: any) => {
-      console.log(data);
-      //this.certificate = data._body;
+      this.certificate = data._body;
       console.log(data._body);
-      // var blob = new Blob([this.certificate], {
-      //   type: "application/pdf;charset=utf-8"
-      // });
-      // var blob = new Blob([this.certificate], {
-      //   type: "application/pdf"
-      // });
-      // const fileURL = URL.createObjectURL(blob);
-      // const link = document.createElement("a");
-      // link.href = fileURL;
-      // link.download = "FileName" + new Date() + ".pdf";
-      // link.click();
-
-      //saveAs(blob, fileName);
+      var blob = new Blob([this.certificate], {
+        type: "application/pdf"
+      });
+      saveAs(blob, fileName);
     });
   }
+  // downloadBtn(url) {
+  //   var json = {
+  //     filePath: url
+  //   };
+
+  //   var fileName = url.substring(url.lastIndexOf("/") + 1);
+
+  //   this.loginService.downloadPdf(json).subscribe((data: any) => {
+  //     console.log(data);
+  //     //this.certificate = data._body;
+  //     console.log(data._body);
+  //     // var blob = new Blob([this.certificate], {
+  //     //   type: "application/pdf;charset=utf-8"
+  //     // });
+  //     // var blob = new Blob([this.certificate], {
+  //     //   type: "application/pdf"
+  //     // });
+  //     // const fileURL = URL.createObjectURL(blob);
+  //     // const link = document.createElement("a");
+  //     // link.href = fileURL;
+  //     // link.download = "FileName" + new Date() + ".pdf";
+  //     // link.click();
+
+  //     //saveAs(blob, fileName);
+  //   });
+  // }
 }

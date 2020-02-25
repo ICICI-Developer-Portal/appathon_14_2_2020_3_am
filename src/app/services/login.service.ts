@@ -4,7 +4,8 @@ import {
   Headers,
   RequestOptions,
   Response,
-  RequestMethod
+  RequestMethod,
+  ResponseContentType
 } from "@angular/http";
 import { HttpHeaders, HttpClient } from "@angular/common/http";
 import { Router } from "@angular/router";
@@ -579,16 +580,30 @@ export class LoginService {
     );
   }
 
+  // downloadPdf(filePath) {
+  //   var query = filePath;
+  //   let headers = new Headers({
+  //     "Content-Type": "application/x-www-form-urlencoded"
+  //   });
+
+  //   let options = new RequestOptions({ headers: headers });
+  //   return this.http.post(
+  //     "https://developer.icicibank.com/" + "rest/downloadFile",
+  //     query
+  //   );
+  // }
+
   downloadPdf(filePath) {
     var query = filePath;
     let headers = new Headers({
-      "Content-Type": "application/x-www-form-urlencoded"
+      "Content-Type": "application/octet-stream"
     });
 
     let options = new RequestOptions({ headers: headers });
     return this.http.post(
       "https://developer.icicibank.com/" + "rest/downloadFile",
-      query
+      query,
+      { responseType: ResponseContentType.Blob }
     );
   }
 
