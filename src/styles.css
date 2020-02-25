@@ -672,3 +672,23 @@ left: 0;
   }
 } 
 https://code-boxx.com/lock-screen-orientation/*/
+
+@media screen and (min-width: 320px) and (max-width: 767px) and (orientation: portrait) {
+  html {
+    transform: rotate(-90deg);
+    transform-origin: left top;
+    width: 100vh;
+    height: 100vw;
+    overflow-x: scroll;
+    position: absolute;
+    top: 100%;
+    left: 0;
+  }
+}
+
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  .cdk-global-scrollblock {
+    width: 100vh !important;
+    top: 100% !important;
+  }
+}
