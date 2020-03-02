@@ -1031,8 +1031,8 @@ openProdCurrentTabEnv(id) {
       relManager: this.objOnB.txtRelManager,
       env: "UAT",
       ips: this.objOnB.txtIPAddress,
-      callbackUrl: this.objOnB.txtCallbackURL
-      // "file1":file
+      callbackUrl: this.objOnB.txtCallbackURL,
+      file1 : this.objOnB.file1
     };
 
     const formData = new FormData();
@@ -1265,7 +1265,7 @@ openProdCurrentTabEnv(id) {
       env: "PROD",
       ips: this.edit_data["whitelistIpInputModal"],
       callbackUrl: this.edit_data["CallbackUrl"],
-      file1: "",
+      file2: this.edit_data.file2,
       jiraRefId: this.JiraIdnew
     };
 
@@ -1287,7 +1287,7 @@ openProdCurrentTabEnv(id) {
 
     let a: any = (<HTMLInputElement>document.getElementById("file2")).files;
     for (let k = 0; k < a.length; k++) {
-      formData.append("file1", a[k]);
+      formData.append("file2", a[k]);
     }
     formData.append("jiraRefId", this.JiraIdnew);
     //console.log(formData);
@@ -1300,7 +1300,7 @@ openProdCurrentTabEnv(id) {
         if (res.success === 'true') {
           //File upload service
           var formData = new FormData();
-          let b: any = (<HTMLInputElement>document.getElementById('file1'))
+          let b: any = (<HTMLInputElement>document.getElementById('file2'))
             .files;
           for (let k = 0; k < b.length; k++) {
             formData.append(res.jiraId, b[k]);

@@ -2067,8 +2067,8 @@
             <div class="row mb25">
               <div class="col-md-12">
                 <input class="form-control" id="file1" (change)="picked($event)" type="file"
-                  [(ngModel)]="objOnB.txtFile" #txtFile="ngModel" name="txtFile" mdbInputDirective required />
-                <div *ngIf="txtFile.invalid && txtFile.dirty" class="text-danger form-error">
+                  [(ngModel)]="objOnB.file1" #file1="ngModel" name="file1" mdbInputDirective required />
+                <div *ngIf="file1.invalid && file1.dirty" class="text-danger form-error">
                   File is required.
                 </div>
               </div>
@@ -2258,7 +2258,7 @@
               <div class="col-md-12">
                 <input class="form-control" id="file2" (change)="picked($event)" type="file"
                   [(ngModel)]="edit_data.file2" name="file2" #file2="ngModel" mdbInputDirective required />
-                <div *ngIf="txtFile1.invalid && txtFile1.dirty" class="text-danger form-error">
+                <div *ngIf="file2.invalid && file2.dirty" class="text-danger form-error">
                   File is required.
                 </div>
               </div>
