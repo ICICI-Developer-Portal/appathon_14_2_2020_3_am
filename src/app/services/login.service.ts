@@ -435,6 +435,18 @@ export class LoginService {
     );
   }
   //Merchant-onboarding End
+  getUATFromData(data) {
+
+    var query = data;
+    let headers = new Headers({
+      'Content-Type': 'application/json',
+    });
+    let options = new RequestOptions({ headers: headers });
+    return this.http.post(
+      'https://developer.icicibank.com/rest/getAdditionalParameters',
+      query, options
+    );
+  }
 
   // Get All API Start
   Get_All_API() {
@@ -611,7 +623,7 @@ export class LoginService {
   getCompanyName(companyName) {
     return this.http.get(
       "https://developer.icicibank.com/rest/GetCompanyDetails?Name=" +
-        companyName
+      companyName
     );
   }
 
