@@ -1860,7 +1860,7 @@
               </div>
             </div>
             <!-- Common Business Banking Field added here -->
-            <div class="row" *ngIf="Cms_allShow">
+            <!-- <div class="row" *ngIf="Cms_allShow">
               <div class="col-md-12 mb10">
                 <div><label for="contract">Account number</label></div>
                 <input
@@ -2030,10 +2030,10 @@
                   </select>
                 </span>
               </div>
-            </div>
+            </div> -->
             <!-- Common Business Banking Field added here -->
             <!-- Additional Field Validation & Receipting -->
-            <div class="row" *ngIf="Webservice_Show">
+            <!-- <div class="row" *ngIf="Webservice_Show">
               <div class="col-md-12 mb10">
                 <div><label for="contract">Mode Offered</label></div>
                 <input
@@ -2122,10 +2122,10 @@
                   type="text"
                 />
               </div>
-            </div>
+            </div> -->
             <!-- Additional Field Validation & Receipting -->
             <!-- Additional Field of Ecollection -->
-            <div class="row" *ngIf="Ecollection_Show">
+            <!-- <div class="row" *ngIf="Ecollection_Show">
               <div class="col-md-12 mb10">
                 <div>
                   <label for="projectName"
@@ -2187,7 +2187,7 @@
                   type="text"
                 />
               </div>
-            </div>
+            </div> -->
             <!-- Additional Field of Ecollection -->
             <div class="row">
               <div class="col-12 text-right">
@@ -2209,15 +2209,236 @@
     <form #frmUATThird="ngForm" nonvalidate [hidden]="!shfrmUATThird">
       <div [hidden]="frmUATThird.submitted">
         <div class="tabEnvironment">
-          <div class="tabContent">
-            <div class="row ">
-              <div class="col-md-12">
-                <div>
-                  <label for="whitelistIp"
-                    >Enter IP Addresses that needs to be whitelisted under
-                    Environment</label
-                  >
+          <div class="tabContent">    
+            <div class="row">
+              <div class="col-md-12 mb10" *ngIf="accNo">
+                <div><label for="contract">Account Number</label></div>
+                <input class="form-control" [ngModel]="objOnB.AccountNo" name="AccountNo" #AccountNo="ngModel"
+                  placeholder="Your Account number" (ngModelChange)="onChangeAccountNum($event)" type="text" />
+
+                <div *ngIf="accountNumErrorMsg != ''" class="text-danger form-error">
+                  {{ accountNumErrorMsg }}
                 </div>
+              </div>
+              <div class="col-md-12 mb10" *ngIf="clientCode">
+                <div><label for="contract">Client code</label></div>
+                <input class="form-control" [(ngModel)]="objOnB.ClientCode" name="ClientCode" #ClientCode="ngModel"
+                  placeholder="Your Client code" type="text" />
+              </div>
+              <div class="col-md-12 mb10" *ngIf="url">
+                <div><label for="contract">Callback URL</label></div>
+                <input class="form-control" [ngModel]="objOnB.url" name="url" #url="ngModel"
+                  placeholder="Your Callback URL" (ngModelChange)="onChangeURL($event)" type="text" />
+                <div *ngIf="urlErrorMsg != ''" class="text-danger form-error">
+                  {{ urlErrorMsg }}
+                </div>
+              </div>
+              <div class="col-md-12 mb10" *ngIf="ip">
+                <div><label for="contract">IP</label></div>
+                <input class="form-control" [ngModel]="objOnB.Ip" name="Ip" #Ip="ngModel" placeholder="Your IP"
+                  (ngModelChange)="onChangeIpAddress($event)" type="text" />
+                <div *ngIf="ipAddressErrorMsg != ''" class="text-danger form-error">
+                  {{ ipAddressErrorMsg }}
+                </div>
+              </div>
+              <div class="col-md-12 mb10" *ngIf="port">
+                <div><label for="contract">Port</label></div>
+                <input class="form-control" [ngModel]="objOnB.Port" name="Port" #Port="ngModel" placeholder="Your Port"
+                  (ngModelChange)="onChangePort($event)" type="text" />
+                <div *ngIf="portNumErrorMsg != ''" class="text-danger form-error">
+                  {{ portNumErrorMsg }}
+                </div>
+              </div>
+              <div class="col-md-12 mb10" *ngIf="checksum">
+                <div><label for="projectName">Checksum Required </label></div>
+                <span class="custom-dropdown">
+                  <select class="form-control" [(ngModel)]="objOnB.Checksum" name="Checksum" #Checksum="ngModel"
+                    style="height:40px">
+                    <option value="">Select Checksum</option>
+                    <option>Yes</option>
+                    <option>No</option>
+                  </select>
+                </span>
+              </div>
+              <div class="col-md-12 mb10" *ngIf="encryption">
+                <div><label for="projectName">Encryption Required</label></div>
+                <span class="custom-dropdown">
+                  <select class="form-control" [(ngModel)]="objOnB.Encryption" name="Encryption" #Encryption="ngModel"
+                    style="height:40px">
+                    <option value="">Select Encryption</option>
+                    <option>Yes</option>
+                    <option>No</option>
+                  </select>
+                </span>
+              </div>
+              <div class="col-md-12 mb10" *ngIf="certificate">
+                <div><label for="projectName">Certificate</label></div>
+                <span class="custom-dropdown">
+                  <select class="form-control" [(ngModel)]="objOnB.Certificate" name="Certificate"
+                    #Certificate="ngModel" style="height:40px">
+                    <option value="">Select Certificate</option>
+                    <option>Java Key Store</option>
+                    <option>IIS SSL</option>
+                  </select>
+                </span>
+              </div>
+              <div class="col-md-12 mb10" *ngIf="service">
+                <div>
+                  <label for="projectName">Service Type</label>
+                </div>
+                <span class="custom-dropdown">
+                  <select class="form-control" [(ngModel)]="objOnB.web" name="web" #web="ngModel" style="height:40px">
+                    <option value="">Select Services</option>
+                    <option>WADL</option>
+                    <option>REST</option>
+                    <option>*Others </option>
+                  </select>
+                </span>
+              </div>
+              <div class="col-md-12 mb10" *ngIf="commModel">
+                <div>
+                  <label for="projectName"> Communication Method</label>
+                </div>
+                <span class="custom-dropdown">
+                  <select class="form-control" [(ngModel)]="objOnB.message" name="message" #message="ngModel"
+                    style="height:40px">
+                    <option value="">Select Format</option>
+                    <option>XML</option>
+                    <option>XML as a string</option>
+                    <option>JSON</option>
+                  </select>
+                </span>
+              </div>
+              <!-- </div>                  -->
+              <div class="row" *ngIf="Ecollection_Show">
+                <div class="col-md-12 mb10" *ngIf="ifsc">
+                  <div>
+                    <label for="projectName">IFSC code to be given to the remitter while initiating
+                      payment
+                    </label>
+                  </div>
+                  <span class="custom-dropdown">
+                    <select [(ngModel)]="objOnB.IFSC_Code" name="IFSC_Code" #IFSC_Code="ngModel" class="form-control"
+                      style="height:40px">
+                      <option value="">Select IFSC Code</option>
+                      <option>ICIC0000104</option>
+                      <option>ICIC0000103</option>
+                      <option>ICIC0000106</option>
+                    </select>
+                  </span>
+                </div>
+                <div class="col-md-12 mb10" *ngIf="virtualCode">
+                  <div>
+                    <label for="contract">4,3 or 6 Character Virtual Code</label>
+                  </div>
+                  <input class="form-control" [(ngModel)]="objOnB.virtualCode" name="virtualCode" #virtualCode="ngModel"
+                    placeholder="Your Virtual Code" type="text" />
+                </div>
+                <div class="col-md-12 mb10" *ngIf="ips">
+                  <div><label for="contract">IPS Refund Code</label></div>
+                  <input class="form-control" [(ngModel)]="objOnB.refundCode" name="refundCode" #refundCode="ngModel"
+                    placeholder="IPS Refund Code" type="text" />
+                </div>
+                <div class="col-md-12 mb10" *ngIf="interAccNo">
+                  <div>
+                    <label for="contract">Customer Credit A/C Number - Intermediate Account</label>
+                  </div>
+                  <input class="form-control" [(ngModel)]="objOnB.Account_no" name="Account_no" #Account_no="ngModel"
+                    placeholder="Customer Credit A/C Number" type="text" />
+                </div>
+                <div class="col-md-12 mb10" *ngIf="accName">
+                  <div>
+                    <label for="Acc_name">Account Name</label>
+                  </div>
+                  <input class="form-control" [(ngModel)]="objOnB.Acc_name" name="Acc_name" #Acc_name="ngModel"
+                    placeholder="Account Name" type="text" />
+                </div>
+                <div class="col-md-12 mb10" *ngIf="authLevel">
+                  <div>
+                    <label for="Auth_level">Authorization Level</label>
+                  </div>
+                  <input class="form-control" [(ngModel)]="objOnB.Auth_level" name="Auth_level" #Auth_level="ngModel"
+                    placeholder="Authorization Level" type="text" />
+                </div>
+                <div class="col-md-12 mb10" *ngIf="urn">
+                  <div>
+                    <label for="Urn">URN</label>
+                  </div>
+                  <input class="form-control" [(ngModel)]="objOnB.Urn" name="Urn" #Urn="ngModel" placeholder="URN"
+                    type="text" />
+                </div>
+                <div class="col-md-12 mb10" *ngIf="env">
+                  <div>
+                    <label for="Acc_env">Environment</label>
+                  </div>
+                  <span class="custom-dropdown">
+                    <select class="form-control" [(ngModel)]="objOnB.Acc_env" name="Acc_env" #Acc_env="ngModel"
+                      style="height:40px">
+                      <option value="">Select Environment</option>
+                      <option>UAT</option>
+                      <option>CUG</option>
+                      <option>Production </option>
+                    </select>
+                  </span>
+                </div>
+                <div class="col-md-12 mb10" *ngIf="valid">
+                  <div>
+                    <label for="Acc_validation">Validation Mode</label>
+                  </div>
+                  <input class="form-control" [(ngModel)]="objOnB.Acc_validation" name="Acc_validation"
+                    #Acc_validation="ngModel" placeholder="Validation Mode" type="text" />
+                </div>
+                <div class="col-md-12 mb10" *ngIf="accept">
+                  <div>
+                    <label for="Acc_acceptance">Acceptance Mode</label>
+                  </div>
+                  <input class="form-control" [(ngModel)]="objOnB.Acc_acceptance" name="Acc_acceptance"
+                    #Acc_acceptance="ngModel" placeholder="Acceptance Mode" type="text" />
+                </div>
+                <div class="col-md-12 mb10" *ngIf="recipient">
+                  <div>
+                    <label for="Rec_mail">Recipient Mail ID</label>
+                  </div>
+                  <input class="form-control" [(ngModel)]="objOnB.Rec_mail" placeholder="Recipient Mail ID" type="text"
+                    name="Rec_mail" #Rec_mail="ngModel" />
+                </div>
+                <div class="col-md-12 mb10" *ngIf="mode">
+                  <div>
+                    <label for="Acc_mode">Mode Offered</label>
+                  </div>
+                  <input class="form-control" [(ngModel)]="objOnB.Acc_mode" name="Acc_mode" #Acc_mode="ngModel"
+                    placeholder="Mode Offered" type="text" />
+                </div>
+                <div class="col-md-12 mb10" *ngIf="trans">
+                  <div>
+                    <label for="Acc_trans">Transaction limit for per transaction</label>
+                  </div>
+                  <input type="number" class="form-control" name="Acc_trans" [(ngModel)]="objOnB.Acc_trans"
+                    #Acc_trans="ngModel" max="5" />
+                </div>
+                <div class="col-md-12 mb10" *ngIf="amount">
+                  <div>
+                    <label for="Acc_amount"> Amount Field</label>
+                  </div>
+                  <span class="custom-dropdown">
+                    <select class="form-control" [(ngModel)]="objOnB.Acc_amount" name="Acc_amount" #Acc_amount="ngModel"
+                      style="height:40px">
+                      <option value="">Select Amount</option>
+                      <option>Editable</option>
+                      <option>Non- Editable</option>
+                    </select>
+                  </span>
+                </div>
+
+
+              </div>
+            </div>
+                <div class="row ">
+                  <div class="col-md-12">
+                    <div>
+                    <label for="whitelistIp">Enter IP Addresses that needs to be whitelisted under
+                      Environment</label>
+                    </div>
                 <input
                   class="w100p fs12"
                   placeholder="Enter IP Addresses"
@@ -2245,13 +2466,7 @@
                   pattern="{{ Callback_URL }}"
                   [(ngModel)]="objOnB.txtCallbackURL"
                   name="txtCallbackURL"
-                />
-                <!-- <div
-                  *ngIf="txtCallbackURL.invalid && txtCallbackURL.dirty"
-                  class="text-danger form-error"
-                >
-                  Please Enter correct Callback URL
-                </div> -->
+                />               
               </div>
             </div>
             <div class="row mb25">
@@ -2261,19 +2476,18 @@
                   id="file1"
                   (change)="picked($event)"
                   type="file"
-                  [(ngModel)]="objOnB.txtFile"
-                  #txtFile="ngModel"
-                  name="txtFile"
+                  [(ngModel)]="objOnB.file1"
+                  #file1="ngModel"
+                  name="file1"
                   mdbInputDirective
                   required
                 />
                 <div
-                  *ngIf="txtFile.invalid && txtFile.dirty"
+                  *ngIf="file1.invalid && file1.dirty"
                   class="text-danger form-error"
                 >
                   File is required.
                 </div>
-                <!-- <div class="addedFilesProductionModal"></div> -->
               </div>
             </div>
             <label class="checkboxContainer">
@@ -2344,24 +2558,29 @@
       title="Your Organization Name"
       ><i class="fa fa-question-circle" aria-hidden="true"></i
     ></a>
-    <form #frmPRODThird="ngForm" nonvalidate>
-      <div class="tabProdEnvironment">
-        <div class="tabContent">
           <ul class="breadcrumb">
-            <li class="active">
-              <a onclick="return openProdCurrentTabEnv(0)"
+            <li class="active" (click)="openProdCurrentTabEnv(1)" >
+              <a [ngStyle]="{ color: shfrmProdFirst ? '#f06321' : '#919191' }"
+              href="javascript:;"
                 >Basic Details <i class="fa fa-angle-right"></i
               ></a>
             </li>
-            <li>
-              <a onclick="return openProdCurrentTabEnv(1)"
+            <li (click)="openProdCurrentTabEnv(2)" >
+              <a [ngStyle]="{ color: shfrmProdSecond ? '#f06321' : '#919191' }"
+              href="javascript:;"
                 >Requested API <i class="fa fa-angle-right"></i
               ></a>
             </li>
-            <li>
-              <a onclick="return openProdCurrentTabEnv(2)">Whitelist IP</a>
+            <li (click)="openProdCurrentTabEnv(3)" >
+              <a [ngStyle]="{ color: shfrmProdThird ? '#f06321' : '#919191' }"
+              href="javascript:;">Whitelist IP <i class="fa fa-angle-right"></i
+                 ></a>
             </li>
           </ul>
+          <form #frmProdFirst="ngForm" nonvalidate [hidden]="!shfrmProdFirst">
+           <div [hidden]="frmProdFirst.submitted">
+              <div class="tabEnvironment">
+                <div class="tabContent">            
           <div class="row mb30">
             <div class="col-md-12 mb-xs-10">
               <div><label for="requestId">Request Id</label></div>
@@ -2369,6 +2588,7 @@
                 class="w100p fs12"
                 name="JiraId"
                 [ngModel]="edit_data.JiraId"
+                #JiraId="ngModel"
                 (change)="changeItem($event.target.value)"
                 style="font-family: Poppins-Regular;font-size: 14px;padding: 10px 14px;border-radius: 3px;border: solid 1px #acacac;outline: none;background: #ffffff;"
               >
@@ -2384,9 +2604,10 @@
               <div><label for="MerchantName">Merchant Name</label></div>
               <input
                 class="w100p fs12"
-                name="merchantName"
+                name="MerchantName"
                 placeholder="Your Organization Name"
                 [(ngModel)]="edit_data.MerchantName"
+                #MerchantName="ngModel"
                 readonly=""
               />
             </div>
@@ -2397,8 +2618,9 @@
               <textarea
                 class="w100p fs12"
                 placeholder="Brief description of your product for which ICICI Bank APIs will be leveraged"
-                name="description"
+                name="Description"
                 [(ngModel)]="edit_data.Description"
+                #Description="ngModel"
                 readonly=""
               ></textarea>
             </div>
@@ -2413,8 +2635,9 @@
               <input
                 class="w100p fs12"
                 placeholder="Your Email ID"
-                name="companyName"
+                name="SpocEmail"
                 [(ngModel)]="edit_data.SpocEmail"
+                #SpocEmail="ngModel"
                 readonly=""
               />
             </div>
@@ -2427,8 +2650,9 @@
               <input
                 class="w100p fs12"
                 placeholder="Your Contact Number"
-                name="contactPerson"
+                name="SpocPhone"
                 [(ngModel)]="edit_data.SpocPhone"
+                #SpocPhone="ngModel"
                 readonly=""
               />
             </div>
@@ -2443,8 +2667,9 @@
               <input
                 class="w100p fs12"
                 placeholder="Name/Email ID of ICICI Bank RM with whom your are liaising"
-                name="contactEmail"
+                name="RelManager"
                 [(ngModel)]="edit_data.RelManager"
+                #RelManager="ngModel"
                 readonly=""
               />
             </div>
@@ -2454,31 +2679,20 @@
               <button
                 type="button"
                 class="signInBtn"
-                onclick="openProdCurrentTabEnv(1)"
+                onclick="btnProdNext()"
               >
                 Next
               </button>
             </div>
           </div>
-        </div>
-      </div>
+          </div>
+          </div>
+           </div>
+     </form>
+     <form #frmProdSecond="ngForm" nonvalidate [hidden]="!shfrmProdSecond">
+        <div [hidden]="frmProdSecond.submitted">
       <div class="tabProdEnvironment">
-        <div class="tabContent">
-          <ul class="breadcrumb">
-            <li>
-              <a onclick="return openProdCurrentTabEnv(0)"
-                >Basic Details <i class="fa fa-angle-right"></i
-              ></a>
-            </li>
-            <li class="active">
-              <a onclick="return openProdCurrentTabEnv(1)"
-                >Requested API <i class="fa fa-angle-right"></i
-              ></a>
-            </li>
-            <li>
-              <a onclick="return openProdCurrentTabEnv(2)">Whitelist IP</a>
-            </li>
-          </ul>
+        <div class="tabContent">          
           <div class="row mb30">
             <div class="col-md-12 mb-xs-10">
               <div><label for="projectName">Domain Type</label></div>
@@ -2500,7 +2714,7 @@
               <button
                 type="button"
                 class="signInBtn"
-                onclick="openProdCurrentTabEnv(2)"
+                onclick="openProdContinue()"
               >
                 Continue
               </button>
@@ -2508,23 +2722,13 @@
           </div>
         </div>
       </div>
+        </div>
+     </form>
+     <form #frmProdThird="ngForm" nonvalidate [hidden]="!shfrmProdThird">
+        <div [hidden]="frmProdthird.submitted">
       <div class="tabProdEnvironment">
         <div class="tabContent">
-          <ul class="breadcrumb">
-            <li>
-              <a onclick="return openProdCurrentTabEnv(0)"
-                >Basic Details <i class="fa fa-angle-right"></i
-              ></a>
-            </li>
-            <li>
-              <a onclick="return openProdCurrentTabEnv(1)"
-                >Requested API <i class="fa fa-angle-right"></i
-              ></a>
-            </li>
-            <li class="active">
-              <a onclick="return openProdCurrentTabEnv(2)">Whitelist IP</a>
-            </li>
-          </ul>
+         
           <div class="row mb25">
             <div class="col-md-12">
               <div>
@@ -2559,7 +2763,7 @@
               <div><label for="contract">Callback URL</label></div>
               <input
                 class="w100p fs12"
-                name="contract"
+                name="CallbackUrl"
                 pattern="{{ Callback_URL }}"
                 placeholder="Callback URL"
                 #CallbackUrl="ngModel"
@@ -2581,13 +2785,13 @@
                 (change)="picked($event)"
                 type="file"
                 [(ngModel)]="edit_data.file2"
-                name="txtFile1"
-                #txtFile1="ngModel"
+                name="file2"
+                #file2="ngModel"
                 mdbInputDirective
                 required
               />
               <div
-                *ngIf="txtFile1.invalid && txtFile1.dirty"
+                *ngIf="file2.invalid && file2.dirty"
                 class="text-danger form-error"
               >
                 File is required.
@@ -2614,6 +2818,7 @@
           </div>
         </div>
       </div>
+        </div>
     </form>
   </div>
   <div class="modal-footer"></div>
