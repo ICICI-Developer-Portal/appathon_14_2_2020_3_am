@@ -1030,8 +1030,8 @@ openProdCurrentTabEnv(id) {
       spocPhone: this.objOnB.txtContactNumber,
       relManager: this.objOnB.txtRelManager,
       env: "UAT",
-      ips: this.objOnB.txtIPAddress,
-      callbackUrl: this.objOnB.txtCallbackURL,
+      ips: '',
+      callbackUrl: '',
       file1 : this.objOnB.file1
     };
 

@@ -2043,7 +2043,7 @@
 
               </div>
             </div>
-            <div class="row ">
+            <!-- <div class="row ">
               <div class="col-md-12">
                 <div>
                   <label for="whitelistIp">Enter IP Addresses that needs to be whitelisted under
@@ -2055,21 +2055,22 @@
                   Please Enter correct IP address
                 </div>
               </div>
-            </div>
-            <div class="row mb25" id="whitelistIPItemContainerModal"></div>
+            </div> -->
+            <!-- <div class="row mb25" id="whitelistIPItemContainerModal"></div>
             <div class="row mb30">
               <div class="col-md-12">
                 <div><label for="contract">Callback URL</label></div>
                 <input class="w100p fs12" placeholder="Enter Callback URL" pattern="{{ Callback_URL }}"
                   [(ngModel)]="objOnB.txtCallbackURL" name="txtCallbackURL" />
               </div>
-            </div>
+            </div> -->
             <div class="row mb25">
               <div class="col-md-12">
+                <div><label for="contract">Certificate Upload</label></div>
                 <input class="form-control" id="file1" (change)="picked($event)" type="file"
                   [(ngModel)]="objOnB.file1" #file1="ngModel" name="file1" mdbInputDirective required />
                 <div *ngIf="file1.invalid && file1.dirty" class="text-danger form-error">
-                  File is required.
+                  Certificate is required.
                 </div>
               </div>
             </div>
