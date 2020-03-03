@@ -1,25 +1,25 @@
-
-
-.alignTop{
-    margin-top: 14px;
+.alignTop {
+  margin-top: 14px;
 }
 
 .blueBtn {
-    background: #285bae;
-    color: #ffffff !important;
+  background: #285bae;
+  color: #ffffff !important;
 }
 
 .pinkBtn {
-    background: #e492e4;
-    color: #ffffff !important;
+  background: #e492e4;
+  color: #ffffff !important;
 }
 
 .orangeBtn {
-    background: #e66c09;
-    color: #ffffff !important;
+  background: #e66c09;
+  color: #ffffff !important;
 }
 
 .avoid_clicks {
-    pointer-events: none !important;
-  }
-  
+  pointer-events: none !important;
+}
+.highlightTxt {
+  background-color: #ffff00;
+}
