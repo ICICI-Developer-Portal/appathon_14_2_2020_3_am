@@ -54,6 +54,27 @@ import { EcollectionComponent } from './Sidenav-pages/Sidenav-Subpages/ecollecti
 import { IsurepayComponent } from './Sidenav-pages/Sidenav-Subpages/isurepay/isurepay.component';
 import { RemittanceComponent } from './Sidenav-pages/Sidenav-Subpages/remittance/remittance.component';
 import { CompositepayComponent } from './Sidenav-pages/Sidenav-Subpages/compositepay/compositepay.component';
+import { PanvalidationComponent } from './Sidenav-pages/Sidenav-Subpages/panvalidation/panvalidation.component';
+import { CustomerAuthenticationComponent } from './Sidenav-pages/Sidenav-Subpages/customer-authentication/customer-authentication.component';
+import { NewCustomerOnboardingComponent } from './Sidenav-pages/Sidenav-Subpages/new-customer-onboarding/new-customer-onboarding.component';
+import { DemographicDetailsComponent } from './Sidenav-pages/Sidenav-Subpages/demographic-details/demographic-details.component';
+import { CorporateComponent } from './Sidenav-pages/corporate/corporate.component';
+import { PennyDropComponent } from './Sidenav-pages/Sidenav-Subpages/penny-drop/penny-drop.component';
+import { CdmComponent } from './Sidenav-pages/Sidenav-Subpages/cdm/cdm.component';
+import { CashDepositComponent } from './Sidenav-pages/Sidenav-Subpages/cash-deposit/cash-deposit.component';
+import { Pay2corpComponent } from './Sidenav-pages/Sidenav-Subpages/pay2corp/pay2corp.component';
+import { Pay2corpserviceComponent } from './Sidenav-pages/Sidenav-Subpages/pay2corpservice/pay2corpservice.component';
+import { UtilitypaymentComponent } from './Sidenav-pages/Sidenav-Subpages/utilitypayment/utilitypayment.component';
+import { BbpsComponent } from './Sidenav-pages/Sidenav-Subpages/bbps/bbps.component';
+import { InstapayComponent } from './Sidenav-pages/Sidenav-Subpages/instapay/instapay.component';
+import { Upi2Component } from './Sidenav-pages/Sidenav-Subpages/upi2/upi2.component';
+import { Upi2serviceComponent } from './Sidenav-pages/Sidenav-Subpages/upi2service/upi2service.component';
+import { CollectionsComponent } from './Sidenav-pages/Sidenav-Subpages/collections/collections.component';
+import { AccountservicesComponent } from './Sidenav-pages/Sidenav-Subpages/accountservices/accountservices.component';
+import { CompositepayserviceComponent } from './Sidenav-pages/Sidenav-Subpages/compositepayservice/compositepayservice.component';
+import { ImpsComponent } from './Sidenav-pages/Sidenav-Subpages/imps/imps.component';
+import { EasypayComponent } from './Sidenav-pages/Sidenav-Subpages/easypay/easypay.component';
+import { PaymentComponent } from './Sidenav-pages/Sidenav-Subpages/payment/payment.component';
 
 @NgModule({
   imports: [
@@ -80,7 +101,6 @@ import { CompositepayComponent } from './Sidenav-pages/Sidenav-Subpages/composit
     BuildingBlocksComponent,
     LoanandCardComponent,
     PaymentsComponent,
-
     CorporateBankComponent,
     CommertialBankComponent,
     ViewAllApiComponent,
@@ -116,6 +136,27 @@ import { CompositepayComponent } from './Sidenav-pages/Sidenav-Subpages/composit
     IsurepayComponent,
     RemittanceComponent,
     CompositepayComponent,
+    PanvalidationComponent,
+    CustomerAuthenticationComponent,
+    NewCustomerOnboardingComponent,
+    DemographicDetailsComponent,
+    CorporateComponent,
+    PennyDropComponent,
+    CdmComponent,
+    CashDepositComponent,
+    Pay2corpComponent,
+    Pay2corpserviceComponent,
+    UtilitypaymentComponent,
+    BbpsComponent,
+    InstapayComponent,
+    Upi2Component,
+    Upi2serviceComponent,
+    CollectionsComponent,
+    AccountservicesComponent,
+    CompositepayserviceComponent,
+    ImpsComponent,
+    EasypayComponent,
+    PaymentComponent,
   ],
 })
 export class DocumentationDashbModule {}

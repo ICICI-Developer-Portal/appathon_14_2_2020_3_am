@@ -641,7 +641,13 @@ export class IndexComponent implements OnInit {
       this.modalRef = this.modalService.show(signin, { backdrop: "static" });
     }
   }
-
+  userRegister(signin: any) {
+    if (localStorage.getItem("id") != null) {
+      this.router.navigate(["/userregistration"]);
+    } else {
+      this.modalRef = this.modalService.show(signin, { backdrop: "static" });
+    }
+  }
   account(signin: any) {
     if (localStorage.getItem("id") != null) {
       this.router.navigate(["/accountdeposit"]);

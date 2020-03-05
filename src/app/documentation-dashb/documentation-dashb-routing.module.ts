@@ -42,6 +42,28 @@ import { IsurepayComponent } from './Sidenav-pages/Sidenav-Subpages/isurepay/isu
 import { RemittanceComponent } from './Sidenav-pages/Sidenav-Subpages/remittance/remittance.component';
 import { AuthGuard } from '../services/auth.guard';
 import { CompositepayComponent } from './Sidenav-pages/Sidenav-Subpages/compositepay/compositepay.component';
+import { CorporateComponent } from './Sidenav-pages/corporate/corporate.component';
+import { PanvalidationComponent } from './Sidenav-pages/Sidenav-Subpages/panvalidation/panvalidation.component';
+import { CustomerAuthenticationComponent } from './Sidenav-pages/Sidenav-Subpages/customer-authentication/customer-authentication.component';
+import { NewCustomerOnboardingComponent } from './Sidenav-pages/Sidenav-Subpages/new-customer-onboarding/new-customer-onboarding.component';
+import { DemographicDetailsComponent } from './Sidenav-pages/Sidenav-Subpages/demographic-details/demographic-details.component';
+import { PennyDropComponent } from './Sidenav-pages/Sidenav-Subpages/penny-drop/penny-drop.component';
+import { CdmComponent } from './Sidenav-pages/Sidenav-Subpages/cdm/cdm.component';
+import { CashDepositComponent } from './Sidenav-pages/Sidenav-Subpages/cash-deposit/cash-deposit.component';
+import { Pay2corpComponent } from './Sidenav-pages/Sidenav-Subpages/pay2corp/pay2corp.component';
+import { Pay2corpserviceComponent } from './Sidenav-pages/Sidenav-Subpages/pay2corpservice/pay2corpservice.component';
+import { UtilitypaymentComponent } from './Sidenav-pages/Sidenav-Subpages/utilitypayment/utilitypayment.component';
+import { BbpsComponent } from './Sidenav-pages/Sidenav-Subpages/bbps/bbps.component';
+import { InstapayComponent } from './Sidenav-pages/Sidenav-Subpages/instapay/instapay.component';
+import { Upi2Component } from './Sidenav-pages/Sidenav-Subpages/upi2/upi2.component';
+import { Upi2serviceComponent } from './Sidenav-pages/Sidenav-Subpages/upi2service/upi2service.component';
+import { CollectionsComponent } from './Sidenav-pages/Sidenav-Subpages/collections/collections.component';
+import { AccountservicesComponent } from './Sidenav-pages/Sidenav-Subpages/accountservices/accountservices.component';
+import { CompositepayserviceComponent } from './Sidenav-pages/Sidenav-Subpages/compositepayservice/compositepayservice.component';
+import { ImpsComponent } from './Sidenav-pages/Sidenav-Subpages/imps/imps.component';
+import { EasypayComponent } from './Sidenav-pages/Sidenav-Subpages/easypay/easypay.component';
+import { PaymentComponent } from './Sidenav-pages/Sidenav-Subpages/payment/payment.component';
+
 
 const routes: Routes = [
   {
@@ -252,6 +274,112 @@ const routes: Routes = [
         component: CompositepayComponent,
         //canActivate: [AuthGuard],
       },
+      {
+        path: 'corporate',
+        component: CorporateComponent,
+        //canActivate: [AuthGuard],
+      },
+      {
+        path: 'panvalidation',
+        component: PanvalidationComponent,
+        //canActivate: [AuthGuard],
+      },
+      {
+        path: 'customerauth',
+        component: CustomerAuthenticationComponent,
+        //canActivate: [AuthGuard],
+      },  
+      {
+        path: 'newcustomeronboarding',
+        component: NewCustomerOnboardingComponent,
+        //canActivate: [AuthGuard],
+      }, 
+      {
+        path: 'demographic',
+        component: DemographicDetailsComponent,
+        //canActivate: [AuthGuard],
+      }, 
+      {
+        path: 'pennyDrop',
+        component: PennyDropComponent,
+        //canActivate: [AuthGuard],
+      }, 
+      {
+        path: 'cdm',
+        component: CdmComponent,
+        //canActivate: [AuthGuard],
+      },
+      {
+        path: 'cashDeposit',
+        component: CashDepositComponent,
+        //canActivate: [AuthGuard],
+      },
+      {
+        path: 'pay2corp',
+        component: Pay2corpComponent,
+        //canActivate: [AuthGuard],
+      },
+      {
+        path: 'pay2corpservice',
+        component: Pay2corpserviceComponent,
+        //canActivate: [AuthGuard],
+      },
+      {
+        path: 'utilitypayment',
+        component: UtilitypaymentComponent,
+        //canActivate: [AuthGuard],
+      },
+      {
+        path: 'bbps',
+        component: BbpsComponent,
+        //canActivate: [AuthGuard],
+      },
+      {
+        path: 'instapay',
+        component: InstapayComponent,
+        //canActivate: [AuthGuard],
+      },
+      {
+        path: 'upi2',
+        component: Upi2Component,
+        //canActivate: [AuthGuard],
+      },
+      {
+        path: 'upi2service',
+        component: Upi2serviceComponent,
+        //canActivate: [AuthGuard],
+      },
+      {
+        path: 'collections',
+        component: CollectionsComponent,
+        //canActivate: [AuthGuard],
+      },
+      {
+        path: 'accountServices',
+        component: AccountservicesComponent,
+        //canActivate: [AuthGuard],
+      },
+      {
+        path: 'compositepayservice',
+        component: CompositepayserviceComponent,
+        //canActivate: [AuthGuard],
+      },
+      {
+        path: 'imps',
+        component: ImpsComponent,
+        //canActivate: [AuthGuard],
+      },
+      {
+        path: 'easypay',
+        component: EasypayComponent,
+        //canActivate: [AuthGuard],
+      },
+      {
+        path: 'payments',
+        component: PaymentComponent,
+        //canActivate: [AuthGuard],
+      },
+      
       // {
       //   path: 'appathon-dashboard',
       //   component: AppathonDashboardComponent,

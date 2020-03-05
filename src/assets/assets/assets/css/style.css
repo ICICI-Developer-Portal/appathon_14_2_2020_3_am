@@ -1664,7 +1664,7 @@ table.possibleErrorTable tbody tr td p{
     padding: 14px;
     height: 100%;
 }
-#signIn .modal-header,#notSignedIn .modal-header,#productionSignedIn .modal-header,#sandboxIframe .modal-header,{
+#signIn .modal-header,#notSignedIn .modal-header,#productionSignedIn .modal-header,#sandboxIframe .modal-header{
     padding-bottom: 5px;
 }
 #signUp .modal-header,#signIn .modal-header,#signUp .modal-footer,#signIn .modal-footer,#addAnApplication .modal-header,#addAnApplication .modal-footer,
