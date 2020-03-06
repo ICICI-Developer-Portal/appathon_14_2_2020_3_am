@@ -75,6 +75,7 @@ import { CompositepayserviceComponent } from './Sidenav-pages/Sidenav-Subpages/c
 import { ImpsComponent } from './Sidenav-pages/Sidenav-Subpages/imps/imps.component';
 import { EasypayComponent } from './Sidenav-pages/Sidenav-Subpages/easypay/easypay.component';
 import { PaymentComponent } from './Sidenav-pages/Sidenav-Subpages/payment/payment.component';
+import { SecurityComponent } from './Sidenav-pages/security/security.component';
 
 @NgModule({
   imports: [
@@ -157,6 +158,7 @@ import { PaymentComponent } from './Sidenav-pages/Sidenav-Subpages/payment/payme
     ImpsComponent,
     EasypayComponent,
     PaymentComponent,
+    SecurityComponent,
   ],
 })
 export class DocumentationDashbModule {}

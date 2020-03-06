@@ -1,0 +1,77 @@
+<div class="documentTabContent">
+  <div class="tab-content" id="v-pills-tabContent">
+    <div>
+      <div class="tabContentInner">
+        <h4 class="mb10 fs24 color-black ff-medium">Basic Security</h4>
+        <hr>
+        <ul>
+          <li>
+            API Key needs to be passed in the header (apikey) and merchant IP will also be required for IP whitelisting.
+          </li>
+          <li>
+            API Key to be shared by ICICI.
+          </li>
+          <li>
+            API Key needs to be passed http request header (name:- apikey).
+          </li>
+        </ul>
+        <h4 class="mb10 fs24 color-black ff-medium">API Key Validation</h4>
+        <hr>
+        <p>
+          The API key and it's corresponding secret can be used in many ways such as just passing the key in a parameter
+          or header. The most common way of passing the key is as an HTTP parameter or header. So that we will share
+          this key with user and validate the key in request header by comparing it with the value at our end. If the
+          key is Valid we will continue processing the request further otherwise throw an error stating as Invalid API
+          key.
+        </p>
+        <br>
+        <p>
+          Example:
+          <br>
+          Passing the Key in Header
+        </p>      
+      <br>
+      <p>
+        Key : API Key
+        <br>
+        Value: IP84UTvzJKds1Jomx8gIbTXcEEJSUilGqpxCcmnx
+      </p>
+      <br>
+      <h4 class="mb10 fs24 color-black ff-medium">IP Whitelisting</h4>
+      <hr>
+      <p>
+        IP whitelisting allows us to create lists of trusted IP addresses or IP ranges from which our users can access
+        our domains. IP whitelist is a security feature often used for limiting and controlling access only to trusted
+        users. So at the time of configuration, We would white list user public IP on our firewall, so our web services
+        would be called by the authorized user server only. Similarly, user also would have to white list our public IP
+        to call the web services.
+      </p>
+      <br>
+      <h4 class="mb10 fs24 color-black ff-medium">HTTPS</h4>
+      <hr>
+      <p>
+        The web services to be hosted must be HTTPS. The HTTPS type web service would filter out middle man from
+        pipeline while data transportation between bank and user application.
+      </p>
+      <br>
+      <h4 class="mb10 fs24 color-black ff-medium">Advanced Security</h4>
+      <hr>
+      <ul>
+        <li>
+          API request and response to Merchant is secured using advanced and agreed upon encryption algorithm agreed to
+          maintain data confidentiality and integrity.
+        </li>
+        <li>
+          API Gateway uses the standard authenticating and authorizing process for the incoming request from merchant
+          and for maintaining the integrity and confidentiality we apply state of art Encryption/ Decryption algorithm.
+        </li>
+        <li>
+          Please refer below given steps and choose any one for Encryption & Decryption process.
+        </li>
+        <p> o Asymmetric o Symmetric o Hybrid (Both Symmetric and Asymmetric)
+        </p>
+      </ul>
+    </div>
+    </div>
+  </div>
+</div>

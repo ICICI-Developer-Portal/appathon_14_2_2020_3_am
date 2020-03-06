@@ -63,7 +63,7 @@ import { CompositepayserviceComponent } from './Sidenav-pages/Sidenav-Subpages/c
 import { ImpsComponent } from './Sidenav-pages/Sidenav-Subpages/imps/imps.component';
 import { EasypayComponent } from './Sidenav-pages/Sidenav-Subpages/easypay/easypay.component';
 import { PaymentComponent } from './Sidenav-pages/Sidenav-Subpages/payment/payment.component';
-
+import { SecurityComponent } from './Sidenav-pages/security/security.component';
 
 const routes: Routes = [
   {
@@ -377,6 +377,11 @@ const routes: Routes = [
       {
         path: 'payments',
         component: PaymentComponent,
+        //canActivate: [AuthGuard],
+      },
+      {
+        path: 'security',
+        component: SecurityComponent,
         //canActivate: [AuthGuard],
       },
       

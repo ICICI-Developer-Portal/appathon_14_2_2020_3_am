@@ -14,6 +14,41 @@
                 Introduction
               </a>
             </li>
+            <li class="nav-link">
+              <a id="v-pills-messages-tab" [routerLink]="['/security']" data-toggle="pill" href="javascript:;"
+                role="tab" aria-controls="v-pills-messages" aria-selected="false">Security<img
+                  class="dropdownIcon" src="assets/images/dropdown-2.svg" alt="" />
+              </a>
+              <!-- <ul class="collapse nav-pills-first-level submenuLevelOne list-unstyled">
+                <li class="nav-link">
+                  <a [routerLink]="['/offers']" id="v-pills-collect-from-VPA-tab" data-toggle="pill" href="javascript:;"
+                    role="tab" aria-controls="v-pills-collect-from-VPA" aria-selected="false">
+                    Pre approved offers<img class="dropdownIcon" src="assets/images/dropdown-2.svg" alt="" />
+                  </a> -->
+                  <ul class="collapse nav-pills-first-level submenuLevelOne list-unstyled">
+
+                    <li class="nav-link">
+                      <a id="v-pills-List-Customer-Accounts-tab" href="javascript:;" data-toggle="pill" role="tab"
+                        aria-selected="false" (click)="AppId('1')">
+                        Encryption
+                      </a>
+                    </li>
+                    <li class="nav-link">
+                      <a id="v-pills-List-Customer-Accounts-tab" href="javascript:;" data-toggle="pill" role="tab"
+                        aria-selected="false" (click)="AppId('2')">
+                        Test API 
+                      </a>
+                    </li>   
+                    <li class="nav-link">
+                      <a id="v-pills-List-Customer-Accounts-tab" href="javascript:;" data-toggle="pill" role="tab"
+                        aria-selected="false" (click)="AppId('3')">
+                        Decryption
+                      </a>
+                    </li>                    
+                  </ul>
+                <!-- </li>
+              </ul> -->
+            </li>
             <!-- Buidling Block-->
             <li class="nav-link">
               <a id="v-pills-messages-tab" [routerLink]="['/buildingblock']" data-toggle="pill" href="javascript:;"
