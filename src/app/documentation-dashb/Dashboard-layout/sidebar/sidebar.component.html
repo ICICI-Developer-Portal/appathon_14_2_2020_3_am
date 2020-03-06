@@ -2945,14 +2945,20 @@
                   <ul class="submenuLevelTwo nav-pills-first-level collapse list-unstyled">
                     <li class="nav-link">
                       <a id="v-pills-messages-tab" data-toggle="pill" href="javascript:;" role="tab"
-                        aria-controls="v-pills-messages" aria-selected="false">Collections<img class="dropdownIcon"
+                        aria-controls="v-pills-messages" aria-selected="false">iSurePay<img class="dropdownIcon"
                           src="assets/images/dropdown-2.svg" alt="" />
                       </a>
                       <ul class="submenuLevelThree nav-pills-third-level collapse list-unstyled">
                         <li class="nav-link">
                           <a id="v-pills-List-Customer-Accounts-tab" href="javascript:;" data-toggle="pill" role="tab"
-                            aria-selected="false" (click)="AppId('1105,1106')">
-                            iSure Pay
+                            aria-selected="false" (click)="AppId('1105')">
+                            Validation Web Service
+                          </a>
+                        </li>
+                        <li class="nav-link">
+                          <a id="v-pills-List-Customer-Accounts-tab" href="javascript:;" data-toggle="pill" role="tab"
+                            aria-selected="false" (click)="AppId('1106')">
+                            Receipting Web Service
                           </a>
                         </li>
                         <li class="nav-link">
@@ -2969,12 +2975,12 @@
                   <a id="v-pills-Corporate-tab" [routerLink]="['/upi2']" data-toggle="pill" href="javascript:;"
                     role="tab" aria-controls="v-pills-home" aria-selected="true">UPI 2
                     <img class="dropdownIcon" src="assets/images/dropdown-2.svg" alt="" /></a>
-                  <!-- <ul class="submenuLevelTwo nav-pills-first-level collapse list-unstyled">
+                  <ul class="submenuLevelTwo nav-pills-first-level collapse list-unstyled">
                     <li class="nav-link">
                       <a [routerLink]="['/upi2service']" id="v-pills-messages-tab" data-toggle="pill"
                         href="javascript:;" role="tab" aria-controls="v-pills-messages" aria-selected="false">UPI 2<img
                           class="dropdownIcon" src="assets/images/dropdown-2.svg" alt="" />
-                      </a> -->
+                      </a>
                   <ul class="submenuLevelThree nav-pills-third-level collapse list-unstyled">
                     <li class="nav-link">
                       <a id="v-pills-messages-tab" data-toggle="pill" href="javascript:;" role="tab"
@@ -3146,18 +3152,24 @@
                       </a>
                       <ul class="submenuLevelThree nav-pills-third-level collapse list-unstyled">
                         <li class="nav-link">
+                          <a id="v-pills-messages-tab" data-toggle="pill" href="javascript:;" role="tab"
+                            aria-controls="v-pills-messages" aria-selected="false">Signed Intent QR
+                            <img class="dropdownIcon" src="assets/images/dropdown-2.svg" alt="" />
+                          </a>
+                      <ul class="submenuLevelThree nav-pills-third-level collapse list-unstyled">
+                        <li class="nav-link">
                           <a id="v-pills-List-Customer-Accounts-tab" href="javascript:;" data-toggle="pill" role="tab"
-                            aria-selected="false" (click)="AppId('106')">
-                            Get Customers Account
+                            aria-selected="false" (click)="AppId('123')">
+                            List PSP Keys UPI 2.0
                           </a>
                         </li>
                         <li class="nav-link">
                           <a id="v-pills-List-Customer-Accounts-tab" href="javascript:;" data-toggle="pill" role="tab"
-                            aria-selected="false" (click)="AppId('118')">
-                            Change MPIN
+                            aria-selected="false" (click)="AppId('124')">
+                            Manage Verified Address UPI 2.0
                           </a>
                         </li>
-                        <li class="nav-link">
+                        <!-- <li class="nav-link">
                           <a id="v-pills-List-Customer-Accounts-tab" href="javascript:;" data-toggle="pill" role="tab"
                             aria-selected="false" (click)="AppId('103')">
                             Generate OTP
@@ -3204,12 +3216,14 @@
                             aria-selected="false" (click)="AppId('102')">
                             List Accounts
                           </a>
+                        </li> -->
+                      </ul>
                         </li>
                       </ul>
                     </li>
                   </ul>
-                  <!-- </li>
-                  </ul> -->
+                  </li>
+                  </ul>
                 </li>
                 <li class="nav-link">
                   <a id="v-pills-Corporate-tab" [routerLink]="['/instapay']" data-toggle="pill" href="javascript:;"
