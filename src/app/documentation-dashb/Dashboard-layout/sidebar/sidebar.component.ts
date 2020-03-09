@@ -26,7 +26,7 @@ export class SidebarComponent implements OnInit {
           .siblings('.active')
           .removeClass('active');
         // $(this).siblings(".openDropdown").removeClass("openDropdown");
-        $(this).addClass("openDropdown");
+        // $(this).addClass("openDropdown");
         $(this).addClass('active');
       });
       $('.sideMenu>.nav-pills>li.nav-link a').click(function() {
@@ -49,7 +49,7 @@ export class SidebarComponent implements OnInit {
       });
       // $(".sideMenu .nav-pills-first-level>li.nav-link a").click(function () {
       //     $(this).parent().siblings(".openDropdown").removeClass("openDropdown");
-      //     $(this).parent().addClass("openDropdown fuck");
+      //     $(this).parent().addClass("openDropdown");
       // });
       $('.sideMenu .nav-pills-first-level>li.nav-link a').click(function() {
         $(this).removeClass('active show');
