@@ -26,7 +26,7 @@ export class SidebarComponent implements OnInit {
           .siblings('.active')
           .removeClass('active');
         // $(this).siblings(".openDropdown").removeClass("openDropdown");
-        // $(this).addClass("openDropdown");
+        $(this).addClass("openDropdown");
         $(this).addClass('active');
       });
       $('.sideMenu>.nav-pills>li.nav-link a').click(function() {
