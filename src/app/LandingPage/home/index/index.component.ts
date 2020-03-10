@@ -101,7 +101,7 @@ export class IndexComponent implements OnInit {
   otp_verified = 0;
 
   list: any = [];
-  edit_data : any;
+  edit_data: any;
   otp_txt_id: any = "";
   confirmMsg: any;
   confirmMsgProd: any;
@@ -114,10 +114,10 @@ export class IndexComponent implements OnInit {
   ipAddressErrorMsg: string = "";
   portNumErrorMsg: string = "";
   urlErrorMsg: string = "";
-  idArr:any=[];
-  additionalParams:any;
-  accNo : boolean = false;
-  clientCode : boolean = false;
+  idArr: any = [];
+  additionalParams: any;
+  accNo: boolean = false;
+  clientCode: boolean = false;
   url: boolean = false;
   ip: boolean = false;
   port: boolean = false;
@@ -127,8 +127,8 @@ export class IndexComponent implements OnInit {
   service: boolean = false;
   commModel: boolean = false;
   ifsc: boolean = false;
-  virtualCode : boolean = false;
-  ips : boolean = false;
+  virtualCode: boolean = false;
+  ips: boolean = false;
   interAccNo: boolean = false;
   accName: boolean = false;
   authLevel: boolean = false;
@@ -140,7 +140,10 @@ export class IndexComponent implements OnInit {
   mode: boolean = false;
   trans: boolean = false;
   amount: boolean = false;
-  catArr:any =[];
+  catArr: any = [];
+
+  companyNamesDetails: any;
+  companyNames: any;
 
   constructor(
     private HttpClient: HttpClient,
@@ -225,9 +228,9 @@ export class IndexComponent implements OnInit {
     this.frmUAT_A1 = true;
     this.frmUAT_A2 = true;
     this.frmUAT_A3 = true;
-    this.frmProd_A1= true;
-    this.frmProd_A2= true;
-    this.frmProd_A3= true;
+    this.frmProd_A1 = true;
+    this.frmProd_A2 = true;
+    this.frmProd_A3 = true;
 
     this.get_domain_and_apis();
   }
@@ -641,7 +644,7 @@ export class IndexComponent implements OnInit {
       this.modalRef = this.modalService.show(signin, { backdrop: "static" });
     }
   }
-  
+
   account(signin: any) {
     if (localStorage.getItem("id") != null) {
       this.router.navigate(["/accountdeposit"]);
@@ -735,60 +738,60 @@ export class IndexComponent implements OnInit {
     }
   }
   onItemSelect(item: any) {
-    if (item.id){
+    if (item.id) {
       this.idArr.push(item.id);
-      console.log("hi", this.idArr)
-      sessionStorage.setItem(this.idArr, 'true');
+      console.log("hi", this.idArr);
+      sessionStorage.setItem(this.idArr, "true");
     }
   }
 
   /****** To select group ******/
   onGroupDeSelect(items) {
-    if(items.category){
-      console.log("check", items.list)
-    for(var i=0;i<items.list.length;i++){
-      this.idArr.push(items.list[i].id) 
+    if (items.category) {
+      console.log("check", items.list);
+      for (var i = 0; i < items.list.length; i++) {
+        this.idArr.push(items.list[i].id);
       }
-      console.log("groupselect", this.idArr, this.catArr)
+      console.log("groupselect", this.idArr, this.catArr);
     }
   }
 
- /****** To Unselect group ******/
- onGroupSelect(items) {
-  console.log(items.list);
-  for(var i=0;i<items.list.length;i++){
-    for(var j=0;j<this.idArr.length;j++){
-      if(items.list[i].id===this.idArr[j]){
-        console.log('true')
-        this.idArr.splice(j,1);
-        console.log('gropu arr', this.idArr)
+  /****** To Unselect group ******/
+  onGroupSelect(items) {
+    console.log(items.list);
+    for (var i = 0; i < items.list.length; i++) {
+      for (var j = 0; j < this.idArr.length; j++) {
+        if (items.list[i].id === this.idArr[j]) {
+          console.log("true");
+          this.idArr.splice(j, 1);
+          console.log("gropu arr", this.idArr);
+        }
       }
     }
   }
-}
 
   onSelectAll(items: any) {
-    for(var i=0;i<items.length;i++){
-      this.idArr.push(items[i].id) 
-      this.catArr.push(items[i].category) 
-    //   var key = this.getKeyByValue(items, items[i].id);
-    // console.log("key",key);
-      }
-    console.log("allselect", this.idArr, this.catArr)
+    for (var i = 0; i < items.length; i++) {
+      this.idArr.push(items[i].id);
+      this.catArr.push(items[i].category);
+      //   var key = this.getKeyByValue(items, items[i].id);
+      // console.log("key",key);
+    }
+    console.log("allselect", this.idArr, this.catArr);
   }
   onDeSelectAll(items: any) {
-    this.idArr=[]
-    this.catArr=[]
-    console.log("deselect all", this.catArr,this.idArr)    
+    this.idArr = [];
+    this.catArr = [];
+    console.log("deselect all", this.catArr, this.idArr);
   }
 
   OnItemDeSelect(items: any) {
-    for(var i=0;i<this.idArr.length;i++){
-      if(items.id===this.idArr[i]){
-        this.idArr.splice(i,1);
-        console.log(this.idArr)        
+    for (var i = 0; i < this.idArr.length; i++) {
+      if (items.id === this.idArr[i]) {
+        this.idArr.splice(i, 1);
+        console.log(this.idArr);
       }
-      sessionStorage.setItem(items.id , 'false');
+      sessionStorage.setItem(items.id, "false");
     }
   }
 
@@ -832,7 +835,7 @@ export class IndexComponent implements OnInit {
   }
 
   //Next button in Production
-  btnProdNext(){
+  btnProdNext() {
     this.frmProd_A2 = true;
     this.frmProd_A1 = false;
     this.frmProd_A3 = false;
@@ -854,104 +857,125 @@ export class IndexComponent implements OnInit {
       this.shfrmUATThird = id == 3 ? true : false;
     }
   }
-//Nav tab in production
-openProdCurrentTabEnv(id) {
-  if (this.shfrmProdFirst) {
-    this.shfrmProdFirst = true;
-  } else if (this.shfrmProdSecond) {
-    this.shfrmProdFirst = id == 1 ? true : false;
-    this.shfrmProdSecond = id > 1 ? true : false;
-  } else {
-    this.shfrmProdFirst = id == 1 ? true : false;
-    this.shfrmProdSecond = id == 2 ? true : false;
-    this.shfrmProdThird = id == 3 ? true : false;
+  //Nav tab in production
+  openProdCurrentTabEnv(id) {
+    if (this.shfrmProdFirst) {
+      this.shfrmProdFirst = true;
+    } else if (this.shfrmProdSecond) {
+      this.shfrmProdFirst = id == 1 ? true : false;
+      this.shfrmProdSecond = id > 1 ? true : false;
+    } else {
+      this.shfrmProdFirst = id == 1 ? true : false;
+      this.shfrmProdSecond = id == 2 ? true : false;
+      this.shfrmProdThird = id == 3 ? true : false;
+    }
   }
-}
-//   getKeyByValue(object, value) {
-//     return Object.keys(object).find(key => object[key] === value);
-// }
-//Continue button in UAT 
+  //   getKeyByValue(object, value) {
+  //     return Object.keys(object).find(key => object[key] === value);
+  // }
+  //Continue button in UAT
   btnContinue() {
     this.shfrmUATThird = true;
     this.shfrmUATFirst = false;
     this.shfrmUATSecond = false;
-    console.log("test", this.idArr)
-    this.idArr=this.idArr.toString()
-    console.log("id array", this.idArr)
-    
+    console.log("test", this.idArr);
+    this.idArr = this.idArr.toString();
+    console.log("id array", this.idArr);
+
     var json = {
-      "ID": this.idArr,
+      ID: this.idArr
     };
-    console.log("json",json)
-        this.adm.getUATFromData(json).subscribe((data:any) => {
-          console.log(data)
-          var response =data._body;
-          var obj=JSON.parse(response);
-          console.log("obj",obj)      
-          this.additionalParams= obj.ADDITIONAL_DETAILS.split(',');
-    for (var i=0; i<this.additionalParams.length; i++) {
+    console.log("json", json);
+    this.adm.getUATFromData(json).subscribe((data: any) => {
+      console.log(data);
+      var response = data._body;
+      var obj = JSON.parse(response);
+      console.log("obj", obj);
+      this.additionalParams = obj.ADDITIONAL_DETAILS.split(",");
+      for (var i = 0; i < this.additionalParams.length; i++) {
         if (this.additionalParams[i].match("Account Number")) {
-              this.accNo = true;
-          }
-          if (this.additionalParams[i].match("Client Code")) {
-            this.clientCode = true;
-          }if (this.additionalParams[i].match("URL")) {
+          this.accNo = true;
+        }
+        if (this.additionalParams[i].match("Client Code")) {
+          this.clientCode = true;
+        }
+        if (this.additionalParams[i].match("URL")) {
           this.url = true;
-          }if (this.additionalParams[i].match("IP")) {
-        this.ip = true;
-          }if (this.additionalParams[i].match("Port")) {
-      this.port = true;
-          }if (this.additionalParams[i].match("Checksum")) {
-      this.checksum = true;
-          }if (this.additionalParams[i].match("Encryption")) {
-      this.encryption = true;
-          }if (this.additionalParams[i].match("Certificate")) {
-      this.certificate = true;
-          }if (this.additionalParams[i].match("Service Type")) {
-      this.service = true;
-          }if (this.additionalParams[i].match("Communication Method")) {
-      this.commModel = true;
-          }if (this.additionalParams[i].match("IFSC Code")) {
-      this.ifsc = true;
-          }if (this.additionalParams[i].match("Virtual Code")) {
-      this.virtualCode = true;
-          }if (this.additionalParams[i].match("IPS Refund Code")) {
-      this.ips = true;
-          }if (this.additionalParams[i].match("Intermediate Account Number")) {
-      this.interAccNo = true;
-          }if (this.additionalParams[i].match("Account Name")) {
-      this.accName = true;
-          }if (this.additionalParams[i].match("Authorization Level")) {
-      this.authLevel = true;
-          }if (this.additionalParams[i].match("URN")) {
-      this.urn = true;
-          }if (this.additionalParams[i].match("Environment")) {
-      this.env = true;
-          }if (this.additionalParams[i].match("Validation Mode")) {
-      this.valid = true;
-          }if (this.additionalParams[i].match("Acceptance Mode")) {
-      this.accept = true;
-          }if (this.additionalParams[i].match("Recipient Mail ID")) {
-      this.recipient = true;
-          }if (this.additionalParams[i].match("Mode Offered")) {
-      this.mode = true;
-          }if (this.additionalParams[i].match("Transaction Limit")) {
-      this.trans = true;
-          }if (this.additionalParams[i].match("Amount")) {
-      this.amount = true;
-          }
-     }
-          console.log("final",this.additionalParams)
-      });
+        }
+        if (this.additionalParams[i].match("IP")) {
+          this.ip = true;
+        }
+        if (this.additionalParams[i].match("Port")) {
+          this.port = true;
+        }
+        if (this.additionalParams[i].match("Checksum")) {
+          this.checksum = true;
+        }
+        if (this.additionalParams[i].match("Encryption")) {
+          this.encryption = true;
+        }
+        if (this.additionalParams[i].match("Certificate")) {
+          this.certificate = true;
+        }
+        if (this.additionalParams[i].match("Service Type")) {
+          this.service = true;
+        }
+        if (this.additionalParams[i].match("Communication Method")) {
+          this.commModel = true;
+        }
+        if (this.additionalParams[i].match("IFSC Code")) {
+          this.ifsc = true;
+        }
+        if (this.additionalParams[i].match("Virtual Code")) {
+          this.virtualCode = true;
+        }
+        if (this.additionalParams[i].match("IPS Refund Code")) {
+          this.ips = true;
+        }
+        if (this.additionalParams[i].match("Intermediate Account Number")) {
+          this.interAccNo = true;
+        }
+        if (this.additionalParams[i].match("Account Name")) {
+          this.accName = true;
+        }
+        if (this.additionalParams[i].match("Authorization Level")) {
+          this.authLevel = true;
+        }
+        if (this.additionalParams[i].match("URN")) {
+          this.urn = true;
+        }
+        if (this.additionalParams[i].match("Environment")) {
+          this.env = true;
+        }
+        if (this.additionalParams[i].match("Validation Mode")) {
+          this.valid = true;
+        }
+        if (this.additionalParams[i].match("Acceptance Mode")) {
+          this.accept = true;
+        }
+        if (this.additionalParams[i].match("Recipient Mail ID")) {
+          this.recipient = true;
+        }
+        if (this.additionalParams[i].match("Mode Offered")) {
+          this.mode = true;
+        }
+        if (this.additionalParams[i].match("Transaction Limit")) {
+          this.trans = true;
+        }
+        if (this.additionalParams[i].match("Amount")) {
+          this.amount = true;
+        }
+      }
+      console.log("final", this.additionalParams);
+    });
   }
 
   //Continue button funcionality in Production
-  openProdContinue(){
-
+  openProdContinue() {
     this.shfrmProdFirst = true;
     this.shfrmProdSecond = false;
     this.shfrmProdThird = false;
-    }
+  }
 
   openModaldemo(UATconfirm: TemplateRef<any>) {
     this.modalRef = this.modalService.show(UATconfirm);
@@ -1012,8 +1036,8 @@ openProdCurrentTabEnv(id) {
       " " +
       this.objOnB.Acc_acceptance +
       " " +
-      this.objOnB.Rec_mail
-      " " +
+      this.objOnB.Rec_mail;
+    " " +
       this.objOnB.Acc_mode +
       " " +
       this.objOnB.Acc_trans +
@@ -1030,9 +1054,9 @@ openProdCurrentTabEnv(id) {
       spocPhone: this.objOnB.txtContactNumber,
       relManager: this.objOnB.txtRelManager,
       env: "UAT",
-      ips: '',
-      callbackUrl: '',
-      file1:this.objOnB.file1
+      ips: "",
+      callbackUrl: "",
+      file1: this.objOnB.file1
     };
 
     const formData = new FormData();
@@ -1205,13 +1229,13 @@ openProdCurrentTabEnv(id) {
     for (var i = 0; i < this.edit_data.txtSubDomain.length; ++i) {
       ips.push(
         this.edit_data.txtSubDomain[i].itemName +
-          ' (' +
+          " (" +
           this.edit_data.txtSubDomain[i].id +
-          ')',
+          ")"
       );
     }
     this.collection =
-    this.edit_data.AccountNo +
+      this.edit_data.AccountNo +
       " " +
       this.edit_data.ClientCode +
       " " +
@@ -1251,14 +1275,14 @@ openProdCurrentTabEnv(id) {
       " " +
       this.edit_data.Acc_acceptance +
       " " +
-      this.edit_data.Rec_mail
-      " " +
+      this.edit_data.Rec_mail;
+    " " +
       this.edit_data.Acc_mode +
       " " +
       this.edit_data.Acc_trans +
       " " +
       this.edit_data.Acc_amount;
-     
+
     var inputFields = {
       userName: localStorage.getItem("username"),
       domainName: this.edit_data["Domain"],
@@ -1303,39 +1327,39 @@ openProdCurrentTabEnv(id) {
     ).subscribe(
       res => {
         console.log(res);
-        if (res.success === 'true') {
+        if (res.success === "true") {
           //File upload service
           var formData = new FormData();
-          let b: any = (<HTMLInputElement>document.getElementById('file2'))
+          let b: any = (<HTMLInputElement>document.getElementById("file2"))
             .files;
           for (let k = 0; k < b.length; k++) {
             formData.append(res.jiraId, b[k]);
           }
           this.HttpClient.post<any>(
-            'https://developer.icicibank.com/fileUpload',
-            formData,
+            "https://developer.icicibank.com/fileUpload",
+            formData
           ).subscribe(
             res => {
               console.log(res);
             },
             err => {
-              console.log('err', err);
-              console.log('err headers', err.headers);
-            },
+              console.log("err", err);
+              console.log("err headers", err.headers);
+            }
           );
         }
         // this.toastrmsg('success', res['message']);
         this.modalRef = this.modalService.show(Prodconfirm, {
           backdrop: "static"
         });
-        this.confirmMsgProd = res['message'];
+        this.confirmMsgProd = res["message"];
         this.confirmMsgProd = this.confirmMsgProd.substring(51, 44);
         this.modalRef5.hide();
       },
       err => {
-        console.log('zze', err);
-        console.log('zzz', err.headers);
-      },
+        console.log("zze", err);
+        console.log("zzz", err.headers);
+      }
     );
   }
 
@@ -1513,5 +1537,14 @@ openProdCurrentTabEnv(id) {
     let patt = /^([0-9])$/;
     let result = patt.test(event.key);
     return result;
+  }
+  //componay name autocomplete
+  getCompanyName(companyName) {
+    this.adm.getCompanyName(companyName).subscribe(data => {
+      if (data.status === 200) {
+        this.companyNamesDetails = data;
+        this.companyNames = JSON.parse(this.companyNamesDetails._body);
+      }
+    });
   }
 }

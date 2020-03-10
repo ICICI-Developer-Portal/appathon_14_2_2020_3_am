@@ -82,7 +82,6 @@ export class HeaderComponent implements OnInit {
   showOptn: boolean = false;
   showAppDash: boolean = false;
   userName: any;
-  //aapathonSignUpForm
 
   constructor(
     private SessionService: SessionService,
@@ -896,10 +895,7 @@ export class HeaderComponent implements OnInit {
       "appathonusername",
       this.loginResponse.data.appathonusername
     );
-    localStorage.setItem(
-      "appathonUserName",
-      this.loginResponse.data.username
-    );
+    localStorage.setItem("appathonUserName", this.loginResponse.data.username);
     localStorage.setItem("email", this.loginResponse.data.email);
     this.adm.sendUserId(this.loginResponse.data.id);
     this.router.navigate(["/documentation"]);
@@ -948,5 +944,15 @@ export class HeaderComponent implements OnInit {
   }
   onChangeInput3(val) {
     this.exampleArray3.push(val);
+  }
+
+  //componay name autocomplete
+  getCompanyName(companyName) {
+    this.adm.getCompanyName(companyName).subscribe(data => {
+      if (data.status === 200) {
+        this.companyNamesDetails = data;
+        this.companyNames = JSON.parse(this.companyNamesDetails._body);
+      }
+    });
   }
 }

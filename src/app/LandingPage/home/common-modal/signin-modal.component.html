@@ -53,7 +53,8 @@
             Login
           </button>
           <div
-            id="isResError" class="text-danger form-error ng-star-inserted"
+            id="isResError"
+            class="text-danger form-error ng-star-inserted"
             *ngIf="is_res_error != ''"
           >
             {{ is_res_error }}.
@@ -205,7 +206,7 @@
               </div>
             </div>
           </div>
-          <div class="row mb20">
+          <!-- <div class="row mb20">
             <div class="col-md-12 mb-xs-30">
               <div><label for="password">Company Name</label></div>
               <input
@@ -214,6 +215,36 @@
                 class="input-login"
                 #company
               />
+              <div
+                *ngIf="
+                  companyName.invalid && (companyName.dirty || isSubmitted)
+                "
+                class="text-danger form-error"
+              >
+                Company Name is required.
+              </div>
+            </div>
+          </div> -->
+          <div class="row mb20">
+            <div class="col-md-12 mb-xs-30">
+              <div><label for="password">Company Name</label></div>
+              <input
+                name="company"
+                formControlName="companyName"
+                class="input-login"
+                matInput
+                [matAutocomplete]="auto"
+                #company
+                (keyup)="getCompanyName(company.value)"
+              />
+              <mat-autocomplete #auto="matAutocomplete">
+                <mat-option
+                  *ngFor="let companyname of companyNames"
+                  [value]="companyname"
+                >
+                  {{ companyname }}
+                </mat-option>
+              </mat-autocomplete>
               <div
                 *ngIf="
                   companyName.invalid && (companyName.dirty || isSubmitted)
@@ -251,7 +282,7 @@
                 *ngIf="CITY.invalid && (CITY.dirty || isSubmitted)"
                 class="text-danger form-error"
               >
-              Pin Code is required.
+                Pin Code is required.
               </div>
             </div>
           </div>
