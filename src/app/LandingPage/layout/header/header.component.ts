@@ -62,6 +62,7 @@ export class HeaderComponent implements OnInit {
   appathonCompanyEmail: any;
   appathonCompanyName: any;
   appathonUserName: any;
+  modalRef9: BsModalRef;
 
   //aapathonSignUpForm
   appathonSignupForm: FormGroup;
@@ -765,7 +766,7 @@ export class HeaderComponent implements OnInit {
   }
 
   // forget Password function
-  forgot(username: any) {
+  forgot(username: any,forgotpasswreset: TemplateRef<any>) {
     if (username == "") {
       this.toastrmsg("error", "Enter Username");
       return;
@@ -776,7 +777,10 @@ export class HeaderComponent implements OnInit {
       var response = data._body;
       var obj = JSON.parse(response);
       if (obj.status == true) {
-        this.toastrmsg("success", " Please check your mail");
+        this.modalRef9 = this.modalService.show(forgotpasswreset, {
+          backdrop: 'static',
+          });          
+        // this.toastrmsg("success", " Please check your mail");
         this.router.navigate(["/index"]);
         this.modalRef3.hide();
         this.spinnerService.hide();

@@ -1,8 +1,8 @@
 <style>
-  .select-all{
+  .select-all {
     display: none !important;
   }
-  </style>
+</style>
 <toaster-container></toaster-container>
 <ng4-loading-spinner> </ng4-loading-spinner>
 <div class="tab-content">
@@ -11,12 +11,7 @@
       <div class="row">
         <div class="col-md-6 col-12">
           <!--Carousel Wrapper-->
-          <div
-            id="carousel-example-1z"
-            class="carousel slide carousel-fade"
-            data-ride="carousel"
-            data-interval="3000"
-          >
+          <div id="carousel-example-1z" class="carousel slide carousel-fade" data-ride="carousel" data-interval="3000">
             <!--Slides-->
             <div class="carousel-inner" role="listbox">
               <!--First slide-->
@@ -37,9 +32,7 @@
         <div class="col-md-6 col-12 order-md-first">
           <div class="bannerContent">
             <h2 class="mb30">Collaborate, Build, Unleash</h2>
-            <a class="signInBtn mr10" [routerLink]="['/appathon/landing-page']"
-              >Register For Appathon</a
-            >
+            <a class="signInBtn mr10" [routerLink]="['/appathon/landing-page']">Register For Appathon</a>
             <!-- <a data-toggle="modal" *ngIf="hideSignupbtn"  (click)="openModal2(signup)" class="tryItFreeBtn">SIGN UP</a> -->
           </div>
         </div>
@@ -58,7 +51,9 @@
         <a class="howItWorksContainer" (click)="HowItWork(modal_hwi)">
           <div class="workImageContainer">
             <!-- <img src="assets/images/signup.svg" alt=""> -->
-            <h2><p>1</p></h2>
+            <h2>
+              <p>1</p>
+            </h2>
           </div>
           <p>Sign up for an ICICI Developer Account.</p>
         </a>
@@ -67,7 +62,9 @@
         </div>
         <a class="howItWorksContainer" (click)="HowItWork(modal_hwi)">
           <div class="workImageContainer">
-            <h2><p>2</p></h2>
+            <h2>
+              <p>2</p>
+            </h2>
             <!-- <img src="assets/images/createapp.svg" alt=""> -->
           </div>
           <p>Create an Application</p>
@@ -77,7 +74,9 @@
         </div>
         <a class="howItWorksContainer" (click)="HowItWork(modal_hwi)">
           <div class="workImageContainer">
-            <h2><p>3</p></h2>
+            <h2>
+              <p>3</p>
+            </h2>
             <!-- <img src="assets/images/testthepp.svg" alt=""> -->
           </div>
           <p>Select the Application</p>
@@ -88,7 +87,9 @@
         <a class="howItWorksContainer" (click)="HowItWork(modal_hwi)">
           <div class="workImageContainer">
             <!-- <img src="assets/images/testitout.svg" alt=""> -->
-            <h2><p>4</p></h2>
+            <h2>
+              <p>4</p>
+            </h2>
           </div>
           <p>Test it Out</p>
         </a>
@@ -97,78 +98,44 @@
         </div>
         <a class="howItWorksContainer" (click)="HowItWork(modal_hwi)">
           <div class="workImageContainer">
-            <h2><p>5</p></h2>
+            <h2>
+              <p>5</p>
+            </h2>
             <!-- <img src="assets/images/getcode.svg" alt=""> -->
           </div>
           <p>Get Sample Code</p>
         </a>
       </div>
       <div class="row">
-        <a
-          *ngIf="hideSignupbtn1"
-          class="signInBtn marginAutoHr mb15"
-          (click)="openModal2(signup)"
-          >SIGN UP</a
-        >
+        <a *ngIf="hideSignupbtn1" class="signInBtn marginAutoHr mb15" (click)="openModal2(signup)">SIGN UP</a>
       </div>
     </section>
     <section id="UAT_onboard" class="sectionAPIs text-center">
       <h3 class="mb30">Journey to <span>go Live</span></h3>
       <div class="row mb50">
         <div class="col-md-3 text-lg-center mb-xs-30">
-          <a
-            class="ff-bold fs16 color-black onBoardLink"
-            data-dismiss="modal"
-            data-toggle="modal"
-            data-target="#signUp"
-            (click)="already_Log(alreadylogin, signup)"
-          >
-            <img
-              class="mb30 mb-xs-15"
-              src="assets/images/group-12.svg"
-              alt=""
-            />
+          <a class="ff-bold fs16 color-black onBoardLink" data-dismiss="modal" data-toggle="modal" data-target="#signUp"
+            (click)="already_Log(alreadylogin, signup)">
+            <img class="mb30 mb-xs-15" src="assets/images/group-12.svg" alt="" />
             <div>SANDBOX</div>
           </a>
         </div>
         <div class="col-md-1">
-          <img
-            alt=""
-            src="assets/images/nextarrows.svg"
-            style="width: 25px;margin-top: 130%;"
-          />
+          <img alt="" src="assets/images/nextarrows.svg" style="width: 25px;margin-top: 130%;" />
         </div>
         <div class="col-md-3 text-lg-center mb-xs-30">
-          <a
-            class="ff-bold fs16 color-black onBoardLink"
-            (click)="get_onboardUAT(UAT, signin)"
-          >
-            <img
-              class="mb30 mb-xs-15"
-              src="assets/images/group-28.svg"
-              alt=""
-            />
+          <a class="ff-bold fs16 color-black onBoardLink" (click)="get_onboardUAT(UAT, signin)">
+            <img class="mb30 mb-xs-15" src="assets/images/group-28.svg" alt="" />
             <div>UAT</div>
           </a>
         </div>
         <div class="col-md-1">
-          <img
-            alt=""
-            src="assets/images/nextarrows.svg"
-            style="width: 25px;margin-top: 130%;"
-          />
+          <img alt="" src="assets/images/nextarrows.svg" style="width: 25px;margin-top: 130%;" />
         </div>
         <div class="col-md-4 text-lg-center mb-xs-30">
           <!-- <a data-toggle="modal" data-target="#productionSignedIn" class="ff-bold fs16 color-black onBoardLink"> -->
-          <a
-            class="ff-bold fs16 color-black onBoardLink"
-            (click)="get_Production(Production, signin)"
-          >
-            <img
-              class="mb30 mb-xs-15"
-              src="assets/images/group-13.svg"
-              alt=""
-            />
+          <a class="ff-bold fs16 color-black onBoardLink" (click)="get_Production(Production, signin)">
+            <img class="mb30 mb-xs-15" src="assets/images/group-13.svg" alt="" />
             <div>PRODUCTION</div>
           </a>
         </div>
@@ -190,11 +157,7 @@
       <h3 class="mb60">Available <span>APIs</span></h3>
       <div class="row mb30 hidden-xs success-label-div">
         <div class="col-md-3">
-          <a
-            class="cursor"
-            (click)="show_build(signin)"
-            style="text-decoration:none;"
-          >
+          <a class="cursor" (click)="show_build(signin)" style="text-decoration:none;">
             <div class="sectionAPICard availableAPICard">
               <div class="sectionAPICardImage">
                 <img src="assets/images/trade.svg" alt="" />
@@ -212,11 +175,7 @@
           </a>
         </div>
         <div class=" col-md-3">
-          <a
-            class="cursor"
-            (click)="corporate(signin)"
-            style="text-decoration:none;"
-          >
+          <a class="cursor" (click)="corporate(signin)" style="text-decoration:none;">
             <div class="sectionAPICard availableAPICard ">
               <div class="sectionAPICardImage">
                 <img src="assets/images/cards.svg" alt="" />
@@ -232,11 +191,7 @@
           </a>
         </div>
         <div class="col-md-3">
-          <a
-            class="cursor"
-            (click)="loans(signin)"
-            style="text-decoration:none;"
-          >
+          <a class="cursor" (click)="loans(signin)" style="text-decoration:none;">
             <div class="sectionAPICard availableAPICard">
               <div class="sectionAPICardImage">
                 <img src="assets/images/retail-shape.svg" alt="" />
@@ -252,11 +207,7 @@
           </a>
         </div>
         <div class="col-md-3">
-          <a
-            class="cursor"
-            (click)="account(signin)"
-            style="text-decoration:none;"
-          >
+          <a class="cursor" (click)="account(signin)" style="text-decoration:none;">
             <div class="sectionAPICard availableAPICard">
               <div class="sectionAPICardImage">
                 <img src="assets/images/business_api.svg" alt="" />
@@ -272,11 +223,7 @@
           </a>
         </div>
         <div class="col-md-3">
-          <a
-            class="cursor"
-            (click)="payment(signin)"
-            style="text-decoration:none;"
-          >
+          <a class="cursor" (click)="payment(signin)" style="text-decoration:none;">
             <div class="sectionAPICard availableAPICard">
               <div class="sectionAPICardImage">
                 <img src="assets/images/payment.svg" alt="" />
@@ -294,11 +241,7 @@
           </a>
         </div>
         <div class="col-md-3">
-          <a
-            class="cursor"
-            (click)="commercial(signin)"
-            style="text-decoration:none;"
-          >
+          <a class="cursor" (click)="commercial(signin)" style="text-decoration:none;">
             <div class="sectionAPICard availableAPICard">
               <div class="sectionAPICardImage">
                 <img src="assets/images/combined-shape.svg" alt="" />
@@ -311,7 +254,7 @@
               </p>
             </div>
           </a>
-        </div> 
+        </div>
       </div>
       <div id="availableAPIs" class="owl-carousel owl-theme mb30">
         <div class="sectionAPICard availableAPICard">
@@ -391,28 +334,18 @@
         </div>
       </div>
       <div class="row">
-        <a class="signInBtn marginAutoHr mt15" (click)="browse_api(signin)"
-          >BROWSE ALL API</a
-        >
+        <a class="signInBtn marginAutoHr mt15" (click)="browse_api(signin)">BROWSE ALL API</a>
       </div>
     </section>
     <section class="sectionAPIs featuredAPIs">
       <h3 class="mb60">Featured <span>APIs</span></h3>
-      <div
-        class="owl-carousel owl-theme mb30 mb-xs-0 sectionAPIsGrayBg owl-loaded"
-      >
+      <div class="owl-carousel owl-theme mb30 mb-xs-0 sectionAPIsGrayBg owl-loaded">
         <div class="owl-stage-outer">
-          <div
-            class="owl-stage"
-            style="transform: translate3d(0px, 0px, 0px); transition: all 0s ease 0s; width: 1121px;"
-          >
+          <div class="owl-stage"
+            style="transform: translate3d(0px, 0px, 0px); transition: all 0s ease 0s; width: 1121px;">
             <div class="owl-item active" style="width: 280.033px;">
               <div class="apiCardWithLabel">
-                <div
-                  class="sectionAPICard"
-                  (click)="browse_api(signin)"
-                  style="cursor: pointer;"
-                >
+                <div class="sectionAPICard" (click)="browse_api(signin)" style="cursor: pointer;">
                   <h4>Auto Loan</h4>
                   <h5>Cards and Loans</h5>
                   <p>
@@ -426,11 +359,7 @@
             </div>
             <div class="owl-item active" style="width: 280.033px;">
               <div class="apiCardWithLabel">
-                <div
-                  class="sectionAPICard"
-                  (click)="browse_api(signin)"
-                  style="cursor: pointer;"
-                >
+                <div class="sectionAPICard" (click)="browse_api(signin)" style="cursor: pointer;">
                   <h4>iWish</h4>
                   <h5>Accounts and Deposits</h5>
                   <p>
@@ -444,11 +373,7 @@
             </div>
             <div class="owl-item active" style="width: 280.033px;">
               <div class="apiCardWithLabel">
-                <div
-                  class="sectionAPICard"
-                  (click)="browse_api(signin)"
-                  style="cursor: pointer;"
-                >
+                <div class="sectionAPICard" (click)="browse_api(signin)" style="cursor: pointer;">
                   <h4>Cash Management</h4>
                   <h5>Business Banking APIs</h5>
                   <p>
@@ -461,11 +386,7 @@
             </div>
             <div class="owl-item active" style="width: 280.033px;">
               <div class="apiCardWithLabel">
-                <div
-                  class="sectionAPICard"
-                  (click)="browse_api(signin)"
-                  style="cursor: pointer;"
-                >
+                <div class="sectionAPICard" (click)="browse_api(signin)" style="cursor: pointer;">
                   <h4>Banking Offers</h4>
                   <h5>Building Blocks</h5>
                   <p>
@@ -480,8 +401,7 @@
         </div>
         <div class="owl-nav disabled">
           <button type="button" role="presentation" class="owl-prev">
-            <span aria-label="Previous">‹</span></button
-          ><button type="button" role="presentation" class="owl-next">
+            <span aria-label="Previous">‹</span></button><button type="button" role="presentation" class="owl-next">
             <span aria-label="Next">›</span>
           </button>
         </div>
@@ -497,9 +417,7 @@
         explore the possibilities
       </p>
       <div class="row">
-        <a class="signInBtn marginAutoHr" (click)="open_modal(Interesteds)"
-          >I am interested</a
-        >
+        <a class="signInBtn marginAutoHr" (click)="open_modal(Interesteds)">I am interested</a>
       </div>
     </section>
     <section class="sectionAPIs feedbackSection">
@@ -523,32 +441,14 @@
                <option value="Suggestion">Suggestion</option>
                <option value="Others">Others</option>
             </select> -->
-        <input
-          class="w100p mb25"
-          name="feedback_email_address"
-          [(ngModel)]="feedback_email_address"
-          type="text"
-          placeholder="Your Email"
-        />
-        <input
-          class="w100p mb25"
-          name="feedback_location_name"
-          [(ngModel)]="feedback_location_name"
-          type="text"
-          placeholder="Location"
-        />
-        <textarea
-          class="w100p mb35"
-          name="feedback_email_text"
-          [(ngModel)]="feedback_email_test"
-          placeholder="Write your thoughts"
-        ></textarea>
+        <input class="w100p mb25" name="feedback_email_address" [(ngModel)]="feedback_email_address" type="text"
+          placeholder="Your Email" />
+        <input class="w100p mb25" name="feedback_location_name" [(ngModel)]="feedback_location_name" type="text"
+          placeholder="Location" />
+        <textarea class="w100p mb35" name="feedback_email_text" [(ngModel)]="feedback_email_test"
+          placeholder="Write your thoughts"></textarea>
         <div class="row">
-          <a
-            class="signInBtn marginAutoHr mb15"
-            (click)="feedback_form_submit(signin)"
-            >Submit</a
-          >
+          <a class="signInBtn marginAutoHr mb15" (click)="feedback_form_submit(signin)">Submit</a>
         </div>
       </form>
     </section>
@@ -560,12 +460,7 @@
     </div>
     <div id="accordion" class="faqmainSection">
       <div class="card">
-        <div
-          class="card-header"
-          data-toggle="collapse"
-          href="#faq1"
-          aria-expanded="true"
-        >
+        <div class="card-header" data-toggle="collapse" href="#faq1" aria-expanded="true">
           <div class="row">
             <div class="col-md-11 col-11">
               <a class="card-link">
@@ -591,12 +486,7 @@
         </div>
       </div>
       <div class="card">
-        <div
-          class="card-header collapsed"
-          data-toggle="collapse"
-          href="#faq2"
-          aria-expanded="false"
-        >
+        <div class="card-header collapsed" data-toggle="collapse" href="#faq2" aria-expanded="false">
           <div class="row">
             <div class="col-md-11 col-11">
               <a class="card-link">
@@ -1097,39 +987,22 @@
 <ng-template #signup>
   <div class="modal-header">
     <h3 class="modal-title pull-left">Lets get you Onboard vv</h3>
-    <button
-      type="button"
-      class="close pull-right"
-      aria-label="Close"
-      (click)="modalRef2.hide()"
-    >
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef2.hide()">
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
   <div class="modal-body">
     <ul class="nav nav-tabs nav-tabs1" role="tablist">
       <li role="presentation" class="active">
-        <a
-          [ngStyle]="{ color: shfrmSFFirst ? '#f06321' : '#919191' }"
-          href="javascript:;"
-          (click)="signup_link(1)"
-          >Basic Details <i class="fa fa-angle-right"></i
-        ></a>
+        <a [ngStyle]="{ color: shfrmSFFirst ? '#f06321' : '#919191' }" href="javascript:;"
+          (click)="signup_link(1)">Basic Details <i class="fa fa-angle-right"></i></a>
       </li>
       <li role="presentation">
-        <a
-          [ngStyle]="{ color: shfrmSFSecond ? '#f06321' : ' #919191' }"
-          href="javascript:;"
-          (click)="signup_link(2)"
-          >Mobile Number <i class="fa fa-angle-right"></i
-        ></a>
+        <a [ngStyle]="{ color: shfrmSFSecond ? '#f06321' : ' #919191' }" href="javascript:;"
+          (click)="signup_link(2)">Mobile Number <i class="fa fa-angle-right"></i></a>
       </li>
       <li role="presentation">
-        <a
-          [ngStyle]="{ color: shfrmSFThird ? '#f06321' : '#919191' }"
-          href="javascript:;"
-          (click)="signup_link(3)"
-        >
+        <a [ngStyle]="{ color: shfrmSFThird ? '#f06321' : '#919191' }" href="javascript:;" (click)="signup_link(3)">
           Credentials
         </a>
       </li>
@@ -1138,50 +1011,25 @@
     <!-- Tab panes -->
     <div class="tab-content tab-content1">
       <form [formGroup]="signupForm" [hidden]="!shfrmSFFirst">
-        <input
-          type="hidden"
-          name="otp_verified"
-          formControlName="otp_verified"
-          class="input-login"
-          #otp_verified
-        />
+        <input type="hidden" name="otp_verified" formControlName="otp_verified" class="input-login" #otp_verified />
         <div class="tab-pane">
           <div class="row mb20">
             <div class="col-md-6 mb-xs-10">
               <div><label for="company">Full Name</label></div>
-              <input
-                name="name"
-                formControlName="firstname"
-                class="input-login"
-                #name
-              />
-              <div
-                *ngIf="firstname.invalid && (firstname.dirty || isSubmitted)"
-                class="text-danger form-error"
-              >
+              <input name="name" formControlName="firstname" class="input-login" #name />
+              <div *ngIf="firstname.invalid && (firstname.dirty || isSubmitted)" class="text-danger form-error">
                 First Name is required.
               </div>
             </div>
             <div class="col-md-6">
               <div><label for="company">Email</label></div>
               <!-- <input name="email" formControlName="email" class="input-login" #Email (input)="OnCheckEmail(Email.value)"> -->
-              <input
-                name="email"
-                formControlName="email"
-                class="input-login"
-                #Email
-                (change)="OnCheckEmail(Email.value)"
-              />
-              <div
-                *ngIf="email.invalid && (email.dirty || isSubmitted)"
-                class="text-danger form-error"
-              >
+              <input name="email" formControlName="email" class="input-login" #Email
+                (change)="OnCheckEmail(Email.value)" />
+              <div *ngIf="email.invalid && (email.dirty || isSubmitted)" class="text-danger form-error">
                 Email is required.
               </div>
-              <div
-                *ngIf="isemail_reg_check != ''"
-                class="text-danger form-error"
-              >
+              <div *ngIf="isemail_reg_check != ''" class="text-danger form-error">
                 {{ isemail_reg_check }}
               </div>
             </div>
@@ -1189,18 +1037,10 @@
           <div class="row mb20">
             <div class="col-md-12 mb-xs-30">
               <div><label for="password">Company Name</label></div>
-              <input
-                name="company"
-                formControlName="companyName"
-                class="input-login"
-                #company
-              />
-              <div
-                *ngIf="
+              <input name="company" formControlName="companyName" class="input-login" #company />
+              <div *ngIf="
                   companyName.invalid && (companyName.dirty || isSubmitted)
-                "
-                class="text-danger form-error"
-              >
+                " class="text-danger form-error">
                 Compny Name is required.
               </div>
             </div>
@@ -1208,17 +1048,11 @@
           <div class="row mb20">
             <div class="col-md-12 mb-xs-30">
               <div><label for="password">Domain Name</label></div>
-              <select
-                class="form-control select-drop input-login"
-                formControlName="domainNm"
-              >
+              <select class="form-control select-drop input-login" formControlName="domainNm">
                 <option value="">Select Domain</option>
                 <option *ngFor="let d of domainLst" [value]="d">{{ d }}</option>
               </select>
-              <div
-                *ngIf="domainNm.invalid && (domainNm.dirty || isSubmitted)"
-                class="text-danger form-error"
-              >
+              <div *ngIf="domainNm.invalid && (domainNm.dirty || isSubmitted)" class="text-danger form-error">
                 Domain Name is required.
               </div>
             </div>
@@ -1241,16 +1075,9 @@
           <br />
           <ul class="nav nav-tabs nav-tabs1" role="tablist">
             <li>
-              <button
-                type="button"
-                (click)="save1()"
-                [disabled]="!signupForm.valid || !isemail_check"
-                [ngClass]="
+              <button type="button" (click)="save1()" [disabled]="!signupForm.valid || !isemail_check" [ngClass]="
                   signupForm.valid || !isemail_check ? 'btn-blue' : 'btn-white'
-                "
-                class="btn"
-                class="signInBtn verifyBtn"
-              >
+                " class="btn" class="signInBtn verifyBtn">
                 Next
               </button>
             </li>
@@ -1264,54 +1091,29 @@
               <div>
                 <label for="mobile">Please enter the Phone Number</label>
               </div>
-              <input
-                id="mobileNumber"
-                formControlName="mobile_no"
-                class="input-login"
-                name="mobile"
-                required
-                #Mobile
-                [readonly]="signupForm.value.otp_verified == 1"
-                (keypress)="numericOnly($event)"
-              />
-              <div
-                *ngIf="mobile_no.invalid && (mobile_no.dirty || isSubmitted)"
-                class="text-danger form-error"
-              >
+              <input id="mobileNumber" formControlName="mobile_no" class="input-login" name="mobile" required #Mobile
+                [readonly]="signupForm.value.otp_verified == 1" (keypress)="numericOnly($event)" />
+              <div *ngIf="mobile_no.invalid && (mobile_no.dirty || isSubmitted)" class="text-danger form-error">
                 Mobile Number is required.
               </div>
-              <div
-                *ngIf="ismobile_reg_check != ''"
-                class="text-danger form-error"
-              >
+              <div *ngIf="ismobile_reg_check != ''" class="text-danger form-error">
                 {{ ismobile_reg_check }}
               </div>
-              <div
-                *ngIf="
+              <div *ngIf="
                   signupForm.value.otp_send == '1' &&
                   signupForm.value.otp_verified == 0
-                "
-                class="text-success"
-              >
+                " class="text-success">
                 OTP sent on your mobile no. Click
                 <a (click)="SendOtp(Mobile.value)" href="javasript:;">here</a>
                 to resend
               </div>
             </div>
             <div class="col-md-4 mt4">
-              <button
-                [disabled]="signupForm.value.otp_verified == 1"
-                type="button"
-                class="tryItFreeBtn sendOTPBtn mt25"
-                (click)="SendOtp(Mobile.value)"
-              >
+              <button [disabled]="signupForm.value.otp_verified == 1" type="button" class="tryItFreeBtn sendOTPBtn mt25"
+                (click)="SendOtp(Mobile.value)">
                 Send OTP
               </button>
-              <button
-                type="button"
-                class="tryItFreeBtn changeMobileNumber mt25"
-                (click)="SendOtp(Mobile.value)"
-              >
+              <button type="button" class="tryItFreeBtn changeMobileNumber mt25" (click)="SendOtp(Mobile.value)">
                 change
               </button>
             </div>
@@ -1320,27 +1122,14 @@
           <div class="row mb20" *ngIf="showOtp">
             <div class="col-md-9 mb-xs-30">
               <div>
-                <label for="otp"
-                  >Enter the OTP Received on your Phone Number</label
-                >
+                <label for="otp">Enter the OTP Received on your Phone Number</label>
               </div>
-              <input
-                [readonly]="signupForm.value.otp_verified == 1"
-                name="otp"
-                formControlName="otp_code"
-                class="input-login"
-                #OTP
-              />
-              <div
-                *ngIf="otp_code.invalid && (otp_code.dirty || isSubmitted)"
-                class="text-danger form-error"
-              >
+              <input [readonly]="signupForm.value.otp_verified == 1" name="otp" formControlName="otp_code"
+                class="input-login" #OTP />
+              <div *ngIf="otp_code.invalid && (otp_code.dirty || isSubmitted)" class="text-danger form-error">
                 OTP is required.
               </div>
-              <div
-                *ngIf="ismobile_reg_check != ''"
-                class="text-danger form-error"
-              >
+              <div *ngIf="ismobile_reg_check != ''" class="text-danger form-error">
                 {{ isotp_reg_check }}
               </div>
             </div>
@@ -1350,13 +1139,8 @@
           <br />
           <ul class="nav nav-tabs nav-tabs1" role="tablist">
             <li>
-              <button
-                class="btn"
-                (click)="save2()"
-                [disabled]="!signupForm2.valid"
-                [ngClass]="signupForm2.valid ? 'btn-blue' : 'btn-white'"
-                class="signInBtn verifyBtn"
-              >
+              <button class="btn" (click)="save2()" [disabled]="!signupForm2.valid"
+                [ngClass]="signupForm2.valid ? 'btn-blue' : 'btn-white'" class="signInBtn verifyBtn">
                 Verify
               </button>
             </li>
@@ -1368,17 +1152,9 @@
           <div class="row mb20">
             <div class="col-md-12">
               <div><label for="username">Username</label></div>
-              <input
-                formControlName="username"
-                class="input-login"
-                #username
-                (change)="OnCheckUsername(username.value)"
-                autocomplete="new-password"
-              />
-              <div
-                *ngIf="username.invalid && (username.dirty || isSubmitted)"
-                class="text-danger form-error"
-              >
+              <input formControlName="username" class="input-login" #username (change)="OnCheckUsername(username.value)"
+                autocomplete="new-password" />
+              <div *ngIf="username.invalid && (username.dirty || isSubmitted)" class="text-danger form-error">
                 Username is required.
               </div>
             </div>
@@ -1387,34 +1163,18 @@
           <div class="row">
             <div class="col-md-6">
               <div><label for="createpassword">Create Password</label></div>
-              <input
-                type="password"
-                formControlName="password"
-                class="input-login"
-                #CreatePassword
-              />
-              <div
-                *ngIf="password.invalid && (password.dirty || isSubmitted)"
-                class="text-danger form-error"
-              >
+              <input type="password" formControlName="password" class="input-login" #CreatePassword />
+              <div *ngIf="password.invalid && (password.dirty || isSubmitted)" class="text-danger form-error">
                 Password is required.
               </div>
             </div>
             <div class="col-md-6">
               <div><label for="confirmpassword">Confirm Password</label></div>
-              <input
-                type="password"
-                formControlName="confirmPassword"
-                class="input-login"
-                #ConfirmPassword
-              />
-              <div
-                *ngIf="
+              <input type="password" formControlName="confirmPassword" class="input-login" #ConfirmPassword />
+              <div *ngIf="
                   confirmPassword.invalid &&
                   (confirmPassword.dirty || isSubmitted)
-                "
-                class="text-danger form-error"
-              >
+                " class="text-danger form-error">
                 Password does not match.
               </div>
             </div>
@@ -1423,19 +1183,9 @@
           <div class="row" style="margin-top: 12px;">
             <div class="col-md-12">
               <label class="checkboxContainer">
-                <input
-                  type="checkbox"
-                  formControlName="term"
-                  #term
-                  required
-                /><span class="checkmark"></span>
-                <a [routerLink]="['/index/termsandcondition']" target="_blank"
-                  >ACCEPT ALL TERMS & CONDITIONS</a
-                >
-                <div
-                  *ngIf="term.invalid && (term.invalid || isSubmitted)"
-                  class="text-danger form-error"
-                >
+                <input type="checkbox" formControlName="term" #term required /><span class="checkmark"></span>
+                <a [routerLink]="['/index/termsandcondition']" target="_blank">ACCEPT ALL TERMS & CONDITIONS</a>
+                <div *ngIf="term.invalid && (term.invalid || isSubmitted)" class="text-danger form-error">
                   I ACCEPT ALL TERMS & CONDITIONS is required.
                 </div>
               </label>
@@ -1446,13 +1196,8 @@
           <br />
           <ul class="nav nav-tabs nav-tabs1" role="tablist">
             <li>
-              <button
-                (click)="sign_up()"
-                [disabled]="!signupForm3.valid"
-                [ngClass]="signupForm3.valid ? 'btn-blue' : 'btn-white'"
-                class="btn"
-                class="signInBtn verifyBtn"
-              >
+              <button (click)="sign_up()" [disabled]="!signupForm3.valid"
+                [ngClass]="signupForm3.valid ? 'btn-blue' : 'btn-white'" class="btn" class="signInBtn verifyBtn">
                 Submit
               </button>
             </li>
@@ -1469,10 +1214,7 @@
           <span><a class="signIn" (click)="openModal(signin)">Login</a></span>
         </p>
       </div>
-      <span
-        >Register for<a class="signIn" (click)="appathonReg()"> Appathon </a
-        >here</span
-      >
+      <span>Register for<a class="signIn" (click)="appathonReg()"> Appathon </a>here</span>
       <div class="col-5 pr0">
         <div class="text-right"></div>
       </div>
@@ -1484,12 +1226,7 @@
 <ng-template #signin>
   <div class="modal-header">
     <h3 class="modal-title pull-left">Please Login</h3>
-    <button
-      type="button"
-      class="close pull-right"
-      aria-label="Close"
-      (click)="modalRef.hide()"
-    >
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
@@ -1514,9 +1251,7 @@
     </div>
     <div class="row">
       <div class="col-md-12">
-        <a class="forgotPassword cursor" (click)="Modalforgotpassw(forgotpassw)"
-          >Forgot Password?</a
-        >
+        <a class="forgotPassword cursor" (click)="Modalforgotpassw(forgotpassw)">Forgot Password?</a>
       </div>
     </div>
   </div>
@@ -1524,17 +1259,10 @@
     <div class="row w100p m0">
       <div class="col-12 plr0 mb30">
         <div>
-          <button
-            type="submit"
-            class="signInBtn w100p"
-            (click)="Login(username.value, password.value)"
-          >
+          <button type="submit" class="signInBtn w100p" (click)="Login(username.value, password.value)">
             Login
           </button>
-          <div
-            class="text-danger form-error ng-star-inserted"
-            *ngIf="is_res_error != ''"
-          >
+          <div class="text-danger form-error ng-star-inserted" *ngIf="is_res_error != ''">
             {{ is_res_error }}.
           </div>
         </div>
@@ -1542,9 +1270,7 @@
       <div class="col-12 plr0">
         <p>
           Do not have an account? Please
-          <span
-            ><a class="signIn" (click)="openModal2(signup)">Register</a></span
-          >
+          <span><a class="signIn" (click)="openModal2(signup)">Register</a></span>
         </p>
       </div>
     </div>
@@ -1555,12 +1281,7 @@
 <ng-template #alreadylogin>
   <div class="modal-header">
     <h3 class="modal-title pull-left"></h3>
-    <button
-      type="button"
-      class="close pull-right"
-      aria-label="Close"
-      (click)="modalRef7.hide()"
-    >
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef7.hide()">
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
@@ -1591,12 +1312,7 @@
 <ng-template #forgotpassw>
   <div class="modal-header">
     <h3 class="modal-title pull-left">Forgot Password</h3>
-    <button
-      type="button"
-      class="close pull-right"
-      aria-label="Close"
-      (click)="modalRef3.hide()"
-    >
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef3.hide()">
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
@@ -1612,11 +1328,7 @@
     <div class="row w100p m0">
       <div class="col-12 plr0 mb30">
         <div>
-          <button
-            type="submit"
-            class="signInBtn w100p"
-            (click)="forgot(username.value)"
-          >
+          <button type="submit" class="signInBtn w100p" (click)="forgot(username.value,forgotpasswreset)">
             Login
           </button>
         </div>
@@ -1624,51 +1336,40 @@
     </div>
   </div>
 </ng-template>
+<ng-template #forgotpasswreset>
+  <div class="modal-header">
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef9.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="txtAlign"><label>Success! Please check your mail</label></div>
+  </div>
+</ng-template>
 <!-- End Forgot password Modal -->
 <!-- Modal For UAT  -->
 <ng-template #UAT>
   <div class="modal-header">
     <h3>Please provide some basic details</h3>
-    <button
-      type="button"
-      class="close pull-right"
-      aria-label="Close"
-      (click)="modalRef4.hide()"
-    >
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef4.hide()">
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
   <div class="modal-body">
-    <a
-      (click)="UAT_help(UAT_Help)"
-      class="help-ico"
-      data-toggle="tooltip"
-      data-placement="top"
-      title="Your Organization Name"
-      ><i class="fa fa-question-circle" aria-hidden="true"></i
-    ></a>
+    <a (click)="UAT_help(UAT_Help)" class="help-ico" data-toggle="tooltip" data-placement="top"
+      title="Your Organization Name"><i class="fa fa-question-circle" aria-hidden="true"></i></a>
     <!-- <a href="#" class="help-ico"><abbr title="Your Organization Name"><i class="fa fa-question-circle" aria-hidden="true"></i></abbr></a> -->
     <ul class="nav nav-tabs nav-tabs1" role="tablist">
       <li class="active" (click)="uatNext(1)">
-        <a
-          [ngStyle]="{ color: shfrmUATFirst ? '#f06321' : '#919191' }"
-          href="javascript:;"
-          >Basic Details <i class="fa fa-angle-right"></i
-        ></a>
+        <a [ngStyle]="{ color: shfrmUATFirst ? '#f06321' : '#919191' }" href="javascript:;">Basic Details <i
+            class="fa fa-angle-right"></i></a>
       </li>
       <li (click)="uatNext(2)">
-        <a
-          [ngStyle]="{ color: shfrmUATSecond ? '#f06321' : '#919191' }"
-          href="javascript:;"
-          >Requested API <i class="fa fa-angle-right"></i
-        ></a>
+        <a [ngStyle]="{ color: shfrmUATSecond ? '#f06321' : '#919191' }" href="javascript:;">Requested API <i
+            class="fa fa-angle-right"></i></a>
       </li>
       <li (click)="uatNext(3)">
-        <a
-          [ngStyle]="{ color: shfrmUATThird ? '#f06321' : '#919191' }"
-          href="javascript:;"
-          >Whitelist IP</a
-        >
+        <a [ngStyle]="{ color: shfrmUATThird ? '#f06321' : '#919191' }" href="javascript:;">Whitelist IP</a>
       </li>
     </ul>
     <form #frmUATFirst="ngForm" nonvalidate [hidden]="!shfrmUATFirst">
@@ -1678,20 +1379,9 @@
             <div class="row mb30">
               <div class="col-md-12">
                 <div><label for="contract">Merchant Name</label></div>
-                <input
-                  class="form-control"
-                  placeholder="Your Organization Name"
-                  [(ngModel)]="objOnB.txtMerchantName"
-                  name="txtMerchantName"
-                  mdbInputDirective
-                  required
-                  #txtMerchantName="ngModel"
-                  type="text"
-                />
-                <div
-                  *ngIf="txtMerchantName.invalid && txtMerchantName.dirty"
-                  class="text-danger form-error"
-                >
+                <input class="form-control" placeholder="Your Organization Name" [(ngModel)]="objOnB.txtMerchantName"
+                  name="txtMerchantName" mdbInputDirective required #txtMerchantName="ngModel" type="text" />
+                <div *ngIf="txtMerchantName.invalid && txtMerchantName.dirty" class="text-danger form-error">
                   Merchant Name is required.
                 </div>
               </div>
@@ -1699,20 +1389,11 @@
             <div class="row mb30">
               <div class="col-md-12 mb-xs-30">
                 <div><label for="description">Description</label></div>
-                <textarea
-                  class="form-control"
-                  placeholder="Brief description of your product for which ICICI Bank APIs will be leveraged"
-                  rows="5"
-                  [(ngModel)]="objOnB.txtDescription"
-                  name="txtDescription"
-                  mdbInputDirective
-                  required
-                  #txtDescription="ngModel"
-                ></textarea>
-                <div
-                  *ngIf="txtDescription.invalid && txtDescription.dirty"
-                  class="text-danger form-error"
-                >
+                <textarea class="form-control"
+                  placeholder="Brief description of your product for which ICICI Bank APIs will be leveraged" rows="5"
+                  [(ngModel)]="objOnB.txtDescription" name="txtDescription" mdbInputDirective required
+                  #txtDescription="ngModel"></textarea>
+                <div *ngIf="txtDescription.invalid && txtDescription.dirty" class="text-danger form-error">
                   Description is required.
                 </div>
               </div>
@@ -1720,50 +1401,24 @@
             <div class="row mb25">
               <div class="col-md-6">
                 <div>
-                  <label for="companyName"
-                    >Single Point of Contact Email ID</label
-                  >
+                  <label for="companyName">Single Point of Contact Email ID</label>
                 </div>
                 <!-- <input class="form-control" type="text" email="true" [(ngModel)]="objOnB.txtContactEmail" pattern="^[a-zA-Z0-9_.+-]+@(?:(?:[a-zA-Z0-9-]+\.)?[a-zA-Z]+\.)?(ext.icicibank|icicibank)\.com$" name="txtContactEmail" mdbInputDirective required #txtContactEmail="ngModel"/> -->
-                <input
-                  class="form-control"
-                  placeholder="Your Email ID"
-                  type="text"
-                  email="true"
-                  [(ngModel)]="objOnB.txtContactEmail"
-                  pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}"
-                  name="txtContactEmail"
-                  mdbInputDirective
-                  required
-                  #txtContactEmail="ngModel"
-                />
-                <div
-                  *ngIf="txtContactEmail.invalid && txtContactEmail.dirty"
-                  class="text-danger form-error"
-                >
+                <input class="form-control" placeholder="Your Email ID" type="text" email="true"
+                  [(ngModel)]="objOnB.txtContactEmail" pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}"
+                  name="txtContactEmail" mdbInputDirective required #txtContactEmail="ngModel" />
+                <div *ngIf="txtContactEmail.invalid && txtContactEmail.dirty" class="text-danger form-error">
                   Email ID is required.
                 </div>
               </div>
               <div class="col-md-6">
                 <div>
-                  <label for="contactPerson"
-                    >Single Point of Contact Number</label
-                  >
+                  <label for="contactPerson">Single Point of Contact Number</label>
                 </div>
-                <input
-                  class="form-control"
-                  placeholder="Your Contact Number"
-                  type="number"
-                  [(ngModel)]="objOnB.txtContactNumber"
-                  #txtContactNumber="ngModel"
-                  name="txtContactNumber"
-                  mdbInputDirective
-                  required
-                />
-                <div
-                  *ngIf="txtContactNumber.invalid && txtContactNumber.dirty"
-                  class="text-danger form-error"
-                >
+                <input class="form-control" placeholder="Your Contact Number" type="number"
+                  [(ngModel)]="objOnB.txtContactNumber" #txtContactNumber="ngModel" name="txtContactNumber"
+                  mdbInputDirective required />
+                <div *ngIf="txtContactNumber.invalid && txtContactNumber.dirty" class="text-danger form-error">
                   Contact Number is required.
                 </div>
               </div>
@@ -1771,31 +1426,18 @@
             <div class="row mb25">
               <div class="col-md-12">
                 <div>
-                  <label for="contactPerson"
-                    >ICICI Bank Relationship Manager/Email ID</label
-                  >
+                  <label for="contactPerson">ICICI Bank Relationship Manager/Email ID</label>
                 </div>
-                <input
-                  class="form-control"
-                  type="text"
+                <input class="form-control" type="text"
                   placeholder="Name/Email ID of ICICI Bank RM with whom your are liaising"
-                  [(ngModel)]="objOnB.txtRelManager"
-                  #txtRelManager="ngModel"
-                  name="txtRelManager"
-                  mdbInputDirective
-                  required
-                />
+                  [(ngModel)]="objOnB.txtRelManager" #txtRelManager="ngModel" name="txtRelManager" mdbInputDirective
+                  required />
               </div>
             </div>
             <div class="row">
               <div class="col-12 text-right">
-                <button
-                  type="button"
-                  class="signInBtn"
-                  [disabled]="frmUATFirst.invalid"
-                  [ngClass]="frmUATFirst.valid ? 'btn-dark' : 'btn-white'"
-                  (click)="btnNext()"
-                >
+                <button type="button" class="signInBtn" [disabled]="frmUATFirst.invalid"
+                  [ngClass]="frmUATFirst.valid ? 'btn-dark' : 'btn-white'" (click)="btnNext()">
                   Next
                 </button>
               </div>
@@ -1812,25 +1454,15 @@
               <div class="col-md-12 mb-xs-10">
                 <div><label for="projectName">Domain Type</label></div>
                 <span class="custom-dropdown">
-                  <select
-                    class="form-control"
-                    style="height:40px"
-                    [(ngModel)]="objOnB.txtDomainType"
-                    #txtDomainType="ngModel"
-                    name="txtDomainType"
-                    mdbInputDirective
-                    required
-                    (change)="callSubdomain(txtDomainType.value)"
-                  >
+                  <select class="form-control" style="height:40px" [(ngModel)]="objOnB.txtDomainType"
+                    #txtDomainType="ngModel" name="txtDomainType" mdbInputDirective required
+                    (change)="callSubdomain(txtDomainType.value)">
                     <option value="">Select Domain</option>
                     <option *ngFor="let d of domainLst" [value]="d">{{
                       d
                     }}</option>
                   </select>
-                  <div
-                    *ngIf="txtDomainType.invalid && txtDomainType.dirty"
-                    class="text-danger form-error"
-                  >
+                  <div *ngIf="txtDomainType.invalid && txtDomainType.dirty" class="text-danger form-error">
                     Domain Name is required.
                   </div>
                 </span>
@@ -1838,23 +1470,13 @@
             </div>
             <div class="row mb25" *ngIf="drpHide">
               <div class="col-md-12 mb-xs-10">
-                <label for="domainName"
-                  >Select APIs: <span class="required">*</span></label
-                >
+                <label for="domainName">Select APIs: <span class="required">*</span></label>
                 <span class="custom-dropdown">
-                  <angular2-multiselect
-                    [data]="itemList"
-                    [(ngModel)]="objOnB.txtSubDomain"
-                    name="txtSubDomain"
-                    [settings]="settings"
-                    required
-                    (onSelectAll)="onSelectAll($event)"
-                    (onGroupDeSelect)="onGroupDeSelect($event)"
-                    (onGroupSelect)="onGroupSelect($event)"
-                    (onDeSelectAll)="onDeSelectAll($event)"
-                    (onSelect)="onItemSelect($event)"
-                    (onDeSelect)="OnItemDeSelect($event)"
-                  >
+                  <angular2-multiselect [data]="itemList" [(ngModel)]="objOnB.txtSubDomain" name="txtSubDomain"
+                    [settings]="settings" required (onSelectAll)="onSelectAll($event)"
+                    (onGroupDeSelect)="onGroupDeSelect($event)" (onGroupSelect)="onGroupSelect($event)"
+                    (onDeSelectAll)="onDeSelectAll($event)" (onSelect)="onItemSelect($event)"
+                    (onDeSelect)="OnItemDeSelect($event)">
                   </angular2-multiselect>
                 </span>
               </div>
@@ -2191,13 +1813,8 @@
             <!-- Additional Field of Ecollection -->
             <div class="row">
               <div class="col-12 text-right">
-                <button
-                  type="button"
-                  class="signInBtn"
-                  [disabled]="frmUATSecond.invalid"
-                  [ngClass]="frmUATSecond.valid ? 'btn-dark' : 'btn-white'"
-                  (click)="btnContinue()"
-                >
+                <button type="button" class="signInBtn" [disabled]="frmUATSecond.invalid"
+                  [ngClass]="frmUATSecond.valid ? 'btn-dark' : 'btn-white'" (click)="btnContinue()">
                   Continue
                 </button>
               </div>
@@ -2209,7 +1826,7 @@
     <form #frmUATThird="ngForm" nonvalidate [hidden]="!shfrmUATThird">
       <div [hidden]="frmUATThird.submitted">
         <div class="tabEnvironment">
-          <div class="tabContent">    
+          <div class="tabContent">
             <div class="row">
               <div class="col-md-12 mb10" *ngIf="accNo">
                 <div><label for="contract">Account Number</label></div>
@@ -2433,7 +2050,7 @@
 
               </div>
             </div>
-                <!-- <div class="row ">
+            <!-- <div class="row ">
                   <div class="col-md-12">
                     <div>
                     <label for="whitelistIp">Enter IP Addresses that needs to be whitelisted under
@@ -2472,59 +2089,28 @@
             <div class="row mb25">
               <div class="col-md-12">
                 <div><label for="contract">Certificate Upload</label></div>
-                <input
-                  class="form-control"
-                  id="file1"
-                  (change)="picked($event)"
-                  type="file"
-                  [(ngModel)]="objOnB.file1"
-                  #file1="ngModel"
-                  name="file1"
-                  mdbInputDirective
-                  required
-                />
-                <div
-                  *ngIf="file1.invalid && file1.dirty"
-                  class="text-danger form-error"
-                >
+                <input class="form-control" id="file1" (change)="picked($event)" type="file" [(ngModel)]="objOnB.file1"
+                  #file1="ngModel" name="file1" mdbInputDirective required />
+                <div *ngIf="file1.invalid && file1.dirty" class="text-danger form-error">
                   Certificate is required.
                 </div>
               </div>
             </div>
             <label class="checkboxContainer">
-              <a href="javascript:;"
-                >I ACCEPT NON-DISCLOSURE AGREEMENT.
+              <a href="javascript:;">I ACCEPT NON-DISCLOSURE AGREEMENT.
                 <a target="_blank" href="/assets/pdf/test.pdf">
-                  Click here to download</a
-                ></a
-              >
-              <input
-                type="checkbox"
-                [(ngModel)]="objOnB.txtAccept"
-                #txtAccept="ngModel"
-                name="txtAccept"
-                mdbInputDirective
-                required
-              />
-              <div
-                *ngIf="txtAccept.invalid && txtAccept.dirty"
-                class="text-danger form-error"
-              >
-                <a href="/index/nda" target="_blank"
-                  >ACCEPT NON-DISCLOSURE AGREEMENT is required.</a
-                >
+                  Click here to download</a></a>
+              <input type="checkbox" [(ngModel)]="objOnB.txtAccept" #txtAccept="ngModel" name="txtAccept"
+                mdbInputDirective required />
+              <div *ngIf="txtAccept.invalid && txtAccept.dirty" class="text-danger form-error">
+                <a href="/index/nda" target="_blank">ACCEPT NON-DISCLOSURE AGREEMENT is required.</a>
               </div>
               <span class="checkmark"></span>
             </label>
             <div class="row">
               <div class="col-12 text-right">
-                <button
-                  type="submit"
-                  class="signInBtn"
-                  [disabled]="frmUATThird.invalid"
-                  [ngClass]="frmUATThird.valid ? 'btn-dark' : 'btn-white'"
-                  (click)="btnConfirm(UATconfirm)"
-                >
+                <button type="submit" class="signInBtn" [disabled]="frmUATThird.invalid"
+                  [ngClass]="frmUATThird.valid ? 'btn-dark' : 'btn-white'" (click)="btnConfirm(UATconfirm)">
                   Confirm Request
                 </button>
               </div>
@@ -2541,285 +2127,181 @@
 <ng-template #Production>
   <div class="modal-header">
     <h3>Please provide some basic details</h3>
-    <button
-      type="button"
-      class="close pull-right"
-      aria-label="Close"
-      (click)="modalRef5.hide()"
-    >
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef5.hide()">
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
   <div class="modal-body">
-    <a
-      href="#"
-      class="help-ico"
-      data-toggle="tooltip"
-      data-placement="top"
-      title="Your Organization Name"
-      ><i class="fa fa-question-circle" aria-hidden="true"></i
-    ></a>
-          <ul class="breadcrumb">
-            <li class="active" (click)="openProdCurrentTabEnv(1)" >
-              <a [ngStyle]="{ color: shfrmProdFirst ? '#f06321' : '#919191' }"
-              href="javascript:;"
-                >Basic Details <i class="fa fa-angle-right"></i
-              ></a>
-            </li>
-            <li (click)="openProdCurrentTabEnv(2)" >
-              <a [ngStyle]="{ color: shfrmProdSecond ? '#f06321' : '#919191' }"
-              href="javascript:;"
-                >Requested API <i class="fa fa-angle-right"></i
-              ></a>
-            </li>
-            <li (click)="openProdCurrentTabEnv(3)" >
-              <a [ngStyle]="{ color: shfrmProdThird ? '#f06321' : '#919191' }"
-              href="javascript:;">Whitelist IP <i class="fa fa-angle-right"></i
-                 ></a>
-            </li>
-          </ul>
-          <form #frmProdFirst="ngForm" nonvalidate [hidden]="!shfrmProdFirst">
-           <div [hidden]="frmProdFirst.submitted">
-              <div class="tabEnvironment">
-                <div class="tabContent">            
-          <div class="row mb30">
-            <div class="col-md-12 mb-xs-10">
-              <div><label for="requestId">Request Id</label></div>
-              <select
-                class="w100p fs12"
-                name="JiraId"
-                [ngModel]="edit_data.JiraId"
-                #JiraId="ngModel"
-                (change)="changeItem($event.target.value)"
-                style="font-family: Poppins-Regular;font-size: 14px;padding: 10px 14px;border-radius: 3px;border: solid 1px #acacac;outline: none;background: #ffffff;"
-              >
-                <option value="">Approved/Complete UAT Request ID</option>
-                <option *ngFor="let d of list" value="{{ d.JiraId }}"
-                  >{{ d.JiraId }} {{ d.JiraStatus }}</option
-                >
-              </select>
-            </div>
-          </div>
-          <div class="row mb30">
-            <div class="col-md-12 mb-xs-10">
-              <div><label for="MerchantName">Merchant Name</label></div>
-              <input
-                class="w100p fs12"
-                name="MerchantName"
-                placeholder="Your Organization Name"
-                [(ngModel)]="edit_data.MerchantName"
-                #MerchantName="ngModel"
-                readonly=""
-              />
-            </div>
-          </div>
-          <div class="row mb30">
-            <div class="col-md-12 mb-xs-30">
-              <div><label for="description">Description</label></div>
-              <textarea
-                class="w100p fs12"
-                placeholder="Brief description of your product for which ICICI Bank APIs will be leveraged"
-                name="Description"
-                [(ngModel)]="edit_data.Description"
-                #Description="ngModel"
-                readonly=""
-              ></textarea>
-            </div>
-          </div>
-          <div class="row mb25">
-            <div class="col-md-6">
-              <div>
-                <label for="companyName"
-                  >Single Point of Contact Email ID</label
-                >
+    <a href="#" class="help-ico" data-toggle="tooltip" data-placement="top" title="Your Organization Name"><i
+        class="fa fa-question-circle" aria-hidden="true"></i></a>
+    <ul class="breadcrumb">
+      <li class="active" (click)="openProdCurrentTabEnv(1)">
+        <a [ngStyle]="{ color: shfrmProdFirst ? '#f06321' : '#919191' }" href="javascript:;">Basic Details <i
+            class="fa fa-angle-right"></i></a>
+      </li>
+      <li (click)="openProdCurrentTabEnv(2)">
+        <a [ngStyle]="{ color: shfrmProdSecond ? '#f06321' : '#919191' }" href="javascript:;">Requested API <i
+            class="fa fa-angle-right"></i></a>
+      </li>
+      <li (click)="openProdCurrentTabEnv(3)">
+        <a [ngStyle]="{ color: shfrmProdThird ? '#f06321' : '#919191' }" href="javascript:;">Whitelist IP <i
+            class="fa fa-angle-right"></i></a>
+      </li>
+    </ul>
+    <form #frmProdFirst="ngForm" nonvalidate [hidden]="!shfrmProdFirst">
+      <div [hidden]="frmProdFirst.submitted">
+        <div class="tabEnvironment">
+          <div class="tabContent">
+            <div class="row mb30">
+              <div class="col-md-12 mb-xs-10">
+                <div><label for="requestId">Request Id</label></div>
+                <select class="w100p fs12" name="JiraId" [ngModel]="edit_data.JiraId" #JiraId="ngModel"
+                  (change)="changeItem($event.target.value)"
+                  style="font-family: Poppins-Regular;font-size: 14px;padding: 10px 14px;border-radius: 3px;border: solid 1px #acacac;outline: none;background: #ffffff;">
+                  <option value="">Approved/Complete UAT Request ID</option>
+                  <option *ngFor="let d of list" value="{{ d.JiraId }}">{{ d.JiraId }} {{ d.JiraStatus }}</option>
+                </select>
               </div>
-              <input
-                class="w100p fs12"
-                placeholder="Your Email ID"
-                name="SpocEmail"
-                [(ngModel)]="edit_data.SpocEmail"
-                #SpocEmail="ngModel"
-                readonly=""
-              />
             </div>
-            <div class="col-md-6">
-              <div>
-                <label for="contactPerson"
-                  >Single Point of Contact Number</label
-                >
+            <div class="row mb30">
+              <div class="col-md-12 mb-xs-10">
+                <div><label for="MerchantName">Merchant Name</label></div>
+                <input class="w100p fs12" name="MerchantName" placeholder="Your Organization Name"
+                  [(ngModel)]="edit_data.MerchantName" #MerchantName="ngModel" readonly="" />
               </div>
-              <input
-                class="w100p fs12"
-                placeholder="Your Contact Number"
-                name="SpocPhone"
-                [(ngModel)]="edit_data.SpocPhone"
-                #SpocPhone="ngModel"
-                readonly=""
-              />
             </div>
-          </div>
-          <div class="row mb25">
-            <div class="col-md-12">
-              <div>
-                <label for="contactPerson"
-                  >ICICI Bank Relationship Manager</label
-                >
+            <div class="row mb30">
+              <div class="col-md-12 mb-xs-30">
+                <div><label for="description">Description</label></div>
+                <textarea class="w100p fs12"
+                  placeholder="Brief description of your product for which ICICI Bank APIs will be leveraged"
+                  name="Description" [(ngModel)]="edit_data.Description" #Description="ngModel" readonly=""></textarea>
               </div>
-              <input
-                class="w100p fs12"
-                placeholder="Name/Email ID of ICICI Bank RM with whom your are liaising"
-                name="RelManager"
-                [(ngModel)]="edit_data.RelManager"
-                #RelManager="ngModel"
-                readonly=""
-              />
             </div>
-          </div>
-          <div class="row">
-            <div class="col-12 text-right">
-              <button
-                type="button"
-                class="signInBtn"
-                onclick="btnProdNext()"
-              >
-                Next
-              </button>
+            <div class="row mb25">
+              <div class="col-md-6">
+                <div>
+                  <label for="companyName">Single Point of Contact Email ID</label>
+                </div>
+                <input class="w100p fs12" placeholder="Your Email ID" name="SpocEmail" [(ngModel)]="edit_data.SpocEmail"
+                  #SpocEmail="ngModel" readonly="" />
+              </div>
+              <div class="col-md-6">
+                <div>
+                  <label for="contactPerson">Single Point of Contact Number</label>
+                </div>
+                <input class="w100p fs12" placeholder="Your Contact Number" name="SpocPhone"
+                  [(ngModel)]="edit_data.SpocPhone" #SpocPhone="ngModel" readonly="" />
+              </div>
             </div>
-          </div>
-          </div>
-          </div>
-           </div>
-     </form>
-     <form #frmProdSecond="ngForm" nonvalidate [hidden]="!shfrmProdSecond">
-        <div [hidden]="frmProdSecond.submitted">
-      <div class="tabProdEnvironment">
-        <div class="tabContent">          
-          <div class="row mb30">
-            <div class="col-md-12 mb-xs-10">
-              <div><label for="projectName">Domain Type</label></div>
-              <span class="custom-dropdown">
-                {{ edit_data.Domain }}
-              </span>
+            <div class="row mb25">
+              <div class="col-md-12">
+                <div>
+                  <label for="contactPerson">ICICI Bank Relationship Manager</label>
+                </div>
+                <input class="w100p fs12" placeholder="Name/Email ID of ICICI Bank RM with whom your are liaising"
+                  name="RelManager" [(ngModel)]="edit_data.RelManager" #RelManager="ngModel" readonly="" />
+              </div>
             </div>
-          </div>
-          <div class="row mb25">
-            <div class="col-md-12 mb-xs-10">
-              <div><label for="projectName">Api's</label></div>
-              <span class="custom-dropdown">
-                {{ edit_data.DomainApi }}
-              </span>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-12 text-right">
-              <button
-                type="button"
-                class="signInBtn"
-                onclick="openProdContinue()"
-              >
-                Continue
-              </button>
+            <div class="row">
+              <div class="col-12 text-right">
+                <button type="button" class="signInBtn" onclick="btnProdNext()">
+                  Next
+                </button>
+              </div>
             </div>
           </div>
         </div>
       </div>
-        </div>
-     </form>
-     <form #frmProdThird="ngForm" nonvalidate [hidden]="!shfrmProdThird">
-        <div [hidden]="frmProdthird.submitted">
-      <div class="tabProdEnvironment">
-        <div class="tabContent">
-         
-          <div class="row mb25">
-            <div class="col-md-12">
-              <div>
-                <label for="whitelistIp"
-                  >Enter IP Addresses that needs to be whitelisted under
-                  Environment</label
-                >
+    </form>
+    <form #frmProdSecond="ngForm" nonvalidate [hidden]="!shfrmProdSecond">
+      <div [hidden]="frmProdSecond.submitted">
+        <div class="tabProdEnvironment">
+          <div class="tabContent">
+            <div class="row mb30">
+              <div class="col-md-12 mb-xs-10">
+                <div><label for="projectName">Domain Type</label></div>
+                <span class="custom-dropdown">
+                  {{ edit_data.Domain }}
+                </span>
               </div>
-              <input
-                class="w100p fs12"
-                name="whitelistIp"
-                id="whitelistIpInputModal"
-                pattern="{{ IP_Pattern }}"
-                placeholder="Enter IP Addresses"
-                #whitelistIpInputModal="ngModel"
-                [(ngModel)]="edit_data.whitelistIpInputModal"
-                required
-              />
-              <div
-                *ngIf="
+            </div>
+            <div class="row mb25">
+              <div class="col-md-12 mb-xs-10">
+                <div><label for="projectName">Api's</label></div>
+                <span class="custom-dropdown">
+                  {{ edit_data.DomainApi }}
+                </span>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12 text-right">
+                <button type="button" class="signInBtn" onclick="openProdContinue()">
+                  Continue
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+    <form #frmProdThird="ngForm" nonvalidate [hidden]="!shfrmProdThird">
+      <div [hidden]="frmProdthird.submitted">
+        <div class="tabProdEnvironment">
+          <div class="tabContent">
+
+            <div class="row mb25">
+              <div class="col-md-12">
+                <div>
+                  <label for="whitelistIp">Enter IP Addresses that needs to be whitelisted under
+                    Environment</label>
+                </div>
+                <input class="w100p fs12" name="whitelistIp" id="whitelistIpInputModal" pattern="{{ IP_Pattern }}"
+                  placeholder="Enter IP Addresses" #whitelistIpInputModal="ngModel"
+                  [(ngModel)]="edit_data.whitelistIpInputModal" required />
+                <div *ngIf="
                   whitelistIpInputModal.invalid && whitelistIpInputModal.dirty
-                "
-                class="text-danger form-error"
-              >
-                Please Enter correct IP address
+                " class="text-danger form-error">
+                  Please Enter correct IP address
+                </div>
               </div>
             </div>
-          </div>
-          <div class="row mb25" id="whitelistIPItemContainerModal"></div>
-          <div class="row mb30">
-            <div class="col-md-12">
-              <div><label for="contract">Callback URL</label></div>
-              <input
-                class="w100p fs12"
-                name="CallbackUrl"
-                pattern="{{ Callback_URL }}"
-                placeholder="Callback URL"
-                #CallbackUrl="ngModel"
-                [(ngModel)]="edit_data.CallbackUrl"
-              />
-              <div
-                *ngIf="CallbackUrl.invalid && CallbackUrl.dirty"
-                class="text-danger form-error"
-              >
-                Please Enter correct Callback URL
+            <div class="row mb25" id="whitelistIPItemContainerModal"></div>
+            <div class="row mb30">
+              <div class="col-md-12">
+                <div><label for="contract">Callback URL</label></div>
+                <input class="w100p fs12" name="CallbackUrl" pattern="{{ Callback_URL }}" placeholder="Callback URL"
+                  #CallbackUrl="ngModel" [(ngModel)]="edit_data.CallbackUrl" />
+                <div *ngIf="CallbackUrl.invalid && CallbackUrl.dirty" class="text-danger form-error">
+                  Please Enter correct Callback URL
+                </div>
               </div>
             </div>
-          </div>
-          <div class="row mb25">
-            <div class="col-md-12">
-              <input
-                class="form-control"
-                id="file2"
-                (change)="picked($event)"
-                type="file"
-                [(ngModel)]="edit_data.file2"
-                name="file2"
-                #file2="ngModel"
-                mdbInputDirective
-                required
-              />
-              <div
-                *ngIf="file2.invalid && file2.dirty"
-                class="text-danger form-error"
-              >
-                File is required.
+            <div class="row mb25">
+              <div class="col-md-12">
+                <input class="form-control" id="file2" (change)="picked($event)" type="file"
+                  [(ngModel)]="edit_data.file2" name="file2" #file2="ngModel" mdbInputDirective required />
+                <div *ngIf="file2.invalid && file2.dirty" class="text-danger form-error">
+                  File is required.
+                </div>
               </div>
             </div>
-          </div>
-          <label class="checkboxContainer">
-            <a href="javascript:;">I ACCEPT CONTRACT TERMS & CONDITIONS</a>
-            <input type="checkbox" id="selectAll" />
-            <span class="checkmark"></span>
-          </label>
-          <div class="row">
-            <div class="col-12 text-right">
-              <button
-                type="submit"
-                class="signInBtn"
-                [disabled]="frmPRODThird.invalid"
-                [ngClass]="frmPRODThird.valid ? 'btn-dark' : 'btn-white'"
-                (click)="btnConfirmProd(Prodconfirm)"
-              >
-                Confirm Request
-              </button>
+            <label class="checkboxContainer">
+              <a href="javascript:;">I ACCEPT CONTRACT TERMS & CONDITIONS</a>
+              <input type="checkbox" id="selectAll" />
+              <span class="checkmark"></span>
+            </label>
+            <div class="row">
+              <div class="col-12 text-right">
+                <button type="submit" class="signInBtn" [disabled]="frmPRODThird.invalid"
+                  [ngClass]="frmPRODThird.valid ? 'btn-dark' : 'btn-white'" (click)="btnConfirmProd(Prodconfirm)">
+                  Confirm Request
+                </button>
+              </div>
             </div>
           </div>
         </div>
       </div>
-        </div>
     </form>
   </div>
   <div class="modal-footer"></div>
@@ -2830,11 +2312,7 @@
   <div class="modal-header">
     <h3>Let's get Connected</h3>
     <!-- <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()"></button> -->
-    <button
-      data-dismiss="modal"
-      class="material-icons close"
-      (click)="modalRef.hide()"
-    >
+    <button data-dismiss="modal" class="material-icons close" (click)="modalRef.hide()">
       close
     </button>
   </div>
@@ -2843,11 +2321,7 @@
       <div class="row mb30">
         <div class="col-lg-12 col-md-12 mb-xs-10">
           <div><label for="contactPerson">Full Name</label></div>
-          <input
-            class="w100p fs12"
-            name="fullName"
-            [(ngModel)]="Inter_full_name"
-          />
+          <input class="w100p fs12" name="fullName" [(ngModel)]="Inter_full_name" />
         </div>
       </div>
       <div class="row mb30">
@@ -2859,42 +2333,25 @@
       <div class="row mb30">
         <div class="col-lg-12 col-md-12 mb-xs-30">
           <div><label for="contactPerson">Contact Number</label></div>
-          <input
-            type="number"
-            class="w100p fs12"
-            name="contactnumber"
-            [(ngModel)]="Inter_contactnumber"
-          />
+          <input type="number" class="w100p fs12" name="contactnumber" [(ngModel)]="Inter_contactnumber" />
         </div>
       </div>
       <div class="row mb30">
         <div class="col-lg-12 col-md-12 mb-xs-30">
           <div><label for="location">Location</label></div>
-          <input
-            class="w100p fs12"
-            name="location"
-            [(ngModel)]="Inter_location"
-          />
+          <input class="w100p fs12" name="location" [(ngModel)]="Inter_location" />
         </div>
       </div>
       <div class="row mb30">
         <div class="col-lg-12 col-md-12 mb-xs-30">
           <div><label for="company">Company</label></div>
-          <input
-            class="w100p fs12"
-            name="company"
-            [(ngModel)]="Inter_company"
-          />
+          <input class="w100p fs12" name="company" [(ngModel)]="Inter_company" />
         </div>
       </div>
       <div class="row mb30">
         <div class="col-lg-12 col-md-12 mb-xs-30">
           <div><label for="requirements">Requirements</label></div>
-          <textarea
-            class="w100p fs12"
-            name="requirements"
-            [(ngModel)]="Inter_requirements"
-          ></textarea>
+          <textarea class="w100p fs12" name="requirements" [(ngModel)]="Inter_requirements"></textarea>
         </div>
       </div>
     </form>
@@ -2977,11 +2434,7 @@
   <div class="modal-header">
     <h3></h3>
     <!-- <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()"></button> -->
-    <button
-      data-dismiss="modal"
-      class="material-icons close"
-      (click)="modalRef.hide()"
-    >
+    <button data-dismiss="modal" class="material-icons close" (click)="modalRef.hide()">
       close
     </button>
   </div>
@@ -2993,29 +2446,22 @@
             <div class="tabContent">
               <ul class="breadcrumb">
                 <li>
-                  <a [ngStyle]="{ color: active }" (click)="HWI_link(1)"
-                    >Guideline <i class="fa fa-angle-right"></i
-                  ></a>
+                  <a [ngStyle]="{ color: active }" (click)="HWI_link(1)">Guideline <i class="fa fa-angle-right"></i></a>
                 </li>
                 <li>
-                  <a [ngStyle]="{ color: active }" (click)="HWI_link(2)"
-                    >Basic Details <i class="fa fa-angle-right"></i
-                  ></a>
+                  <a [ngStyle]="{ color: active }" (click)="HWI_link(2)">Basic Details <i
+                      class="fa fa-angle-right"></i></a>
                 </li>
                 <li>
-                  <a [ngStyle]="{ color: active }" (click)="HWI_link(3)"
-                    >Requested API <i class="fa fa-angle-right"></i
-                  ></a>
+                  <a [ngStyle]="{ color: active }" (click)="HWI_link(3)">Requested API <i
+                      class="fa fa-angle-right"></i></a>
                 </li>
                 <li>
-                  <a [ngStyle]="{ color: active }" (click)="HWI_link(4)"
-                    >Whitelist IP <i class="fa fa-angle-right"></i
-                  ></a>
+                  <a [ngStyle]="{ color: active }" (click)="HWI_link(4)">Whitelist IP <i
+                      class="fa fa-angle-right"></i></a>
                 </li>
                 <li>
-                  <a [ngStyle]="{ color: active }" (click)="HWI_link(5)"
-                    >Onboarding Request</a
-                  >
+                  <a [ngStyle]="{ color: active }" (click)="HWI_link(5)">Onboarding Request</a>
                 </li>
               </ul>
               <div class="row mb30" *ngIf="showTab == '1'">
@@ -3087,11 +2533,7 @@
               </div>
               <div class="row mb30 col-md-12" *ngIf="showTab == '2'">
                 <div class="col-md-6">
-                  <img
-                    src="assets/images/step1.png"
-                    class="frame"
-                    width="100%"
-                  />
+                  <img src="assets/images/step1.png" class="frame" width="100%" />
                 </div>
                 <div class="col-md-6">
                   <div class="col-md-12">
@@ -3122,18 +2564,10 @@
               </div>
               <div class="row mb30 col-md-12" *ngIf="showTab == '3'">
                 <div class="col-md-6">
-                  <img
-                    src="assets/images/step5.png"
-                    class="frame"
-                    width="100%"
-                  />
+                  <img src="assets/images/step5.png" class="frame" width="100%" />
                 </div>
                 <div class="col-md-6">
-                  <img
-                    src="assets/images/step4.png"
-                    class="frame"
-                    width="100%"
-                  />
+                  <img src="assets/images/step4.png" class="frame" width="100%" />
                 </div>
                 <div class="col-md-12" style="margin-top:20px;">
                   <div class="col-md-12">
@@ -3152,11 +2586,7 @@
               </div>
               <div class="row mb30 col-md-12" *ngIf="showTab == '4'">
                 <div class="col-md-6">
-                  <img
-                    src="assets/images/step2.png"
-                    class="frame"
-                    width="100%"
-                  />
+                  <img src="assets/images/step2.png" class="frame" width="100%" />
                 </div>
                 <div class="col-md-6">
                   <div class="col-md-12">
@@ -3187,11 +2617,7 @@
               </div>
               <div class="row mb30 col-md-12" *ngIf="showTab == '5'">
                 <div class="col-md-6">
-                  <img
-                    src="assets/images/step6.png"
-                    class="frame"
-                    width="100%"
-                  />
+                  <img src="assets/images/step6.png" class="frame" width="100%" />
                 </div>
                 <div class="col-md-6">
                   <div class="col-md-12">
@@ -3210,11 +2636,7 @@
                   </div>
                 </div>
                 <div class="col-md-12">
-                  <img
-                    src="assets/images/step3.png"
-                    class="frame"
-                    width="100%"
-                  />
+                  <img src="assets/images/step3.png" class="frame" width="100%" />
                 </div>
               </div>
             </div>
@@ -3231,11 +2653,7 @@
   <div class="modal-header">
     <h3></h3>
     <!-- <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()"></button> -->
-    <button
-      data-dismiss="modal"
-      class="material-icons close"
-      (click)="modalRef.hide()"
-    >
+    <button data-dismiss="modal" class="material-icons close" (click)="modalRef.hide()">
       close
     </button>
   </div>
@@ -3248,28 +2666,22 @@
               <ul class="breadcrumb">
                 <li>
                   <a [ngStyle]="{ color: active }" (click)="HWI_link(1)">
-                    Sign up <i class="fa fa-angle-right"></i
-                  ></a>
+                    Sign up <i class="fa fa-angle-right"></i></a>
                 </li>
                 <li>
                   <a [ngStyle]="{ color: active }" (click)="HWI_link(2)">
-                    Create an App <i class="fa fa-angle-right"></i
-                  ></a>
+                    Create an App <i class="fa fa-angle-right"></i></a>
                 </li>
                 <li>
-                  <a [ngStyle]="{ color: active }" (click)="HWI_link(3)"
-                    >Select App <i class="fa fa-angle-right"></i
-                  ></a>
+                  <a [ngStyle]="{ color: active }" (click)="HWI_link(3)">Select App <i
+                      class="fa fa-angle-right"></i></a>
                 </li>
                 <li>
-                  <a [ngStyle]="{ color: active }" (click)="HWI_link(4)"
-                    >Test it Out <i class="fa fa-angle-right"></i
-                  ></a>
+                  <a [ngStyle]="{ color: active }" (click)="HWI_link(4)">Test it Out <i
+                      class="fa fa-angle-right"></i></a>
                 </li>
                 <li>
-                  <a [ngStyle]="{ color: active }" (click)="HWI_link(5)"
-                    >Get Sample Code</a
-                  >
+                  <a [ngStyle]="{ color: active }" (click)="HWI_link(5)">Get Sample Code</a>
                 </li>
               </ul>
               <div class="row mb30" *ngIf="showTab == '1'">
@@ -3285,27 +2697,15 @@
                 </div>
                 <div class="col-md-6">
                   <p>a. Enter your Credentials.</p>
-                  <img
-                    src="assets/images/SignUp1.png"
-                    class="frame"
-                    width="100%"
-                  />
+                  <img src="assets/images/SignUp1.png" class="frame" width="100%" />
                 </div>
                 <div class="col-md-6">
                   <p>b. Verify your Mobile Number.</p>
-                  <img
-                    src="assets/images/SignUp2.png"
-                    class="frame"
-                    width="100%"
-                  />
+                  <img src="assets/images/SignUp2.png" class="frame" width="100%" />
                 </div>
                 <div class="col-md-6">
                   <p>c. Create Username and Password</p>
-                  <img
-                    src="assets/images/SignUp3.png"
-                    class="frame"
-                    width="100%"
-                  />
+                  <img src="assets/images/SignUp3.png" class="frame" width="100%" />
                   <br /><br />
                 </div>
                 <div class="col-md-12 mb-xs-10">
@@ -3330,11 +2730,7 @@
                     <span class="stepNumber stepNumber mr-1">#1</span>In your
                     Dashboard, click Applications tab.
                   </h6>
-                  <img
-                    src="assets/images/AddApplication.png"
-                    class="frame"
-                    width="100%"
-                  />
+                  <img src="assets/images/AddApplication.png" class="frame" width="100%" />
                 </div>
                 <div class="col-md-6 mb30">
                   <h6 style="font-size:14px; padding-top: 8px;">
@@ -3343,11 +2739,7 @@
                     to test the fuctionalities of APIs by adding them in the
                     Application.
                   </h6>
-                  <img
-                    src="assets/images/CreateApplication.png"
-                    class="frame"
-                    width="100%"
-                  />
+                  <img src="assets/images/CreateApplication.png" class="frame" width="100%" />
                 </div>
                 <div class="col-md-6 mb30">
                   <h6 style="font-size:14px; padding-top: 8px;">
@@ -3356,11 +2748,7 @@
                     application's name and on which platform your application is
                     going to be running.
                   </h6>
-                  <img
-                    src="assets/images/CreateApplication1.png"
-                    class="frame"
-                    width="100%"
-                  />
+                  <img src="assets/images/CreateApplication1.png" class="frame" width="100%" />
                 </div>
                 <div class="col-md-6 mb30">
                   <h6 style="font-size:14px; padding-top: 8px;">
@@ -3368,22 +2756,14 @@
                     Management tab; you will choose the API(s) that you are
                     going to be using in your application.
                   </h6>
-                  <img
-                    src="assets/images/SelectAPI.png"
-                    class="frame"
-                    width="100%"
-                  />
+                  <img src="assets/images/SelectAPI.png" class="frame" width="100%" />
                 </div>
                 <div class="col-md-6 mb30">
                   <h6 style="font-size:14px; padding-top: 8px;">
                     <span class="stepNumber stepNumber mr-1">#5</span>In the
                     Auth tab; fields are optional.
                   </h6>
-                  <img
-                    src="assets/images/Authentication.png"
-                    class="frame"
-                    width="100%"
-                  />
+                  <img src="assets/images/Authentication.png" class="frame" width="100%" />
                 </div>
                 <div class="col-md-6 mb30">
                   <h6 style="font-size:14px; padding-top: 8px;">
@@ -3391,11 +2771,7 @@
                     click Save button, you will see your application in the
                     Applications tab.
                   </h6>
-                  <img
-                    src="assets/images/ViewApplication.png"
-                    class="frame"
-                    width="100%"
-                  />
+                  <img src="assets/images/ViewApplication.png" class="frame" width="100%" />
                 </div>
               </div>
               <div class="row mb30" *ngIf="showTab == '3'">
@@ -3406,11 +2782,7 @@
                     Secret. You can also test any API in documentation
                     page.Select application you created
                   </h6>
-                  <img
-                    src="assets/images/sandbox.png"
-                    class="frame"
-                    width="100%"
-                  />
+                  <img src="assets/images/sandbox.png" class="frame" width="100%" />
                 </div>
                 <div class="col-md-6 mb30">
                   <h6 style="font-size:14px; padding-top: 8px;">
@@ -3418,22 +2790,14 @@
                     Service Authentication as API Key.Corresponding fields
                     should be filled automatically.
                   </h6>
-                  <img
-                    src="assets/images/sandboxAPIkey.png"
-                    class="frame"
-                    width="100%"
-                  />
+                  <img src="assets/images/sandboxAPIkey.png" class="frame" width="100%" />
                 </div>
                 <div class="col-md-6 mb30">
                   <h6 style="font-size:14px; padding-top: 8px;">
                     <span class="stepNumber stepNumber mr-1">#3</span>You should
                     add your API Key with Add Parameter option.
                   </h6>
-                  <img
-                    src="assets/images/paramterapiKey.png"
-                    class="frame"
-                    width="100%"
-                  />
+                  <img src="assets/images/paramterapiKey.png" class="frame" width="100%" />
                 </div>
               </div>
               <div class="row mb30" *ngIf="showTab == '4'">
@@ -3445,11 +2809,7 @@
                     portal will provide the responses to your requests in real
                     time.
                   </h6>
-                  <img
-                    src="assets/images/TryitOut.png"
-                    class="frame"
-                    width="100%"
-                  />
+                  <img src="assets/images/TryitOut.png" class="frame" width="100%" />
                 </div>
               </div>
               <div class="row mb30" *ngIf="showTab == '5'">
@@ -3460,11 +2820,7 @@
                     on Query Tab, check the sample code and use it in your
                     application.
                   </h6>
-                  <img
-                    src="assets/images/sampleCode.png"
-                    class="frame"
-                    width="100%"
-                  />
+                  <img src="assets/images/sampleCode.png" class="frame" width="100%" />
                 </div>
               </div>
             </div>

@@ -344,7 +344,7 @@
           <button
             type="submit"
             class="signInBtn w100p"
-            (click)="forgot(username.value)"
+            (click)="forgot(username.value,forgotpasswreset)"
           >
             Reset Password
           </button>
@@ -353,6 +353,22 @@
     </div>
   </div>
 </ng-template>
+<ng-template #forgotpasswreset>
+  <div class="modal-header">
+  <button
+  type="button"
+  class="close pull-right"
+  aria-label="Close"
+  (click)="modalRef9.hide()"
+  >
+  <span aria-hidden="true">&times;</span>
+  </button>
+  </div>
+  <div class="modal-body"> 
+  <div class="txtAlign"><label>Success! Please check your mail</label></div>
+  </div>
+  </ng-template>
+  
 <!-- End Modal -->
 <!-- Modal for Signup -->
 <!-- Modal for Signup -->

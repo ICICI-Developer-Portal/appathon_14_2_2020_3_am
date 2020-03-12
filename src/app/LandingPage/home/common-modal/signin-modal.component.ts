@@ -62,6 +62,7 @@ export class SigninModalComponent implements OnInit {
   domainLst: any[];
   loginResponse: any;
   currentPath: string;
+  modalRef9: BsModalRef;
   constructor(
     private SessionService: SessionService,
     private authService: AuthService,
@@ -487,7 +488,7 @@ export class SigninModalComponent implements OnInit {
   }
 
   // forget Password function
-  forgot(username: any) {
+  forgot(username: any,forgotpasswreset: TemplateRef<any>) {
     console.log('forgot pass click');
     if (username == '') {
       console.log('user name empty');
@@ -500,7 +501,10 @@ export class SigninModalComponent implements OnInit {
       var response = data._body;
       var obj = JSON.parse(response);
       if (obj.status == true) {
-        this.toastrmsg('success', 'Please check your mail');
+        this.modalRef9 = this.modalService.show(forgotpasswreset, {
+          backdrop: 'static',
+          });
+        // this.toastrmsg('success', 'Please check your mail');
         //this.router.navigate(['/index']);
         this.modalRef3.hide();
         this.spinnerService.hide();

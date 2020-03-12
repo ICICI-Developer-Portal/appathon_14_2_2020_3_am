@@ -44,6 +44,7 @@ export class IndexComponent implements OnInit {
   modalRef6: BsModalRef;
   modalRef7: BsModalRef;
   modalRef8: BsModalRef;
+  modalRef9: BsModalRef;
 
   valueWidth = false;
   show: boolean = false;
@@ -572,7 +573,7 @@ export class IndexComponent implements OnInit {
     }
   }
   // forget Password function
-  forgot(username: any) {
+  forgot(username: any,forgotpasswreset: TemplateRef<any>) {
     if (username == "") {
       this.toastrmsg("error", "Enter Username");
       return;
@@ -583,7 +584,10 @@ export class IndexComponent implements OnInit {
       var response = data._body;
       var obj = JSON.parse(response);
       if (obj.status == true) {
-        this.toastrmsg("success", " Please check your mail");
+        this.modalRef9 = this.modalService.show(forgotpasswreset, {
+          backdrop: 'static',
+          });          
+        // this.toastrmsg("success", " Please check your mail");
         this.router.navigate(["/index"]);
         this.modalRef3.hide();
         this.spinnerService.hide();
