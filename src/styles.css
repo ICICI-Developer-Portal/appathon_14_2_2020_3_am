@@ -593,6 +593,9 @@ body {
 .drp-cnt-width {
   min-width: 175px !important;
 }
+.txtAlign{
+  text-align: center;
+}
  /* @media screen and (min-width: 320px) and (max-width: 767px) and (orientation: portrait) {
   html {
     transform: rotate(-90deg);
