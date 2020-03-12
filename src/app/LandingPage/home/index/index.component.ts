@@ -1041,7 +1041,7 @@ export class IndexComponent implements OnInit {
       this.objOnB.Acc_acceptance +
       " " +
       this.objOnB.Rec_mail;
-    " " +
+      " " +
       this.objOnB.Acc_mode +
       " " +
       this.objOnB.Acc_trans +
@@ -1058,8 +1058,32 @@ export class IndexComponent implements OnInit {
       spocPhone: this.objOnB.txtContactNumber,
       relManager: this.objOnB.txtRelManager,
       env: "UAT",
-      ips: "",
-      callbackUrl: "",
+      // ips: "",
+      // callbackUrl: "",
+      AccountNo: this.objOnB.AccountNo ? this.objOnB.AccountNo : '',
+      ClientCode: this.objOnB.ClientCode ? this.objOnB.ClientCode : '',
+      url: this.objOnB.url ? this.objOnB.url : '',
+      Ip: this.objOnB.Ip ? this.objOnB.Ip : '',
+      Port: this.objOnB.Port ? this.objOnB.Port : '',
+      Checksum: this.objOnB.Checksum ? this.objOnB.Checksum : '',
+      Encryption: this.objOnB.Encryption ? this.objOnB.Encryption : '',
+      Certificate: this.objOnB.Certificate ? this.objOnB.Certificate : '',
+      web: this.objOnB.web ? this.objOnB.web : '',
+      message: this.objOnB.message ? this.objOnB.message : '',
+      IFSC_Code: this.objOnB.IFSC_Code ? this.objOnB.IFSC_Code : '',
+      virtualCode: this.objOnB.virtualCode ? this.objOnB.virtualCode : '',
+      refundCode: this.objOnB.refundCode ? this.objOnB.refundCode : '',
+      Account_no: this.objOnB.Account_no ? this.objOnB.Account_no : '',
+      Acc_name: this.objOnB.Acc_name ? this.objOnB.Acc_name : '',
+      Auth_level: this.objOnB.Auth_level ? this.objOnB.Auth_level : '',
+      Urn: this.objOnB.Urn ? this.objOnB.Urn : '',
+      Acc_env: this.objOnB.Acc_env ? this.objOnB.Acc_env : '',
+      Acc_validation: this.objOnB.Acc_validation ? this.objOnB.Acc_validation : '',
+      Acc_acceptance: this.objOnB.Acc_acceptance ? this.objOnB.Acc_acceptance : '',
+      Rec_mail: this.objOnB.Rec_mail ? this.objOnB.Rec_mail : '',
+      Acc_mode: this.objOnB.Acc_mode ? this.objOnB.Acc_mode : '',
+      Acc_trans: this.objOnB.Acc_trans ? this.objOnB.Acc_trans : '',
+      Acc_amount: this.objOnB.Acc_amount ? this.objOnB.Acc_amount : '',
       file1: this.objOnB.file1
     };
 
@@ -1074,8 +1098,33 @@ export class IndexComponent implements OnInit {
     formData.append("spocPhone", inputFields["spocPhone"]);
     formData.append("relManager", inputFields["relManager"]);
     formData.append("env", inputFields["env"]);
-    formData.append("ips", inputFields["ips"]);
-    formData.append("callbackUrl", inputFields["callbackUrl"]);
+    // formData.append("ips", inputFields["ips"]);
+    // formData.append("callbackUrl", inputFields["callbackUrl"]);
+    formData.append("AccountNo", inputFields["AccountNo"]);
+    formData.append("ClientCode", inputFields["ClientCode"]);
+    formData.append("url", inputFields["url"]);
+    formData.append("Ip", inputFields["Ip"]);
+    formData.append("Port", inputFields["Port"]);
+    formData.append("Checksum", inputFields["Checksum"]);
+    formData.append("Encryption", inputFields["Encryption"]);
+    formData.append("Certificate", inputFields["Certificate"]);
+    formData.append("web", inputFields["web"]);
+    formData.append("message", inputFields["message"]);
+    formData.append("IFSC_Code", inputFields["IFSC_Code"]);
+    formData.append("virtualCode", inputFields["virtualCode"]);
+    formData.append("refundCode", inputFields["refundCode"]);
+    formData.append("Account_no", inputFields["Account_no"]);
+    formData.append("Acc_name", inputFields["Acc_name"]);
+    formData.append("Auth_level", inputFields["Auth_level"]);
+    formData.append("Urn", inputFields["Urn"]);
+    formData.append("Acc_env", inputFields["Acc_env"]);
+    formData.append("Acc_validation", inputFields["Acc_validation"]);
+    formData.append("Acc_acceptance", inputFields["Acc_acceptance"]);
+    formData.append("Rec_mail", inputFields["Rec_mail"]);
+    formData.append("Acc_mode", inputFields["Acc_mode"]);
+    formData.append("Acc_trans", inputFields["Acc_trans"]);
+    formData.append("Acc_amount", inputFields["Acc_amount"]);
+
     console.log(formData);
     let a: any = (<HTMLInputElement>document.getElementById("file1")).files;
     console.log("a", a);

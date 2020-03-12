@@ -57,7 +57,7 @@ export class SessionService {
 
   resetTimer(endTime: number = this.endTime) {
     const interval = 1000;
-    const duration = endTime * 1860;
+    const duration = endTime * 2700;
     this.timerSubscription = timer(0, interval).pipe(
       take(duration)
     ).subscribe(value =>

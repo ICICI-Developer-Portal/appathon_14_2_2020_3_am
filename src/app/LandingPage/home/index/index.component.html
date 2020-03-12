@@ -1860,7 +1860,7 @@
             <div class="row">
               <div class="col-md-12 mb10" *ngIf="accNo">
                 <div><label for="contract">Account Number</label></div>
-                <input class="form-control" [ngModel]="objOnB.AccountNo" name="AccountNo" #AccountNo="ngModel"
+                <input class="form-control" [(ngModel)]="objOnB.AccountNo" name="AccountNo" #AccountNo="ngModel"
                   placeholder="Your Account number" (ngModelChange)="onChangeAccountNum($event)" type="text" />
 
                 <div *ngIf="accountNumErrorMsg != ''" class="text-danger form-error">
@@ -1874,7 +1874,7 @@
               </div>
               <div class="col-md-12 mb10" *ngIf="url">
                 <div><label for="contract">Callback URL</label></div>
-                <input class="form-control" [ngModel]="objOnB.url" name="url" #url="ngModel"
+                <input class="form-control" [(ngModel)]="objOnB.url" name="url" #url="ngModel"
                   placeholder="Your Callback URL" (ngModelChange)="onChangeURL($event)" type="text" />
                 <div *ngIf="urlErrorMsg != ''" class="text-danger form-error">
                   {{ urlErrorMsg }}
@@ -1882,7 +1882,7 @@
               </div>
               <div class="col-md-12 mb10" *ngIf="ip">
                 <div><label for="contract">IP</label></div>
-                <input class="form-control" [ngModel]="objOnB.Ip" name="Ip" #Ip="ngModel" placeholder="Your IP"
+                <input class="form-control" [(ngModel)]="objOnB.Ip" name="Ip" #Ip="ngModel" placeholder="Your IP"
                   (ngModelChange)="onChangeIpAddress($event)" type="text" />
                 <div *ngIf="ipAddressErrorMsg != ''" class="text-danger form-error">
                   {{ ipAddressErrorMsg }}
@@ -1890,7 +1890,7 @@
               </div>
               <div class="col-md-12 mb10" *ngIf="port">
                 <div><label for="contract">Port</label></div>
-                <input class="form-control" [ngModel]="objOnB.Port" name="Port" #Port="ngModel" placeholder="Your Port"
+                <input class="form-control" [(ngModel)]="objOnB.Port" name="Port" #Port="ngModel" placeholder="Your Port"
                   (ngModelChange)="onChangePort($event)" type="text" />
                 <div *ngIf="portNumErrorMsg != ''" class="text-danger form-error">
                   {{ portNumErrorMsg }}
