@@ -77,13 +77,15 @@
     ></noscript>
     <!-- End Google Tag Manager (noscript) -->
     <script type="text/javascript">
-      window.dataLayer = window.dataLayer || [];
-      dataLayer.push({
-        event: "NewVirtualPageview",
-        page: "/vpv/icici-developer/index",
-        FedId: "${relnum}"
-      });
-    </script>
+      let path =window.location.href.split('/').pop();
+      //alert(path)
+        window.dataLayer = window.dataLayer || [];
+        dataLayer.push({
+          event: 'NewVirtualPageview',
+          page: '/vpv/icici-developer/'+path,
+          FedId: '${userID}'
+        });
+      </script>
 
     <!-- Start VWO Async Smartcode -->
 
