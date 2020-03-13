@@ -435,17 +435,17 @@ export class LoginService {
   }
   //Merchant-onboarding End
   getUATFromData(data) {
-
     var query = data;
     let headers = new Headers({
-    'Content-Type': 'application/json',
+      "Content-Type": "application/json"
     });
     let options = new RequestOptions({ headers: headers });
     return this.http.post(
-    'https://developer.icicibank.com/rest/getAdditionalParameters',
-    query,options
+      "https://developer.icicibank.com/rest/getAdditionalParameters",
+      query,
+      options
     );
-    }
+  }
   // Get All API Start
   Get_All_API() {
     var json = {};
@@ -640,4 +640,9 @@ export class LoginService {
     return this.http.post(this.apiUrl + "sign_up_appathon", query, options);
   }
   //  #End region
+  api_description(id) {
+    return this.http.get(
+      "https://developer.icicibank.com/rest/getMenuDescription?ID=" + id
+    );
+  }
 }
