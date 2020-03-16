@@ -94,7 +94,7 @@ export class SidebarComponent implements OnInit {
       $(this).removeClass("active show");
     });
 
-    //for dynamic data
+    //for dynamic data click event handle
     $(document)
       .off("click")
       .on("click", ".tree-node", function(e) {
@@ -124,6 +124,27 @@ export class SidebarComponent implements OnInit {
       `<li class="nav-link active">` +
       `<a id="v-pills-home-tab" data-toggle="pill"  href="#/documentation" role="tab" aria-controls="v-pills-home" aria-selected="true">Introduction` +
       `</a>` +
+      `</li>` +
+      ` <li class="nav-link">
+       
+        <a id="v-pills-messages-tab" data-toggle="pill"  href="#/security" role="tab" aria-controls="v-pills-messages" aria-selected="false"> Security` +
+      `<img class="dropdownIcon" src="assets/images/dropdown-2.svg" alt="" />` +
+      `</a>` +
+      `<ul class="collapse nav-pills-first-level submenuLevelOne list-unstyled">` +
+      `<li class="nav-link">` +
+      `<a id="v-pills-List-Customer-Accounts-tab" class="tree-node" role="tab_api_1" data-toggle="pill" aria-selected="false" >Encryption` +
+      `</a>` +
+      `</li>` +
+      `<li class="nav-link">` +
+      `<a id="v-pills-List-Customer-Accounts-tab" class="tree-node" role="tab_api_2" data-toggle="pill" aria-selected="false" >Test API` +
+      `</a>` +
+      `</li>` +
+      `<li class="nav-link">` +
+      `<a id="v-pills-List-Customer-Accounts-tab" class="tree-node" role="tab_api_3" data-toggle="pill"  aria-selected="false" >` +
+      `Decryption` +
+      `</a>` +
+      `</li>` +
+      `</ul>` +
       `</li>`;
 
     for (var i = 0; i < this.treeData.length; i++) {
@@ -191,7 +212,7 @@ export class SidebarComponent implements OnInit {
       class="collapse nav-pills-first-level submenuLevelTwo list-unstyled"
     >`;
     }
-    if (level >= 3) {
+    if (level >= "3") {
       this.treeItems += `<ul
       class="collapse nav-pills-first-level submenuLevelThree list-unstyled"
     >`;
