@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit } from "@angular/core";
+import { Router } from "@angular/router";
 
 @Component({
-  selector: 'app-documentation-dashb',
-  templateUrl: './documentation-dashb.component.html',
+  selector: "app-documentation-dashb",
+  templateUrl: "./documentation-dashb.component.html"
   //styleUrls: ['./documentation-dashb.component.css']
 })
 export class DocumentationDashbComponent implements OnInit {
@@ -12,9 +12,8 @@ export class DocumentationDashbComponent implements OnInit {
 
   ngOnInit() {
     var url = this.router.url;
-    console.log(url);
 
-    if (url !== '/appathon-dashboard') {
+    if (url !== "/appathon-dashboard") {
       this.showSidebar = true;
     }
   }

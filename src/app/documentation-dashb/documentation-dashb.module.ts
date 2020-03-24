@@ -78,6 +78,12 @@ import { PaymentComponent } from "./Sidenav-pages/Sidenav-Subpages/payment/payme
 import { SecurityComponent } from "./Sidenav-pages/security/security.component";
 import { BranchDetailsComponent } from "./branch-details/branch-details.component";
 import { RootDetailsComponent } from "./root-details/root-details.component";
+import {
+  MatAutocompleteModule,
+  MatFormFieldModule,
+  MatInputModule,
+  MatProgressSpinnerModule
+} from "@angular/material";
 
 @NgModule({
   imports: [
@@ -91,7 +97,11 @@ import { RootDetailsComponent } from "./root-details/root-details.component";
     Ng4LoadingSpinnerModule.forRoot(),
     //  NgMultiSelectDropDownModule.forRoot(),
     NgxPaginationModule,
-    Ng2SearchPipeModule
+    Ng2SearchPipeModule,
+    MatAutocompleteModule,
+    MatFormFieldModule,
+    MatProgressSpinnerModule,
+    MatInputModule
   ],
   declarations: [
     DocumentationDashbComponent,

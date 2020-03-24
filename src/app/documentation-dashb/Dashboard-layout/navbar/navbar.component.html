@@ -53,12 +53,11 @@
           class="nav-link active"
           id="pills-profile-tab"
           data-toggle="pill"
-          [routerLink]="['/documentation']"
+          (click)="documentation()"
           href="javascript:;"
           role="tab"
           aria-controls="pills-profile"
           aria-selected="false"
-          onclick="side_menu();"
           >Documentation</a
         >
       </li>

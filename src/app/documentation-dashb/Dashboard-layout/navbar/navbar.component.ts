@@ -98,4 +98,8 @@ export class NavbarComponent implements OnInit {
       disableClose: true
     });
   }
+
+  documentation() {
+    this.router.navigate(["/documentation"]);
+  }
 }

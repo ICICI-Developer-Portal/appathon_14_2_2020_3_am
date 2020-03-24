@@ -1,51 +1,51 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { LayoutComponent } from './LandingPage/layout/layout.component';
-import { MailverifyComponent } from './mailverify/mailverify.component';
-import { AuthGuard } from './services/auth.guard';
-import { AdminPortalComponent } from './admin-portal/admin-portal.component';
-import { AppathonComponent } from './appathon/appathon.component';
+import { NgModule } from "@angular/core";
+import { Routes, RouterModule } from "@angular/router";
+import { LayoutComponent } from "./LandingPage/layout/layout.component";
+import { MailverifyComponent } from "./mailverify/mailverify.component";
+import { AuthGuard } from "./services/auth.guard";
+import { AdminPortalComponent } from "./admin-portal/admin-portal.component";
+import { AppathonComponent } from "./appathon/appathon.component";
 
 const routes: Routes = [
   // { path: '', redirectTo :'index', pathMatch :'full' },
-  { path: 'layout', component: LayoutComponent, canActivate: [AuthGuard] },
+  { path: "layout", component: LayoutComponent, canActivate: [AuthGuard] },
   {
-    path: 'dashboard',
+    path: "dashboard",
     component: MailverifyComponent,
-    canActivate: [AuthGuard],
+    canActivate: [AuthGuard]
   },
   {
-    path: 'admin',
+    path: "admin",
     component: AdminPortalComponent,
     // canActivate: [true],
     children: [
       {
-        path: '',
-        loadChildren: './adminpanel/adminpanel.module#AdminpanelModule',
-      },
-    ],
+        path: "",
+        loadChildren: "./adminpanel/adminpanel.module#AdminpanelModule"
+      }
+    ]
   },
   {
-    path: 'appathon',
+    path: "appathon",
     component: AppathonComponent,
     children: [
       {
-        path: '',
+        path: "",
         loadChildren:
-          './appathon-landing/appathon-landing.module#AppathonLandingModule',
-      },
-    ],
-  },
+          "./appathon-landing/appathon-landing.module#AppathonLandingModule"
+      }
+    ]
+  }
 
-  {
-    path: 'documentation',
-    loadChildren:
-          './documentation-dashb/documentation-dashb.module#DocumentationDashbModule',
-  },
+  // {
+  //   path: 'documentation',
+  //   loadChildren:
+  //         './documentation-dashb/documentation-dashb.module#DocumentationDashbModule',
+  // },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule],
+  exports: [RouterModule]
 })
 export class AppRoutingModule {}
