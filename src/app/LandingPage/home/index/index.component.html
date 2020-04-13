@@ -2118,7 +2118,17 @@
             </div> -->
             <div class="row mb25">
               <div class="col-md-12">
-                <div><label for="contract">Certificate Upload</label></div>
+                <div><label for="contract">Certificate Upload</label>
+                  <a
+                  href="#"
+                  data-toggle="tooltip"
+                  title="Please upload zip file of SSL Certificate and Encryption Certificate"
+                  ><img
+                    src="assets/images/information.png"
+                    alt="loader"
+                    style="margin-left:2%;cursor: pointer;"
+                /></a>
+              </div>
                 <input class="form-control" id="file1" (change)="picked($event)" type="file" [(ngModel)]="objOnB.file1"
                   #file1="ngModel" name="file1" mdbInputDirective required />
                 <div *ngIf="file1.invalid && file1.dirty" class="text-danger form-error">
