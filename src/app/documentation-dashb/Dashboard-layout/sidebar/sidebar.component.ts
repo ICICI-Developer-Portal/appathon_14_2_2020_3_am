@@ -21,6 +21,8 @@ export class SidebarComponent implements OnInit {
   levels: any;
   treeData = [];
   treeData1: any[];
+  treeElements: any;
+  showMatSpinner: boolean = false;
 
   /** @class SidebarComponent
    * @constructor
@@ -28,7 +30,22 @@ export class SidebarComponent implements OnInit {
   constructor(
     private router: Router,
     private dashboardService: DashboardService
-  ) {}
+  ) {
+    //on load introduction active
+    setInterval(() => {
+      if (this.router.url === "/documentation") {
+        $(document).ready(function() {
+          $(".sideMenu>.nav-pills li.nav-link")
+            .removeClass("active")
+            .removeClass("openDropdown");
+
+          $(".intro")
+            .addClass("active")
+            .addClass("openDropdown");
+        });
+      }
+    }, 1000);
+  }
 
   ngOnInit() {
     var self = this;
@@ -46,7 +63,7 @@ export class SidebarComponent implements OnInit {
    * @class SidebarComponent
    * @method assignClickToNodes
    */
-  async assignClickToNodes() {
+  assignClickToNodes() {
     var self = this;
     //$('.sideMenu>.nav-pills li.nav-link').unbind('click');
 
@@ -110,9 +127,23 @@ export class SidebarComponent implements OnInit {
    * @method getMenuTree
    */
   getMenuTree() {
+    this.showMatSpinner = true;
     this.dashboardService.getMenuTreeData().subscribe((data: any) => {
       this.treeData = JSON.parse(data._body);
+      this.createTreeAndJquery();
+      this.showMatSpinner = false;
     });
+  }
+
+  /** create tree and jquery for menu tree expand/collapse
+   * @class SidebarComponent
+   * @method createTreeAndJquery
+   */
+  createTreeAndJquery() {
+    this.treeElements = this.createTree();
+    setTimeout(() => {
+      this.assignClickToNodes();
+    }, 1000);
   }
 
   /** create menu tree dynamically
@@ -121,12 +152,12 @@ export class SidebarComponent implements OnInit {
    */
   createTree() {
     this.treeItems =
-      `<li class="nav-link active">` +
+      `<li class="nav-link active intro">` +
       `<a id="v-pills-home-tab" data-toggle="pill"  href="#/documentation" role="tab" aria-controls="v-pills-home" aria-selected="true">Introduction` +
       `</a>` +
       `</li>` +
       ` <li class="nav-link">
-       
+
         <a id="v-pills-messages-tab" data-toggle="pill"  href="#/security" role="tab" aria-controls="v-pills-messages" aria-selected="false"> Security` +
       `<img class="dropdownIcon" src="assets/images/dropdown-2.svg" alt="" />` +
       `</a>` +
@@ -193,7 +224,6 @@ export class SidebarComponent implements OnInit {
         </a>
       </li>`;
 
-    this.assignClickToNodes();
     return this.treeItems;
   }
 
@@ -214,7 +244,7 @@ export class SidebarComponent implements OnInit {
     }
     if (level >= "3") {
       this.treeItems += `<ul
-      class="collapse nav-pills-first-level submenuLevelThree list-unstyled"
+      class="collapse nav-pills-third-level submenuLevelThree list-unstyled"
     >`;
     }
 
