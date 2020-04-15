@@ -816,9 +816,12 @@
                   #term
                   required
                 /><span class="checkmark"></span>
-                <a [routerLink]="['/index/termsandcondition']" target="_blank"
+                <a href="/assets/assets/assets/pdf/Terms.pdf" target="_blank"
                   >ACCEPT ALL TERMS & CONDITIONS</a
                 >
+                <!-- <a [routerLink]="['/index/termsandcondition']" target="_blank"
+                  >ACCEPT ALL TERMS & CONDITIONS</a
+                > -->
                 <div
                   *ngIf="term.invalid && (term.invalid || isSubmitted)"
                   class="text-danger form-error"
