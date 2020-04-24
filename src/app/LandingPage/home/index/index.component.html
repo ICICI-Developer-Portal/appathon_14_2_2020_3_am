@@ -1214,7 +1214,7 @@
             <div class="col-md-12">
               <label class="checkboxContainer">
                 <input type="checkbox" formControlName="term" #term required /><span class="checkmark"></span>
-                <a href="/assets/assets/assets/pdf/Terms.pdf" target="_blank"
+                <a href="/assets/assets/pdf/Terms.pdf" target="_blank"
                   >ACCEPT ALL TERMS & CONDITIONS</a
                 >
                 <!-- <a [routerLink]="['/index/termsandcondition']" target="_blank">ACCEPT ALL TERMS & CONDITIONS</a> -->
@@ -1483,7 +1483,7 @@
       <div [hidden]="frmUATSecond.submitted">
         <div class="tabEnvironment">
           <div class="tabContent">
-            <div class="row mb30">
+            <!-- <div class="row mb30">
               <div class="col-md-12 mb-xs-10">
                 <div><label for="projectName">Domain Type</label></div>
                 <span class="custom-dropdown">
@@ -1500,18 +1500,38 @@
                   </div>
                 </span>
               </div>
-            </div>
-            <div class="row mb25" *ngIf="drpHide">
+            </div> -->
+            <div class="row mb25">
               <div class="col-md-12 mb-xs-10">
-                <label for="domainName">Select APIs: <span class="required">*</span></label>
-                <span class="custom-dropdown">
-                  <angular2-multiselect [data]="itemList" [(ngModel)]="objOnB.txtSubDomain" name="txtSubDomain"
+                <label
+                  >Select APIs: <span class="required">*</span></label
+                >                
+                <!-- <span class="custom-dropdown"> -->
+                  <!-- <select
+                    class="form-control"
+                    style="height:40px"                    
+                    mdbInputDirective
+                    (click)="dropdownShow()">
+                    <option value="" disabled selected hidden>Select API</option>
+                  </select> -->
+                  <div class="sideMenu" style="position: inherit !important;width:auto !important;height:auto;">
+                    <!----------------------------------------------------------------Side Nagvigation-------------------------------------------------------------->
+                    <ul
+                      class="nav flex-column nav-pills"
+                      id="v-pills-tab"
+                      role="tablist"
+                      aria-orientation="vertical"
+                      [innerHTML]="treeElements"
+                    ></ul>
+                    <!----------------------------------------------------------------Side Nagvigation-------------------------------------------------------------->
+                  </div>
+                  <!-- <angular2-multiselect [data]="itemList" [(ngModel)]="objOnB.txtSubDomain" name="txtSubDomain"
                     [settings]="settings" required (onSelectAll)="onSelectAll($event)"
                     (onGroupDeSelect)="onGroupDeSelect($event)" (onGroupSelect)="onGroupSelect($event)"
                     (onDeSelectAll)="onDeSelectAll($event)" (onSelect)="onItemSelect($event)"
                     (onDeSelect)="OnItemDeSelect($event)">
                   </angular2-multiselect>
-                </span>
+                </span> -->
               </div>
             </div>
             <!-- Common Business Banking Field added here -->

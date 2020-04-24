@@ -23,9 +23,42 @@
               </ng-container>
             </table>
           </div>
-        </div>
+ 
+      <div class="col-md-12 text-right">
+        <hr />
+        <a
+          data-toggle="modal"
+          data-target="#viewFlow"
+          class="tryItFreeBtn"
+          >{{ constants.VIEW_FLOW }}</a
+        >
+        <a
+          [href]="file"
+          class="tryItFreeBtn"
+          download
+          >{{ constants.PDF_DOCUMENT }}</a
+        >
       </div>
     </div>
+  </div>
+    </div>
+      <div class="modal" id="viewFlow">
+        <div class="modal-dialog" style="max-width:1295px !important;">
+          <div class="modal-content" >
+            <div class="modal-header">
+              <i data-dismiss="modal" class="material-icons close">close</i>
+            </div>
+            <div class="modal-body">
+              <img
+              [src]="image"
+                style="max-width:100%; padding: 30px 9%;"
+                id="img_id"
+              />
+            </div>
+            <div class="modal-footer"></div>
+          </div>
+        </div>
+      </div>
   </div>
   <!-- <div class="copyrightSection">
    <p>Copyright 2017 ICICI Bank Ltd. All rights reserved.</p>

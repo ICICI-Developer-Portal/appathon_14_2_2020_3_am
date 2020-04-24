@@ -15,13 +15,27 @@ import { formatDate } from "@angular/common";
 import { CONSTANTS } from "config/application-constant";
 import { PATTERNS } from "config/regex-pattern";
 import { DashboardService } from "src/app/services/dashboard.service";
-
+import { DomSanitizer } from '@angular/platform-browser';
+import { analyzeAndValidateNgModules } from '@angular/compiler';
+declare var $: any;
 @Component({
   selector: "app-index",
   templateUrl: "./index.component.html"
   //styleUrls: ['./index.component.css']
 })
 export class IndexComponent implements OnInit {
+  treeDataKeys: any;
+  responseData: any;
+  menuArray: any[];
+  tDataKeys: any[];
+  treeArr: any[];
+  treeItems: any;
+  nodeId: any;
+  nodeType: any;
+  levels: any;
+  treeData = [];
+  treeData1: any[];
+  itemArr:any =[];
   IP_Pattern =
     "^([01]?\\d\\d?|2[0-4]\\d|25[0-5])\\." +
     "([01]?\\d\\d?|2[0-4]\\d|25[0-5])\\." +
@@ -142,7 +156,10 @@ export class IndexComponent implements OnInit {
   trans: boolean = false;
   amount: boolean = false;
   catArr: any = [];
-
+  internalArr:any=[];
+  treeElements: any;
+  selectednode:any =[];
+  interval_Check:any;
   companyNamesDetails: any;
   companyNames: any;
 
@@ -170,6 +187,13 @@ export class IndexComponent implements OnInit {
   }
 
   ngOnInit() {
+    var self = this;
+    this.getMenuTree();
+    //api for get menu tree data
+    this.dashboardService.getMenuTreeData().subscribe((data: any) => {
+      this.responseData = JSON.parse(data._body);
+      this.menuArray = this.getMenuData(this.responseData);
+    });
     this.settings = {
       singleSelection: false,
       text: "Select Fields",
@@ -239,6 +263,262 @@ export class IndexComponent implements OnInit {
   appathonReg() {
     this.modalRef2.hide();
     this.router.navigate(["/appathon/landing-page"]);
+  }
+  assignClickToNodes() {
+    var self = this;
+    $('.sideMenu>.nav-pills li.nav-link').off('click');
+
+    $('.sideMenu>.nav-pills li.nav-link').click(function() {
+      $(this)
+        .siblings('.active')
+        .removeClass('active');
+      $(this).addClass('active');
+    });
+
+    $('.sideMenu>.nav-pills>li.nav-link a').click(function() {
+      $(this)
+        .parent()
+        .siblings('.openDropdown')
+        .removeClass('openDropdown');
+      $(this)
+        .parent()
+        .toggleClass('openDropdown');
+    });
+
+    $('.sideMenu .openDropdown.active').click(function() {
+      $(this).toggleClass('openDropdown');
+    });
+
+    $('.sideMenu .nav-pills-first-level>li.nav-link').click(function() {
+      $(this)
+        .siblings('.active')
+        .removeClass('active');
+      $(this).addClass('active');
+    });
+
+    $('.sideMenu .nav-pills-first-level>li.nav-link a').click(function() {
+      $(this).removeClass('active show');
+    });
+
+    $('.sideMenu .nav-pills-second-level>li.nav-link').click(function() {
+      $(this).toggleClass('openDropdown');
+      $(this).addClass('active');
+      $(this)
+        .siblings('.openDropdown')
+        .removeClass('openDropdown active');
+    });
+
+    $('.sideMenu .nav-pills-second-level>li.nav-link a').click(function() {
+      $(this).removeClass('active show');
+    });
+   
+  //   $('.checkall').off().on('change', function() {
+  //      var select_all = $(this).find("input");
+  //      console.log("select_all",select_all)
+  //     if(select_all.is(':checked')){
+  //         $(':checkbox').each(function() {
+  //           this.checked = true;    
+  //           this.selectednode = $(this).attr('role');
+  //              console.log("api id1", this.selectednode)
+  //               self.Appnode(this.selectednode,this.checked)
+  //             console.log("allselect", this.idArr)                   
+  //         });
+  //     } else {
+  //       console.log("uncheck all", select_all.is(':checked'))
+  //         $(':checkbox').each(function() {
+  //             this.checked = false;                       
+  //         });
+  //     }
+  // });
+    //for dynamic data click event handle
+    $(document)
+      .off('click')
+      .on('click', '.tree-node', function(e) {
+       $(".containercb").append ( `<input type="checkbox" class="check"/>` +`<span class="checkmark">`+`</span>`);
+        var selectedId = $(this).attr('role');
+        this.nodeId = selectedId.split('_').pop();
+         var nodeType = selectedId.split('_', 2).pop();
+      }) 
+      $('.containercb').off().on('change', function() {
+        var rbtn = $(this).find("input");
+          if(rbtn.is(':checked')){
+              this.selectednode = $(this).attr('role');
+               console.log("api id", this.selectednode)
+               this.checked =true;
+               self.Appnode(this.selectednode,this.checked)
+           }
+           else {
+             if(this.selectednode!=undefined){
+               this.checked=false;
+               self.Appnode(this.selectednode,this.checked)
+             }
+           }
+       })      
+  }
+  getMenuTree() {
+    this.dashboardService.getMenuTreeData().subscribe((data: any) => {
+      this.treeData = JSON.parse(data._body);
+      this.createTreeAndJquery();
+    });
+  }
+
+  /** create tree and jquery for menu tree expand/collapse
+   * @class SidebarComponent
+   * @method createTreeAndJquery
+   */
+
+  createTreeAndJquery() {
+    this.treeElements = this.createTree();
+    // setInterval(() => {
+    //   this.assignClickToNodes();
+    // }, 1000);
+  }
+
+/** Fetch tree dynamically
+   * @class IndexComponent
+   * @method createTree
+   */
+   createTree() {
+    this.treeItems =
+    ` <li class="nav-link">` +
+      `<ul class="collapse nav-pills-first-level submenuLevelOneUat list-unstyled">` +
+      `<li class="nav-link">` +
+      `<a id="v-pills-List-Customer-Accounts-tab" class="tree-node" role="tab_api_1" data-toggle="pill" aria-selected="false" >Encryption` +
+      `</a>` +
+      `</li>` +
+      `<li class="nav-link">` +
+      `<a id="v-pills-List-Customer-Accounts-tab" class="tree-node" role="tab_api_2" data-toggle="pill" aria-selected="false" >Test API` +
+      `</a>` +
+      `</li>` +
+      `<li class="nav-link">` +
+      `<a id="v-pills-List-Customer-Accounts-tab" class="tree-node" role="tab_api_3" data-toggle="pill"  aria-selected="false" >` +
+      `Decryption` +
+      `</a>` +
+      `</li>` +
+      `</ul>` +
+      `</li>`;
+    for (var i = 0; i < this.treeData.length; i++) {
+      if (this.treeData[i].CHILD_COUNT !== '0') {
+        this.treeItems +=
+          `<li class="nav-link">` +
+          `<a id="v-pills-messages-tab" class="tree-node" data-toggle="pill"  role="tab_${this.treeData[i].TYPE}_${this.treeData[i].TREE_ID}" aria-controls="v-pills-home" aria-selected="true">` +
+          `${this.treeData[i].TAB_NAME}` +
+          `<img class="dropdownIcon" src="assets/images/dropdown-2.svg" alt=""/>` +
+          `</a>`;
+
+        if (this.treeData[i].CHILD_COUNT !== '0') {
+           this.createUnorderedList(
+            this.treeData[i].children,
+            this.treeData[i].TYPE,
+            this.treeData[i].LEVEL,
+          );
+        }
+      } else {
+        this.treeItems +=
+          `<li class="nav-link">` +
+          `<a id="v-pills-messages-tab" class="tree-node" data-toggle="pill" role="tab_${this.treeData[i].TYPE}_${this.treeData[i].API_ID}" aria-controls="v-pills-home" aria-selected="true">` +
+          `${this.treeData[i].TAB_NAME}` +
+          `</a>`;
+      }
+
+      this.treeItems = this.treeItems + `</li>`;
+    }
+    //  this.assignClickToNodes();
+    return this.treeItems;
+  }
+  /** Fetch tree sub nodes dynamically
+   * @class IndexComponent
+   * @method createUnorderedList
+   */
+   createUnorderedList(childrenArr, nodeType, level) {
+    if (level === '1') {
+      this.treeItems += `<ul
+      class="collapse nav-pills-first-level submenuLevelOneUat list-unstyled"
+    >`;
+    }
+    if (level === '2') {
+      this.treeItems += `<ul
+      class="collapse nav-pills-first-level submenuLevelTwoUat list-unstyled"
+    >`;
+    }
+    if (level >= '3') {
+      this.treeItems += `<ul
+      class="collapse nav-pills-third-level submenuLevelThreeUat list-unstyled"
+    >`;
+    }
+    for (var i = 0; i < childrenArr.length; i++) {
+      if (childrenArr[i].CHILD_COUNT !== '0') {
+        this.treeItems +=
+          `<li class="nav-link">` +
+          `<a id="v-pills-messages-tab" class="tree-node" data-toggle="pill" role="tab_${childrenArr[i].TYPE}_${childrenArr[i].TREE_ID}" aria-controls="v-pills-home" aria-selected="true">` +
+          `${childrenArr[i].TAB_NAME}` +
+          `<img class="dropdownIcon" src="assets/images/dropdown-2.svg" alt="" />` +
+          `</a>`;
+
+        this.createUnorderedList(
+          childrenArr[i].children,
+          childrenArr[i].TYPE,
+          childrenArr[i].LEVEL,
+        );
+      } else {   
+        this.treeItems +=
+          `<li class="nav-link">` + `<label class="checkboxContainer"><div class="containercb" role="${childrenArr[i].API_ID}"></div>`+
+          `<a id="v-pills-messages-tab" class="tree-node" data-toggle="pill" role="tab_${childrenArr[i].TYPE}_${childrenArr[i].API_ID}" aria-controls="v-pills-home" aria-selected="true">` +
+          `${childrenArr[i].TAB_NAME}` + 
+          `</a>` +
+          `</label>`;
+      }
+      this.treeItems += `</li>`;
+    }
+    this.treeItems += `</ul>`;
+  }
+  /** get menu data
+   * @class SidebarComponent
+   * @method getMenuData
+   */
+  getMenuData(data): Array<object> {
+    let tempArray = [];
+    Object.keys(data).forEach(async (eachKey, index) => {
+      let tempObj = { menuName: eachKey, menuOrder: index };
+      if (typeof data[eachKey] == 'object' && !data[eachKey].API_ID) {
+        //parent node
+        tempObj['children'] = this.getMenuData(data[eachKey]);
+      } else if (typeof data[eachKey] == 'object' && data[eachKey].API_ID) {
+        //child
+        tempObj['API_ID'] = data[eachKey].API_ID;
+      }
+      tempArray.push(tempObj);
+    });
+
+    tempArray = tempArray.sort((a, b) =>
+      a.menuOrder > b.menuOrder ? 1 : b.menuOrder > a.menuOrder ? -1 : 0,
+    );
+    return tempArray;
+  }
+  /** To push checked id array
+   * @class IndexComponent
+   * @method Appnode
+   */
+Appnode(num:any, checked:any){
+  var index = this.internalArr.indexOf(num)
+  if(index === -1 && checked){
+     this.internalArr.push(num);
+       console.log("idarray",this.internalArr)
+  }
+  else{
+    this.internalArr.splice(index, 1);
+    console.log("id array uncheck", this.internalArr)
+  }
+}
+  /** For scroll view
+   * @class SidebarComponent
+   * @method scroll_view
+   */
+  scroll_view(id) {
+    this.router.navigate(['index']);
+    setTimeout(function() {
+      document.querySelector(id).scrollIntoView({ behavior: 'smooth' });
+    }, 10);
   }
 
   get firstname() {
@@ -827,8 +1107,20 @@ export class IndexComponent implements OnInit {
     this.imageSrc = base64result;
     localStorage.setItem("Imagepath", this.imageSrc);
   }
-
+  checkInterval(){
+    var counter2=0;
+    this.interval_Check= setInterval(()=>{  
+      this.assignClickToNodes();
+      counter2 =counter2 +1 ;
+      console.log(counter2)
+      if(counter2 === 1){
+        clearInterval(this.interval_Check);        
+      }
+      counter2=0;
+    },1000)
+  }
   btnNext() {
+    this.checkInterval();
     this.frmUAT_A2 = true;
     this.frmUAT_A1 = false;
     this.frmUAT_A3 = false;
@@ -850,6 +1142,7 @@ export class IndexComponent implements OnInit {
   }
 
   uatNext(id) {
+    this.checkInterval();
     if (this.shfrmUATFirst) {
       this.shfrmUATFirst = true;
     } else if (this.shfrmUATSecond) {
@@ -882,10 +1175,10 @@ export class IndexComponent implements OnInit {
     this.shfrmUATThird = true;
     this.shfrmUATFirst = false;
     this.shfrmUATSecond = false;
-    console.log("test", this.idArr);
-    this.idArr = this.idArr.toString();
+    // this.idArr = this.idArr.toString();
+    this.idArr = this.internalArr.toString();
+    this.internalArr =[];
     console.log("id array", this.idArr);
-
     var json = {
       ID: this.idArr
     };

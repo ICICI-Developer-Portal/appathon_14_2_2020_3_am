@@ -5,6 +5,8 @@ import { BsModalRef, BsModalService } from "ngx-bootstrap";
 import { DomSanitizer } from "@angular/platform-browser";
 import { ActivatedRoute } from "@angular/router";
 import { Ng4LoadingSpinnerService } from "ng4-loading-spinner";
+import { CONSTANTS } from 'config/application-constant';
+
 declare var $: any;
 @Component({
   selector: "app-branch-details",
@@ -17,6 +19,8 @@ export class BranchDetailsComponent implements OnInit {
   description: any;
   branchId: any;
   obj: any;
+  image:any;
+  file:any;
   /** @class BranchDetailsComponent
    * @constructor
    */
@@ -33,7 +37,7 @@ export class BranchDetailsComponent implements OnInit {
       this.newApplication();
     });
   }
-
+  constants = CONSTANTS;
   ngOnInit() {}
   /** get branch node details
    * @class BranchDetailsComponent
@@ -47,6 +51,8 @@ export class BranchDetailsComponent implements OnInit {
       this.obj = JSON.parse(response);
       this.resp = this.obj[0].TAB_NAME;
       this.description = this.obj[0].DESCRIPTION;
+      this.image = this.obj[0].IMAGE_URL;
+      this.file = this.obj[0].FILE_URL;
     });
   }
 }
