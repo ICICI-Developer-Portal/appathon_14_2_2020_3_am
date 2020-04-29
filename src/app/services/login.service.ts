@@ -645,4 +645,9 @@ export class LoginService {
       "https://developer.icicibank.com/rest/getMenuDescription?ID=" + id
     );
   }
+  faq(){
+    return this.http.get(
+      'https://developer.icicibank.com/rest/getPortalFAQ'
+    )
+  }
 }

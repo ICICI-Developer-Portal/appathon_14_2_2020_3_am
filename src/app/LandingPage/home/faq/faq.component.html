@@ -2,38 +2,40 @@
     <div class="text-center mb50">
       <h3 class="fs32 color-blue ff-bold mb25">Frequently Asked Questions</h3>
       <img class="w-xs-100p" src="assets/images/faq-banner.svg" alt="">
+      <!-- <h5 class="fs32 color-blue ff-bold mt25">{{faqHeader}}</h5> -->
     </div>
      <div class="row mb25">
         <div class="col-md-2"></div>
         <div class="col-md-8">
+            <h6 class="fs30 color-blue mt25">{{faqHeader}}</h6>
             <div id="accordion" class="faqmainSection">
-                    <div class="card">
-                        <div class="card-header" data-toggle="collapse" href="#faq1" aria-expanded="true">
+                    <div class="card" *ngFor = "let obj of faqObjQues;let i=index">
+                        <a class="card-header" data-toggle="collapse" href="#tab_{{i}}" aria-expanded="true">
                             <div class="row">
-                                <div class="col-md-11 col-11">
+                                <div class="col-md-11 col-11" >
                                 <a class="card-link">
-                                        How do I sign up for a developer account on ICICI Bank development portal?
+                                        {{obj}}
                                 </a>
                                 </div>
                                 <div class="col-md-1 text-right">
                                 <i class="material-icons accordionDropdownIcon">expand_less</i>
                                 </div>
                             </div>
-                        </div>
-                        <div id="faq1" class="collapse show" data-parent="#accordion">
-                            <div class="card-body">
-                                <p>On the developer portal, click the Sign up button at right top corner. The portal is a self-service tool that will guide you through account creation. After creating an account and accepting the ICICI Bank API Portal and Services Agreement, you can start developing apps.
+                        </a>
+                        <div id="tab_{{i}}" class="collapse show" #tab_{{i}} data-parent="#accordion">
+                            <div class="card-body white-space">
+                                <p>{{faqObjAns[i]}}
                                 </p>
                             </div>
                         </div>
                     </div>
-                    <div class="card">
+                    <!-- <div class="card">
                         <div class="card-header collapsed" data-toggle="collapse" href="#faq2"
                             aria-expanded="false">
                             <div class="row">
                                 <div class="col-md-11 col-11">
                                 <a class="card-link">
-                                        Who is this for?
+                                    {{faqObj["2"][1]}}
                                 </a>
                                 </div>
                                 <div class="col-md-1 text-right">
@@ -43,7 +45,7 @@
                         </div>
                         <div id="faq2" class="collapse" data-parent="#accordion">
                             <div class="card-body">
-                                <p>We are currently publishing this for new developers or existing partners with a new initiative. If you do not have an integration with ICICI Bank, use these APIs to get started.</p>
+                                <p>{{faqObj["2"][2]}}</p>
                             </div>
                         </div>
                     </div>
@@ -52,7 +54,7 @@
                             <div class="row">
                                 <div class="col-md-11 col-11">
                                 <a class="card-link">
-                                    Do I need to create a Developer Account to use your APIs?
+                                    {{faqObj["3"][1]}}
                                 </a>
                                 </div>
                                 <div class="col-md-1 text-right">
@@ -62,7 +64,7 @@
                         </div>
                         <div id="faq3" class="collapse" data-parent="#accordion">
                             <div class="card-body">
-                                <p>You can sign up for a new Developer account and create an API key on your Developer Console. For more information, see our Documentation page. If you are an Enterprise Developer interested in adding or updating an application, please contact your Account Manager before creating an API key. If you are not able to access your Developer Console, contact your Account Manager.</p>
+                                <p>{{faqObj["3"][2]}}</p>
                             </div>
                         </div>
                     </div>
@@ -71,7 +73,7 @@
                             <div class="row">
                                 <div class="col-md-11 col-11">
                                 <a class="card-link">
-                                        What is an API?
+                                    {{faqObj["4"][1]}}
                                 </a>
                                 </div>
                                 <div class="col-md-1 text-right">
@@ -81,7 +83,7 @@
                         </div>
                         <div id="faq4" class="collapse" data-parent="#accordion">
                             <div class="card-body">
-                                <p>API is the abbreviation for Application Programming Interface. An API allows a third party application to use a common set of services via a defined interface.</p>
+                                <p>{{faqObj["4"][2]}}</p>
                             </div>
                         </div>
                     </div>
@@ -90,7 +92,7 @@
                             <div class="row">
                                 <div class="col-md-11 col-11">
                                 <a class="card-link">
-                                How do I obtain API keys?
+                                    {{faqObj["5"][1]}}
                                 </a>
                                 </div>
                                 <div class="col-md-1 text-right">
@@ -100,7 +102,7 @@
                         </div>
                         <div id="faq5" class="collapse" data-parent="#accordion">
                             <div class="card-body">
-                                <p>Simply create an account on the developer portal and then create one or more applications. Each application will get its own API key. Once your application is ready to go live you can request for an account plan upgrade via your Developer Console.</p>
+                                <p>{{faqObj["5"][2]}}</p>
                             </div>
                         </div>
                     </div>
@@ -109,7 +111,7 @@
                             <div class="row">
                                 <div class="col-md-11 col-11">
                                 <a class="card-link">
-                                What is OAuth?
+                                    {{faqObj["6"][1]}}
                                 </a>
                                 </div>
                                 <div class="col-md-1 text-right">
@@ -119,7 +121,7 @@
                         </div>
                         <div id="faq6" class="collapse" data-parent="#accordion">
                             <div class="card-body">
-                                <p>OAuth is an authentication protocol. For more information, please visit oauth.net.</p>
+                                <p>{{faqObj["6"][2]}}</p>
                             </div>
                         </div>
                     </div>
@@ -128,7 +130,7 @@
                             <div class="row">
                                 <div class="col-md-11 col-11">
                                 <a class="card-link">
-                                What is a REST API?
+                                    {{faqObj["7"][1]}}
                                 </a>
                                 </div>
                                 <div class="col-md-1 text-right">
@@ -138,17 +140,17 @@
                         </div>
                         <div id="faq7" class="collapse" data-parent="#accordion">
                             <div class="card-body">
-                                <p>REST (Representational State Transfer) is a simple stateless architecture i.e. each operation is entirely defined by the information sent to and received from the service. When a web service uses this architecture, it is known as a REST API.</p>
+                                <p>{{faqObj["7"][2]}}</p>
                             </div>
                         </div>
-                    </div>
-                    <div class="card">
+                    </div> -->
+                    <!-- <div class="card">
                         <div class="card-header collapsed" data-toggle="collapse"
                             href="#faq8">
                             <div class="row">
                                 <div class="col-md-11 col-11">
                                 <a class="card-link">
-                                What are the Organisation Administrator’s responsibilities?
+                                    {{faqObj["8"][1]}}
                                 </a>
                                 </div>
                                 <div class="col-md-1 text-right">
@@ -158,7 +160,7 @@
                         </div>
                         <div id="faq8" class="collapse" data-parent="#accordion">
                             <div class="card-body">
-                                <p>The Organisation Administrator is your company’s representative for the ICICI Bank API Banking Portal. This person has overall responsibility for the ICICI Bank API Banking Portal account, and has access to all the services and functions available on the site. The Organisation Administrator’s main responsibilities include:</p>
+                                <p>{{faqObj["8"][2]}}</p>
                                 <ul>
                                 <li>Adding, deleting and managing your organisation’s developers</li>
                                 <li>Adding, deleting and managing your organisation’s applications</li>
@@ -416,7 +418,7 @@
                                 <p>No. But your Application may be suspended or deleted which will suspend or delete the associated API key.</p>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                     </div>
           
         </div>

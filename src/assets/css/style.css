@@ -2960,4 +2960,10 @@ body {
   .security-node {
   cursor: pointer !important;
   }
+  .tableBody{
+    padding-left: 12px !important;
+  }
+  .white-space{
+    white-space: pre-wrap;
+  }
   
