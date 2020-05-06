@@ -35,7 +35,11 @@ export class IndexComponent implements OnInit {
   levels: any;
   treeData = [];
   treeData1: any[];
-  itemArr:any =[];
+  itemArr: any = [];
+  nodetype: any;
+  nodeName:any;
+  nodeValue: any = [];
+  selectedId: any;
   IP_Pattern =
     "^([01]?\\d\\d?|2[0-4]\\d|25[0-5])\\." +
     "([01]?\\d\\d?|2[0-4]\\d|25[0-5])\\." +
@@ -156,10 +160,10 @@ export class IndexComponent implements OnInit {
   trans: boolean = false;
   amount: boolean = false;
   catArr: any = [];
-  internalArr:any=[];
+  internalArr: any = [];
   treeElements: any;
-  selectednode:any =[];
-  interval_Check:any;
+  selectednode: any = [];
+  interval_Check: any;
   companyNamesDetails: any;
   companyNames: any;
 
@@ -268,14 +272,14 @@ export class IndexComponent implements OnInit {
     var self = this;
     $('.sideMenu>.nav-pills li.nav-link').off('click');
 
-    $('.sideMenu>.nav-pills li.nav-link').click(function() {
+    $('.sideMenu>.nav-pills li.nav-link').click(function () {
       $(this)
         .siblings('.active')
         .removeClass('active');
       $(this).addClass('active');
     });
 
-    $('.sideMenu>.nav-pills>li.nav-link a').click(function() {
+    $('.sideMenu>.nav-pills>li.nav-link a').click(function () {
       $(this)
         .parent()
         .siblings('.openDropdown')
@@ -285,22 +289,22 @@ export class IndexComponent implements OnInit {
         .toggleClass('openDropdown');
     });
 
-    $('.sideMenu .openDropdown.active').click(function() {
+    $('.sideMenu .openDropdown.active').click(function () {
       $(this).toggleClass('openDropdown');
     });
 
-    $('.sideMenu .nav-pills-first-level>li.nav-link').click(function() {
+    $('.sideMenu .nav-pills-first-level>li.nav-link').click(function () {
       $(this)
         .siblings('.active')
         .removeClass('active');
       $(this).addClass('active');
     });
 
-    $('.sideMenu .nav-pills-first-level>li.nav-link a').click(function() {
+    $('.sideMenu .nav-pills-first-level>li.nav-link a').click(function () {
       $(this).removeClass('active show');
     });
 
-    $('.sideMenu .nav-pills-second-level>li.nav-link').click(function() {
+    $('.sideMenu .nav-pills-second-level>li.nav-link').click(function () {
       $(this).toggleClass('openDropdown');
       $(this).addClass('active');
       $(this)
@@ -308,52 +312,56 @@ export class IndexComponent implements OnInit {
         .removeClass('openDropdown active');
     });
 
-    $('.sideMenu .nav-pills-second-level>li.nav-link a').click(function() {
+    $('.sideMenu .nav-pills-second-level>li.nav-link a').click(function () {
       $(this).removeClass('active show');
     });
-   
-  //   $('.checkall').off().on('change', function() {
-  //      var select_all = $(this).find("input");
-  //      console.log("select_all",select_all)
-  //     if(select_all.is(':checked')){
-  //         $(':checkbox').each(function() {
-  //           this.checked = true;    
-  //           this.selectednode = $(this).attr('role');
-  //              console.log("api id1", this.selectednode)
-  //               self.Appnode(this.selectednode,this.checked)
-  //             console.log("allselect", this.idArr)                   
-  //         });
-  //     } else {
-  //       console.log("uncheck all", select_all.is(':checked'))
-  //         $(':checkbox').each(function() {
-  //             this.checked = false;                       
-  //         });
-  //     }
-  // });
+
+    //   $('.checkall').off().on('change', function() {
+    //      var select_all = $(this).find("input");
+    //      console.log("select_all",select_all)
+    //     if(select_all.is(':checked')){
+    //         $(':checkbox').each(function() {
+    //           this.checked = true;    
+    //           this.selectednode = $(this).attr('role');
+    //              console.log("api id1", this.selectednode)
+    //               self.Appnode(this.selectednode,this.checked)
+    //             console.log("allselect", this.idArr)                   
+    //         });
+    //     } else {
+    //       console.log("uncheck all", select_all.is(':checked'))
+    //         $(':checkbox').each(function() {
+    //             this.checked = false;                       
+    //         });
+    //     }
+    // });
     //for dynamic data click event handle
     $(document)
       .off('click')
-      .on('click', '.tree-node', function(e) {
-       $(".containercb").append ( `<input type="checkbox" class="check"/>` +`<span class="checkmark">`+`</span>`);
-        var selectedId = $(this).attr('role');
-        this.nodeId = selectedId.split('_').pop();
-         var nodeType = selectedId.split('_', 2).pop();
-      }) 
-      $('.containercb').off().on('change', function() {
-        var rbtn = $(this).find("input");
-          if(rbtn.is(':checked')){
-              this.selectednode = $(this).attr('role');
-               console.log("api id", this.selectednode)
-               this.checked =true;
-               self.Appnode(this.selectednode,this.checked)
-           }
-           else {
-             if(this.selectednode!=undefined){
-               this.checked=false;
-               self.Appnode(this.selectednode,this.checked)
-             }
-           }
-       })      
+      .on('click', '.tree-node', function (e) {
+        $(".containercb").append(`<input type="checkbox" class="check"/>` + `<span class="checkmark">` + `</span>`);
+         var nodeName = $(this).attr('value');       
+        this.selectedId = $(this).attr('role');
+        this.nodeId = this.selectedId.split('_').pop();
+        this.nodetype = this.selectedId.split('_', 2).pop();
+        if (this.nodetype === "root") {
+          localStorage.setItem("nodeName", nodeName)
+        }
+      })
+    $('.containercb').off().on('change', function () {
+      var rbtn = $(this).find("input");
+      if (rbtn.is(':checked')) {
+        this.selectednode = $(this).attr('role');
+        console.log("api id", this.selectednode)
+        this.checked = true;
+        self.Appnode(this.selectednode, this.checked)
+      }
+      else {
+        if (this.selectednode != undefined) {
+          this.checked = false;
+          self.Appnode(this.selectednode, this.checked)
+        }
+      }
+    })
   }
   getMenuTree() {
     this.dashboardService.getMenuTreeData().subscribe((data: any) => {
@@ -374,13 +382,13 @@ export class IndexComponent implements OnInit {
     // }, 1000);
   }
 
-/** Fetch tree dynamically
-   * @class IndexComponent
-   * @method createTree
-   */
-   createTree() {
+  /** Fetch tree dynamically
+     * @class IndexComponent
+     * @method createTree
+     */
+  createTree() {
     this.treeItems =
-    ` <li class="nav-link">` +
+      ` <li class="nav-link">` +
       `<ul class="collapse nav-pills-first-level submenuLevelOneUat list-unstyled">` +
       `<li class="nav-link">` +
       `<a id="v-pills-List-Customer-Accounts-tab" class="tree-node" role="tab_api_1" data-toggle="pill" aria-selected="false" >Encryption` +
@@ -401,13 +409,13 @@ export class IndexComponent implements OnInit {
       if (this.treeData[i].CHILD_COUNT !== '0') {
         this.treeItems +=
           `<li class="nav-link">` +
-          `<a id="v-pills-messages-tab" class="tree-node" data-toggle="pill"  role="tab_${this.treeData[i].TYPE}_${this.treeData[i].TREE_ID}" aria-controls="v-pills-home" aria-selected="true">` +
+          `<a id="v-pills-messages-tab" class="tree-node" data-toggle="pill" value="${this.treeData[i].TAB_NAME}" role="tab_${this.treeData[i].TYPE}_${this.treeData[i].TREE_ID}" aria-controls="v-pills-home" aria-selected="true">` +
           `${this.treeData[i].TAB_NAME}` +
           `<img class="dropdownIcon" src="assets/images/dropdown-2.svg" alt=""/>` +
           `</a>`;
 
         if (this.treeData[i].CHILD_COUNT !== '0') {
-           this.createUnorderedList(
+          this.createUnorderedList(
             this.treeData[i].children,
             this.treeData[i].TYPE,
             this.treeData[i].LEVEL,
@@ -416,7 +424,7 @@ export class IndexComponent implements OnInit {
       } else {
         this.treeItems +=
           `<li class="nav-link">` +
-          `<a id="v-pills-messages-tab" class="tree-node" data-toggle="pill" role="tab_${this.treeData[i].TYPE}_${this.treeData[i].API_ID}" aria-controls="v-pills-home" aria-selected="true">` +
+          `<a id="v-pills-messages-tab" class="tree-node" data-toggle="pill" value="${this.treeData[i].TAB_NAME}"  role="tab_${this.treeData[i].TYPE}_${this.treeData[i].API_ID}" aria-controls="v-pills-home" aria-selected="true">` +
           `${this.treeData[i].TAB_NAME}` +
           `</a>`;
       }
@@ -430,7 +438,7 @@ export class IndexComponent implements OnInit {
    * @class IndexComponent
    * @method createUnorderedList
    */
-   createUnorderedList(childrenArr, nodeType, level) {
+  createUnorderedList(childrenArr, nodeType, level) {
     if (level === '1') {
       this.treeItems += `<ul
       class="collapse nav-pills-first-level submenuLevelOneUat list-unstyled"
@@ -460,11 +468,11 @@ export class IndexComponent implements OnInit {
           childrenArr[i].TYPE,
           childrenArr[i].LEVEL,
         );
-      } else {   
+      } else {
         this.treeItems +=
-          `<li class="nav-link">` + `<label class="checkboxContainer"><div class="containercb" role="${childrenArr[i].API_ID}"></div>`+
+          `<li class="nav-link">` + `<label class="checkboxContainer"><div class="containercb" role="${childrenArr[i].API_ID}"></div>` +
           `<a id="v-pills-messages-tab" class="tree-node" data-toggle="pill" role="tab_${childrenArr[i].TYPE}_${childrenArr[i].API_ID}" aria-controls="v-pills-home" aria-selected="true">` +
-          `${childrenArr[i].TAB_NAME}` + 
+          `${childrenArr[i].TAB_NAME}` +
           `</a>` +
           `</label>`;
       }
@@ -499,24 +507,44 @@ export class IndexComponent implements OnInit {
    * @class IndexComponent
    * @method Appnode
    */
-Appnode(num:any, checked:any){
-  var index = this.internalArr.indexOf(num)
-  if(index === -1 && checked){
-     this.internalArr.push(num);
-       console.log("idarray",this.internalArr)
+  Appnode(num: any, checked: any) {
+    this.nodeName = localStorage.getItem("nodeName")
+      this.nodeValue.push(this.nodeName.split('_', 3).pop())
+      this.hasDuplicates(this.nodeValue);
+      if (this.hasDuplicates(this.nodeValue)) {
+        var indexNode = this.internalArr.indexOf(this.nodeValue)
+        this.nodeValue.splice(indexNode, 1)       
+      }
+      localStorage.setItem("nodeValue",this.nodeValue)
+    var index = this.internalArr.indexOf(num)
+    if (index === -1 && checked) {
+      this.internalArr.push(num);
+      console.log("idarray", this.internalArr)
+    }
+    else {
+      this.internalArr.splice(index, 1);
+      console.log("id array uncheck", this.internalArr)
+    }
   }
-  else{
-    this.internalArr.splice(index, 1);
-    console.log("id array uncheck", this.internalArr)
+  hasDuplicates(arr) {
+    var counts = [];
+    for (var i = 0; i <= arr.length; i++) {
+      if (counts[arr[i]] === undefined) {
+        counts[arr[i]] = 1;
+      } else {
+        return true;
+      }
+    }
+    return false;
   }
-}
+
   /** For scroll view
    * @class SidebarComponent
    * @method scroll_view
    */
   scroll_view(id) {
     this.router.navigate(['index']);
-    setTimeout(function() {
+    setTimeout(function () {
       document.querySelector(id).scrollIntoView({ behavior: 'smooth' });
     }, 10);
   }
@@ -585,7 +613,7 @@ Appnode(num:any, checked:any){
     this.modalRef2 = this.modalService.show(signup, { backdrop: "static" });
     try {
       this.modalRef.hide();
-    } catch (e) {}
+    } catch (e) { }
     this.shfrmSFFirst = true;
     this.shfrmSFSecond = false;
     this.shfrmSFThird = false;
@@ -604,7 +632,7 @@ Appnode(num:any, checked:any){
     this.modalRef = this.modalService.show(signin, { backdrop: "static" });
     try {
       this.modalRef2.hide();
-    } catch (e) {}
+    } catch (e) { }
   }
   Modalforgotpassw(forgotpassw: TemplateRef<any>) {
     this.modalRef3 = this.modalService.show(forgotpassw, {
@@ -612,7 +640,7 @@ Appnode(num:any, checked:any){
     });
     try {
       this.modalRef.hide();
-    } catch (e) {}
+    } catch (e) { }
   }
   already_login(alreadylogin: TemplateRef<any>) {
     this.modalRef7 = this.modalService.show(alreadylogin, {
@@ -774,7 +802,7 @@ Appnode(num:any, checked:any){
           this.show = true;
         }
       });
-    } catch {}
+    } catch { }
   }
 
   SendEmailOtp() {
@@ -790,9 +818,9 @@ Appnode(num:any, checked:any){
           this.toastrmsg("error", "some thing went wrong");
         }
       });
-    } catch {}
+    } catch { }
   }
-  email_validate(searchValue: string): void {}
+  email_validate(searchValue: string): void { }
   verifyOtp1() {
     try {
       this.adm
@@ -816,7 +844,7 @@ Appnode(num:any, checked:any){
             this.isotp_reg_check = "Otp not verified";
           }
         });
-    } catch {}
+    } catch { }
   }
 
   // new signup form function
@@ -856,7 +884,7 @@ Appnode(num:any, checked:any){
     }
   }
   // forget Password function
-  forgot(username: any,forgotpasswreset: TemplateRef<any>) {
+  forgot(username: any, forgotpasswreset: TemplateRef<any>) {
     if (username == "") {
       this.toastrmsg("error", "Enter Username");
       return;
@@ -869,7 +897,7 @@ Appnode(num:any, checked:any){
       if (obj.status == true) {
         this.modalRef9 = this.modalService.show(forgotpasswreset, {
           backdrop: 'static',
-          });          
+        });
         // this.toastrmsg("success", " Please check your mail");
         this.router.navigate(["/index"]);
         this.modalRef3.hide();
@@ -893,7 +921,7 @@ Appnode(num:any, checked:any){
           this.isemail_reg_check = obj.message;
         }
       });
-    } catch {}
+    } catch { }
   }
 
   OnCheckUsername(username: any) {
@@ -908,7 +936,7 @@ Appnode(num:any, checked:any){
           this.toastrmsg("error", "Username already Exist");
         }
       });
-    } catch {}
+    } catch { }
 
     //alert(Email);
   }
@@ -1107,17 +1135,17 @@ Appnode(num:any, checked:any){
     this.imageSrc = base64result;
     localStorage.setItem("Imagepath", this.imageSrc);
   }
-  checkInterval(){
-    var counter2=0;
-    this.interval_Check= setInterval(()=>{  
+  checkInterval() {
+    var counter2 = 0;
+    this.interval_Check = setInterval(() => {
       this.assignClickToNodes();
-      counter2 =counter2 +1 ;
+      counter2 = counter2 + 1;
       console.log(counter2)
-      if(counter2 === 1){
-        clearInterval(this.interval_Check);        
+      if (counter2 === 1) {
+        clearInterval(this.interval_Check);
       }
-      counter2=0;
-    },1000)
+      counter2 = 0;
+    }, 1000)
   }
   btnNext() {
     this.checkInterval();
@@ -1177,7 +1205,7 @@ Appnode(num:any, checked:any){
     this.shfrmUATSecond = false;
     // this.idArr = this.idArr.toString();
     this.idArr = this.internalArr.toString();
-    this.internalArr =[];
+    this.internalArr = [];
     console.log("id array", this.idArr);
     var json = {
       ID: this.idArr
@@ -1286,67 +1314,65 @@ Appnode(num:any, checked:any){
     for (var i = 0; i < this.objOnB.txtSubDomain.length; ++i) {
       ips.push(
         this.objOnB.txtSubDomain[i].itemName +
-          " (" +
-          this.objOnB.txtSubDomain[i].id +
-          ")"
+        " (" +
+        this.objOnB.txtSubDomain[i].id +
+        ")"
       );
     }
-
-    this.collection =
-      this.objOnB.AccountNo +
-      " " +
-      this.objOnB.ClientCode +
-      " " +
-      this.objOnB.url +
-      " " +
-      this.objOnB.Ip +
-      " " +
-      this.objOnB.Port +
-      " " +
-      this.objOnB.Checksum +
-      " " +
-      this.objOnB.Encryption +
-      " " +
-      this.objOnB.Certificate +
-      " " +
-      this.objOnB.web +
-      " " +
-      this.objOnB.message +
-      " " +
-      this.objOnB.IFSC_Code +
-      " " +
-      this.objOnB.virtualCode +
-      " " +
-      this.objOnB.refundCode +
-      " " +
-      this.objOnB.Account_no +
-      " " +
-      this.objOnB.Acc_name +
-      " " +
-      this.objOnB.Auth_level +
-      " " +
-      this.objOnB.Urn +
-      " " +
-      this.objOnB.Acc_env +
-      " " +
-      this.objOnB.Acc_validation +
-      " " +
-      this.objOnB.Acc_acceptance +
-      " " +
-      this.objOnB.Rec_mail;
-      " " +
-      this.objOnB.Acc_mode +
-      " " +
-      this.objOnB.Acc_trans +
-      " " +
-      this.objOnB.Acc_amount;
-
+    // this.collection =
+    //   this.objOnB.AccountNo +
+    //   " " +
+    //   this.objOnB.ClientCode +
+    //   " " +
+    //   this.objOnB.url +
+    //   " " +
+    //   this.objOnB.Ip +
+    //   " " +
+    //   this.objOnB.Port +
+    //   " " +
+    //   this.objOnB.Checksum +
+    //   " " +
+    //   this.objOnB.Encryption +
+    //   " " +
+    //   this.objOnB.Certificate +
+    //   " " +
+    //   this.objOnB.web +
+    //   " " +
+    //   this.objOnB.message +
+    //   " " +
+    //   this.objOnB.IFSC_Code +
+    //   " " +
+    //   this.objOnB.virtualCode +
+    //   " " +
+    //   this.objOnB.refundCode +
+    //   " " +
+    //   this.objOnB.Account_no +
+    //   " " +
+    //   this.objOnB.Acc_name +
+    //   " " +
+    //   this.objOnB.Auth_level +
+    //   " " +
+    //   this.objOnB.Urn +
+    //   " " +
+    //   this.objOnB.Acc_env +
+    //   " " +
+    //   this.objOnB.Acc_validation +
+    //   " " +
+    //   this.objOnB.Acc_acceptance +
+    //   " " +
+    //   this.objOnB.Rec_mail;
+    //   " " +
+    //   this.objOnB.Acc_mode +
+    //   " " +
+    //   this.objOnB.Acc_trans +
+    //   " " +
+    //   this.objOnB.Acc_amount;
     var inputFields = {
       userName: localStorage.getItem("username"),
-      domainName: this.objOnB.txtDomainType,
-      domainApis: ips.toString(),
+      domainName: localStorage.getItem("nodeValue"),
+      domainApis: this.idArr.toString(),
       mName: this.objOnB.txtMerchantName,
-      desc: this.objOnB.txtDescription + " " + this.collection,
+      desc: this.objOnB.txtDescription,
       spocEmail: this.objOnB.txtContactEmail,
       spocPhone: this.objOnB.txtContactNumber,
       relManager: this.objOnB.txtRelManager,
@@ -1540,7 +1566,7 @@ Appnode(num:any, checked:any){
     this.modalRef = this.modalService.show(Interested, { backdrop: "static" });
     try {
       this.modalRef2.hide();
-    } catch (e) {}
+    } catch (e) { }
   }
   signup_link(id) {
     if (this.shfrmSFFirst) {
@@ -1575,9 +1601,9 @@ Appnode(num:any, checked:any){
     for (var i = 0; i < this.edit_data.txtSubDomain.length; ++i) {
       ips.push(
         this.edit_data.txtSubDomain[i].itemName +
-          " (" +
-          this.edit_data.txtSubDomain[i].id +
-          ")"
+        " (" +
+        this.edit_data.txtSubDomain[i].id +
+        ")"
       );
     }
     this.collection =
