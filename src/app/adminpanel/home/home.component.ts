@@ -179,7 +179,7 @@ export class FileDatabase {
 
   initialize() {
     //api for get tree data
-    this.dashboardService.getTreeData().subscribe((data: any) => {
+    this.dashboardService.getMenuTreeData().subscribe((data: any) => {
       this.responseData = data._body;
       // Parse the string to json object.
       const dataObject = JSON.parse(this.responseData);

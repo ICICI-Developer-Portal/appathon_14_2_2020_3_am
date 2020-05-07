@@ -29,16 +29,16 @@ export class DashboardService {
     this.apiUrl = config.apiUrl;
   }
 
-  getTreeData() {
-    let headers = new Headers({
-      "Content-Type": "application/x-www-form-urlencoded"
-    });
-    let options = new RequestOptions({ headers: headers });
-    return this.http.get(
-      "https://apigwuat.icicibank.com:8443/api/v0/GetTree?ID=0",
-      options
-    );
-  }
+  // getTreeData() {
+  //   let headers = new Headers({
+  //     "Content-Type": "application/x-www-form-urlencoded"
+  //   });
+  //   let options = new RequestOptions({ headers: headers });
+  //   return this.http.get(
+  //     "https://apigwuat.icicibank.com:8443/api/v0/GetTree?ID=0",
+  //     options
+  //   );
+  // }
   getMenuTreeData() {
     return this.http.get(
       "https://developer.icicibank.com/rest/getMenuTree?ID=0"
