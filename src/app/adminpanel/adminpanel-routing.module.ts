@@ -7,6 +7,8 @@ import { ApprovalComponent } from './approval/approval.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { PendingRegComponent } from './pending-reg/pending-reg.component';
+import { DocumentuploadComponent } from './documentupload/documentupload.component'
+import { DocumentdownloadComponent } from './documentdownload/documentdownload.component'
 
 const routes: Routes = [
   {
@@ -17,6 +19,8 @@ const routes: Routes = [
       { path: 'request', component: RequestsComponent },
       { path: 'approval', component: ApprovalComponent },
       { path: 'pendingreg', component: PendingRegComponent },
+      { path: 'documentupload', component: DocumentuploadComponent },
+      { path: 'documentdownload', component: DocumentdownloadComponent },
     ],
     canActivate: [AuthGuard],
   },

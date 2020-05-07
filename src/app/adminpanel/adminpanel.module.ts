@@ -26,6 +26,8 @@ import {
   MatSlideToggleModule,
 } from '@angular/material';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { DocumentuploadComponent } from './documentupload/documentupload.component';
+import { DocumentdownloadComponent } from './documentdownload/documentdownload.component';
 
 @NgModule({
   imports: [
@@ -57,6 +59,8 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     LoginComponent,
     PendingRegComponent,
     HomeComponent,
+    DocumentuploadComponent,
+    DocumentdownloadComponent,
   ],
 })
 export class AdminpanelModule {}

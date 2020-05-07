@@ -54,7 +54,11 @@ export class SidebarComponent implements OnInit {
        $(".sideMenu .nav-pills-second-level>li.nav-link a").click(function() {
            $(this).removeClass("active show");
        });
-  });   
+  });  
+  $('.nav-link').on('click', function() {
+    $(this).addClass('active');
+    $(this).siblings().removeClass('active');
+  });  
   }
 
 }
