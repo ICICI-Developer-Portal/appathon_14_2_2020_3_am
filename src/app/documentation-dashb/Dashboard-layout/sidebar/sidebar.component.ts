@@ -53,10 +53,10 @@ export class SidebarComponent implements OnInit {
     this.getMenuTree();
 
     //api for get tree data
-    this.dashboardService.getMenuTreeData().subscribe((data: any) => {
-      this.responseData = JSON.parse(data._body);
-      this.menuArray = this.getMenuData(this.responseData);
-    });
+    // this.dashboardService.getMenuTreeData().subscribe((data: any) => {
+    //   this.responseData = JSON.parse(data._body);
+    //   this.menuArray = this.getMenuData(this.responseData);
+    // });
   }
 
   /** To send data to next page

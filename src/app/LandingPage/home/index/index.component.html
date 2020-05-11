@@ -1384,7 +1384,7 @@
 <ng-template #UAT>
   <div class="modal-header">
     <h3>Please provide some basic details</h3>
-    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef4.hide()">
+    <button type="button" class="close pull-right" aria-label="Close" (click)="closeUAT()">
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
@@ -1451,9 +1451,9 @@
                 <input class="form-control" placeholder="Your Contact Number" type="number"
                   [(ngModel)]="objOnB.txtContactNumber" #txtContactNumber="ngModel" name="txtContactNumber"
                   mdbInputDirective required />
-                <div *ngIf="txtContactNumber.invalid && txtContactNumber.dirty" class="text-danger form-error">
+                <!-- <div *ngIf="txtContactNumber.invalid && txtContactNumber.dirty" class="text-danger form-error">
                   Contact Number is required.
-                </div>
+                </div> -->
               </div>
             </div>
             <div class="row mb25">
