@@ -49,14 +49,53 @@ export class DocumentdownloadComponent implements OnInit {
     };
 
     var fileName = url.substring(url.lastIndexOf('/') + 1);
+    var fileType = url.substring(url.lastIndexOf('.') + 1);
 
     this.adm.downloadCertificate(json).subscribe((data: any) => {
       this.certificate = data._body;
       console.log(data._body);
+      if(fileType === "pdf"){
+      var blob = new Blob([this.certificate], {
+        type: "application/pdf"
+      });
+      saveAs(blob, fileName);
+    }
+    if(fileType === "cer" || fileType === "crt" || fileType ==="txt" || fileType === "pem"){
       var blob = new Blob([this.certificate], {
         type: 'text/plain',
       });
       saveAs(blob, fileName);
+    }
+    if(fileType === "png"){
+      var blob = new Blob([this.certificate], {
+        type: 'image/png',
+      });
+      saveAs(blob, fileName);
+    }
+    if(fileType === "jpeg" || fileType === "jpg"){
+      var blob = new Blob([this.certificate], {
+        type: 'image/jpeg',
+      });
+      saveAs(blob, fileName);
+    }
+    if(fileType === "xlsx"){
+      var blob = new Blob([this.certificate], {
+        type: ' application/vnd.ms-excel',
+      });
+      saveAs(blob, fileName);
+    }
+    if(fileType === "xlsx"){
+      var blob = new Blob([this.certificate], {
+        type: ' application/vnd.ms-excel',
+      });
+      saveAs(blob, fileName);
+    }
+    if(fileType === "zip"){
+      var blob = new Blob([this.certificate], {
+        type: 'application/zip',
+      });
+      saveAs(blob, fileName);
+    }
     });
   }
 

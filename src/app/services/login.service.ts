@@ -587,7 +587,7 @@ export class LoginService {
     return this.http.post(
       "https://developer.icicibank.com/" + "download",
       query,
-      options
+       { responseType: ResponseContentType.Blob }
     );
   }
 
