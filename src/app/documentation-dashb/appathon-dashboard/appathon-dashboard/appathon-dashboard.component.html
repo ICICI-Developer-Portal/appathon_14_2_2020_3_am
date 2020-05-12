@@ -1,8 +1,7 @@
-<div class="tab-content" style="margin-top: 120px;">
+<div class="tab-content mt120">
   <div class="container">
     <h5
-      style="font-family: Zurich BT !important; padding: 10px"
-      class="highlightTxt mb30"
+      class="highlightTxt mb30 ffZurich p10"
       *ngIf="finalSubStatus === 'selected'"
     >
       **Congratulations your submission has been shortlisted for Appathon phase
@@ -10,8 +9,7 @@
       March. Submission details will be mailed to you shortly
     </h5>
     <h5
-      style="font-family: Zurich BT !important;padding: 10px "
-      class="highlightTxt mb30"
+      class="highlightTxt mb30 ffZurich p10"
       *ngIf="finalSubStatus !== 'selected'"
     >
       **Unfortunately your idea is not shortlisted for the next round. All the
@@ -101,7 +99,7 @@
             type="file"
             id="ideaFile"
             #ideaInput
-            style="display:none"
+            class="disp-none"
             (change)="handleFileInput($event.target.files, 'idea')"
           />
           <label for="ideaFile" class="signInBtn pinkBtn mr10">Upload</label>
@@ -113,16 +111,12 @@
           >
           <div *ngIf="ideaFile">
             <h6
-              style="margin-left: 135px;
-  color: grey;"
+              class="ml135 color-grey"
             >
               {{ ideaFile.name }}
               <span
                 (click)="deleteFile('idea')"
-                style="margin-left: 14px;
-  color: red;
-  background: #d2cbcb;
-  cursor: pointer;"
+                class="ml14 color-red-idea bg-idea cursor_pointer"
                 >X</span
               >
             </h6>
@@ -557,7 +551,7 @@ color: grey;"
               type="file"
               id="subFile"
               #subInput
-              style="display:none"
+              class="disp-none"
               (change)="handleFileInput($event.target.files, 'sub')"
             />
             <label for="subFile" class="signInBtn pinkBtn mr10">Upload</label>
@@ -570,21 +564,15 @@ color: grey;"
           </div>
           <div *ngIf="subFile">
             <h6
-              style="margin-left: 135px;
-color: grey;"
-            >
+              class="ml135 color-grey">
               {{ subFile.name }}
               <span
                 (click)="deleteFile('sub')"
-                style="margin-left: 14px;
-color: red;
-background: #d2cbcb;
-cursor: pointer;"
-                >X</span
+                class="ml14 color-red-idea bg-idea cursor_pointer">X</span
               >
             </h6>
           </div>
-          <mat-form-field style="width: 70%;">
+          <mat-form-field class="w70P">
             <input
               class="mr10"
               matInput

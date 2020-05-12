@@ -20,7 +20,7 @@
                         <tr>
                         <td>
                         <form [formGroup]="uploadDoc">
-                          <select class="form-control" formControlName="docUpload" style="height:40px" #SelectDomain>  
+                          <select class="form-control h40" formControlName="docUpload" #SelectDomain>  
                           <option value="">Select Jira ID</option>
                           <option *ngFor="let id of jiraId" value={{id}}>{{id}}</option>
                         </select>
@@ -62,17 +62,17 @@
     <div class="modal-body">
       <div class="row">
         <div class="col-md-12 mb-xs-10">
-          <h5 style="font-size: 15px;">
+          <h5 class="fs15">
             Onboarding request ID {{ confirmMsg }} has been submitted sucessfully.
           </h5>
-          <h5 style="font-size: 15px;">
+          <h5 class="fs15">
             Please visit Account -> Onboarding Request to check the request
             status.
           </h5>
         </div>
       </div>
     </div>
-    <div class="modal-footer" style="text-align:center;">
+    <div class="modal-footer ta-center">
       <div class="row w100p m0">
         <div class="col-12 plr0">
           <div>

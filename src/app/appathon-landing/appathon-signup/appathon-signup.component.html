@@ -18,13 +18,11 @@
       <li><a data-toggle="tab" [routerLink]="['/index/faq']">FAQ</a></li>
       <li><a (click)="Documentation(signin)">Documentation</a></li>
       <li
-        class="nav-item dropdown position_relative"
+        class="nav-item dropdown position_relative appSignMargin1"
         *ngIf="!showbtn"
-        style="margin: 0 12px 0 0;"
       >
         <a
-          style="margin:-30px 0px 0px 0px;"
-          class="nav-link dropdown-toggle lh56"
+          class="nav-link dropdown-toggle lh56 appSignMargin2"
           id="navbarMobiles"
           role="button"
           data-toggle="dropdown"
@@ -34,9 +32,8 @@
           Account
         </a>
         <div
-          class="dropdown-content"
+          class="dropdown-content ml-40"
           aria-labelledby="navbarMobiles"
-          style="margin-left: -40px"
         >
           <a
             [routerLink]="['/dashboard']"
@@ -74,13 +71,11 @@
         </div>
       </li>
       <li
-        class="nav-item dropdown position_relative"
+        class="nav-item dropdown position_relative appSignMargin3"
         *ngIf="!showbtn"
-        style="margin: 0 25px 0 0;"
       >
         <a
-          style="margin:-30px 0px 0px 0px;"
-          class="nav-link dropdown-toggle lh56"
+          class="nav-link dropdown-toggle lh56 appSignMargin2"
           id="navbarMobiles"
           role="button"
           data-toggle="dropdown"
@@ -90,9 +85,8 @@
           <i class="fa fa-user-circle-o"></i>&nbsp;{{ user_name }}
         </a>
         <div
-          class="dropdown-content"
+          class="dropdown-content ml-40"
           aria-labelledby="navbarMobiles"
-          style="margin-left: -40px"
         >
           <a [routerLink]="['/userprofile']" class="nav-link dropdown-item"
             >Profile</a
@@ -453,7 +447,7 @@
                   ><img
                     src="assets/images/information.png"
                     alt="loader"
-                    style="margin-left:2%;cursor: pointer;"
+                    class="ml2 cursor_pointer"
                 /></a>
               </div>
               <input
@@ -655,7 +649,7 @@
             </div>
             <div class="clearfix"></div>
           </div>
-          <div class="row" style="margin-top: 12px;">
+          <div class="row mt12">
             <div class="col-md-12">
               <label class="checkboxContainer">
                 <input
@@ -891,7 +885,7 @@
  <div class="col-md-12 mb-xs-30">
  <div>
  <label for="password">ICICI Bank RM Employee ID</label>
- <a href="#" data-toggle="tooltip" title="Enter zero in numeric(0) as default value"><img src="assets/images/information.png" alt="loader" style="margin-left:2%;cursor: pointer;"/></a>
+ <a href="#" data-toggle="tooltip" title="Enter zero in numeric(0) as default value"><img src="assets/images/information.png" alt="loader" class="cursor_pointer ml2"/></a>
  
  </div>
  <input name="RM" class="input-login" formControlName="RM" pattern="[0-9]*" (ngModelChange)="employeeIdChanged(RM.value)">
@@ -985,7 +979,7 @@
  <div class="clearfix"></div>
  
  </div>
- <div class="row" style="margin-top: 12px;">
+ <div class="row mt12">
  <div class="col-md-12">
  <label class="checkboxContainer">
  <input type="checkbox" formControlName="term" #term required><span class="checkmark"></span> 
@@ -1368,9 +1362,8 @@
               <button
                 [disabled]="appathonSignupForm.value.otp_verified == 1"
                 type="button"
-                class="tryItFreeBtn sendOTPBtn mt25"
+                class="tryItFreeBtn sendOTPBtn mt25 mr0"
                 (click)="SendOtp(mobile_no.value)"
-                style="margin-right: 0;"
               >
                 Send OTP
               </button>
@@ -1487,7 +1480,7 @@
             </div>
             <div class="clearfix"></div>
           </div>
-          <div class="row" style="margin-top: 12px;">
+          <div class="row mt12">
             <div class="col-md-12">
               <label class="checkboxContainer">
                 <input

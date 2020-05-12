@@ -10,7 +10,7 @@
       </li>
       <!-- appthon signup button -->
       <!-- appthon signup button -->
-      <li *ngIf="showbtn">
+      <!-- <li *ngIf="showbtn">
         <a
           class="tryItFreeBtn"
           (click)="openModalAppathonSignup(appathonSignup)"
@@ -24,7 +24,7 @@
           (click)="openModalAppathonSignup(appathonLoggedSignup)"
           >Register For Appathon</a
         >
-      </li>
+      </li> -->
 
       <!-- appthon signup button -->
       <li>
@@ -230,7 +230,7 @@
             align-items: center;margin-right: 5px;"
               >Appathon</a
             > -->
-            <a
+            <!-- <a
               class="tryItFreeBtn"
               (click)="openModalAppathonSignup(appathonSignup)"
               *ngIf="showbtn"
@@ -244,7 +244,7 @@
               *ngIf="!showbtn"
               style="margin-right: 5px; padding: 2px;display: flex;align-items: center;"
               >Register For Appathon</a
-            >
+            > -->
 
             <a
               data-dismiss="modal"
@@ -347,7 +347,7 @@
           >
         </p>
       </div>
-      <div class="col-12 plr0">
+      <!-- <div class="col-12 plr0">
         <p>
           Interested in Appathon?
           <span
@@ -359,7 +359,7 @@
             ></span
           >
         </p>
-      </div>
+      </div> -->
     </div>
   </div>
 </ng-template>
@@ -860,10 +860,10 @@
           <span><a class="signIn" (click)="openModal(signin)">Login</a></span>
         </p>
       </div>
-      <span
+      <!-- <span
         >Register for<a class="signIn" (click)="appathonReg()"> Appathon </a
         >here</span
-      >
+      > -->
       <div class="col-5 pr0">
         <div class="text-right"></div>
       </div>
@@ -1379,14 +1379,14 @@
           <span><a class="signIn" (click)="openModal(signin)">Login</a></span>
         </p>
       </div>
-      <span
+      <!-- <span
         >Register for<a
           class="signIn"
           [routerLink]="['/appathon/landing-page']"
         >
           Appathon </a
         >here</span
-      >
+      > -->
       <div class="col-5 pr0">
         <div class="text-right"></div>
       </div>

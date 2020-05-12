@@ -24,7 +24,6 @@
             </h4>
           </div>
           <div class="col-md-6 text-right">
-            <!-- <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="&#61442; Search" style="width:250px;float: right;margin-top: 6px;"> -->
           </div>
         </div>
         <table class="table tableApplications">
@@ -34,7 +33,6 @@
               <td>Request Status</td>
               <td>Domain</td>
               <td>APIs</td>
-              <!-- <td><div *ngIf="showurl">Approval URL</div></td> -->
               <td>UAT/Prod</td>
               <td>UAT Request ID</td>
               <td>API Document</td>
@@ -52,7 +50,6 @@
               <td>{{ row.JiraStatus }}</td>
               <td>{{ row.Domain }}</td>
               <td>{{ row.DomainApi }}</td>
-              <!-- <td><div *ngIf="showurl">{{row.CallbackUrl}}</div></td> -->
               <td>{{ row.Env }}</td>
               <td>{{ row.RefJiraId }}</td>
               <!-- <td *ngIf="row.Url !== ''">
@@ -68,7 +65,6 @@
                 >
               </td>
               <td *ngIf="row.Url === ''"></td>
-              <!-- <td href="row.CERTIFICATE">{{ row.Certificate }}</td> -->
               <td *ngIf="row.Certificate !== ''">
                 <a
                   (click)="downloadCertificate(row.Certificate)"

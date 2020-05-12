@@ -4,10 +4,9 @@
   <!-- <router-outlet></router-outlet> -->
   <div
     id="home"
-    class="tab-pane fade in active show"
-    style="font-family: Zurich BT !important;"
+    class="tab-pane fade in active show ffZurich"
   >
-    <section class="banner" style="margin-top: 45px;text-align:center">
+    <section class="banner mt45 ta-center">
       <div
         class="row"
         id="content-desktop"
@@ -17,7 +16,7 @@
         <img
           src="assets/images/ICICI-APPATHON-2020_web_1000X400.jpg"
           alt=""
-          style="width:100%"
+          class="w100p"
         />
       </div>
       <div
@@ -26,8 +25,8 @@
         *ngIf="showbtn"
         (click)="openModalAppathonSignup(appathonSignup)"
       >
-        <img src="assets/images/app-banner.jpg" alt="" style="width:100%" />
-        <p style="font-family: Zurich BT !important;">
+        <img src="assets/images/app-banner.jpg" alt="" class="w100p" />
+        <p class="ffZurich">
           {{ constants.DESKTOP_VIEW }}
         </p>
       </div>
@@ -41,7 +40,7 @@
         <img
           src="assets/images/ICICI-APPATHON-2020_web_1000X400.jpg"
           alt=""
-          style="width:100%"
+          class="w100p"
         />
       </div>
       <div
@@ -50,150 +49,142 @@
         *ngIf="!showbtn"
         (click)="openModalAppathonSignup(appathonSignup)"
       >
-        <img src="assets/images/app-banner.jpg" alt="" style="width:100%" />
-        <p style="font-family: Zurich BT !important;">
+        <img src="assets/images/app-banner.jpg" alt="" class="w100p" />
+        <p class="ffZurich">
           {{ constants.DESKTOP_VIEW }}
         </p>
       </div>
     </section>
     <section class="sectionAPIs sectionAPIsGrayBg">
-      <h3 style="font-family: Zurich BT !important;">
+      <h3 class="ffZurich">
         {{ constants.INTRODUCTION }}
       </h3>
 
-      <p class="text-center mb50 text-align-justify" style="font-size: 20px;">
+      <p class="text-center mb50 text-align-justify fs20">
         {{ constants.INTRODUCTION_DATA }}
       </p>
 
-      <div
+      <!-- <div
         class="row"
         id="content-desktop"
         (click)="openModalAppathonSignup(appathonSignup)"
         *ngIf="showbtn"
       >
-        <div style="display: flex;justify-content: center;">
+        <div class="jCenterDFlex">
           <a class="signInBtn mr10" (click)="registerForAppathon()">{{
             constants.REGISTER_FOR_APPATHON
           }}</a>
         </div>
-      </div>
-      <div
+      </div> -->
+      <!-- <div
         class="row app-ban"
         id="content-mobile"
         (click)="openModalAppathonSignup(appathonSignup)"
         *ngIf="showbtn"
       >
-        <div style="display: flex;justify-content: center;">
+        <div class="jCenterDFlex">
           <a class="signInBtn mr10" (click)="registerForAppathon()">{{
             constants.REGISTER_FOR_APPATHON
           }}</a>
         </div>
-      </div>
+      </div> -->
 
-      <div
+      <!-- <div
         class="row"
         id="content-desktop"
         (click)="openModalAppathonSignup(appathonLoggedSignup)"
         *ngIf="!showbtn"
       >
-        <div style="display: flex;justify-content: center;">
+        <div class="jCenterDFlex">
           <a class="signInBtn mr10" (click)="registerForAppathon()">{{
             constants.REGISTER_FOR_APPATHON
           }}</a>
         </div>
-      </div>
-      <div
+      </div> -->
+      <!-- <div
         class="row app-ban"
         id="content-mobile"
         (click)="openModalAppathonSignup(appathonLoggedSignup)"
         *ngIf="!showbtn"
       >
-        <div style="display: flex;justify-content: center;">
+        <div class="jCenterDFlex">
           <a class="signInBtn mr10" (click)="registerForAppathon()">{{
             constants.REGISTER_FOR_APPATHON
           }}</a>
         </div>
-      </div>
+      </div> -->
     </section>
 
     <!-- Program details -->
 
-    <section class="sectionAPIs sectionAPIsGrayBg" style="background: white;">
-      <h3 style="font-family: Zurich BT !important;">
+    <section class="sectionAPIs sectionAPIsGrayBg bgWhite">
+      <h3 class="ffZurich">
         {{ constants.PROGRAM_DETAILS }}
       </h3>
       <p
-        class="mb50"
-        style="text-align: center; font-family: Zurich BT !important;font-size: 20px;"
+        class="mb50 ffZurich fs20 ta-center"
       >
         {{ constants.PROGRAM_DETAILS_SUBTEXT }}
       </p>
 
       <div
-        class="row mb30 hidden-xs"
-        style="display:flex;justify-content: space-evenly;"
+        class="row mb30 hidden-xs apiCard"
       >
         <div class="col-md-4">
-          <a class="cursor" style="text-decoration:none;">
+          <a class="cursor tdNone">
             <div class="sectionAPICard availableAPICard">
               <div
-                class="sectionAPICardImage"
-                style="display: flex;justify-content: center;align-items: center;"
+                class="sectionAPICardImage alignCenter jCenterDFlex"
               >
                 <i
-                  class="material-icons"
-                  style="font-size:60px;color:#f06321"
+                  class="material-icons fs60 mandatoryIndicator"
                   >{{ constants.ASSIGNMENT_IND }}</i
                 >
               </div>
-              <h4 style="font-family: Zurich BT !important;font-size: 20px;">
+              <h4 class="ffZurich fs20">
                 {{ constants.PHASE_1 }}
               </h4>
-              <p style="font-family: Zurich BT !important;">
+              <p class="ffZurich">
                 {{ constants.PHASE_1_DOC }}
               </p>
             </div>
           </a>
         </div>
         <div class=" col-md-4">
-          <a class="cursor" style="text-decoration:none;">
+          <a class="cursor tdNone">
             <div class="sectionAPICard availableAPICard ">
               <div
-                class="sectionAPICardImage"
-                style="display: flex;justify-content: center;align-items: center;"
+                class="sectionAPICardImage alignCenter jCenterDFlex"
               >
                 <i
-                  class="material-icons"
-                  style="font-size:60px;color:#f06321"
+                  class="material-icons color-orange fs60"
                   >{{ constants.VOICE_CHAT }}</i
                 >
               </div>
-              <h4 style="font-family: Zurich BT !important;font-size: 20px;">
+              <h4 class="ffZurich fs20">
                 {{ constants.PHASE_2 }}
               </h4>
-              <p style="font-family: Zurich BT !important;">
+              <p class="ffZurich">
                 {{ constants.PHASE_2_DOC }}
               </p>
             </div>
           </a>
         </div>
         <div class="col-md-4">
-          <a class="cursor" style="text-decoration:none;">
+          <a class="cursor tdNone">
             <div class="sectionAPICard availableAPICard">
               <div
-                class="sectionAPICardImage"
-                style="display: flex;justify-content: center;align-items: center;"
+                class="sectionAPICardImage jCenterDFlex alignCenter"
               >
                 <i
-                  class="material-icons"
-                  style="font-size:60px;color:#f06321"
+                  class="material-icons fs60 color-orange"
                   >{{ constants.LOCATION_CITY }}</i
                 >
               </div>
-              <h4 style="font-family: Zurich BT !important;font-size: 20px;">
+              <h4 class="ffZurich fs20">
                 {{ constants.PHASE_3 }}
               </h4>
-              <p style="font-family: Zurich BT !important;">
+              <p class="ffZurich">
                 {{ constants.PHASE_3_DOC }}
               </p>
             </div>
@@ -203,70 +194,64 @@
     </section>
 
     <section
-      class="sectionAPIs letsGetConnected"
-      style="background: #efefef !important;"
+      class="sectionAPIs letsGetConnected bgef"
     >
-      <h3 style="font-family: Zurich BT !important;color: #212121;">
+      <h3 class="ffZurich color-black">
         {{ constants.ELIGIBILTY_CRITERIA }}
       </h3>
       <p
-        class="mb50"
-        style="text-align: center;font-family: Zurich BT !important;color: #212121;"
+        class="mb50 color-black ffZurich ta-center"
       >
         {{ constants.ELIGIBILTY_CRITERIA_SUBTEXT }}
       </p>
 
       <ul
-        style="font-size: 16px;color:white; font-family: Zurich BT !important;color: #212121;"
+        class="fs16 ffZurich color-black"
       >
-        <li style="font-family: Zurich BT !important;">
+        <li class="ffZurich">
           {{ constants.ELIGIBILTY_CRITERIA_LS1 }}
         </li>
-        <li style="font-family: Zurich BT !important;">
+        <li class="ffZurich">
           {{ constants.ELIGIBILTY_CRITERIA_LS2 }}
         </li>
-        <li style="font-family: Zurich BT !important;">
+        <li class="ffZurich">
           {{ constants.ELIGIBILTY_CRITERIA_LS3 }}
         </li>
-        <li style="font-family: Zurich BT !important;">
+        <li class="ffZurich">
           {{ constants.ELIGIBILTY_CRITERIA_LS4 }}
         </li>
 
-        <li style="font-family: Zurich BT !important;">
+        <li class="ffZurich">
           {{ constants.ELIGIBILTY_CRITERIA_LS5 }}
         </li>
       </ul>
     </section>
     <section
-      class="sectionAPIs letsGetConnected"
-      style="padding-left: 0;padding-right:0; background: #efefef !important; padding:0px;"
+      class="sectionAPIs letsGetConnected p0 pl0 pr0 bgef"
     >
-      <div class="row" id="judging-desktop" style="height: auto !important;">
-        <img src="assets/images/judgingBanner.jpg" alt="" style="width:100%" />
+      <div class="row hauto" id="judging-desktop">
+        <img src="assets/images/judgingBanner.jpg" alt="" class="w100p" />
       </div>
       <div class="row app-ban" id="judging-mobile">
         <img
           src="assets/images/Judging-Banner_sm.jpg"
           alt=""
-          style="width:100%"
+          class="w100p"
         />
       </div>
     </section>
 
     <section
-      class="sectionAPIs letsGetConnected"
-      style="margin-bottom: 10px;background: #053C71 !important;"
+      class="sectionAPIs letsGetConnected mb10 bp1"
     >
       <p
-        class="mb50"
-        style="text-align: center;"
-        style="font-family: Zurich BT !important;"
+        class="mb50 ffZurich ta-center"
       >
         {{ constants.PARAGRAPH }}
       </p>
 
       <ul
-        style="font-size: 16px;color:white; font-family: Zurich BT !important;"
+        class="fs16 color-white ffZurich"
       >
         <li>
           {{ constants.PARAGRAPH_LS1 }}
@@ -281,66 +266,65 @@
     </section>
 
     <section
-      class="sectionAPIs letsGetConnected"
-      style="margin-bottom: 10px;background-color: #f6f6f6;"
+      class="sectionAPIs letsGetConnected mb10 bgAwards"
     >
       <div>
-        <h3 style="color:black">{{ constants.AWARDS }}</h3>
+        <h3 class="color-black0">{{ constants.AWARDS }}</h3>
       </div>
-      <div style="display: flex; justify-content: center;">
-        <table style="font-size: 16px;color:black; border: 1px solid black;">
-          <tr style="border: 1px solid black;">
+      <div class="jCenterDFlex">
+        <table class="fs16 color-black0 borderBlack">
+          <tr class="borderBlack">
             <td
-              style="border: 1px solid black;padding:30px;font-family: Zurich BT !important;"
+              class="borderBlack p30 ffZurich"
             >
               {{ constants.FIRST_PRIZE }}
             </td>
             <td
-              style="border: 1px solid black;padding:30px;font-family: Zurich BT !important;"
+              class="borderBlack p30 ffZurich"
             >
               <ul>
-                <li style="font-family: Zurich BT !important;">
+                <li class="ffZurich">
                   {{ constants.FIRST_PRIZE_LS1 }}
                 </li>
-                <li style="font-family: Zurich BT !important;">
+                <li class="ffZurich">
                   {{ constants.FIRST_PRIZE_LS2 }}
                 </li>
               </ul>
             </td>
           </tr>
-          <tr style="border: 1px solid black;">
+          <tr class="borderBlack">
             <td
-              style="border: 1px solid black;padding:30px;font-family: Zurich BT !important;"
+              class="borderBlack p30 ffZurich"
             >
               {{ constants.SECOND_PRIZE }}
             </td>
             <td
-              style="border: 1px solid black;padding:30px;font-family: Zurich BT !important;"
+              class="borderBlack p30 ffZurich"
             >
               <ul>
-                <li style="font-family: Zurich BT !important;">
+                <li class="ffZurich">
                   {{ constants.SECOND_PRIZE_LS1 }}
                 </li>
-                <li style="font-family: Zurich BT !important;">
+                <li class="ffZurich">
                   {{ constants.SECOND_PRIZE_LS2 }}
                 </li>
               </ul>
             </td>
           </tr>
-          <tr style="border: 1px solid black;">
+          <tr class="borderBlack">
             <td
-              style="border: 1px solid black;padding:30px;font-family: Zurich BT !important;"
+              class="borderBlack p30 ffZurich"
             >
               {{ constants.THIRD_PRIZE }}
             </td>
             <td
-              style="border: 1px solid black;padding:30px;font-family: Zurich BT !important;"
+              class="borderBlack p30 ffZurich"
             >
               <ul>
-                <li style="font-family: Zurich BT !important;">
+                <li class="ffZurich">
                   {{ constants.THIRD_PRIZE_LS1 }}
                 </li>
-                <li style="font-family: Zurich BT !important;">
+                <li class="ffZurich">
                   {{ constants.THIRD_PRIZE_LS2 }}
                 </li>
               </ul>
@@ -351,20 +335,19 @@
     </section>
 
     <section
-      class="sectionAPIs letsGetConnected"
-      style="background-color: white;"
+      class="sectionAPIs letsGetConnected bgColorWhite"
     >
-      <h3 style="color: black;font-family: Zurich BT !important;">
+      <h3 class="color-black0 ffZurich">
         {{ constants.CONTACT_US }}
       </h3>
 
       <ul
-        style="font-size: 16px;color:black;font-family: Zurich BT !important;"
+        class="fs16 color-black0 ffZurich"
       >
-        <li style="font-family: Zurich BT !important;">
+        <li class="ffZurich">
           {{ constants.CONTACT_US_LS1 }}
         </li>
-        <li style="font-family: Zurich BT !important;">
+        <li class="ffZurich">
           {{ constants.CONTACT_US_LS2 }}
         </li>
       </ul>
@@ -717,9 +700,8 @@
                 <button
                   [disabled]="appathonSignupForm.value.otp_verified == 1"
                   type="button"
-                  class="tryItFreeBtn sendOTPBtn mt25"
+                  class="tryItFreeBtn sendOTPBtn mt25 mr0"
                   (click)="appathonSendOtp(mobile_no.value)"
-                  style="margin-right: 0;"
                 >
                   Send OTP
                 </button>
@@ -838,7 +820,7 @@
               </div>
               <div class="clearfix"></div>
             </div>
-            <div class="row" style="margin-top: 12px;">
+            <div class="row mt12">
               <div class="col-md-12">
                 <label class="checkboxContainer">
                   <input
