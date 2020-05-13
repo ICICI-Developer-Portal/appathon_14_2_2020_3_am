@@ -3166,3 +3166,79 @@ margin-bottom: -18px;
 .bg-merchant{
   background-color:#f07800 !important;
 }
+.pbox{
+  padding: 7px 8px !important;
+}
+/* .w10{
+  width: 10% !important;
+}
+.w0{
+  width: 0% !important;
+}
+.w13{
+  width: 13% !important;
+}
+.w25{
+  width: 25% !important;
+}
+.tableApplicationsDownload thead td:first-child {
+  width: 10% !important;
+  }
+  .tableApplicationsDownload thead td:nth-child(2) {
+  width: 13% !important;
+  }
+  .tableApplicationsDownload thead td:nth-child(3) {
+  width: 5% !important;
+  } */
+/* document download css start*/
+/* table.tableApplicationsDownload thead {
+border-radius: 3px;
+}
+table.tableApplicationsDownload thead td {
+padding-top: 9px;
+padding-bottom: 9px;
+}
+table.tableApplicationsDownload tbody tr td {
+padding-top: 30px;
+padding-bottom: 30px;
+}
+table.tableApplicationsDownload tbody tr td p {
+margin-bottom: 0px;
+}
+table.tableApplicationsDownload tbody tr td h5 {
+margin-top: 0px;
+}
+table.tableApplicationsDownload thead td:first-child {
+width: 10%;
+}
+table.tableApplicationsDownload thead td:nth-child(2) {
+width: 13%;
+}
+table.tableApplicationsDownload thead td:nth-child(3) {
+width: 5%;
+}
+table.tableApplicationsDownload thead td:nth-child(4) {
+width: 25%;
+}  
+.tableApplicationsDownload thead td:first-child {
+width: 10% !important;
+}
+.tableApplicationsDownload thead td:nth-child(2) {
+width: 13% !important;
+}
+.tableApplicationsDownload thead td:nth-child(3) {
+width: 5% !important;
+}
+
+table.tableApplicationsDownload tbody tr:hover {
+background-color: #f9f9f9;
+}
+table.tableApplicationsDownload tbody tr:hover .editTableRow {
+display: block;
+}
+table.tableApplicationsDownload tbody tr td,
+table.tableWhitelist tbody tr td {
+padding-left: 12px;
+position: relative;
+} */
+/* document download css end */

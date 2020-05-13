@@ -36,6 +36,7 @@ import {
   MatFormFieldModule,
   MatInputModule
 } from "@angular/material";
+import { JwtAuthComponent } from './jwt-auth/jwt-auth.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,7 +44,8 @@ import {
     SigninModalComponent,
     AppathonComponent,
     AdvertisementComponent,
-    AppathonSignupComponent
+    AppathonSignupComponent,
+    JwtAuthComponent
   ],
   imports: [
     BrowserModule,

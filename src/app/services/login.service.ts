@@ -82,6 +82,20 @@ export class LoginService {
     let options = new RequestOptions({ headers: headers });
     return this.http.post(this.apiUrl + "login", query, options);
   }
+  //#JWT Login Api
+  LoginJWT(data) {
+    var key;
+    var query = '';
+    for (key in data) {
+      query +=
+        encodeURIComponent(key) + '=' + encodeURIComponent(data[key]) + '&';
+    }
+    let headers = new Headers({
+      'Content-Type': 'application/x-www-form-urlencoded',
+    });
+    let options = new RequestOptions({ headers: headers });
+    return this.http.post(this.apiUrl + 'loginJWT', query, options);
+  }
 
   // LoginPortal(json) {
   //   let options = {
