@@ -384,14 +384,14 @@ export class HeaderComponent implements OnInit {
         // this.adm.sendUserId(obj.data.id);
         this.spinnerService.hide();
 
-        // this.adm.LoginPortal(json).subscribe(
-        //   res => {
-        //     this.router.navigate(["/index"]);
-        //   },
-        //   err => {
-        //     this.router.navigate(["/index"]);
-        //   }
-        // );
+        this.adm.LoginPortal(json).subscribe(
+          res => {
+            this.router.navigate(["/index"]);
+          },
+          err => {
+            this.router.navigate(["/index"]);
+          }
+        );
         this.modalRef4 = this.modalService.show(loginsuccess, {
           backdrop: "static"
         });

@@ -680,14 +680,14 @@ export class IndexComponent implements OnInit {
         localStorage.setItem("password", obj.data.password);
         localStorage.setItem("role", "user");
         this.adm.sendUserId(obj.data.id);
-        // this.adm.LoginPortal(json).subscribe(
-        //   res => {
-        //     this.router.navigate(["/index"]);
-        //   },
-        //   err => {
-        //     this.router.navigate(["/index"]);
-        //   }
-        // );
+        this.adm.LoginPortal(json).subscribe(
+          res => {
+            this.router.navigate(["/index"]);
+          },
+          err => {
+            this.router.navigate(["/index"]);
+          }
+        );
         this.spinnerService.hide();
       } else {
         this.spinnerService.hide();

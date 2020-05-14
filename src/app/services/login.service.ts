@@ -97,21 +97,21 @@ export class LoginService {
     return this.http.post(this.apiUrl + 'loginJWT', query, options);
   }
 
-  // LoginPortal(json) {
-  //   let options = {
-  //     withCredentials: true
-  //   };
-  //   const formData = new FormData();
-  //   formData.append("dev-auth", "true");
-  //   formData.append("username", json["username"]);
-  //   formData.append("password", json["password"]);
-  //   formData.append("reset-username", "");
-  //   return this.HttpClient.post<any>(
-  //     "https://sandbox.icicibank.com/login",
-  //     formData,
-  //     options
-  //   );
-  // }
+  LoginPortal(json) {
+    let options = {
+      withCredentials: true
+    };
+    const formData = new FormData();
+    formData.append("dev-auth", "true");
+    formData.append("username", json["username"]);
+    formData.append("password", json["password"]);
+    formData.append("reset-username", "");
+    return this.HttpClient.post<any>(
+      "https://sandbox.icicibank.com/login",
+      formData,
+      options
+    );
+  }
 
   LogoutPortal() {
     let options = {
