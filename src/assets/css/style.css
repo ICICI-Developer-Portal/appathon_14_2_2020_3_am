@@ -3169,6 +3169,11 @@ margin-bottom: -18px;
 .pbox{
   padding: 7px 8px !important;
 }
+.search-box{
+  width:250px;
+  float: right;
+  margin-bottom: 5%;
+}
 /* .w10{
   width: 10% !important;
 }

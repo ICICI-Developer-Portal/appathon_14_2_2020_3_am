@@ -13,6 +13,7 @@ export class JwtAuthComponent implements OnInit {
   encPassword: string;  
   conversionEncryptOutput: string;  
   conversionDecryptOutput: string;  
+  jwt:any;
   // loginForm: FormGroup;
     
   constructor(
@@ -40,14 +41,7 @@ loginResponse:any;
       var response = data._body;
       this.loginResponse = JSON.parse(response);
       if (this.loginResponse.status == true) {
-        this.adm.LoginPortal(json).subscribe(
-          res => {
-            // this.router.navigate(['/index']);
-          },
-          err => {
-            //this.router.navigate(['/index']);
-          },
-        );
+       this.jwt = localStorage.setItem("jwt",this.loginResponse.jwt)
       }
     });
     // this.adm.Login(btoa(this.f.username.value), btoa(this.f.password.value))
