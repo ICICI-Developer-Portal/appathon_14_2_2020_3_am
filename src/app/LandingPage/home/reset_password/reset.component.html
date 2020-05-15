@@ -1,7 +1,7 @@
 <toaster-container></toaster-container>
 <ng4-loading-spinner> </ng4-loading-spinner>  
 <div class="tab-content">
-    <div class="text-center mb50 col-md-4" style="margin: 0 auto">
+    <div class="text-center mb50 col-md-4 marginAutoHr">
         <div class="row mb10">
              <div class="col-md-12">
                 <div class="modal-header">
@@ -13,9 +13,9 @@
         <form [formGroup]="ChangepasswForm" novalidate>
             <div class="row mb10">
                 <div class="col-md-12">
-                   <div style="text-align: left;"><label for="password" type="password">New Password</label></div>
+                   <div class="ml"><label for="password" type="password">New Password</label></div>
                    <input name="password" type="password" class="input-login" formControlName="password" >
-                   <div style="text-align: left;">
+                   <div class="ml">
                       <div *ngIf="password.invalid && (password.dirty)" class="text-danger form-error">
                        New Password is required.
                        </div>
@@ -25,9 +25,9 @@
              </div>
              <div class="row mb10">
                <div class="col-md-12">
-                   <div style="text-align: left;"><label for="password" type="password">Re-Type your password</label></div>
+                   <div class="ml"><label for="password" type="password">Re-Type your password</label></div>
                    <input formControlName="confirmPassword" name="password" type="password" class="input-login">
-                   <div style="text-align: left;">
+                   <div class="ml">
                       <div *ngIf="confirmPassword.invalid && (confirmPassword.dirty)" class="text-danger form-error">
                         Password doesn't match.
                       </div>

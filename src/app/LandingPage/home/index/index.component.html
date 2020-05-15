@@ -121,7 +121,7 @@
           </a>
         </div>
         <div class="col-md-1">
-          <img alt="" src="assets/images/nextarrows.svg" style="width: 25px;margin-top: 130%;" />
+          <img alt="" src="assets/images/nextarrows.svg" class="nxt-img" />
         </div>
         <div class="col-md-3 text-lg-center mb-xs-30">
           <a class="ff-bold fs16 color-black onBoardLink" (click)="get_onboardUAT(UAT, signin)">
@@ -130,7 +130,7 @@
           </a>
         </div>
         <div class="col-md-1">
-          <img alt="" src="assets/images/nextarrows.svg" style="width: 25px;margin-top: 130%;" />
+          <img alt="" src="assets/images/nextarrows.svg" class="nxt-img" />
         </div>
         <div class="col-md-4 text-lg-center mb-xs-30">
           <!-- <a data-toggle="modal" data-target="#productionSignedIn" class="ff-bold fs16 color-black onBoardLink"> -->
@@ -146,7 +146,7 @@
         testing , post your NDA with us. Go-live with integration to production
         environment.<br /><br />
       </p>
-      <div style="font-style: italic;font-size: 12px;">
+      <div class="fs12 font-italic">
         *Disclaimer : Access to UAT &amp; Production environment is subject to
         business approvals, NDA and other agreements, and is a sole discretion
         of ICICI Bank.
@@ -157,7 +157,7 @@
       <h3 class="mb60">Available <span>APIs</span></h3>
       <div class="row mb30 hidden-xs success-label-div">
         <div class="col-md-3">
-          <a class="cursor" (click)="show_build(signin)" style="text-decoration:none;">
+          <a class="cursor tdNone" (click)="show_build(signin)">
             <div class="sectionAPICard availableAPICard">
               <div class="sectionAPICardImage">
                 <img src="assets/images/trade.svg" alt="" />
@@ -175,7 +175,7 @@
           </a>
         </div>
         <div class=" col-md-3">
-          <a class="cursor" (click)="corporate(signin)" style="text-decoration:none;">
+          <a class="cursor tdNone" (click)="corporate(signin)">
             <div class="sectionAPICard availableAPICard ">
               <div class="sectionAPICardImage">
                 <img src="assets/images/cards.svg" alt="" />
@@ -191,7 +191,7 @@
           </a>
         </div>
         <div class="col-md-3">
-          <a class="cursor" (click)="loans(signin)" style="text-decoration:none;">
+          <a class="cursor tdNone" (click)="loans(signin)">
             <div class="sectionAPICard availableAPICard">
               <div class="sectionAPICardImage">
                 <img src="assets/images/retail-shape.svg" alt="" />
@@ -207,7 +207,7 @@
           </a>
         </div>
         <div class="col-md-3">
-          <a class="cursor" (click)="account(signin)" style="text-decoration:none;">
+          <a class="cursor tdNone" (click)="account(signin)">
             <div class="sectionAPICard availableAPICard">
               <div class="sectionAPICardImage">
                 <img src="assets/images/business_api.svg" alt="" />
@@ -223,7 +223,7 @@
           </a>
         </div>
         <div class="col-md-3">
-          <a class="cursor" (click)="payment(signin)" style="text-decoration:none;">
+          <a class="cursor tdNone" (click)="payment(signin)">
             <div class="sectionAPICard availableAPICard">
               <div class="sectionAPICardImage">
                 <img src="assets/images/payment.svg" alt="" />
@@ -241,7 +241,7 @@
           </a>
         </div>
         <div class="col-md-3">
-          <a class="cursor" (click)="commercial(signin)" style="text-decoration:none;">
+          <a class="cursor tdNone" (click)="commercial(signin)">
             <div class="sectionAPICard availableAPICard">
               <div class="sectionAPICardImage">
                 <img src="assets/images/combined-shape.svg" alt="" />
@@ -341,11 +341,10 @@
       <h3 class="mb60">Featured <span>APIs</span></h3>
       <div class="owl-carousel owl-theme mb30 mb-xs-0 sectionAPIsGrayBg owl-loaded">
         <div class="owl-stage-outer">
-          <div class="owl-stage"
-            style="transform: translate3d(0px, 0px, 0px); transition: all 0s ease 0s; width: 1121px;">
-            <div class="owl-item active" style="width: 280.033px;">
+          <div class="owl-stage loan-style">
+            <div class="owl-item active w280">
               <div class="apiCardWithLabel">
-                <div class="sectionAPICard" (click)="browse_api(signin)" style="cursor: pointer;">
+                <div class="sectionAPICard cursor_pointer" (click)="browse_api(signin)">
                   <h4>Auto Loan</h4>
                   <h5>Cards and Loans</h5>
                   <p>
@@ -357,9 +356,9 @@
                 </div>
               </div>
             </div>
-            <div class="owl-item active" style="width: 280.033px;">
+            <div class="owl-item active w280">
               <div class="apiCardWithLabel">
-                <div class="sectionAPICard" (click)="browse_api(signin)" style="cursor: pointer;">
+                <div class="sectionAPICard cursor_pointer" (click)="browse_api(signin)">
                   <h4>iWish</h4>
                   <h5>Accounts and Deposits</h5>
                   <p>
@@ -371,9 +370,9 @@
                 </div>
               </div>
             </div>
-            <div class="owl-item active" style="width: 280.033px;">
+            <div class="owl-item active w280">
               <div class="apiCardWithLabel">
-                <div class="sectionAPICard" (click)="browse_api(signin)" style="cursor: pointer;">
+                <div class="sectionAPICard cursor_pointer" (click)="browse_api(signin)">
                   <h4>Cash Management</h4>
                   <h5>Business Banking APIs</h5>
                   <p>
@@ -384,9 +383,9 @@
                 </div>
               </div>
             </div>
-            <div class="owl-item active" style="width: 280.033px;">
+            <div class="owl-item active w280">
               <div class="apiCardWithLabel">
-                <div class="sectionAPICard" (click)="browse_api(signin)" style="cursor: pointer;">
+                <div class="sectionAPICard cursor_pointer" (click)="browse_api(signin)">
                   <h4>Banking Offers</h4>
                   <h5>Building Blocks</h5>
                   <p>
@@ -1210,7 +1209,7 @@
             </div>
             <div class="clearfix"></div>
           </div>
-          <div class="row" style="margin-top: 12px;">
+          <div class="row mt12">
             <div class="col-md-12">
               <label class="checkboxContainer">
                 <input type="checkbox" formControlName="term" #term required /><span class="checkmark"></span>
@@ -1321,14 +1320,14 @@
   <div class="modal-body">
     <div class="row">
       <div class="col-md-12 mb-xs-10">
-        <h5 style="font-size: 18px;">
+        <h5 class="fs18">
           You are already on Sandbox. Start exploring API from documentation
           section.
         </h5>
       </div>
     </div>
   </div>
-  <div class="modal-footer" style="text-align:center;">
+  <div class="modal-footer ta-center">
     <div class="row w100p m0">
       <div class="col-12 plr0 mb30">
         <div>
@@ -1487,7 +1486,7 @@
               <div class="col-md-12 mb-xs-10">
                 <div><label for="projectName">Domain Type</label></div>
                 <span class="custom-dropdown">
-                  <select class="form-control" style="height:40px" [(ngModel)]="objOnB.txtDomainType"
+                  <select class="form-control h40" [(ngModel)]="objOnB.txtDomainType"
                     #txtDomainType="ngModel" name="txtDomainType" mdbInputDirective required
                     (change)="callSubdomain(txtDomainType.value)">
                     <option value="">Select Domain</option>
@@ -1508,13 +1507,12 @@
                 >                
                 <!-- <span class="custom-dropdown"> -->
                   <!-- <select
-                    class="form-control"
-                    style="height:40px"                    
+                    class="form-control h40"
                     mdbInputDirective
                     (click)="dropdownShow()">
                     <option value="" disabled selected hidden>Select API</option>
                   </select> -->
-                  <div class="sideMenu" style="position: inherit !important;width:auto !important;height:auto;">
+                  <div class="sideMenu sideMenu-style">
                     <!----------------------------------------------------------------Side Nagvigation-------------------------------------------------------------->
                     <ul
                       class="nav flex-column nav-pills"
@@ -1621,11 +1619,10 @@
                 <div><label for="projectName">Checksum Required </label></div>
                 <span class="custom-dropdown">
                   <select
-                    class="form-control"
+                    class="form-control h40"
                     [(ngModel)]="objOnB.Checksum"
                     name="Checksum"
                     #Checksum="ngModel"
-                    style="height:40px"
                   >
                     <option value="">Select Checksum</option>
                     <option>Yes</option>
@@ -1637,11 +1634,10 @@
                 <div><label for="projectName">Encryption Required</label></div>
                 <span class="custom-dropdown">
                   <select
-                    class="form-control"
+                    class="form-control h40"
                     [(ngModel)]="objOnB.Encryption"
                     name="Encryption"
                     #Encryption="ngModel"
-                    style="height:40px"
                   >
                     <option value="">Select Encryption</option>
                     <option>Yes</option>
@@ -1653,11 +1649,10 @@
                 <div><label for="projectName">Certificate</label></div>
                 <span class="custom-dropdown">
                   <select
-                    class="form-control"
+                    class="form-control h40"
                     [(ngModel)]="objOnB.Certificate"
                     name="Certificate"
                     #Certificate="ngModel"
-                    style="height:40px"
                   >
                     <option value="">Select Certificate</option>
                     <option>Java Key Store</option>
@@ -1671,11 +1666,10 @@
                 </div>
                 <span class="custom-dropdown">
                   <select
-                    class="form-control"
+                    class="form-control h40"
                     [(ngModel)]="objOnB.web"
                     name="web"
                     #web="ngModel"
-                    style="height:40px"
                   >
                     <option value="">Select Services</option>
                     <option>WADL</option>
@@ -1692,11 +1686,10 @@
                 </div>
                 <span class="custom-dropdown">
                   <select
-                    class="form-control"
+                    class="form-control h40"
                     [(ngModel)]="objOnB.message"
                     name="message"
                     #message="ngModel"
-                    style="height:40px"
                   >
                     <option value="">Select Format</option>
                     <option>XML</option>
@@ -1768,22 +1761,20 @@
               <div class="col-md-12 mb10">
                 <div><label for="contract">Fields on Ack receipt</label></div>
                 <input
-                  class="form-control"
+                  class="form-control w49 float-left mr7"
                   placeholder="URN1"
                   [(ngModel)]="objOnB.URN1"
                   name="URN1"
                   #URN1="ngModel"
                   type="text"
-                  style="width: 49%;float: left;margin-right: 7px;"
                 />
                 <input
-                  class="form-control"
+                  class="form-control w49"
                   placeholder="URN2"
                   [(ngModel)]="objOnB.URN2"
                   name="URN2"
                   #URN2="ngModel"
                   type="text"
-                  style="width: 49%"
                 />
               </div>
               <div class="col-md-12 mb10">
@@ -1813,8 +1804,7 @@
                     [(ngModel)]="objOnB.IFSC_Code"
                     name="IFSC_Code"
                     #IFSC_Code="ngModel"
-                    class="form-control"
-                    style="height:40px"
+                    class="form-control h40"
                   >
                     <option value="">Select IFSC Code</option>
                     <option>ICIC0000104</option>
@@ -1922,8 +1912,7 @@
               <div class="col-md-12 mb10" *ngIf="checksum">
                 <div><label for="projectName">Checksum Required </label></div>
                 <span class="custom-dropdown">
-                  <select class="form-control" [(ngModel)]="objOnB.Checksum" name="Checksum" #Checksum="ngModel"
-                    style="height:40px">
+                  <select class="form-control h40" [(ngModel)]="objOnB.Checksum" name="Checksum" #Checksum="ngModel">
                     <option value="">Select Checksum</option>
                     <option>Yes</option>
                     <option>No</option>
@@ -1933,8 +1922,7 @@
               <div class="col-md-12 mb10" *ngIf="encryption">
                 <div><label for="projectName">Encryption Required</label></div>
                 <span class="custom-dropdown">
-                  <select class="form-control" [(ngModel)]="objOnB.Encryption" name="Encryption" #Encryption="ngModel"
-                    style="height:40px">
+                  <select class="form-control h40" [(ngModel)]="objOnB.Encryption" name="Encryption" #Encryption="ngModel">
                     <option value="">Select Encryption</option>
                     <option>Yes</option>
                     <option>No</option>
@@ -1944,8 +1932,8 @@
               <div class="col-md-12 mb10" *ngIf="certificate">
                 <div><label for="projectName">Certificate</label></div>
                 <span class="custom-dropdown">
-                  <select class="form-control" [(ngModel)]="objOnB.Certificate" name="Certificate"
-                    #Certificate="ngModel" style="height:40px">
+                  <select class="form-control h40" [(ngModel)]="objOnB.Certificate" name="Certificate"
+                    #Certificate="ngModel">
                     <option value="">Select Certificate</option>
                     <option>Java Key Store</option>
                     <option>IIS SSL</option>
@@ -1957,7 +1945,7 @@
                   <label for="projectName">Service Type</label>
                 </div>
                 <span class="custom-dropdown">
-                  <select class="form-control" [(ngModel)]="objOnB.web" name="web" #web="ngModel" style="height:40px">
+                  <select class="form-control h40" [(ngModel)]="objOnB.web" name="web" #web="ngModel">
                     <option value="">Select Services</option>
                     <option>WADL</option>
                     <option>REST</option>
@@ -1970,8 +1958,7 @@
                   <label for="projectName"> Communication Method</label>
                 </div>
                 <span class="custom-dropdown">
-                  <select class="form-control" [(ngModel)]="objOnB.message" name="message" #message="ngModel"
-                    style="height:40px">
+                  <select class="form-control h40" [(ngModel)]="objOnB.message" name="message" #message="ngModel">
                     <option value="">Select Format</option>
                     <option>XML</option>
                     <option>XML as a string</option>
@@ -1988,8 +1975,7 @@
                     </label>
                   </div>
                   <span class="custom-dropdown">
-                    <select [(ngModel)]="objOnB.IFSC_Code" name="IFSC_Code" #IFSC_Code="ngModel" class="form-control"
-                      style="height:40px">
+                    <select [(ngModel)]="objOnB.IFSC_Code" name="IFSC_Code" #IFSC_Code="ngModel" class="form-control h40">
                       <option value="">Select IFSC Code</option>
                       <option>ICIC0000104</option>
                       <option>ICIC0000103</option>
@@ -2042,8 +2028,7 @@
                     <label for="Acc_env">Environment</label>
                   </div>
                   <span class="custom-dropdown">
-                    <select class="form-control" [(ngModel)]="objOnB.Acc_env" name="Acc_env" #Acc_env="ngModel"
-                      style="height:40px">
+                    <select class="form-control h40" [(ngModel)]="objOnB.Acc_env" name="Acc_env" #Acc_env="ngModel">
                       <option value="">Select Environment</option>
                       <option>UAT</option>
                       <option>CUG</option>
@@ -2091,8 +2076,7 @@
                     <label for="Acc_amount"> Amount Field</label>
                   </div>
                   <span class="custom-dropdown">
-                    <select class="form-control" [(ngModel)]="objOnB.Acc_amount" name="Acc_amount" #Acc_amount="ngModel"
-                      style="height:40px">
+                    <select class="form-control h40" [(ngModel)]="objOnB.Acc_amount" name="Acc_amount" #Acc_amount="ngModel">
                       <option value="">Select Amount</option>
                       <option>Editable</option>
                       <option>Non- Editable</option>
@@ -2149,7 +2133,7 @@
                   ><img
                     src="assets/images/information.png"
                     alt="loader"
-                    style="margin-left:2%;cursor: pointer;"
+                    class="ml2 cursor_pointer"
                 /></a>
               </div>
                 <input class="form-control" id="file1" (change)="picked($event)" type="file" [(ngModel)]="objOnB.file1"
@@ -2218,9 +2202,9 @@
             <div class="row mb30">
               <div class="col-md-12 mb-xs-10">
                 <div><label for="requestId">Request Id</label></div>
-                <select class="w100p fs12" name="JiraId" [ngModel]="edit_data.JiraId" #JiraId="ngModel"
+                <select class="w100p fs12 id-style" name="JiraId" [ngModel]="edit_data.JiraId" #JiraId="ngModel"
                   (change)="changeItem($event.target.value)"
-                  style="font-family: Poppins-Regular;font-size: 14px;padding: 10px 14px;border-radius: 3px;border: solid 1px #acacac;outline: none;background: #ffffff;">
+                  >
                   <option value="">Approved/Complete UAT Request ID</option>
                   <option *ngFor="let d of list" value="{{ d.JiraId }}">{{ d.JiraId }} {{ d.JiraStatus }}</option>
                 </select>
@@ -2440,17 +2424,17 @@
   <div class="modal-body">
     <div class="row">
       <div class="col-md-12 mb-xs-10">
-        <h5 style="font-size: 15px;">
+        <h5 class="fs15">
           Onboarding request ID {{ confirmMsg }} has been submitted sucessfully.
         </h5>
-        <h5 style="font-size: 15px;">
+        <h5 class="fs15">
           Please visit Account -> Onboarding Request to check the request
           status.
         </h5>
       </div>
     </div>
   </div>
-  <div class="modal-footer" style="text-align:center;">
+  <div class="modal-footer ta-center">
     <div class="row w100p m0">
       <div class="col-12 plr0">
         <div>
@@ -2468,18 +2452,18 @@
   <div class="modal-body">
     <div class="row">
       <div class="col-md-12 mb-xs-10">
-        <h5 style="font-size: 15px;">
+        <h5 class="fs15">
           Onboarding request ID {{ confirmMsgProd }} has been submitted
           sucessfully.
         </h5>
-        <h5 style="font-size: 15px;">
+        <h5 class="fs15">
           Please visit Account -> Onboarding Request to check the request
           status.
         </h5>
       </div>
     </div>
   </div>
-  <div class="modal-footer" style="text-align:center;">
+  <div class="modal-footer ta-center">
     <div class="row w100p m0">
       <div class="col-12 plr0">
         <div>
@@ -2505,7 +2489,7 @@
     <div class="row">
       <div class="col-md-12 mb-xs-10">
         <form id="regForm" method="POST" name="regForm" action="">
-          <div class="tab" style="display: block;">
+          <div class="tab disp-block">
             <div class="tabContent">
               <ul class="breadcrumb">
                 <li>
@@ -2529,7 +2513,7 @@
               </ul>
               <div class="row mb30" *ngIf="showTab == '1'">
                 <div class="col-md-12 mb-xs-10">
-                  <h6 style="font-weight: 600;">
+                  <h6 class="fw600">
                     From signing up with Developer Portal to going live in our
                     production environment is a four-step process.
                   </h6>
@@ -2540,14 +2524,14 @@
                   </p>
                 </div>
                 <div class="col-md-12">
-                  <h6 style="font-weight: 600;">Step 01 - SignUp</h6>
+                  <h6 class="fw600">Step 01 - SignUp</h6>
                   <p>
                     To get access to our sandbox and start testing our APIs
                     straight away you register at Developer Portal.
                   </p>
                 </div>
                 <div class="col-md-12 mb-xs-30">
-                  <h6 style="font-weight: 600;">
+                  <h6 class="fw600">
                     Step 02 - Talk to us about how we can help your business
                   </h6>
                   <p>
@@ -2557,7 +2541,7 @@
                   </p>
                 </div>
                 <div class="col-md-12 mb-xs-30">
-                  <h6 style="font-weight: 600;">
+                  <h6 class="fw600">
                     Step 03 - Get On-Board with UAT
                   </h6>
                   <ul>
@@ -2587,7 +2571,7 @@
                   </ul>
                 </div>
                 <div class="col-md-12 mb-xs-30">
-                  <h6 style="font-weight: 600;">Step 04 - Go Live</h6>
+                  <h6 class="fw600">Step 04 - Go Live</h6>
                   <p>
                     You’re now ready to launch! Our production support team will
                     be there to ensure the whole process is seamless.
@@ -2632,7 +2616,7 @@
                 <div class="col-md-6">
                   <img src="assets/images/step4.png" class="frame" width="100%" />
                 </div>
-                <div class="col-md-12" style="margin-top:20px;">
+                <div class="col-md-12 mt20">
                   <div class="col-md-12">
                     <h6>
                       Step 06 - Select your domain and related APIs to that
@@ -2724,7 +2708,7 @@
     <div class="row">
       <div class="col-md-12 mb-xs-10">
         <form id="regForm" method="POST" name="regForm" action="">
-          <div class="tab" style="display: block;">
+          <div class="tab disp-block">
             <div class="tabContent">
               <ul class="breadcrumb">
                 <li>
@@ -2749,11 +2733,11 @@
               </ul>
               <div class="row mb30" *ngIf="showTab == '1'">
                 <div class="col-md-12 mb-xs-10">
-                  <h6 style="font-weight: 600;">
+                  <h6 class="fw600">
                     If you already have an account, then sign in and jump to
                     step 2. Else follow the steps to create an account
                   </h6>
-                  <h6 style="font-size:14px; padding-top: 8px;">
+                  <h6 class="fs14 pt8">
                     <span class="stepNumber stepNumber mr-1">#1</span>Go to our
                     sign-up page.
                   </h6>
@@ -2772,13 +2756,13 @@
                   <br /><br />
                 </div>
                 <div class="col-md-12 mb-xs-10">
-                  <h6 style="font-size:14px; padding-top: 8px;">
+                  <h6 class="fs14 pt8">
                     <span class="stepNumber stepNumber mr-1">#2</span>Complete
                     the registration by entering your details and create an
                     account.
                   </h6>
                   <br />
-                  <h6 style="font-size:14px; padding-top: 8px;">
+                  <h6 class="fs14 pt8">
                     <span class="stepNumber stepNumber mr-1">#3</span>
                     When authorized, an email will be sent to your registered
                     email-id with a link to activate your account by logging in.
@@ -2789,14 +2773,14 @@
               </div>
               <div class="row mb30" *ngIf="showTab == '2'">
                 <div class="col-md-6 mb30">
-                  <h6 style="font-size:14px; padding-top: 8px;">
+                  <h6 class="fs14 pt8">
                     <span class="stepNumber stepNumber mr-1">#1</span>In your
                     Dashboard, click Applications tab.
                   </h6>
                   <img src="assets/images/AddApplication.png" class="frame" width="100%" />
                 </div>
                 <div class="col-md-6 mb30">
-                  <h6 style="font-size:14px; padding-top: 8px;">
+                  <h6 class="fs14 pt8">
                     <span class="stepNumber stepNumber mr-1">#2</span>If there
                     are no applications, you have to create an Application first
                     to test the fuctionalities of APIs by adding them in the
@@ -2805,7 +2789,7 @@
                   <img src="assets/images/CreateApplication.png" class="frame" width="100%" />
                 </div>
                 <div class="col-md-6 mb30">
-                  <h6 style="font-size:14px; padding-top: 8px;">
+                  <h6 class="fs14 pt8">
                     <span class="stepNumber stepNumber mr-1">#3</span>In the
                     Application Information tab; you have to specify your
                     application's name and on which platform your application is
@@ -2814,7 +2798,7 @@
                   <img src="assets/images/CreateApplication1.png" class="frame" width="100%" />
                 </div>
                 <div class="col-md-6 mb30">
-                  <h6 style="font-size:14px; padding-top: 8px;">
+                  <h6 class="fs14 pt8">
                     <span class="stepNumber stepNumber mr-1">#4</span>In API
                     Management tab; you will choose the API(s) that you are
                     going to be using in your application.
@@ -2822,14 +2806,14 @@
                   <img src="assets/images/SelectAPI.png" class="frame" width="100%" />
                 </div>
                 <div class="col-md-6 mb30">
-                  <h6 style="font-size:14px; padding-top: 8px;">
+                  <h6 class="fs14 pt8">
                     <span class="stepNumber stepNumber mr-1">#5</span>In the
                     Auth tab; fields are optional.
                   </h6>
                   <img src="assets/images/Authentication.png" class="frame" width="100%" />
                 </div>
                 <div class="col-md-6 mb30">
-                  <h6 style="font-size:14px; padding-top: 8px;">
+                  <h6 class="fs14 pt8">
                     <span class="stepNumber stepNumber mr-1">#6</span>After you
                     click Save button, you will see your application in the
                     Applications tab.
@@ -2839,7 +2823,7 @@
               </div>
               <div class="row mb30" *ngIf="showTab == '3'">
                 <div class="col-md-6 mb30">
-                  <h6 style="font-size:14px; padding-top: 8px;">
+                  <h6 class="fs14 pt8">
                     <span class="stepNumber stepNumber mr-1">#1</span>In our API
                     Explorer page, you can test the APIs using your API Key/Api
                     Secret. You can also test any API in documentation
@@ -2848,7 +2832,7 @@
                   <img src="assets/images/sandbox.png" class="frame" width="100%" />
                 </div>
                 <div class="col-md-6 mb30">
-                  <h6 style="font-size:14px; padding-top: 8px;">
+                  <h6 class="fs14 pt8">
                     <span class="stepNumber stepNumber mr-1">#2</span>Select
                     Service Authentication as API Key.Corresponding fields
                     should be filled automatically.
@@ -2856,7 +2840,7 @@
                   <img src="assets/images/sandboxAPIkey.png" class="frame" width="100%" />
                 </div>
                 <div class="col-md-6 mb30">
-                  <h6 style="font-size:14px; padding-top: 8px;">
+                  <h6 class="fs14 pt8">
                     <span class="stepNumber stepNumber mr-1">#3</span>You should
                     add your API Key with Add Parameter option.
                   </h6>
@@ -2865,7 +2849,7 @@
               </div>
               <div class="row mb30" *ngIf="showTab == '4'">
                 <div class="col-md-6 mb30">
-                  <h6 style="font-size:14px; padding-top: 8px;">
+                  <h6 class="fs14 pt8">
                     <span class="stepNumber stepNumber mr-1">#1</span>Once the
                     API Key value is supplied, you can copy your request packet
                     details into the box below and test it out! The developer
@@ -2877,7 +2861,7 @@
               </div>
               <div class="row mb30" *ngIf="showTab == '5'">
                 <div class="col-md-6 mb30">
-                  <h6 style="font-size:14px; padding-top: 8px;">
+                  <h6 class="fs14 pt8">
                     <span class="stepNumber stepNumber mr-1">#1</span>Once you
                     get responses to your requests in real time. You can click
                     on Query Tab, check the sample code and use it in your

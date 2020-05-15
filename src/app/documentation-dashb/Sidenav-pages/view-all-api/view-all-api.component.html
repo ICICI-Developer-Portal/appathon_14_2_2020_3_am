@@ -1,6 +1,6 @@
 <div class="documentTabContent">
-    <button id="myBtn" (click)="gotoTop()" style="z-index: 99999;bottom: 22px;right: 12px;position: fixed;max-width: 50px;width: 100%; border-color: rgba(85, 85, 85, 0.2); background-color: rgb(100,100,100); padding: .5px;border-radius: 4px;">
-        <a href="javascript:;" style="color: white"><i class="fa fa-arrow-up" style="margin-top: 3px;"></i> Top</a>
+    <button id="myBtn" (click)="gotoTop()" class="api-btn">
+        <a href="javascript:;" class="color-white"><i class="fa fa-arrow-up mt3"></i> Top</a>
     </button>
 
 
@@ -59,7 +59,7 @@
                     <div class="paginationContainer" id="pagination_a">
                         <h4 class="paginationName">{{item.key}}</h4>
                         <div class="row">
-                            <div class="col-md-3   symbo_{{item.key}}" style="margin-bottom: 4px;" *ngFor="let item1 of item.value | keyvalue">
+                            <div class="col-md-3 mb4  symbo_{{item.key}}" *ngFor="let item1 of item.value | keyvalue">
                                 <a class="cursor" (click)="goToPage(item1.value)">{{item1.value}}</a>
                             </div>        
                         </div>
@@ -84,7 +84,7 @@
                         <td>{{V.ApiDesc}}</td>
                         <td>{{V.ApiSubDomain}}</td>
                     </tr>
-                    <tr style="background-color: #fff;">
+                    <tr class="bgColorWhite">
                         <td colspan="5">
                             <ul class="pagination">  
                                 <pagination-controls (pageChange)="p = $event"></pagination-controls>  
@@ -94,7 +94,7 @@
                     </tbody>                
                 </table>       -->
     
-                <!-- <div class="row" style="display: none;">
+                <!-- <div class="row d-none">
                     <div class="col-md-3" >
                         <div class="paginationContainer" id="pagination_a">
                             <h4 class="paginationName">A</h4>

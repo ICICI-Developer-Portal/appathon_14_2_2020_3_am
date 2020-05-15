@@ -16,11 +16,11 @@
                   <p class="color-gray fs12 ff-light mb20">Quota usage across all applications</p>
                </div>
                <div class="col-md-6 text-right">
-                     <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="&#61442; Search" style="width:250px;float: right;margin-top: 6px;">
+                     <input class="form-control search-box" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="&#61442; Search" >
                </div>
                <!-- <div class="col-md-3 text-right">
                   <div class="applicationsRow">
-                     <a class="editIcon"><i class="material-icons" style="color: #303030;" >edit</i></a>
+                     <a class="editIcon"><i class="material-icons color-black30" >edit</i></a>
                      <a class="deleteIcon"><i class="material-icons">delete</i></a>
                      <label class="switch">
                      <input type="checkbox" checked="">
@@ -111,12 +111,12 @@
            <ul class="nav nav-tabs nav-tabs1" role="tablist">
               <li role="presentation" class="active">
                  <a (click)="signup_link(1)"  [ngStyle]="{'color': shfrmSFFirst ? '#f06321' : '#919191'}" href="#AppInfo" aria-controls="AppInfo" role="tab" data-toggle="tab">App Information<i
-                       class="fa fa-angle-right" style="margin-left: 10px;"></i>
+                       class="fa fa-angle-right ml10"></i>
                      </a>
                      </li>   
               <li role="presentation">
                  <a (click)="signup_link(2)" [ngStyle]="{'color': shfrmSFSecond ? '#f06321' : '#919191'}" href="#ApiManage" aria-controls="ApiManage" role="tab" data-toggle="tab">API Management<i
-                 class="fa fa-angle-right" style="margin-left: 10px;"></i></a>
+                 class="fa fa-angle-right ml10"></i></a>
                </li>
               <li role="presentation">
                  <a (click)="signup_link(3)" [ngStyle]="{'color': shfrmSFThird ? '#f06321' : '#919191'}" href="#Auth" aria-controls="Auth" role="tab" data-toggle="tab">Authentication</a>
@@ -128,7 +128,7 @@
             <div role="tabpanel" class="tab-pane active" id="AppInfo">
                <form [hidden]="!shfrmSFFirst" [formGroup]="ApiInfoForm" novalidate>
                   <div class="row mb30">
-                     <div class="col-md-12" style="margin-bottom: 10px;">
+                     <div class="col-md-12 mb10">
                         <div class="mt15"><label for="password">User platform to be tested</label></div>
                      </div>
                      <div class="col-md-12">
@@ -235,7 +235,7 @@
                         </div>
                         <div class="row mb25">
                            <div class="col-md-2">
-                              <div style="margin-top: 6px;"><label for="password">Default </label></div>
+                              <div class="mt6"><label for="password">Default </label></div>
                            </div>
                            <div class="col-md-10">
                               <div class="row">
@@ -287,11 +287,11 @@
          <ul class="nav nav-tabs nav-tabs1" role="tablist">
             <li role="presentation" class="active">
                <a [ngStyle]="{'color': shfrmSFFirst ? '#f06321' : '#919191'}" href="javascript:;" (click)="signup_link(1)" href="#AppInfo" aria-controls="AppInfo" role="tab" data-toggle="tab">App Information<i
-                     class="fa fa-angle-right" style="margin-left: 10px;"></i></a>
+                     class="fa fa-angle-right ml10"></i></a>
             </li>   
             <li role="presentation">
                <a [ngStyle]="{'color': shfrmSFSecond ? '#f06321' :' #919191'}" href="javascript:;" (click)="signup_link(2)" href="#ApiManage" aria-controls="ApiManage" role="tab" data-toggle="tab">API Management<i
-               class="fa fa-angle-right" style="margin-left: 10px;"></i></a>
+               class="fa fa-angle-right ml10"></i></a>
             </li>
             <li role="presentation">
                <a [ngStyle]="{'color': shfrmSFThird ? '#f06321' : '#919191'}" href="javascript:;" (click)="signup_link(3)" href="#Auth" aria-controls="Auth" role="tab" data-toggle="tab">Authentication</a>
@@ -303,7 +303,7 @@
           <div role="tabpanel" class="tab-pane active" id="AppInfo">
              <form [formGroup]="ApiInfoForm" [hidden]="!shfrmSFFirst" novalidate>
                 <div class="row mb30">
-                   <div class="col-md-12" style="margin-bottom: 10px;">
+                   <div class="col-md-12 mb10">
                       <div class="mt15"><label for="password">User platform to be tested</label></div>
                    </div>
                    <div class="col-md-12">
@@ -385,8 +385,8 @@
                      <div class="horizontalBorder"></div>
                      <div class="row">
                         <div class="col-12" id="apiListContainerModal">
-                           <div style="margin-top: 14px; font-size: 16px; font-weight: 600;"><label for="apiList">Selected API List</label></div>
-                           <div  style="overflow-y: scroll;height: 60px;"><label *ngFor="let data of listselected">{{data.name}} &nbsp;,  </label></div>
+                           <div class="mt14 fs16 fw600"><label for="apiList">Selected API List</label></div>
+                           <div  class="y-scroll h60"><label *ngFor="let data of listselected">{{data.name}} &nbsp;,  </label></div>
                         </div>
                      </div> 
                   <div class="clearfix"></div>
@@ -410,7 +410,7 @@
                       </div>
                       <div class="row mb25">
                          <div class="col-md-2">
-                            <div style="margin-top: 6px;"><label for="password">Default</label></div>
+                            <div class="mt6"><label for="password">Default</label></div>
                          </div>
                          <div class="col-md-10">
                             <div class="row">

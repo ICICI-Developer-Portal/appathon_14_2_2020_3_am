@@ -507,7 +507,7 @@
             type="file"
             id="subFile"
             #subInput
-            style="display:none"
+            class="d-none"
             (change)="handleFileInput($event.target.files, 'sub')"
           />
           <label for="subFile" class="signInBtn pinkBtn mr10">Upload</label>
@@ -519,16 +519,12 @@
           >
           <div *ngIf="finalSubmissionFile">
             <h6
-              style="margin-left: 135px;
-color: grey;"
+              class="ml135 color-grey"
             >
               {{ finalSubmissionFile.name }}
               <span
                 (click)="deleteFile('sub')"
-                style="margin-left: 14px;
-    color: red;
-    background: #d2cbcb;
-    cursor: pointer;"
+                class="ml14 color-red bg-idea cursor_pointer"
                 >X</span
               >
             </h6>

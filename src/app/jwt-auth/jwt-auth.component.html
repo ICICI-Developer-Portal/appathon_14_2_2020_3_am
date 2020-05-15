@@ -1,14 +1,13 @@
 <div>
   <div>
     <h3
-      style="padding: 15px;
-    text-align: center;"
+      class="request-production ta-center"
     >
       Please Login
     </h3>
   </div>
   <div>
-    <div class="col-md-12" style="padding: 15px;">
+    <div class="col-md-12 request-production">
       <div><label for="user">Username</label></div>
       <input name="user" class="input-login" [(ngModel)]="encUsername" #username/>
       <!-- <div class="text-danger form-error ng-star-inserted">
@@ -16,7 +15,7 @@
       </div> -->
     </div>
 
-    <div class="col-md-12" style="padding: 15px;">
+    <div class="col-md-12 request-production">
       <div><label for="password" type="password">Password</label></div>
       <input name="password" type="password" class="input-login" [(ngModel)]="encPassword" #password/>
       <!-- <div class="text-danger form-error ng-star-inserted">
@@ -26,9 +25,7 @@
   </div>
 
   <div
-    class="col-12"
-    style="padding: 15px;
-  text-align: center;"
+    class="col-12 request-production ta-center"
   >
     <button
       type="submit"
