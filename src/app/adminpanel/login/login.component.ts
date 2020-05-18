@@ -77,12 +77,16 @@ export class LoginComponent implements OnInit {
       this.issetpwd = true;
       return;
     }
+    // username = btoa(username);
+    // password = btoa(password);
+    // console.log("username password"+username+':' +password)
     var json = { username: username, password: password };
     this.spinnerService.show();
     this.adm.Login(json).subscribe((data: any) => {
       var response = data._body;
       var obj = JSON.parse(response);
       if (obj.status == true) {
+        // localStorage.setItem("jwt", obj.jwttoken)
         this.admin_acccess(obj.data.username);
         this.sessionSet('username', obj.data.username);
         localStorage.setItem('id', obj.data.id);

@@ -81,7 +81,11 @@ export class ApiDetailsComponent implements OnInit {
     
  }
   error_code(){
+    // var json ={
+    //   "username":localStorage.getItem('username')
+    // }
     this.adm.error_code()
+    // this.adm.error_code(json)
     .subscribe(
       (data:any) => {
         var response= data._body;
@@ -93,7 +97,10 @@ export class ApiDetailsComponent implements OnInit {
   }
   
   NewApplication(){ 
-   var Json={"id":this.id}
+   var Json={
+     "id":this.id,
+    //  "username":localStorage.getItem('username')
+    }
   this.adm.api_details(Json)
   .subscribe(
     (data:any) => {
@@ -113,7 +120,11 @@ export class ApiDetailsComponent implements OnInit {
 }
 
 Sample_packet(){
-  this.adm.Sample_packet({"id":this.id})
+  var json = {
+    "id":this.id,
+    // "username":localStorage.getItem('username')
+  }
+  this.adm.Sample_packet(json)
   .subscribe(
     (data:any) => {
       this.sampleobj2  = data.data;

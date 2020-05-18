@@ -3364,3 +3364,17 @@ position: relative;
 .mt10{
   margin-top:10px !important;
 }
+.card-header-security {
+  border: none !important;
+  font-family: Poppins-Medium;
+  font-size: 24px;
+  color: black;
+  background: none;
+  font-weight: 500;
+  padding: 26px 24px 22px 24px;
+}
+.security-style {
+  font-family: Poppins-Light;
+  color: #757575;
+  font-weight: 400;
+}

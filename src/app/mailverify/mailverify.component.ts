@@ -51,6 +51,7 @@ export class MailverifyComponent implements OnInit {
     sessionStorage.removeItem("username");
     localStorage.removeItem("id");
     localStorage.removeItem("role");
+    localStorage.removeItem("jwt")
     //alert('a');
     this.adm.sendUserId("");
 

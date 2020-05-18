@@ -32,7 +32,6 @@ loginResponse:any;
   //   alert("encrypt : "+this.conversionEncryptOutput)
   //   this.conversionDecryptOutput = CryptoJS.AES.decrypt( this.conversionEncryptOutput.trim(), password.trim()).toString(CryptoJS.enc.Utf8);
   //  alert("decrypt : "+this.conversionDecryptOutput)
-  console.log(username+':',password)
   username = btoa(username);
   password = btoa(password);
   console.log(username+':' ,password)
@@ -41,7 +40,7 @@ loginResponse:any;
       var response = data._body;
       this.loginResponse = JSON.parse(response);
       if (this.loginResponse.status == true) {
-       this.jwt = localStorage.setItem("jwt",this.loginResponse.jwt)
+      localStorage.setItem("jwt",this.loginResponse.jwttoken)
       }
     });
     // this.adm.Login(btoa(this.f.username.value), btoa(this.f.password.value))

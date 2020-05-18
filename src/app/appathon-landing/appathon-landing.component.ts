@@ -347,6 +347,9 @@ export class AppathonLandingComponent implements OnInit {
       this.issetpwd = true;
       return;
     }
+    // username = btoa(username);
+    // password = btoa(password);
+    // console.log("username password"+username+':' +password)
     var json = { username: username, password: password };
     this.spinnerService.show();
     this.adm.Login(json).subscribe((data: any) => {

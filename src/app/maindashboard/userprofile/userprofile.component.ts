@@ -55,12 +55,15 @@ export class UserprofileComponent implements OnInit {
 
   // User profile get data
   user_data() {
-    var json = {"id":localStorage.getItem('id')};  
+    var json = {
+      "id":localStorage.getItem('id'),
+      // "username":localStorage.getItem('username')
+    };  
     this.spinnerService.show();
    this.adm.Usergetdata(json)
    .subscribe(
      (data:any) => {
-       var response= data._body; 
+       var response= data._body;
        var obj=JSON.parse(response);
        this.spinnerService.show();
        this.email=obj.data.email;
@@ -100,7 +103,7 @@ export class UserprofileComponent implements OnInit {
     "profile_photo":profile_photo1,
     "old_pwd":'',
     "new_pwd":'',
-
+    // "username":localStorage.getItem('username')
   }
     this.spinnerService.show();
     this.adm.SaveUserdata(json) 
@@ -130,8 +133,12 @@ export class UserprofileComponent implements OnInit {
 // Change Password
       Change_passw(){
         try{
-        this.ChangepasswForm.value.id=localStorage.getItem('id');
-        this.adm.ChangePassw(this.ChangepasswForm.value)
+          var json = {
+            "id":localStorage.getItem('id'),
+            // "username":localStorage.getItem('username')
+        }; 
+        // this.ChangepasswForm.value.id=localStorage.getItem('id');
+        this.adm.ChangePassw(json)
         .subscribe(
           (data:any) => {
             var response= data._body; 
@@ -160,7 +167,8 @@ export class UserprofileComponent implements OnInit {
     //this.ChangepasswForm.value.id=localStorage.getItem('id');
     var json = {
       "old_pwd":this.ChangepasswForm.value.old_pwd,
-      "id":localStorage.getItem('id')
+      "id":localStorage.getItem('id'),
+      // "username":localStorage.getItem('username')
     }
     this.adm.ChangePassw(json)
     .subscribe(

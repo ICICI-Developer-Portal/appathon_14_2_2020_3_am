@@ -8,6 +8,14 @@ import { LoginService } from "src/app/services";
 import { PasswordValidation } from "../../layout/header/password.validator";
 import { VariablesService } from "src/app/services/Variables.service";
 import { THIS_EXPR } from "@angular/compiler/src/output/output_ast";
+import {
+  Http,
+  Headers,
+  RequestOptions,
+  Response,
+  RequestMethod,
+  ResponseContentType
+} from "@angular/http";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 declare var showProdTabEnv: any; // just change here from arun answer.
 declare var openProdCurrentTabEnv: any;
@@ -170,6 +178,7 @@ export class IndexComponent implements OnInit {
   companyNames: any;
 
   constructor(
+    private http: Http,
     private HttpClient: HttpClient,
     private formbuilder: FormBuilder,
     private objOnBoarding: VariablesService,
@@ -665,6 +674,9 @@ export class IndexComponent implements OnInit {
       this.issetpwd = true;
       return;
     }
+    // username = btoa(username);
+    // password = btoa(password);
+    // console.log("username password"+username+':' +password)
     var json = { username: username, password: password };
     this.spinnerService.show();
     this.adm.Login(json).subscribe((data: any) => {
@@ -1245,7 +1257,8 @@ export class IndexComponent implements OnInit {
     this.internalArr = [];
     console.log("id array", this.idArr);
     var json = {
-      ID: this.idArr
+      ID: this.idArr,
+      // "username":localStorage.getItem('username')
     };
     console.log("json", json);
     this.adm.getUATFromData(json).subscribe((data: any) => {
@@ -1583,10 +1596,16 @@ export class IndexComponent implements OnInit {
         "application/x-www-form-urlencoded"
       )
     };
+    // let headers = new Headers({
+    //   "Content-Type": "application/x-www-form-urlencoded",
+    //   "Token" : localStorage.getItem("jwt")
+    // });
+    // let options = new RequestOptions({ headers: headers });
 
     let body = new URLSearchParams();
     body.set("username", username);
     this.HttpClient.post(
+    // this.http.post(
       "https://developer.icicibank.com/rest/fetch-jiraid",
       body.toString(),
       options

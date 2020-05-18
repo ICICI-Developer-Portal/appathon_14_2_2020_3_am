@@ -41,6 +41,7 @@ export class HeaderComponent implements OnInit {
     sessionStorage.removeItem("username");
     localStorage.removeItem("id");
     localStorage.removeItem("role");
+    localStorage.removeItem("jwt")
     this.router.navigate(["/index"]);
   }
 

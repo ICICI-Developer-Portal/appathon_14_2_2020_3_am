@@ -24,8 +24,12 @@ export class ViewAllApiComponent implements OnInit {
    
   }
 
-  onSearchChange(searchValue: string): void {  
+  onSearchChange(searchValue: string): void { 
+    // var json = {
+    //   "username" : localStorage.getItem('username')
+    // } 
     this.adm.Get_All_API().subscribe((data: any) => {
+    // this.adm.Get_All_API(json).subscribe((data: any) => {
       var obj = JSON.parse(data._body);
       this.APIListV = obj; 
       var ApiName = [];
@@ -69,7 +73,11 @@ export class ViewAllApiComponent implements OnInit {
 
   Get_All_API_List()
   {
+    // var json = {
+    //   "username" : localStorage.getItem('username')
+    // } 
       this.adm.Get_All_API().subscribe((data: any) => {
+      // this.adm.Get_All_API(json).subscribe((data: any) => {
       var obj = JSON.parse(data._body);
       console.log(obj);
       this.APIListV = obj; 

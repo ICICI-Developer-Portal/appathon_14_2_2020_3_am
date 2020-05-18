@@ -74,6 +74,7 @@ export class NavbarComponent implements OnInit {
     localStorage.removeItem("password");
     localStorage.removeItem("id");
     localStorage.removeItem("role");
+    localStorage.removeItem("jwt")
     this.adm.sendUserId("");
 
     this.adm.LogoutPortal().subscribe(
