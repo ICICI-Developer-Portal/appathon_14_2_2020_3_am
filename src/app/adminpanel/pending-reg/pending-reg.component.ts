@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { LoginService } from 'src/app/services';
 import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
 import { ToasterService, Toast } from 'angular2-toaster';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-pending-reg',
@@ -12,7 +13,9 @@ export class PendingRegComponent implements OnInit {
   dataSource: any;
   p : any = "";
 
-  constructor( private toasterService: ToasterService,private adm:LoginService,private spinnerService: Ng4LoadingSpinnerService) {
+  constructor( private toasterService: ToasterService,private adm:LoginService,private spinnerService: Ng4LoadingSpinnerService,
+    private router: Router,
+    ) {
     this.approve_data(); 
     this.spinnerService.show();
    }
@@ -38,7 +41,11 @@ export class PendingRegComponent implements OnInit {
     this.dataSource=obj;
     //this.approveuser=obj.UserName;
     this.spinnerService.hide()
-    }
+    },
+    err => {
+      console.log('err', err);
+      this.router.navigate(['error']);
+    },
 ); 
 }
 
@@ -56,7 +63,11 @@ approve_Reg(approveUser:any){
   }else{
     this.toastrmsg('error',obj.message);
   }
-  }
+  },
+  err => {
+    console.log('err', err);
+    this.router.navigate(['error']);
+  },
 ); 
 }
 

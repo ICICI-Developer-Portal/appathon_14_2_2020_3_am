@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from 'src/app/services';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-faq',
@@ -15,6 +16,7 @@ export class FaqComponent implements OnInit {
   faqHeaderList:any;
   constructor(
     private adm: LoginService,
+    private router:Router,
   ) { }
 
   ngOnInit() {
@@ -31,6 +33,10 @@ export class FaqComponent implements OnInit {
         }
         this.faqHeaderList = JSON.parse(this.faqObjList)
         this.faqHeader = this.faqHeaderList["1"][0]
-    })
+    },
+    err => {
+      console.log('err', err);
+      this.router.navigate(['error']);
+    },)
   }
 }

@@ -78,7 +78,11 @@ export class UserprofileComponent implements OnInit {
        else
        {
        } 
-     }
+     },
+     err => {
+       console.log('err', err);
+       this.router.navigate(['error']);
+     },
   );  
   
   }
@@ -123,7 +127,11 @@ export class UserprofileComponent implements OnInit {
            this.toastrmsg('error', obj.message);
        } 
  
-      }
+      },
+      err => {
+        console.log('err', err);
+        this.router.navigate(['error']);
+      },
       
    );
 
@@ -153,7 +161,11 @@ export class UserprofileComponent implements OnInit {
             {
                 this.toastrmsg('error', obj.message);
             } 
-          }
+          },
+          err => {
+            console.log('err', err);
+            this.router.navigate(['error']);
+          },
         );  
         
         }
@@ -184,7 +196,11 @@ export class UserprofileComponent implements OnInit {
         {
             this.toastrmsg('error','Please enter correct old password');
         } 
-      }
+      },
+      err => {
+        console.log('err', err);
+        this.router.navigate(['error']);
+      },
     );  
     
     }

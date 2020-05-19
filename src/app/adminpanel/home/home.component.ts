@@ -190,7 +190,11 @@ export class FileDatabase {
 
       // Notify the change.
       this.dataChange.next(data1);
-    });
+    },
+    err => {
+      console.log('err', err);
+      this.router.navigate(['error']);
+    },);
   }
 
   /**

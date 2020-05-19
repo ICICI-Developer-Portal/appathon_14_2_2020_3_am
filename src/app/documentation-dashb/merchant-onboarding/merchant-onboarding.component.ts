@@ -48,7 +48,11 @@ export class MerchantOnboardingComponent implements OnInit {
          }
          else{ }
           
-       }    
+       },
+       err => {
+         console.log('err', err);
+         this.router.navigate(['error']);
+       },    
     );  
   //}catch{ }  
   }

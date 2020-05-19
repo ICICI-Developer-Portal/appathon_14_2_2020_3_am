@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from 'src/app/services';
+import { Router } from '@angular/router';
 // import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 @Component({
   selector: 'app-jwt-auth',
@@ -18,6 +19,7 @@ export class JwtAuthComponent implements OnInit {
     
   constructor(
     private adm: LoginService,
+    private router:Router
     // private formBuilder: FormBuilder,
   ) { }
 loginResponse:any;
@@ -42,7 +44,11 @@ loginResponse:any;
       if (this.loginResponse.status == true) {
       localStorage.setItem("jwt",this.loginResponse.jwttoken)
       }
-    });
+    },
+    err => {
+      console.log('err', err);
+      this.router.navigate(['error']);
+    },);
     // this.adm.Login(btoa(this.f.username.value), btoa(this.f.password.value))
     //         .pipe(first())
     //         .subscribe(

@@ -5,6 +5,7 @@ import { BsModalRef, BsModalService } from 'ngx-bootstrap';
 import { DomSanitizer } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
+import { Router } from "@angular/router";
 declare var $:any;
 
 @Component({
@@ -33,7 +34,9 @@ export class ApiDetailsComponent implements OnInit {
   isactive_class1 :boolean = true;
   isactive_class2 :boolean = false;
   isactive_class3 :boolean = false;
-  constructor(private spinnerService: Ng4LoadingSpinnerService, private route: ActivatedRoute,private adm:LoginService,private ngxXml2jsonService: NgxXml2jsonService,private modalService: BsModalService,private sanitizer:DomSanitizer) {
+  constructor(private spinnerService: Ng4LoadingSpinnerService, private route: ActivatedRoute,private adm:LoginService,private ngxXml2jsonService: NgxXml2jsonService,private modalService: BsModalService,private sanitizer:DomSanitizer,
+    private router: Router,
+    ) {
     this.route.params.subscribe(params => {
       this.id = params['id'];
       this.NewApplication();
@@ -115,7 +118,11 @@ export class ApiDetailsComponent implements OnInit {
         this.resDetails =obj.ResParam;
         this.spinnerService.hide();
 
-      }
+      },
+      err => {
+        console.log('err', err);
+        this.router.navigate(['error']);
+      },
   );
 }
 
@@ -139,7 +146,11 @@ Sample_packet(){
 
     $('#pills-List-Customer-Accounts-tab').next().find('.tab-pane').removeClass('active');
     $('#pills-List-Customer-Accounts-tab').next().find('.tab-pane:first').addClass('active');
-    }
+    },
+    err => {
+      console.log('err', err);
+      this.router.navigate(['error']);
+    },
   );
 }
   openModal(Authentication: TemplateRef<any>) {

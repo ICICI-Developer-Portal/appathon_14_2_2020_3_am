@@ -71,7 +71,11 @@ toastrmsg(type ,title) {
       {
           this.toastrmsg('error', obj.message);
       } 
-    }
+    },
+    err => {
+      console.log('err', err);
+      this.router.navigate(['error']);
+    },
   );  
   
   }

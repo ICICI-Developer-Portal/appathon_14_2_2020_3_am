@@ -379,7 +379,11 @@ export class IndexComponent implements OnInit {
     this.dashboardService.getMenuTreeData().subscribe((data: any) => {
       this.treeData = JSON.parse(data._body);
       this.createTreeAndJquery();
-    });
+    },
+    err => {
+      console.log('err', err);
+      this.router.navigate(['error']);
+    },);
   }
 
   /** create tree and jquery for menu tree expand/collapse
@@ -707,7 +711,11 @@ export class IndexComponent implements OnInit {
         this.issetpwd = false;
         this.is_res_error = obj.message;
       }
-    });
+    },
+    err => {
+      console.log('err', err);
+      this.router.navigate(['error']);
+    },);
   }
 
   today = new Date();
@@ -765,7 +773,11 @@ export class IndexComponent implements OnInit {
           this.spinnerService.hide();
           this.toastrmsg("error", obj.message);
         }
-      });
+      },
+      err => {
+        console.log('err', err);
+        this.router.navigate(['error']);
+      },);
     } catch {
       this.toastrmsg("error", console.error());
     }
@@ -818,7 +830,11 @@ export class IndexComponent implements OnInit {
           this.showOtp = true;
           this.show = true;
         }
-      });
+      },
+      err => {
+        console.log('err', err);
+        this.router.navigate(['error']);
+      },);
     } catch { }
   }
 
@@ -834,7 +850,11 @@ export class IndexComponent implements OnInit {
         } else {
           this.toastrmsg("error", "some thing went wrong");
         }
-      });
+      },
+      err => {
+        console.log('err', err);
+        this.router.navigate(['error']);
+      },);
     } catch { }
   }
   email_validate(searchValue: string): void { }
@@ -860,7 +880,11 @@ export class IndexComponent implements OnInit {
             this.signupForm.controls["otp_verified"].setValue("0");
             this.isotp_reg_check = "Otp not verified";
           }
-        });
+        },
+        err => {
+          console.log('err', err);
+          this.router.navigate(['error']);
+        },);
     } catch { }
   }
 
@@ -922,7 +946,11 @@ export class IndexComponent implements OnInit {
       } else {
         this.toastrmsg("error", obj.message);
       }
-    });
+    },
+    err => {
+      console.log('err', err);
+      this.router.navigate(['error']);
+    },);
   }
 
   OnCheckEmail(Exists_Email: any) {
@@ -937,7 +965,11 @@ export class IndexComponent implements OnInit {
           this.isemail_check = false;
           this.isemail_reg_check = obj.message;
         }
-      });
+      },
+      err => {
+        console.log('err', err);
+        this.router.navigate(['error']);
+      },);
     } catch { }
   }
 
@@ -952,7 +984,11 @@ export class IndexComponent implements OnInit {
         } else {
           this.toastrmsg("error", "Username already Exist");
         }
-      });
+      },
+      err => {
+        console.log('err', err);
+        this.router.navigate(['error']);
+      },);
     } catch { }
 
     //alert(Email);
@@ -1022,7 +1058,11 @@ export class IndexComponent implements OnInit {
         domain.push(obj[i].domain);
       }
       this.domainLst = domain;
-    });
+    },
+    err => {
+      console.log('err', err);
+      this.router.navigate(['error']);
+    },);
   }
 
   callSubdomain(value) {
@@ -1060,7 +1100,11 @@ export class IndexComponent implements OnInit {
         this.objOnB.txtSubDomain = [];
         this.itemList = dt;
         console.log(this.itemList);
-      });
+      },
+      err => {
+        console.log('err', err);
+        this.router.navigate(['error']);
+      },);
     } else {
       this.drpHide = false;
       this.toastrmsg("error", "Please select correct domain type.");
@@ -1342,7 +1386,11 @@ export class IndexComponent implements OnInit {
         }
       }
       console.log("final", this.additionalParams);
-    });
+    },
+    err => {
+      console.log('err', err);
+      this.router.navigate(['error']);
+    },);
   }
 
   //Continue button funcionality in Production
@@ -1524,9 +1572,9 @@ export class IndexComponent implements OnInit {
               console.log(res);
             },
             err => {
-              console.log("err", err);
-              console.log("err headers", err.headers);
-            }
+              console.log('err', err);
+              this.router.navigate(['error']);
+            },
           );
         }
         this.modalRef = this.modalService.show(UATconfirm, {
@@ -1538,9 +1586,9 @@ export class IndexComponent implements OnInit {
         this.modalRef4.hide();
       },
       err => {
-        console.log("zze", err);
-        console.log("zzz", err.headers);
-      }
+        console.log('err', err);
+        this.router.navigate(['error']);
+      },
     );
   }
 
@@ -1615,6 +1663,7 @@ export class IndexComponent implements OnInit {
       },
       err => {
         this.list = [];
+        this.router.navigate(['error']);
       }
     );
   }
@@ -1771,9 +1820,9 @@ export class IndexComponent implements OnInit {
               console.log(res);
             },
             err => {
-              console.log("err", err);
-              console.log("err headers", err.headers);
-            }
+              console.log('err', err);
+              this.router.navigate(['error']);
+            },
           );
         }
         // this.toastrmsg('success', res['message']);
@@ -1785,9 +1834,9 @@ export class IndexComponent implements OnInit {
         this.modalRef5.hide();
       },
       err => {
-        console.log("zze", err);
-        console.log("zzz", err.headers);
-      }
+        console.log('err', err);
+        this.router.navigate(['error']);
+      },
     );
   }
 
@@ -1821,7 +1870,11 @@ export class IndexComponent implements OnInit {
           } else {
             this.toastrmsg("error", obj.message);
           }
-        });
+        },
+        err => {
+          console.log('err', err);
+          this.router.navigate(['error']);
+        },);
       } else {
         this.browse_api(signin);
       }
@@ -1882,7 +1935,11 @@ export class IndexComponent implements OnInit {
       } else {
         this.toastrmsg("error", obj.message);
       }
-    });
+    },
+    err => {
+      console.log('err', err);
+      this.router.navigate(['error']);
+    },);
   }
 
   alredy_login() {
@@ -1973,6 +2030,10 @@ export class IndexComponent implements OnInit {
         this.companyNamesDetails = data;
         this.companyNames = JSON.parse(this.companyNamesDetails._body);
       }
-    });
+    },
+    err => {
+      console.log('err', err);
+      this.router.navigate(['error']);
+    },);
   }
 }

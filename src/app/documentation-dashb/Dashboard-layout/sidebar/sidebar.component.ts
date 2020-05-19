@@ -132,7 +132,11 @@ export class SidebarComponent implements OnInit {
       this.treeData = JSON.parse(data._body);
       this.createTreeAndJquery();
       this.showMatSpinner = false;
-    });
+    },
+    err => {
+      console.log('err', err);
+      this.router.navigate(['error']);
+    },);
   }
 
   /** create tree and jquery for menu tree expand/collapse

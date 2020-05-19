@@ -42,7 +42,11 @@ export class MailverifyComponent implements OnInit {
       this.adm.verify_mail(json).subscribe((data: any) => {
         var response = data._body;
         var obj = JSON.parse(response);
-      });
+      },
+      err => {
+        console.log('err', err);
+        this.router.navigate(['error']);
+      },);
     } catch { }
   }
   logout() {

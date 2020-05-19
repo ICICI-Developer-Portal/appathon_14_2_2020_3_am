@@ -6,6 +6,7 @@ import { AuthGuard } from "./services/auth.guard";
 import { AdminPortalComponent } from "./admin-portal/admin-portal.component";
 import { AppathonComponent } from "./appathon/appathon.component";
 import { JwtAuthComponent } from './jwt-auth/jwt-auth.component'
+import { ErrorPageComponent } from './error-page/error-page.component';
 
 const routes: Routes = [
   // { path: '', redirectTo :'index', pathMatch :'full' },
@@ -18,6 +19,11 @@ const routes: Routes = [
   {
     path: 'jwt-auth',
     component: JwtAuthComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'error',
+    component: ErrorPageComponent,
     canActivate: [AuthGuard],
   },
   {

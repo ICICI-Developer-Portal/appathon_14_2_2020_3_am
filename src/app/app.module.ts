@@ -37,6 +37,7 @@ import {
   MatInputModule
 } from "@angular/material";
 import { JwtAuthComponent } from './jwt-auth/jwt-auth.component';
+import { ErrorPageComponent } from './error-page/error-page.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,7 +46,8 @@ import { JwtAuthComponent } from './jwt-auth/jwt-auth.component';
     AppathonComponent,
     AdvertisementComponent,
     AppathonSignupComponent,
-    JwtAuthComponent
+    JwtAuthComponent,
+    ErrorPageComponent
   ],
   imports: [
     BrowserModule,

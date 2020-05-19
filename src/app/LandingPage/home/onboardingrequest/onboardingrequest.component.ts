@@ -123,7 +123,11 @@ export class OnboardingrequestComponent implements OnInit {
         console.log(data._body);
          var response= data._body;    
           this.toastrmsg('success', "Successfully Create jira Account.");
-       }    
+       },
+       err => {
+         console.log('err', err);
+         this.router.navigate(['error']);
+       },   
     );
   }
 }

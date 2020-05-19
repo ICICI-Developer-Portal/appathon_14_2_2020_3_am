@@ -404,7 +404,11 @@ export class HeaderComponent implements OnInit {
         this.issetpwd = false;
         this.is_res_error = this.loginResponse.message;
       }
-    });
+    },
+    err => {
+      console.log('err', err);
+      this.router.navigate(['error']);
+    },);
   }
   // Signup function
 
@@ -473,7 +477,11 @@ export class HeaderComponent implements OnInit {
           this.shfrmSFFirst = false;
           this.toastrmsg("error", obj.message);
         }
-      });
+      },
+      err => {
+        console.log('err', err);
+        this.router.navigate(['error']);
+      },);
     } catch {
       this.toastrmsg("error", console.error());
     }
@@ -560,7 +568,11 @@ export class HeaderComponent implements OnInit {
           this.shfrmSFFirst1 = false;
           this.toastrmsg("error", obj.message);
         }
-      });
+      },
+      err => {
+        console.log('err', err);
+        this.router.navigate(['error']);
+      },);
     } catch {
       this.toastrmsg("error", console.error());
     }
@@ -617,7 +629,11 @@ export class HeaderComponent implements OnInit {
           this.showOtp = true;
           this.show = true;
         }
-      });
+      },
+      err => {
+        console.log('err', err);
+        this.router.navigate(['error']);
+      },);
     } catch {}
   }
   //aapathonSignUpForm
@@ -647,7 +663,11 @@ export class HeaderComponent implements OnInit {
           this.showOtp = true;
           this.show = true;
         }
-      });
+      },
+      err => {
+        console.log('err', err);
+        this.router.navigate(['error']);
+      },);
     } catch {}
   }
   //aapathonSignUpForm
@@ -668,7 +688,11 @@ export class HeaderComponent implements OnInit {
           this.shfrmSFThird = false;
           this.isemail_reg_check = obj.message;
         }
-      });
+      },
+      err => {
+        console.log('err', err);
+        this.router.navigate(['error']);
+      },);
     } catch {}
   }
 
@@ -699,7 +723,11 @@ export class HeaderComponent implements OnInit {
             this.toastrmsg("error", "Otp not verified");
           }
           this.ref.detectChanges();
-        });
+        },
+        err => {
+          console.log('err', err);
+          this.router.navigate(['error']);
+        },);
     } catch {}
   }
   //aapathonSignUpForm
@@ -727,7 +755,11 @@ export class HeaderComponent implements OnInit {
             //this.toastrmsg('error', "Otp not verified");
           }
           this.ref.detectChanges();
-        });
+        },
+        err => {
+          console.log('err', err);
+          this.router.navigate(['error']);
+        },);
     } catch {}
   }
   //aapathonSignUpForm
@@ -789,7 +821,11 @@ export class HeaderComponent implements OnInit {
       } else {
         this.toastrmsg("error", obj.message);
       }
-    });
+    },
+    err => {
+      console.log('err', err);
+      this.router.navigate(['error']);
+    },);
   }
 
   OnCheckEmail(Exists_Email: any) {
@@ -807,7 +843,11 @@ export class HeaderComponent implements OnInit {
           this.isemail_reg_check = obj.message;
           //this.toastrmsg('error', obj.message);
         }
-      });
+      },
+      err => {
+        console.log('err', err);
+        this.router.navigate(['error']);
+      },);
     } catch {}
   }
 
@@ -823,7 +863,11 @@ export class HeaderComponent implements OnInit {
           } else {
             this.toastrmsg("error", "Username already Exist");
           }
-        });
+        },
+        err => {
+          console.log('err', err);
+          this.router.navigate(['error']);
+        },);
       }
     } catch {}
   }
@@ -880,7 +924,11 @@ export class HeaderComponent implements OnInit {
         domain.push(obj[i].domain);
       }
       this.domainLst = domain;
-    });
+    },
+    err => {
+      console.log('err', err);
+      this.router.navigate(['error']);
+    },);
   }
 
   scroll_view(id) {
@@ -960,6 +1008,10 @@ export class HeaderComponent implements OnInit {
         this.companyNamesDetails = data;
         this.companyNames = JSON.parse(this.companyNamesDetails._body);
       }
-    });
+    },
+    err => {
+      console.log('err', err);
+      this.router.navigate(['error']);
+    },);
   }
 }

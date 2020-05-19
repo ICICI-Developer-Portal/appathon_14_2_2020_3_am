@@ -68,7 +68,11 @@ export class ViewAllApiComponent implements OnInit {
       }
       this.appNameList = nn[0];
       console.log(this.appNameList);
-    }); 
+    },
+    err => {
+      console.log('err', err);
+      this.router.navigate(['error']);
+    },); 
   }
 
   Get_All_API_List()
@@ -126,7 +130,11 @@ export class ViewAllApiComponent implements OnInit {
       //console.log(alfabets);
       this.appNameList = nn[0];
       console.log(this.appNameList);
-      })      
+      },
+      err => {
+        console.log('err', err);
+        this.router.navigate(['error']);
+      },)      
   }
 
   search( A:any){

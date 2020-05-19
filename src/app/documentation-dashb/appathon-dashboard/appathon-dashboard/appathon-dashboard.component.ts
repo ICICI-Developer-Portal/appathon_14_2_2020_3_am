@@ -266,7 +266,7 @@ export class AppathonDashboardComponent implements OnInit {
       err => {
         this.spinnerService.hide();
         this.toastrmsg("error", "Something went wrong!");
-        this.router.navigate(["/index"]);
+        this.router.navigate(['error']);
       }
     );
   }
@@ -361,8 +361,8 @@ export class AppathonDashboardComponent implements OnInit {
         err => {
           this.spinnerService.hide();
           this.disableSubmit = false;
-
           this.toastrmsg("error", "Something went wrong!");
+          this.router.navigate(['error']);
         }
       );
     }
@@ -451,6 +451,10 @@ export class AppathonDashboardComponent implements OnInit {
         type: "application/pdf"
       });
       saveAs(blob, fileName);
-    });
+    },
+    err => {
+      console.log('err', err);
+      this.router.navigate(['error']);
+    },);
   }
 }

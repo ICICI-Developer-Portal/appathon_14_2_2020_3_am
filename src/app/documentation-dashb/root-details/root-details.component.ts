@@ -5,6 +5,7 @@ import { BsModalRef, BsModalService } from 'ngx-bootstrap';
 import { DomSanitizer } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
+import { Router } from '@angular/router';
 declare var $: any;
 @Component({
   selector: 'app-root-details',
@@ -28,6 +29,7 @@ export class RootDetailsComponent implements OnInit {
     private modalService: BsModalService,
     private sanitizer: DomSanitizer,
     private spinnerService: Ng4LoadingSpinnerService,
+    private router:Router,
   ) {
     this.route.params.subscribe(params => {
       this.rootId = params['id'];
@@ -48,6 +50,10 @@ export class RootDetailsComponent implements OnInit {
       this.obj = JSON.parse(response);
       this.tabName = this.obj[0].TAB_NAME;
       this.description = this.obj[0].DESCRIPTION;
-    });
+    },
+    err => {
+      console.log('err', err);
+      this.router.navigate(['error']);
+    },);
   }
 }

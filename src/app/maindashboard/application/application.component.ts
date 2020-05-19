@@ -181,7 +181,11 @@ export class ApplicationComponent implements OnInit {
           var obj=JSON.parse(response);
          
           this.appList =obj.data;
-        }
+        },
+        err => {
+          console.log('err', err);
+          this.router.navigate(['error']);
+        },
       );
   }
   App_id:any;
@@ -243,7 +247,11 @@ export class ApplicationComponent implements OnInit {
 
   
 
-      }
+      },
+      err => {
+        console.log('err', err);
+        this.router.navigate(['error']);
+      },
     );
 }
 
@@ -265,7 +273,11 @@ export class ApplicationComponent implements OnInit {
       this.applicationdata =obj.data.platforms;
       this.authType =obj.data.auth_types;
       this.data =obj.data.apis;
-    }
+    },
+    err => {
+      console.log('err', err);
+      this.router.navigate(['error']);
+    },
   );
 }
 // End region
@@ -331,7 +343,11 @@ saveAddAppl_Edit(call_back_url:any,scope:any){
          //this.modalRef.hide();
          }
         
-     }
+     },
+     err => {
+       console.log('err', err);
+       this.router.navigate(['error']);
+     },
        
   );  
 //}catch{ }  
@@ -399,7 +415,11 @@ saveAddAppl(call_back_url:any,scope:any){
          //this.modalRef.hide();
          }
         
-     }
+     },
+     err => {
+       console.log('err', err);
+       this.router.navigate(['error']);
+     },
        
   );  
 }
@@ -459,7 +479,11 @@ saveTab2(selecteddata:any=[])
          else{
                this.toastrmsg('error', "something went wrong please try again");
              } 
-       } 
+       },
+       err => {
+         console.log('err', err);
+         this.router.navigate(['error']);
+       },
     );  
   } 
  }  
