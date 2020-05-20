@@ -33,7 +33,7 @@
           <tbody>
             <tr *ngFor="
                 let row of dataSource
-                |filter:searchText |filter:filter | paginate: { itemsPerPage: 5, currentPage: p }
+                |filter:searchText |filter:filter 
               ">
               <td>{{ row.JiraId }}</td>
               <td>{{ row.JiraStatus }}</td>
@@ -60,9 +60,9 @@
         </div>
         </div>
         <div class="clearfix"></div>
-        <ul class="pagination">
+        <!-- <ul class="pagination">
           <pagination-controls (pageChange)="p = $event"></pagination-controls>
-        </ul>
+        </ul> -->
       </div>
     </div>
     <div class="tab-pane fade" id="v-pills-analytics" role="tabpanel" aria-labelledby="v-pills-analytics-tab">

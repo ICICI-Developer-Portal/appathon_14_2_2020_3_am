@@ -86,12 +86,11 @@ export class LoginComponent implements OnInit {
       var response = data._body;
       var obj = JSON.parse(response);
       if (obj.status == true) {
-        // localStorage.setItem("jwt", obj.jwttoken)
         this.admin_acccess(obj.data.username);
         this.sessionSet('username', obj.data.username);
         localStorage.setItem('id', obj.data.id);
         localStorage.setItem('email', obj.data.email);
-        localStorage.setItem("jwt",obj.data.jwttoken);
+        localStorage.setItem("jwt",obj.jwttoken);
         this.adm.sendUserId(obj.data.id);
         this.spinnerService.hide();
       } else {

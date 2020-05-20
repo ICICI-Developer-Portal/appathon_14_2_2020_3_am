@@ -342,7 +342,7 @@ export class AppathonSignupComponent implements OnInit {
         // localStorage.setItem('role', 'user');
         // localStorage.setItem('email', obj.data.email);
         // this.adm.sendUserId(obj.data.id);
-        localStorage.setItem("jwt",this.loginResponse.data.jwttoken)
+        localStorage.setItem("jwt",this.loginResponse.jwttoken)
         this.spinnerService.hide();
 
         this.adm.LoginPortal(json).subscribe(

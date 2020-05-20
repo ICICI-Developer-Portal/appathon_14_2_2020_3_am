@@ -695,7 +695,7 @@ export class IndexComponent implements OnInit {
         localStorage.setItem("username", obj.data.username);
         localStorage.setItem("password", obj.data.password);
         localStorage.setItem("role", "user");
-        localStorage.setItem("jwt",obj.data.jwttoken)
+        localStorage.setItem("jwt",obj.jwttoken)
         this.adm.sendUserId(obj.data.id);
         this.adm.LoginPortal(json).subscribe(
           res => {

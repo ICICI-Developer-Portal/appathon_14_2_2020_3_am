@@ -380,7 +380,7 @@ export class HeaderComponent implements OnInit {
           "appathonCompanyName",
           this.loginResponse.data.companyName
         );
-        localStorage.setItem("jwt",this.loginResponse.data.jwttoken)
+        localStorage.setItem("jwt",this.loginResponse.jwttoken)
         // localStorage.setItem('password', obj.data.password);
         // localStorage.setItem('id', obj.data.id);
         // localStorage.setItem('role', 'user');

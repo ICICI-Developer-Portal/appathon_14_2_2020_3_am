@@ -394,7 +394,7 @@ export class HeaderComponent implements OnInit {
           "appathonUserName",
           this.loginResponse.data.username
         );
-        localStorage.setItem("jwt",this.loginResponse.data.jwttoken)
+        localStorage.setItem("jwt",this.loginResponse.jwttoken)
         this.spinnerService.hide();
 
         this.adm.LoginPortal(json).subscribe(
