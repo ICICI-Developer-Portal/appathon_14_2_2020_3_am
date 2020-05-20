@@ -334,7 +334,7 @@ export class LoginService {
     }
     let headers = new Headers({
       "Content-Type": "application/x-www-form-urlencoded",
-      "Token" : localStorage.getItem("jwt")
+      "Token" : localStorage.getItem("jwt"),
     });
     let options = new RequestOptions({ headers: headers });
     return this.http.post(this.apiUrl + "get_application", query, options);

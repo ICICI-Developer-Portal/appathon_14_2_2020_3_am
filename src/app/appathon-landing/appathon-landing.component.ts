@@ -379,6 +379,7 @@ export class AppathonLandingComponent implements OnInit {
           "appathonUserName",
           this.loginResponse.data.username
         );
+        localStorage.setItem("jwt",this.loginResponse.data.jwttoken)
         this.spinnerService.hide();
 
         this.adm.LoginPortal(json).subscribe(

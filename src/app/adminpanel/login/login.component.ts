@@ -91,6 +91,7 @@ export class LoginComponent implements OnInit {
         this.sessionSet('username', obj.data.username);
         localStorage.setItem('id', obj.data.id);
         localStorage.setItem('email', obj.data.email);
+        localStorage.setItem("jwt",obj.data.jwttoken);
         this.adm.sendUserId(obj.data.id);
         this.spinnerService.hide();
       } else {

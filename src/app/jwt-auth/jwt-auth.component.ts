@@ -42,7 +42,7 @@ loginResponse:any;
       var response = data._body;
       this.loginResponse = JSON.parse(response);
       if (this.loginResponse.status == true) {
-      localStorage.setItem("jwt",this.loginResponse.jwttoken)
+      // localStorage.setItem("jwt",this.loginResponse.jwttoken)
       }
     },
     err => {
