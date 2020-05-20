@@ -234,6 +234,10 @@ export class SigninModalComponent implements OnInit {
   Login(username: any, password: any, loginsuccess: TemplateRef<any>) {
     //localStorage.setItem('username',username);
     //localStorage.setItem('password',password);
+    var nonEncodedJson = {
+      username : username,
+      password : password
+    };
     this.isusername = false;
     this.issetpwd = false;
     this.is_res_error = "";
@@ -269,12 +273,12 @@ export class SigninModalComponent implements OnInit {
         localStorage.setItem("jwt",this.loginResponse.jwttoken)
         this.spinnerService.hide();
 
-        this.adm.LoginPortal(json).subscribe(
+        this.adm.LoginPortal(nonEncodedJson).subscribe(
           res => {
-            // this.router.navigate(['/index']);
+             this.router.navigate(['/index']);
           },
           err => {
-            //this.router.navigate(['/index']);
+            this.router.navigate(['/index']);
           }
         );
         this.dialogRef.close();

@@ -47,7 +47,7 @@ export class UserprofileComponent implements OnInit {
   user_data() {
     var json = {
       "id":localStorage.getItem('id'),
-      // "username":localStorage.getItem('username')
+      "username":localStorage.getItem('username')
   };  
     this.spinnerService.show();
    this.adm.Usergetdata(json)
@@ -97,7 +97,7 @@ export class UserprofileComponent implements OnInit {
     "profile_photo":profile_photo1,
     "old_pwd":'',
     "new_pwd":'',
-    // "username":localStorage.getItem('username')
+    "username":localStorage.getItem('username')
   }
     this.spinnerService.show();
     this.adm.SaveUserdata(json) 
@@ -133,7 +133,7 @@ export class UserprofileComponent implements OnInit {
         try{
           var json = {
             "id":localStorage.getItem('id'),
-            // "username":localStorage.getItem('username')
+            "username":localStorage.getItem('username')
           };  
         // this.ChangepasswForm.value.id=localStorage.getItem('id');
         this.adm.ChangePassw(json)
@@ -169,7 +169,7 @@ export class UserprofileComponent implements OnInit {
     var json = {
       "old_pwd":this.ChangepasswForm.value.old_pwd,
       "id":localStorage.getItem('id'),
-      // "username":localStorage.getItem('username')
+      "username":localStorage.getItem('username')
     }
     this.adm.ChangePassw(json)
     .subscribe(

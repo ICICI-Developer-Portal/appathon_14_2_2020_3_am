@@ -233,7 +233,7 @@ export class LoginService {
     //console.log(query);
     let headers = new Headers({
       "Content-Type": "application/x-www-form-urlencoded",
-      // "Token" : localStorage.getItem("jwt")
+      "Token" : localStorage.getItem("jwt")
     });
     let options = new RequestOptions({ headers: headers });
     return this.http.post(this.apiUrl + "profile_get", query, options);
@@ -250,7 +250,7 @@ export class LoginService {
     //console.log(query);
     let headers = new Headers({
       "Content-Type": "application/x-www-form-urlencoded",
-      // "Token" : localStorage.getItem("jwt")
+      "Token" : localStorage.getItem("jwt")
     });
     let options = new RequestOptions({ headers: headers });
     return this.http.post(this.apiUrl + "profile_set", query, options);
@@ -267,7 +267,7 @@ export class LoginService {
     }
     let headers = new Headers({
       "Content-Type": "application/x-www-form-urlencoded",
-      // "Token" : localStorage.getItem("jwt")
+      "Token" : localStorage.getItem("jwt")
     });
     let options = new RequestOptions({ headers: headers });
     return this.http.post(this.apiUrl + "password", query, options);
@@ -284,7 +284,7 @@ export class LoginService {
     }
     let headers = new Headers({
       "Content-Type": "application/x-www-form-urlencoded",
-      // "Token" : localStorage.getItem("jwt")
+      "Token" : localStorage.getItem("jwt")
     });
     let options = new RequestOptions({ headers: headers });
     return this.http.post(this.apiUrl + "chk_pass", query, options);
@@ -317,7 +317,7 @@ export class LoginService {
     }
     let headers = new Headers({
       "Content-Type": "application/x-www-form-urlencoded",
-      // "Token" : localStorage.getItem("jwt")
+      "Token" : localStorage.getItem("jwt")
     });
     let options = new RequestOptions({ headers: headers });
     return this.http.post(this.apiUrl + "my_applications", query, options);
@@ -350,7 +350,7 @@ export class LoginService {
     }
     let headers = new Headers({
       "Content-Type": "application/x-www-form-urlencoded",
-      // "Token" : localStorage.getItem("jwt")
+      "Token" : localStorage.getItem("jwt")
     });
     let options = new RequestOptions({ headers: headers });
     return this.http.post(this.apiUrl + "save_application", query, options);
@@ -365,7 +365,7 @@ export class LoginService {
     }
     let headers = new Headers({
       "Content-Type": "application/x-www-form-urlencoded",
-      // "Token" : localStorage.getItem("jwt")
+      "Token" : localStorage.getItem("jwt")
     });
     let options = new RequestOptions({ headers: headers });
     return this.http.post(this.apiUrl + "del_application", query, options);
@@ -410,7 +410,7 @@ export class LoginService {
     }
     let headers = new Headers({
       "Content-Type": "application/x-www-form-urlencoded",
-      // "Token" : localStorage.getItem("jwt")
+      "Token" : localStorage.getItem("jwt")
     });
     let options = new RequestOptions({ headers: headers });
     return this.http.post(this.apiUrl + "load-api-data", query, options);
@@ -419,56 +419,56 @@ export class LoginService {
 
   // Get error code of documentation page
 
-  error_code() {
-  // error_code(json) {
-    //console.log(json);
-    // var query = "";
-    // var key;
-    // for (key in json) {
-    //   query +=
-    //     encodeURIComponent(key) + "=" + encodeURIComponent(json[key]) + "&";
-    // }
-    // let headers = new Headers({
-    //   "Content-Type": "application/x-www-form-urlencoded",
-    //   "Token" : localStorage.getItem("jwt")
-    // });
-    // let options = new RequestOptions({ headers: headers });
-    // return this.http.post(this.apiUrl + "load-error-codes", query, options);
+  // error_code() {
+  error_code(json) {
+    console.log(json);
+    var query = "";
+    var key;
+    for (key in json) {
+      query +=
+        encodeURIComponent(key) + "=" + encodeURIComponent(json[key]) + "&";
+    }
     let headers = new Headers({
-      "Content-Type": "application/x-www-form-urlencoded"
+      "Content-Type": "application/x-www-form-urlencoded",
+      "Token" : localStorage.getItem("jwt")
     });
     let options = new RequestOptions({ headers: headers });
-    return this.http.post(this.apiUrl + "load-error-codes", {}, options);
+    return this.http.post(this.apiUrl + "load-error-codes", query, options);
+    // let headers = new Headers({
+    //   "Content-Type": "application/x-www-form-urlencoded"
+    // });
+    // let options = new RequestOptions({ headers: headers });
+    // return this.http.post(this.apiUrl + "load-error-codes", {}, options);
   }
 
   // Get sample packet data
 
   Sample_packet(data) {
-    let options = {
-      headers: new HttpHeaders().set(
-        "Content-Type",
-        "application/x-www-form-urlencoded"
-      )
-    };
-    let body = new URLSearchParams();
-    body.set("id", data["id"]);
+    // let options = {
+    //   headers: new HttpHeaders().set(
+    //     "Content-Type",
+    //     "application/x-www-form-urlencoded"
+    //   )
+    // };
+    // let body = new URLSearchParams();
+    // body.set("id", data["id"]);
     // console.log(body.toString());
-    // var query = "";
-    // var key;
-    // for (key in data) {
-    //   query +=
-    //     encodeURIComponent(key) + "=" + encodeURIComponent(data[key]) + "&";
-    // }
-    // let headers = new Headers({
-    //   "Content-Type": "application/x-www-form-urlencoded",
-    //   "Token" : localStorage.getItem("jwt")
-    // });
-    // let options = new RequestOptions({ headers: headers });
-    //  return this.http.post(
-     return this.HttpClient.post(
+    var query = "";
+    var key;
+    for (key in data) {
+      query +=
+        encodeURIComponent(key) + "=" + encodeURIComponent(data[key]) + "&";
+    }
+    let headers = new Headers({
+      "Content-Type": "application/x-www-form-urlencoded",
+      "Token" : localStorage.getItem("jwt")
+    });
+    let options = new RequestOptions({ headers: headers });
+     return this.http.post(
+    //  return this.HttpClient.post(
       this.apiUrl + "load-api-packet",
-       body.toString(),
-      // query,
+      //  body.toString(),
+       query,
       options
     );
   }
@@ -487,7 +487,7 @@ export class LoginService {
     var query = data;
     let headers = new Headers({
       "Content-Type": "application/json",
-      // "Token" : localStorage.getItem("jwt")
+      "Token" : localStorage.getItem("jwt")
     });
     let options = new RequestOptions({ headers: headers });
     return this.http.post(
@@ -497,9 +497,9 @@ export class LoginService {
     );
   }
   // Get All API Start
-  Get_All_API() {
-  // Get_All_API(json) {
-    var json = {};
+  // Get_All_API() {
+  Get_All_API(json) {
+    // var json = {};
     var key;
     var query = "";
     for (key in json) {
@@ -508,10 +508,11 @@ export class LoginService {
     }
     let headers = new Headers({
       "Content-Type": "application/x-www-form-urlencoded",
-      // "Token" : localStorage.getItem("jwt")
+      "Token" : localStorage.getItem("jwt")
     });
     let options = new RequestOptions({ headers: headers });
-    return this.http.post(this.apiUrl + "get-api-data-resp", {}, options);
+    return this.http.post(this.apiUrl + "get-api-data-resp", query, options);
+    // return this.http.post(this.apiUrl + "get-api-data-resp", {}, options);
   }
   // Get All API Start
 
@@ -567,7 +568,7 @@ export class LoginService {
     var query = "username=" + localStorage.getItem("username");
     let headers = new Headers({
       "Content-Type": "application/x-www-form-urlencoded",
-      // "Token" : localStorage.getItem("jwt")
+      "Token" : localStorage.getItem("jwt")
     });
     let options = new RequestOptions({ headers: headers });
     return this.http.post(this.apiUrl + "fetch-jiraid-v2", query, options);
@@ -577,7 +578,7 @@ export class LoginService {
     var query = "username=" + localStorage.getItem("username");
     let headers = new Headers({
       "Content-Type": "application/x-www-form-urlencoded",
-      // "Token" : localStorage.getItem("jwt")
+      "Token" : localStorage.getItem("jwt")
     });
     let options = new RequestOptions({ headers: headers });
     return this.http.post(this.apiUrl + "fetch-pending-jiraid", query, options);
@@ -596,7 +597,7 @@ export class LoginService {
     var query = "username=" + localStorage.getItem("username");
     let headers = new Headers({
       "Content-Type": "application/x-www-form-urlencoded",
-      // "Token" : localStorage.getItem("jwt")
+      "Token" : localStorage.getItem("jwt")
     });
     let options = new RequestOptions({ headers: headers });
     return this.http.post(
@@ -615,7 +616,7 @@ export class LoginService {
     }
     let headers = new Headers({
       "Content-Type": "application/x-www-form-urlencoded",
-      // "Token" : localStorage.getItem("jwt")
+      "Token" : localStorage.getItem("jwt")
     });
     let options = new RequestOptions({ headers: headers });
     return this.http.post(
@@ -629,7 +630,7 @@ export class LoginService {
     var query = "username=" + username;
     let headers = new Headers({
       "Content-Type": "application/x-www-form-urlencoded",
-      // "Token" : localStorage.getItem("jwt")
+      "Token" : localStorage.getItem("jwt")
     });
     let options = new RequestOptions({ headers: headers });
     return this.http.post(this.apiUrl + "has-admin-access", query, options);
@@ -665,7 +666,7 @@ export class LoginService {
     var query = filePath;
     let headers = new Headers({
       "Content-Type": "application/octet-stream",
-      // "Token" : localStorage.getItem("jwt")
+      "Token" : localStorage.getItem("jwt")
     });
 
     let options = new RequestOptions({ headers: headers });

@@ -172,7 +172,7 @@ export class ApplicationComponent implements OnInit {
   GetApplList(){ 
         var json={ 
           "id":localStorage.getItem('id'),
-          // "username": localStorage.getItem('username')
+          "username": localStorage.getItem('username')
         }
         this.adm.applicationList(json)
       .subscribe(
@@ -299,7 +299,7 @@ saveAddAppl_Edit(call_back_url:any,scope:any){
     "apis":  obj.toString(), 
     //"app_id": this.AuthForm.value.app_id 
     "app_id":this.App_id,
-    // "username":localStorage.getItem('username')
+    "username":localStorage.getItem('username')
   }
 
    this.adm.saveAddAppl(json)
@@ -370,7 +370,7 @@ saveAddAppl(call_back_url:any,scope:any){
     "auth_type":this.auth_type,
     "apis":  obj.join(", "), 
     "app_id": 0,
-    // "username":localStorage.getItem('username')
+    "username":localStorage.getItem('username')
   }
    this.adm.saveAddAppl(json)
    .subscribe(
@@ -463,7 +463,7 @@ saveTab2(selecteddata:any=[])
     var json={
               //"id": localStorage.getItem('id'), 
               "app_id":App_id,
-              // "username":localStorage.getItem('username')
+              "username":localStorage.getItem('username')
             } 
      this.adm.deleteApp(json)
      .subscribe(

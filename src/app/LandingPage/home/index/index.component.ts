@@ -667,6 +667,10 @@ export class IndexComponent implements OnInit {
   }
 
   Login(username: any, password: any) {
+    var nonEncodedJson = {
+      username : username,
+      password : password
+    };
     this.isusername = false;
     this.issetpwd = false;
     this.is_res_error = false;
@@ -697,7 +701,7 @@ export class IndexComponent implements OnInit {
         localStorage.setItem("role", "user");
         localStorage.setItem("jwt",obj.jwttoken)
         this.adm.sendUserId(obj.data.id);
-        this.adm.LoginPortal(json).subscribe(
+        this.adm.LoginPortal(nonEncodedJson).subscribe(
           res => {
             this.router.navigate(["/index"]);
           },
@@ -1303,7 +1307,7 @@ export class IndexComponent implements OnInit {
     console.log("id array", this.idArr);
     var json = {
       ID: this.idArr,
-      // "username":localStorage.getItem('username')
+      "username":localStorage.getItem('username')
     };
     console.log("json", json);
     this.adm.getUATFromData(json).subscribe((data: any) => {
@@ -1633,27 +1637,27 @@ export class IndexComponent implements OnInit {
     this.list = [];
 
     let username = localStorage.getItem("username");
-    const headers = new HttpHeaders().set(
-      "Content-Type",
-      "application/x-www-form-urlencoded"
-    );
+    // const headers = new HttpHeaders().set(
+    //   "Content-Type",
+    //   "application/x-www-form-urlencoded"
+    // );
 
-    let options = {
-      method: "POST",
-      headers: new HttpHeaders().set(
-        "Content-Type",
-        "application/x-www-form-urlencoded"
-      )
-    };
-    // let headers = new Headers({
-    //   "Content-Type": "application/x-www-form-urlencoded",
-    //   "Token" : localStorage.getItem("jwt")
-    // });
-    // let options = new RequestOptions({ headers: headers });
+    // let options = {
+    //   method: "POST",
+    //   headers: new HttpHeaders().set(
+    //     "Content-Type",
+    //     "application/x-www-form-urlencoded"
+    //   )
+    // };
+    let headers = new Headers({
+      "Content-Type": "application/x-www-form-urlencoded",
+      "Token" : localStorage.getItem("jwt")
+    });
+    let options = new RequestOptions({ headers: headers });
 
     let body = new URLSearchParams();
     body.set("username", username);
-    this.HttpClient.post(
+    this.http.post(
     // this.http.post(
       "https://developer.icicibank.com/rest/fetch-jiraid",
       body.toString(),

@@ -439,7 +439,7 @@ export class AppathonDashboardComponent implements OnInit {
   downloadBtn(url) {
     var json = {
       filePath: url,
-      // "username":localStorage.getItem('username')
+      "username":localStorage.getItem('username')
     };
 
     var fileName = url.substring(url.lastIndexOf("/") + 1);

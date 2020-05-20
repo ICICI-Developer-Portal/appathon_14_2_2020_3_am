@@ -31,7 +31,7 @@ export class AppathonService {
     var query = 'username=' + userName;
     let headers = new Headers({
       'Content-Type': 'application/x-www-form-urlencoded',
-      // "Token" : localStorage.getItem("jwt")
+      "Token" : localStorage.getItem("jwt")
     });
     let options = new RequestOptions({ headers: headers });
     return this.http.post(this.apiUrl + 'fetch_appathon_details', query, options);
@@ -47,7 +47,7 @@ export class AppathonService {
     }
     let headers = new Headers({
       'Content-Type': 'application/x-www-form-urlencoded',
-      // "Token" : localStorage.getItem("jwt")
+      "Token" : localStorage.getItem("jwt")
     });
     let options = new RequestOptions({ headers: headers });
     return this.http.post(this.apiUrl + 'update_appathon_details', query, options);
