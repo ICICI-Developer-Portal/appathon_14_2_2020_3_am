@@ -415,6 +415,7 @@ export class LoginService {
     let options = new RequestOptions({ headers: headers });
     return this.http.post(this.apiUrl + "load-api-data", query, options);
     //return this.http.get(this.apiUrl+'load-api-data'+json);
+    // "https://thingproxy.freeboard.io/fetch/"+
   }
 
   // Get error code of documentation page
@@ -434,6 +435,7 @@ export class LoginService {
     });
     let options = new RequestOptions({ headers: headers });
     return this.http.post(this.apiUrl + "load-error-codes", query, options);
+    // "https://thingproxy.freeboard.io/fetch/"+
     // let headers = new Headers({
     //   "Content-Type": "application/x-www-form-urlencoded"
     // });
@@ -471,6 +473,7 @@ export class LoginService {
        query,
       options
     );
+    // "https://thingproxy.freeboard.io/fetch/"+
   }
 
   //merchant-onboarding Strat
@@ -487,7 +490,8 @@ export class LoginService {
     var query = data;
     let headers = new Headers({
       "Content-Type": "application/json",
-      "Token" : localStorage.getItem("jwt")
+      "Token" : localStorage.getItem("jwt"),
+      "username":localStorage.getItem('username')
     });
     let options = new RequestOptions({ headers: headers });
     return this.http.post(

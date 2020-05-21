@@ -1307,7 +1307,6 @@ export class IndexComponent implements OnInit {
     console.log("id array", this.idArr);
     var json = {
       ID: this.idArr,
-      "username":localStorage.getItem('username')
     };
     console.log("json", json);
     this.adm.getUATFromData(json).subscribe((data: any) => {
