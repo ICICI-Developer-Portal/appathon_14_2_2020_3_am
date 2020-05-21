@@ -134,9 +134,8 @@ Sample_packet(){
   this.adm.Sample_packet(json)
   .subscribe(
     (data:any) => {
-      this.sampleobj2  = data.data;
+      this.sampleobj2  = data._body;
       this.ParseData(this.sampleobj2);
-
       $('ul.toggleTabs li').removeClass('active');
     $('ul.toggleTabs li a').removeClass('active');
     $('ul.toggleTabs li a').removeClass('show');
@@ -170,8 +169,9 @@ Sample_packet(){
   //reqPkt = '{"some":"json"}';
   //reqPkt = '<root><node/></root>';
   //reqPkt = 'This is plain text packet';
+  reqPkt = JSON.parse(reqPkt)
   try {
-    prettyPkt = JSON.stringify(JSON.parse(reqPkt),null,2);
+    prettyPkt = JSON.stringify(JSON.parse(reqPkt.data),null,2);
    
   }
   catch(err) {

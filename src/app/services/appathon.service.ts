@@ -27,8 +27,14 @@ export class AppathonService {
     this.apiUrl = config.apiUrl;
   }
 
-  fetchAppathonDetails(userName) {
-    var query = 'username=' + userName;
+  fetchAppathonDetails(data) {
+    // var query = 'username=' + userName;
+    var key;
+    var query = '';
+    for (key in data) {
+      query +=
+        encodeURIComponent(key) + '=' + encodeURIComponent(data[key]) + '&';
+    }
     let headers = new Headers({
       'Content-Type': 'application/x-www-form-urlencoded',
       "Token" : localStorage.getItem("jwt")

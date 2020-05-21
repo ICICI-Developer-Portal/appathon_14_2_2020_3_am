@@ -233,8 +233,11 @@ export class AppathonDashboardComponent implements OnInit {
 
   //get appathon data
   getAppathonDetails() {
-    let userName = localStorage.getItem("appathonusername");
-    this.appathonService.fetchAppathonDetails(userName).subscribe(
+    var json={
+      userName : localStorage.getItem("appathonusername"),
+      user: localStorage.getItem("username")
+    } 
+    this.appathonService.fetchAppathonDetails(json).subscribe(
       (data: any) => {
         let response = JSON.parse(data._body);
         if (response.status) {
