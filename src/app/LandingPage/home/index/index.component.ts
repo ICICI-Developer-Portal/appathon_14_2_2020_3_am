@@ -1070,51 +1070,51 @@ export class IndexComponent implements OnInit {
     },);
   }
 
-  callSubdomain(value) {
-    console.log("doamin name", value);
+  // callSubdomain(value) {
+  //   console.log("doamin name", value);
 
-    if (value != "") {
-      this.adm.domain_and_apis().subscribe((data: any) => {
-        console.log("get treedata", data);
-        var obj = JSON.parse(data._body);
-        console.log("obj", obj);
-        var subdomain = [];
-        for (var i in obj) {
-          if (obj[i].domain == value) {
-            for (var j in obj[i].sub_domain) {
-              subdomain.push(obj[i].sub_domain[j]);
-            }
-          }
-        }
-        this.drpHide = true;
-        let dt = [];
+  //   if (value != "") {
+  //     this.adm.domain_and_apis().subscribe((data: any) => {
+  //       console.log("get treedata", data);
+  //       var obj = JSON.parse(data._body);
+  //       console.log("obj", obj);
+  //       var subdomain = [];
+  //       for (var i in obj) {
+  //         if (obj[i].domain == value) {
+  //           for (var j in obj[i].sub_domain) {
+  //             subdomain.push(obj[i].sub_domain[j]);
+  //           }
+  //         }
+  //       }
+  //       this.drpHide = true;
+  //       let dt = [];
 
-        this.subdomainlst = subdomain;
-        console.log(this.subdomainlst);
-        for (let j in this.subdomainlst) {
-          let d = this.subdomainlst[j];
-          console.log("d", d);
-          for (let k in d["api"]) {
-            dt.push({
-              id: d["api"][k]["ApiId"],
-              itemName: d["api"][k]["name"],
-              category: d["name"]
-            });
-          }
-        }
-        this.objOnB.txtSubDomain = [];
-        this.itemList = dt;
-        console.log(this.itemList);
-      },
-      err => {
-        console.log('err', err);
-        this.router.navigate(['error']);
-      },);
-    } else {
-      this.drpHide = false;
-      this.toastrmsg("error", "Please select correct domain type.");
-    }
-  }
+  //       this.subdomainlst = subdomain;
+  //       console.log(this.subdomainlst);
+  //       for (let j in this.subdomainlst) {
+  //         let d = this.subdomainlst[j];
+  //         console.log("d", d);
+  //         for (let k in d["api"]) {
+  //           dt.push({
+  //             id: d["api"][k]["ApiId"],
+  //             itemName: d["api"][k]["name"],
+  //             category: d["name"]
+  //           });
+  //         }
+  //       }
+  //       this.objOnB.txtSubDomain = [];
+  //       this.itemList = dt;
+  //       console.log(this.itemList);
+  //     },
+  //     err => {
+  //       console.log('err', err);
+  //       this.router.navigate(['error']);
+  //     },);
+  //   } else {
+  //     this.drpHide = false;
+  //     this.toastrmsg("error", "Please select correct domain type.");
+  //   }
+  // }
   onItemSelect(item: any) {
     if (item.id) {
       this.idArr.push(item.id);

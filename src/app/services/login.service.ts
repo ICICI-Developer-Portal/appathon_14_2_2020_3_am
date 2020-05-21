@@ -587,7 +587,8 @@ export class LoginService {
   approvals() {
     var query = "username=" + localStorage.getItem("username");
     let headers = new Headers({
-      "Content-Type": "application/x-www-form-urlencoded"
+      "Content-Type": "application/x-www-form-urlencoded",
+      "Token" : localStorage.getItem("jwt")
     });
     let options = new RequestOptions({ headers: headers });
     return this.http.post(this.apiUrl + "fetch-jiraid-v2", query, options);
