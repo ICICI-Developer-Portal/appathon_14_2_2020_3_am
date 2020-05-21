@@ -24,7 +24,6 @@ const routes: Routes = [
   {
     path: 'error',
     component: ErrorPageComponent,
-    canActivate: [AuthGuard],
   },
   {
     path: "admin",
