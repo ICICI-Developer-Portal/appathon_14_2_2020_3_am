@@ -171,7 +171,7 @@ export class IndexComponent implements OnInit {
   amount: boolean = false;
   catArr: any = [];
   internalArr: any = [];
-  treeElements: any;
+  treeElementsCheck: any;
   selectednode: any = [];
   interval_Check: any;
   companyNamesDetails: any;
@@ -279,18 +279,18 @@ export class IndexComponent implements OnInit {
     this.modalRef2.hide();
     this.router.navigate(["/appathon/landing-page"]);
   }
-  assignClickToNodes() {
+  assignClickToNodesCheck() {
     var self = this;
-    $('.sideMenu>.nav-pills li.nav-link').off('click');
+    $('.leftTree>.nav-pills li.nav-link').off('click');
 
-    $('.sideMenu>.nav-pills li.nav-link').click(function () {
+    $('.leftTree>.nav-pills li.nav-link').click(function () {
       $(this)
         .siblings('.active')
         .removeClass('active');
       $(this).addClass('active');
     });
 
-    $('.sideMenu>.nav-pills>li.nav-link a').click(function () {
+    $('.leftTree>.nav-pills>li.nav-link a').click(function () {
       $(this)
         .parent()
         .siblings('.openDropdown')
@@ -300,22 +300,22 @@ export class IndexComponent implements OnInit {
         .toggleClass('openDropdown');
     });
 
-    $('.sideMenu .openDropdown.active').click(function () {
+    $('.leftTree .openDropdown.active').click(function () {
       $(this).toggleClass('openDropdown');
     });
 
-    $('.sideMenu .nav-pills-first-level>li.nav-link').click(function () {
+    $('.leftTree .nav-pills-first-level>li.nav-link').click(function () {
       $(this)
         .siblings('.active')
         .removeClass('active');
       $(this).addClass('active');
     });
 
-    $('.sideMenu .nav-pills-first-level>li.nav-link a').click(function () {
+    $('.leftTree .nav-pills-first-level>li.nav-link a').click(function () {
       $(this).removeClass('active show');
     });
 
-    $('.sideMenu .nav-pills-second-level>li.nav-link').click(function () {
+    $('.leftTree .nav-pills-second-level>li.nav-link').click(function () {
       $(this).toggleClass('openDropdown');
       $(this).addClass('active');
       $(this)
@@ -323,7 +323,7 @@ export class IndexComponent implements OnInit {
         .removeClass('openDropdown active');
     });
 
-    $('.sideMenu .nav-pills-second-level>li.nav-link a').click(function () {
+    $('.leftTree .nav-pills-second-level>li.nav-link a').click(function () {
       $(this).removeClass('active show');
     });
 
@@ -348,7 +348,7 @@ export class IndexComponent implements OnInit {
     //for dynamic data click event handle
     $(document)
       .off('click')
-      .on('click', '.tree-node', function (e) {
+      .on('click', '.check-tree-node', function (e) {
         $(".containercb").append(`<input type="checkbox" class="check"/>` + `<span class="checkmark">` + `</span>`);
          var nodeName = $(this).attr('value');       
         this.selectedId = $(this).attr('role');
@@ -392,7 +392,7 @@ export class IndexComponent implements OnInit {
    */
 
   createTreeAndJquery() {
-    this.treeElements = this.createTree();
+    this.treeElementsCheck = this.createTree();
     // setInterval(() => {
     //   this.assignClickToNodes();
     // }, 1000);
@@ -407,15 +407,15 @@ export class IndexComponent implements OnInit {
       ` <li class="nav-link">` +
       `<ul class="collapse nav-pills-first-level submenuLevelOneUat list-unstyled">` +
       `<li class="nav-link">` +
-      `<a id="v-pills-List-Customer-Accounts-tab" class="tree-node" role="tab_api_1" data-toggle="pill" aria-selected="false" >Encryption` +
+      `<a id="v-pills-List-Customer-Accounts-tab" class="check-tree-node" role="tab_api_1" data-toggle="pill" aria-selected="false" >Encryption` +
       `</a>` +
       `</li>` +
       `<li class="nav-link">` +
-      `<a id="v-pills-List-Customer-Accounts-tab" class="tree-node" role="tab_api_2" data-toggle="pill" aria-selected="false" >Test API` +
+      `<a id="v-pills-List-Customer-Accounts-tab" class="check-tree-node" role="tab_api_2" data-toggle="pill" aria-selected="false" >Test API` +
       `</a>` +
       `</li>` +
       `<li class="nav-link">` +
-      `<a id="v-pills-List-Customer-Accounts-tab" class="tree-node" role="tab_api_3" data-toggle="pill"  aria-selected="false" >` +
+      `<a id="v-pills-List-Customer-Accounts-tab" class="check-tree-node" role="tab_api_3" data-toggle="pill"  aria-selected="false" >` +
       `Decryption` +
       `</a>` +
       `</li>` +
@@ -425,7 +425,7 @@ export class IndexComponent implements OnInit {
       if (this.treeData[i].CHILD_COUNT !== '0') {
         this.treeItems +=
           `<li class="nav-link">` +
-          `<a id="v-pills-messages-tab" class="tree-node" data-toggle="pill" value="${this.treeData[i].TAB_NAME}" role="tab_${this.treeData[i].TYPE}_${this.treeData[i].TREE_ID}" aria-controls="v-pills-home" aria-selected="true">` +
+          `<a id="v-pills-messages-tab" class="check-tree-node" data-toggle="pill" value="${this.treeData[i].TAB_NAME}" role="tab_${this.treeData[i].TYPE}_${this.treeData[i].TREE_ID}" aria-controls="v-pills-home" aria-selected="true">` +
           `${this.treeData[i].TAB_NAME}` +
           `<img class="dropdownIcon" src="assets/images/dropdown-2.svg" alt=""/>` +
           `</a>`;
@@ -440,7 +440,7 @@ export class IndexComponent implements OnInit {
       } else {
         this.treeItems +=
           `<li class="nav-link">` +
-          `<a id="v-pills-messages-tab" class="tree-node" data-toggle="pill" value="${this.treeData[i].TAB_NAME}"  role="tab_${this.treeData[i].TYPE}_${this.treeData[i].API_ID}" aria-controls="v-pills-home" aria-selected="true">` +
+          `<a id="v-pills-messages-tab" class="check-tree-node" data-toggle="pill" value="${this.treeData[i].TAB_NAME}"  role="tab_${this.treeData[i].TYPE}_${this.treeData[i].API_ID}" aria-controls="v-pills-home" aria-selected="true">` +
           `${this.treeData[i].TAB_NAME}` +
           `</a>`;
       }
@@ -474,7 +474,7 @@ export class IndexComponent implements OnInit {
       if (childrenArr[i].CHILD_COUNT !== '0') {
         this.treeItems +=
           `<li class="nav-link">` +
-          `<a id="v-pills-messages-tab" class="tree-node" data-toggle="pill" value="${childrenArr[i].TAB_NAME}" role="tab_${childrenArr[i].TYPE}_${childrenArr[i].TREE_ID}" aria-controls="v-pills-home" aria-selected="true">` +
+          `<a id="v-pills-messages-tab" class="check-tree-node" data-toggle="pill" value="${childrenArr[i].TAB_NAME}" role="tab_${childrenArr[i].TYPE}_${childrenArr[i].TREE_ID}" aria-controls="v-pills-home" aria-selected="true">` +
           `${childrenArr[i].TAB_NAME}` +
           `<img class="dropdownIcon" src="assets/images/dropdown-2.svg" alt="" />` +
           `</a>`;
@@ -487,7 +487,7 @@ export class IndexComponent implements OnInit {
       } else {
         this.treeItems +=
           `<li class="nav-link">` + `<label class="checkboxContainer"><div class="containercb" value="${childrenArr[i].TAB_NAME}" role="${childrenArr[i].API_ID}"></div>` +
-          `<a id="v-pills-messages-tab" class="tree-node" data-toggle="pill" role="tab_${childrenArr[i].TYPE}_${childrenArr[i].API_ID}" aria-controls="v-pills-home" aria-selected="true">` +
+          `<a id="v-pills-messages-tab" class="check-tree-node" data-toggle="pill" role="tab_${childrenArr[i].TYPE}_${childrenArr[i].API_ID}" aria-controls="v-pills-home" aria-selected="true">` +
           `${childrenArr[i].TAB_NAME}` +
           `</a>` +
           `</label>`;
@@ -1204,7 +1204,7 @@ export class IndexComponent implements OnInit {
   checkInterval() {
     var counter2 = 0;
     this.interval_Check = setInterval(() => {
-      this.assignClickToNodes();
+      this.assignClickToNodesCheck();
       counter2 = counter2 + 1;
       console.log(counter2)
       if (counter2 === 1) {

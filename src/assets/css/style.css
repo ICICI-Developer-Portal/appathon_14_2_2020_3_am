@@ -3399,3 +3399,64 @@ align-self: center;
 .mt4{
   margin-top: 4% !important;
 }
+.leftTree .nav-pills .nav-link a {
+  font-family: Poppins-Medium;
+  padding: 16px 12px 16px 24px;
+  border-top: 1px solid #ececec;
+  border-radius: 0px;
+  width: 100%;
+  color: #919191;
+  display: block;
+  text-decoration: none;
+  }
+  /* .leftTree .nav-pills .nav-link a.active{
+  color: #ae282e;
+  } */
+  .leftTree .nav-pills .nav-link a:focus {
+  outline: none;
+  }
+  .leftTree .nav-pills .nav-link.active > a {
+  background: none;
+  color: #ae282e;
+  }
+  .leftTree {
+    width: 300px;
+    z-index: 1;
+    box-shadow: 5px 5px 20px 0 rgba(0, 0, 0, 0.08);
+    position: fixed;
+    height: calc(100vh - 96px);
+    overflow: auto;
+    }
+    .leftTree nav > ul > li {
+    padding: 18px 12px 18px 24px;
+    border-bottom: 1px solid #ececec;
+    }
+    .leftTree nav > ul > li > a {
+    font-size: 14px;
+    color: #757575;
+    text-decoration: none;
+    font-weight: 500;
+    font-family: Poppins-Medium;
+    }
+    #pills-account .leftTree .nav-link {
+    position: relative;
+    width: 100%;
+    }
+    #pills-account .leftTree .nav-link a {
+    padding-left: 45px;
+    border-top: none;
+    border-bottom: 1px solid #ececec;
+    }
+    #pills-account .leftTree .nav-link i {
+    position: absolute;
+    font-size: 14px;
+    left: 24px;
+    top: 19px;
+    }
+    #pills-account .leftTree .nav-link:first-child {
+    margin-top: 5px;
+    border-top: none;
+    }
+    .check-tree-node {
+      cursor: pointer !important;
+      }

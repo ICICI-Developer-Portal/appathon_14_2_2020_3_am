@@ -44,13 +44,13 @@ export class SidebarComponent implements OnInit {
             .addClass("active")
             .addClass("openDropdown");
         });
-      }
-      counter2 = counter2 + 1;
+        counter2 = counter2 + 1;
       console.log(counter2)
       if (counter2 === 1) {
         clearInterval(check);
       }
       counter2 = 0;
+      }
     }, 1000);
   }
 
