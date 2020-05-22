@@ -1277,6 +1277,8 @@ export class IndexComponent implements OnInit {
     this.objOnB.Acc_mode = ''
     this.objOnB.Acc_trans = ''
     this.objOnB.Acc_amount = ''
+    localStorage.removeItem("nodeName");
+    localStorage.removeItem("nodeValue");
     this.modalRef4.hide();
   }
 

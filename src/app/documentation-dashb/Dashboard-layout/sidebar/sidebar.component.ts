@@ -31,8 +31,9 @@ export class SidebarComponent implements OnInit {
     private router: Router,
     private dashboardService: DashboardService
   ) {
+    var counter2 = 0;
     //on load introduction active
-    setInterval(() => {
+    var check = setInterval(() => {
       if (this.router.url === "/documentation") {
         $(document).ready(function() {
           $(".sideMenu>.nav-pills li.nav-link")
@@ -44,6 +45,12 @@ export class SidebarComponent implements OnInit {
             .addClass("openDropdown");
         });
       }
+      counter2 = counter2 + 1;
+      console.log(counter2)
+      if (counter2 === 1) {
+        clearInterval(check);
+      }
+      counter2 = 0;
     }, 1000);
   }
 
@@ -65,7 +72,7 @@ export class SidebarComponent implements OnInit {
    */
   assignClickToNodes() {
     var self = this;
-    //$('.sideMenu>.nav-pills li.nav-link').unbind('click');
+    $('.sideMenu>.nav-pills li.nav-link').off('click');
 
     $(".sideMenu>.nav-pills li.nav-link").click(function() {
       $(this)
