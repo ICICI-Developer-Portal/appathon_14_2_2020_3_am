@@ -6,10 +6,9 @@ import { Component, OnInit } from '@angular/core';
   // styleUrls: ['./error-page.component.css']
 })
 export class ErrorPageComponent implements OnInit {
-
+emailstring:any;
   constructor() { }
-
   ngOnInit() {
+   this.emailstring= "mailto:apibanking@icicibank.com?subject=API Banking Developer Portal || Service Failure";
   }
-
 }
