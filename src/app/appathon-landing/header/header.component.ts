@@ -115,7 +115,7 @@ export class HeaderComponent implements OnInit {
       this.appathonCompanyName = localStorage.getItem("appathonCompanyName");
       this.appathonUserName = localStorage.getItem("appathonUserName");
     });
-    this.get_domain_and_apis();
+    // this.get_domain_and_apis();
   }
 
   ngOnInit() {
@@ -302,6 +302,7 @@ export class HeaderComponent implements OnInit {
   }
 
   openModal2(signup: TemplateRef<any>) {
+    this.get_domain_and_apis();
     this.modalRef2 = this.modalService.show(signup, { backdrop: "static" });
     try {
       this.modalRef.hide();

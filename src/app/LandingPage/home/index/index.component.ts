@@ -25,6 +25,7 @@ import { PATTERNS } from "config/regex-pattern";
 import { DashboardService } from "src/app/services/dashboard.service";
 import { DomSanitizer } from '@angular/platform-browser';
 import { analyzeAndValidateNgModules } from '@angular/compiler';
+import { environment } from "src/environments/environment";
 declare var $: any;
 @Component({
   selector: "app-index",
@@ -203,7 +204,7 @@ export class IndexComponent implements OnInit {
 
   ngOnInit() {
     var self = this;
-    this.getMenuTree();
+    // this.getMenuTree();
     //api for get menu tree data
     // this.dashboardService.getMenuTreeData().subscribe((data: any) => {
     //   this.responseData = JSON.parse(data._body);
@@ -272,7 +273,7 @@ export class IndexComponent implements OnInit {
     this.frmProd_A2 = true;
     this.frmProd_A3 = true;
 
-    this.get_domain_and_apis();
+    // this.get_domain_and_apis();
   }
 
   appathonReg() {
@@ -1055,20 +1056,20 @@ export class IndexComponent implements OnInit {
     }
   }
 
-  get_domain_and_apis() {
-    this.adm.domain_and_apis().subscribe((data: any) => {
-      var obj = JSON.parse(data._body);
-      var domain = [];
-      for (var i in obj) {
-        domain.push(obj[i].domain);
-      }
-      this.domainLst = domain;
-    },
-    err => {
-      console.log('err', err);
-      this.router.navigate(['error']);
-    },);
-  }
+  // get_domain_and_apis() {
+  //   this.adm.domain_and_apis().subscribe((data: any) => {
+  //     var obj = JSON.parse(data._body);
+  //     var domain = [];
+  //     for (var i in obj) {
+  //       domain.push(obj[i].domain);
+  //     }
+  //     this.domainLst = domain;
+  //   },
+  //   err => {
+  //     console.log('err', err);
+  //     this.router.navigate(['error']);
+  //   },);
+  // }
 
   // callSubdomain(value) {
   //   console.log("doamin name", value);
@@ -1609,6 +1610,7 @@ export class IndexComponent implements OnInit {
     this.router.navigate(["/index"]);
   }
   get_onboardUAT(UAT, signin) {
+    this.getMenuTree();
     if (localStorage.getItem("id") != null) {
       this.modalRef4 = this.modalService.show(UAT, { backdrop: "static" });
     } else {
@@ -1660,7 +1662,7 @@ export class IndexComponent implements OnInit {
     body.set("username", username);
     this.http.post(
     // this.http.post(
-      "https://developer.icicibank.com/rest/fetch-jiraid",
+      environment.url+"https://developer.icicibank.com/rest/fetch-jiraid",
       body.toString(),
       options
     ).subscribe(
@@ -1779,6 +1781,7 @@ export class IndexComponent implements OnInit {
       ips: this.edit_data["whitelistIpInputModal"],
       callbackUrl: this.edit_data["CallbackUrl"],
       file2: this.edit_data.file2,
+      // file1: "",
       jiraRefId: this.JiraIdnew
     };
 
@@ -1801,6 +1804,7 @@ export class IndexComponent implements OnInit {
     let a: any = (<HTMLInputElement>document.getElementById("file2")).files;
     for (let k = 0; k < a.length; k++) {
       formData.append("file2", a[k]);
+      // formData.append("file1", a[k]);
     }
     formData.append("jiraRefId", this.JiraIdnew);
     //console.log(formData);

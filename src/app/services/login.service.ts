@@ -14,7 +14,7 @@ import { Alert } from "selenium-webdriver";
 
 import { Observable, fromEvent, merge, of, Subject, Subscription } from "rxjs";
 import { timeout, catchError, map, mapTo } from "rxjs/operators";
-
+import { environment } from "src/environments/environment";
 @Injectable()
 export class LoginService {
   apiUrl: string;
@@ -236,7 +236,7 @@ export class LoginService {
       "Token" : localStorage.getItem("jwt")
     });
     let options = new RequestOptions({ headers: headers });
-    return this.http.post(this.apiUrl + "profile_get", query, options);
+    return this.http.post(environment.url+this.apiUrl + "profile_get", query, options);
   }
   // End region
   // Save User profile
@@ -253,7 +253,7 @@ export class LoginService {
       "Token" : localStorage.getItem("jwt")
     });
     let options = new RequestOptions({ headers: headers });
-    return this.http.post(this.apiUrl + "profile_set", query, options);
+    return this.http.post(environment.url+this.apiUrl + "profile_set", query, options);
   }
   // End region
 
@@ -270,7 +270,7 @@ export class LoginService {
       "Token" : localStorage.getItem("jwt")
     });
     let options = new RequestOptions({ headers: headers });
-    return this.http.post(this.apiUrl + "password", query, options);
+    return this.http.post(environment.url+this.apiUrl + "password", query, options);
   }
   // End region
 
@@ -287,7 +287,7 @@ export class LoginService {
       "Token" : localStorage.getItem("jwt")
     });
     let options = new RequestOptions({ headers: headers });
-    return this.http.post(this.apiUrl + "chk_pass", query, options);
+    return this.http.post(environment.url+this.apiUrl + "chk_pass", query, options);
   }
   // End region
 
@@ -320,7 +320,7 @@ export class LoginService {
       "Token" : localStorage.getItem("jwt")
     });
     let options = new RequestOptions({ headers: headers });
-    return this.http.post(this.apiUrl + "my_applications", query, options);
+    return this.http.post(environment.url+this.apiUrl + "my_applications", query, options);
   }
   // End region
 
@@ -337,7 +337,7 @@ export class LoginService {
       "Token" : localStorage.getItem("jwt"),
     });
     let options = new RequestOptions({ headers: headers });
-    return this.http.post(this.apiUrl + "get_application", query, options);
+    return this.http.post(environment.url+this.apiUrl + "get_application", query, options);
   }
   // End region
 
@@ -353,7 +353,7 @@ export class LoginService {
       "Token" : localStorage.getItem("jwt")
     });
     let options = new RequestOptions({ headers: headers });
-    return this.http.post(this.apiUrl + "save_application", query, options);
+    return this.http.post(environment.url+this.apiUrl + "save_application", query, options);
   }
 
   deleteApp(json) {
@@ -368,7 +368,7 @@ export class LoginService {
       "Token" : localStorage.getItem("jwt")
     });
     let options = new RequestOptions({ headers: headers });
-    return this.http.post(this.apiUrl + "del_application", query, options);
+    return this.http.post(environment.url+this.apiUrl + "del_application", query, options);
   }
 
   Exists_Email(json) {
@@ -413,7 +413,7 @@ export class LoginService {
       "Token" : localStorage.getItem("jwt")
     });
     let options = new RequestOptions({ headers: headers });
-    return this.http.post(this.apiUrl + "load-api-data", query, options);
+    return this.http.post(environment.url+this.apiUrl + "load-api-data", query, options);
     //return this.http.get(this.apiUrl+'load-api-data'+json);
     // "https://thingproxy.freeboard.io/fetch/"+
   }
@@ -434,7 +434,7 @@ export class LoginService {
       "Token" : localStorage.getItem("jwt")
     });
     let options = new RequestOptions({ headers: headers });
-    return this.http.post(this.apiUrl + "load-error-codes", query, options);
+    return this.http.post(environment.url+this.apiUrl + "load-error-codes", query, options);
     // "https://thingproxy.freeboard.io/fetch/"+
     // let headers = new Headers({
     //   "Content-Type": "application/x-www-form-urlencoded"
@@ -466,7 +466,7 @@ export class LoginService {
       "Token" : localStorage.getItem("jwt")
     });
     let options = new RequestOptions({ headers: headers });
-     return this.http.post(
+     return this.http.post(environment.url+
     //  return this.HttpClient.post(
       this.apiUrl + "load-api-packet",
       //  body.toString(),
@@ -494,7 +494,7 @@ export class LoginService {
       "username":localStorage.getItem('username')
     });
     let options = new RequestOptions({ headers: headers });
-    return this.http.post(
+    return this.http.post(environment.url+
       "https://developer.icicibank.com/rest/getAdditionalParameters",
       query,
       options
@@ -515,7 +515,7 @@ export class LoginService {
       "Token" : localStorage.getItem("jwt")
     });
     let options = new RequestOptions({ headers: headers });
-    return this.http.post(this.apiUrl + "get-api-data-resp", query, options);
+    return this.http.post(environment.url+this.apiUrl + "get-api-data-resp", query, options);
     // return this.http.post(this.apiUrl + "get-api-data-resp", {}, options);
   }
   // Get All API Start
@@ -565,7 +565,7 @@ export class LoginService {
       "Content-Type": "application/x-www-form-urlencoded"
     });
     let options = new RequestOptions({ headers: headers });
-    return this.http.post(this.apiUrl + "reset_password", query, options);
+    return this.http.post(environment.url+this.apiUrl + "reset_password", query, options);
   }
 
   Onboardrequestsuser() {
@@ -575,7 +575,7 @@ export class LoginService {
       "Token" : localStorage.getItem("jwt")
     });
     let options = new RequestOptions({ headers: headers });
-    return this.http.post(this.apiUrl + "fetch-jiraid-v2", query, options);
+    return this.http.post(environment.url+this.apiUrl + "fetch-jiraid-v2", query, options);
   }
 
   Onboardrequests() {
@@ -585,7 +585,7 @@ export class LoginService {
       "Token" : localStorage.getItem("jwt")
     });
     let options = new RequestOptions({ headers: headers });
-    return this.http.post(this.apiUrl + "fetch-pending-jiraid", query, options);
+    return this.http.post(environment.url+this.apiUrl + "fetch-pending-jiraid", query, options);
   }
 
   approvals() {
@@ -595,7 +595,7 @@ export class LoginService {
       "Token" : localStorage.getItem("jwt")
     });
     let options = new RequestOptions({ headers: headers });
-    return this.http.post(this.apiUrl + "fetch-jiraid-v2", query, options);
+    return this.http.post(environment.url+this.apiUrl + "fetch-jiraid-v2", query, options);
   }
 
   GetPendingReg() {
@@ -605,7 +605,7 @@ export class LoginService {
       "Token" : localStorage.getItem("jwt")
     });
     let options = new RequestOptions({ headers: headers });
-    return this.http.post(
+    return this.http.post(environment.url+
       this.apiUrl + "fetch-pending-userReg",
       query,
       options
@@ -624,7 +624,7 @@ export class LoginService {
       "Token" : localStorage.getItem("jwt")
     });
     let options = new RequestOptions({ headers: headers });
-    return this.http.post(
+    return this.http.post(environment.url+
       this.apiUrl + "approve-pending-userReg",
       query,
       options
@@ -638,7 +638,7 @@ export class LoginService {
       "Token" : localStorage.getItem("jwt")
     });
     let options = new RequestOptions({ headers: headers });
-    return this.http.post(this.apiUrl + "has-admin-access", query, options);
+    return this.http.post(environment.url+this.apiUrl + "has-admin-access", query, options);
   }
   downloadCertificate(filePath) {
     var query = filePath;
@@ -675,7 +675,7 @@ export class LoginService {
     });
 
     let options = new RequestOptions({ headers: headers });
-    return this.http.post(
+    return this.http.post(environment.url+
       "https://developer.icicibank.com/" + "rest/downloadFile",
       query,
       { responseType: ResponseContentType.Blob }

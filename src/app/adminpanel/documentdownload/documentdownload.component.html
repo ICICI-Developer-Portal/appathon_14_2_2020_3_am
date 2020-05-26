@@ -6,6 +6,12 @@
       aria-labelledby="v-pills-applications-tab">
       <div class="tabContentInner">
         <div class="row">
+          <div class="col-md-12">
+          <a href="https://developer.icicibank.com/assets/UAT_CERT.zip"
+          download="UAT_CERT.zip" class="signInBtn btn-background float-right mb2" id="UATcertificate">ICICI UAT Certificates</a>
+        </div>
+        </div>
+        <div class="row">
           <div class="col-md-6">
             <h4 class="color-black30 fs24 ff-semibold mb10">
               Onboarding Request
@@ -51,7 +57,7 @@
               <!-- <td *ngIf="row.Url === ''"></td> -->
               <!-- <td href="row.CERTIFICATE">{{ row.Certificate }}</td> -->
               <td *ngIf="row.Certificate !== ''">
-                <a (click)="downloadCertificate(row.Certificate)" [hidden]="row.Certificate === ''" class="btn-submit paddingBtn" id="certificateUrl">Download</a>
+                <a (click)="downloadCertificate(row.Certificate)" [hidden]="row.Certificate === ''" class="signInBtn btn-background paddingBtn" id="certificateUrl">Download</a>
               </td>
               <td *ngIf="row.Certificate === ''"></td>
             </tr>

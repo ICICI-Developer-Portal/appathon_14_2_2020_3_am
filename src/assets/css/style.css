@@ -3459,4 +3459,7 @@ align-self: center;
     }
     .check-tree-node {
       cursor: pointer !important;
-      }
+    }
+    .mb2{
+      margin-bottom: 2% !important;
+    }

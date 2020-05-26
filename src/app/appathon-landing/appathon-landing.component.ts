@@ -120,7 +120,7 @@ export class AppathonLandingComponent implements OnInit {
       this.appathonCompanyName = localStorage.getItem("appathonCompanyName");
       this.appathonUserName = localStorage.getItem("appathonUserName");
     });
-    this.get_domain_and_apis();
+    // this.get_domain_and_apis();
   }
 
   ngOnInit() {
@@ -915,20 +915,20 @@ export class AppathonLandingComponent implements OnInit {
   }
 
   // To get Domain List
-  get_domain_and_apis() {
-    this.adm.domain_and_apis().subscribe((data: any) => {
-      var obj = JSON.parse(data._body);
-      var domain = [];
-      for (var i in obj) {
-        domain.push(obj[i].domain);
-      }
-      this.domainLst = domain;
-    },
-    err => {
-      console.log('err', err);
-      this.router.navigate(['error']);
-    },);
-  }
+  // get_domain_and_apis() {
+  //   this.adm.domain_and_apis().subscribe((data: any) => {
+  //     var obj = JSON.parse(data._body);
+  //     var domain = [];
+  //     for (var i in obj) {
+  //       domain.push(obj[i].domain);
+  //     }
+  //     this.domainLst = domain;
+  //   },
+  //   err => {
+  //     console.log('err', err);
+  //     this.router.navigate(['error']);
+  //   },);
+  // }
 
   scroll_view(id) {
     this.router.navigate(["index"]);

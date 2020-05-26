@@ -95,7 +95,7 @@ export class AppathonSignupComponent implements OnInit {
     this.adm.getUserName().subscribe(data => {
       this.user_name = data;
     });
-    this.get_domain_and_apis();
+    // this.get_domain_and_apis();
   }
 
   ngOnInit() {
@@ -268,6 +268,7 @@ export class AppathonSignupComponent implements OnInit {
   }
 
   openModal2(signup: TemplateRef<any>) {
+    // this.get_domain_and_apis();
     this.modalRef2 = this.modalService.show(signup, { backdrop: 'static' });
     try {
       this.modalRef.hide();
@@ -856,20 +857,20 @@ export class AppathonSignupComponent implements OnInit {
   }
 
   // To get Domain List
-  get_domain_and_apis() {
-    this.adm.domain_and_apis().subscribe((data: any) => {
-      var obj = JSON.parse(data._body);
-      var domain = [];
-      for (var i in obj) {
-        domain.push(obj[i].domain);
-      }
-      this.domainLst = domain;
-    },
-    err => {
-      console.log('err', err);
-      this.router.navigate(['error']);
-    },);
-  }
+  // get_domain_and_apis() {
+  //   this.adm.domain_and_apis().subscribe((data: any) => {
+  //     var obj = JSON.parse(data._body);
+  //     var domain = [];
+  //     for (var i in obj) {
+  //       domain.push(obj[i].domain);
+  //     }
+  //     this.domainLst = domain;
+  //   },
+  //   err => {
+  //     console.log('err', err);
+  //     this.router.navigate(['error']);
+  //   },);
+  // }
 
   scroll_view(id) {
     this.router.navigate(['index']);
