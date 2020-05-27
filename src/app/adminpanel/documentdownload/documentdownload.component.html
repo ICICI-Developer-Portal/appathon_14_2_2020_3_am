@@ -39,12 +39,13 @@
           <tbody>
             <tr *ngFor="
                 let row of dataSource
-                |filter:searchText |filter:filter | paginate: { itemsPerPage: 5, currentPage: p }
+                |filter:searchText |filter:filter 
               ">
+              <!-- | paginate: { itemsPerPage: 5, currentPage: p } -->
               <td>{{ row.JiraId }}</td>
               <td>{{ row.JiraStatus }}</td>
-              <td>{{ row.Domain }}</td>
-              <td>{{ row.DomainApi }}</td>
+              <td class="td-two">{{ row.Domain }}</td>
+              <td class="td-four">{{ row.DomainApi }}</td>
               <!-- <td><div *ngIf="showurl">{{row.CallbackUrl}}</div></td> -->
               <td>{{ row.Env }}</td>
               <td>{{ row.RefJiraId }}</td>
@@ -66,9 +67,9 @@
         </div>
         </div>
         <div class="clearfix"></div>
-        <ul class="pagination">
+        <!-- <ul class="pagination">
           <pagination-controls (pageChange)="p = $event"></pagination-controls>
-        </ul>
+        </ul> -->
       </div>
     </div>
     <div class="tab-pane fade" id="v-pills-analytics" role="tabpanel" aria-labelledby="v-pills-analytics-tab">
